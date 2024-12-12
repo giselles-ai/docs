@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Giselle Docs",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
@@ -18,12 +18,20 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:support@giselles.ai"
+    },
+    {
+      "name": "Log in",
+      "url": "https://studio.giselles.ai/login"
+    },
+    {
+      "name": "Sign up",
+      "url": "https://studio.giselles.ai/signup"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Get Started",
+    "url": "https://studio.giselles.ai/"
   },
   "tabs": [
     {
@@ -33,19 +41,19 @@
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "name": "About Giselle",
+      "icon": "house",
+      "url": "https://giselles.ai"
     },
     {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "name": "Documentation",
+      "icon": "book-open-cover",
+      "url": "https://docs.giselles.ai"
     },
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://giselles.ai/blog"
     }
   ],
   "navigation": [
@@ -84,8 +92,10 @@
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://linkedin.com/company/mintlify"
+    "facebook": "https://www.facebook.com/GiselleAI",
+    "x": "https://x.com/Giselles_AI",
+    "youtube": "https://www.youtube.com/@Giselle_AI",
+    "instagram": "https://www.instagram.com/giselle_de_ai/",
+    "github": "https://github.com/giselles-ai/giselle"
   }
 }
