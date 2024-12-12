@@ -19,6 +19,14 @@
     {
       "name": "Support",
       "url": "mailto:support@giselles.ai"
+    },
+    {
+      "name": "Log in",
+      "url": "https://studio.giselles.ai/login"
+    },
+    {
+      "name": "Sign up",
+      "url": "https://studio.giselles.ai/signup"
     }
   ],
   "topbarCtaButton": {
