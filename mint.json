@@ -41,19 +41,19 @@
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "name": "About Giselle",
+      "icon": "house",
+      "url": "https://giselles.ai"
     },
     {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "name": "Documentation",
+      "icon": "book-open-cover",
+      "url": "https://docs.giselles.ai"
     },
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://giselles.ai/blog"
     }
   ],
   "navigation": [
