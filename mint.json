@@ -53,7 +53,10 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction"]
+      "pages": [
+        "introduction",
+        "quickstart"
+      ]
     }
   ],
   "footerSocials": {
