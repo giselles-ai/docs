@@ -57,6 +57,12 @@
         "introduction",
         "quickstart"
       ]
+    },
+    {
+      "group": "Guides",
+      "pages": [
+        "guides/what-is-a-node"
+      ]
     }
   ],
   "footerSocials": {
