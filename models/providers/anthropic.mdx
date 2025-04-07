@@ -1,0 +1,40 @@
+---
+title: Anthropic
+
+description: 'Available Anthropic AI Models Overview.'
+---
+
+## Claude Models
+
+The following Claude models are available in the Anthropic workspace. Each model offers specific capabilities and features tailored to match your use case requirements. The "Reasoning" (Extended Thinking) capability is available only in the latest Claude 3.7 Sonnet model.
+
+| Models                      | Generate Text | Reasoning | Input PDF | Input Image | Context Window | Max Output | Plan@Giselle |
+|-----------------------------|---------------|-----------|-----------|-------------|----------------|------------|---------------------------------|
+| claude-3-7-sonnet-20250219  | ✅            | ✅         | ✅         | ✅           | 200k tokens    | 8192 tokens (Extended: 64k/128k β) | Pro                 |
+| claude-3-5-sonnet-20241022  | ✅            | ❌         | ✅         | ✅           | 200k tokens    | 8192 tokens | Pro                 |
+| claude-3-5-haiku-20241022   | ✅            | ❌         | ✅         | ✅           | 200k tokens    | 8192 tokens | Free                   |
+
+Please note that some features may not be available within Giselle even if they are offered in the official API. 
+
+### claude-3-7-sonnet-20250219
+The most advanced model offering superior intelligence and reasoning capabilities. Ideal for handling complex tasks, extended reasoning, detailed analyses, and multimodal tasks involving PDFs and images. It includes an extensive context window of up to 200k tokens with optional extended thinking capabilities allowing outputs up to 64k tokens (128k tokens available in beta).
+
+### claude-3-5-sonnet-20241022
+High-level intelligence model providing excellent general-purpose performance without extended reasoning capabilities. It supports multimodal inputs (PDF, images) and delivers robust text generation suitable for a wide range of applications with a context window of 200k tokens.
+
+### claude-3-5-haiku-20241022
+Optimized for speed, this model is ideal for real-time responsiveness. It supports PDF and image inputs with rapid text generation, suitable for fast interactions and scenarios requiring quick, concise responses within a 200k token context window.
+
+## Model Selection Guide
+
+Guidelines for selecting the optimal Claude model:
+
+- **For best overall intelligence and complex reasoning**: claude-3-7-sonnet-20250219
+- **For general-purpose high-quality performance**: claude-3-5-sonnet-20241022
+- **When speed and immediate responsiveness matter**: claude-3-5-haiku-20241022
+
+##  Practices for Giselle
+We recommend claude-3-7-sonnet-20250219 as your primary model in Giselle. It excels not only at code generation, architectural design, and technical reviews, but also produces remarkably natural text that reads authentically to human audiences. This versatile model can be effectively utilized across a broad spectrum of tasks, from creating engaging blog articles to writing complex code implementations.
+
+For detailed specifications, performance benchmarks, or additional assistance, please refer to the [Anthropic API Documentation](https://docs.anthropic.com/en/docs/about-claude/models/all-models).
+

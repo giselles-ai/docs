@@ -35,33 +35,167 @@
   },
   "anchors": [
     {
-      "name": "About Giselle",
+      "name": "Website",
       "icon": "house",
       "url": "https://giselles.ai"
     },
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://docs.giselles.ai"
+      "name": "Open Source",
+      "icon": "github",
+      "url": "https://github.com/giselles-ai/giselle"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "Guides",
+      "url": "guides"
     },
     {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://giselles.ai/blog"
+      "name": "Models",
+      "url": "models"
+    },
+    {
+      "name": "Prompts", 
+      "url": "prompts"
+    },
+    {
+      "name": "Glossary",
+      "url": "glossary"
+    },
+    {
+      "name": "FAQ",
+      "url": "faq"
+    },
+    {
+      "name": "Releases",
+      "url": "releases"
     }
   ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "",
       "pages": [
-        "introduction",
-        "quickstart"
+        "guides/introduction"
       ]
     },
     {
-      "group": "Guides",
+      "group": "Get Started",
       "pages": [
-        "guides/what-is-a-node"
+        "guides/get-started/quickstart"
+      ]
+    },
+    {
+      "group": "Workspaces",
+      "pages": [
+        "guides/workspaces/build",
+        "guides/workspaces/preview",
+        "guides/workspaces/integrate"
+      ]
+    },
+    {
+      "group": "Apps",
+      "pages": [
+        "guides/apps/myapp",
+        "guides/apps/teamapp"
+      ]
+    },
+    {
+      "group": "Settings",
+      "pages": [
+        {
+          "group": "Account",
+          "pages": [
+            "guides/settings/account/Authentication",
+            "guides/settings/account/general",
+            "guides/settings/account/overview"
+          ]
+        },
+        {
+          "group": "Team",
+          "pages": [
+            "guides/settings/team/billing",
+            "guides/settings/team/general",
+            "guides/settings/team/integrations",
+            "guides/settings/team/members",
+            "guides/settings/team/usage"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Learn About",
+      "pages": [
+        "guides/learn-about/plans",
+        "guides/learn-about/usage",
+        "guides/learn-about/billing",
+        "guides/learn-about/privacy-security",
+        "guides/learn-about/open-source-license"
+      ]
+    },
+    {
+      "group": "",
+      "pages": [
+          "models/providers/overview"
+              ]
+    },
+    {
+      "group": "Providers",
+      "pages": [
+          "models/providers/anthropic",
+          "models/providers/fal",
+          "models/providers/google",
+          "models/providers/openai",
+          "models/providers/perplexity"
+      ]
+    },
+    {
+      "group": "",
+      "pages": [
+        "prompts/overview"
+              ]
+    },
+    {
+      "group": "Prompt Engineering",
+      "pages": [
+        "prompts/examples",
+        "prompts/tips"
+      ]
+    },
+    {
+      "group": "Explore the Glossary",
+      "pages": [
+            "glossary/node",
+            "glossary/ai-parameters"
+      ]
+    },
+    {
+      "group": "Application FAQs",
+      "pages": [
+        "faq/application/workspaces",
+        "faq/application/ai-models"
+      ]
+    },
+    {
+      "group": "Account & Billing FAQs",
+      "pages": [
+        "faq/account-billing/accounts",
+        "faq/account-billing/billing",
+        "faq/account-billing/plan"
+      ]
+    },
+    {
+      "group": "Security & Support FAQs",
+      "pages": [
+        "faq/security-support/privacy-security",
+        "faq/security-support/support"
+      ]
+    },
+    {
+      "group": "Information",
+      "pages": [
+            "releases/release-notes",
+            "releases/product-notes",
+            "releases/roadmap"
       ]
     }
   ],
