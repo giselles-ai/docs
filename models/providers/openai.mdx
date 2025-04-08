@@ -1,0 +1,39 @@
+---
+title: OpenAI
+description: 'Available OpenAI Models Overview.'
+---
+
+## GPT Models
+
+The following GPT models are available in the OpenAI workspace. Each model offers specific capabilities and features tailored to match various use cases.
+
+| Models        | Generate Text | Input Image | Web Search | Reasoning | Context Window | Pricing (Input/Output per 1M tokens) | Availability |
+|---------------|---------------|-------------|------------|-----------|----------------|--------------------------------------|--------------|
+| gpt-4o        | ✅            | ✅ (input only) | ✅          | ✅ (high)  | 128k tokens    | $2.50 / $10.00                       | Pro         |
+| gpt-4o-mini   | ✅            | ✅ (input only) | ❌          | ✅ (average) | 128k tokens    | $0.15 / $0.60                        | Free          |
+| o3-mini       | ✅            | ❌           | ❌          | ✅ (higher) | 200k tokens    | $1.10 / $4.40                        | Pro         |
+
+Please note that some features may not be available within Giselle even if they are offered in the official API. 
+
+### gpt-4o
+The flagship GPT model providing comprehensive capabilities including advanced text generation, multimodal image input, integrated web search, and high-level reasoning features. It supports structured outputs, function calling, and fine-tuning. With a context window of 128,000 tokens and output limit of 16,384 tokens, it is ideal for complex analytical tasks, multimodal understanding, and general-purpose advanced applications.
+
+### gpt-4o-mini
+A fast, affordable small model optimized for focused tasks. Supports both text and image inputs with structured outputs and function calling capabilities. Ideal for efficient fine-tuning and tasks requiring moderate intelligence and rapid responses. Offers a context window of 128,000 tokens and output limit of 16,384 tokens.
+
+### o3-mini
+A fast, flexible small reasoning model offering high intelligence suitable for structured outputs, function calling, and batch processing tasks. With a context window of 200,000 tokens and a maximum output of 100,000 tokens, it's optimized for intelligent reasoning, structured data extraction, and tasks demanding high token limits.
+
+## Model Selection Guide
+
+Guidelines for selecting the optimal OpenAI GPT model:
+
+- **For comprehensive, high-intelligence tasks**: gpt-4o
+- **For cost-effective, focused multimodal tasks**: gpt-4o-mini
+- **For advanced reasoning and high token limits**: o3-mini
+
+## Practices for Giselle
+We recommend GPT-4o as your primary model in Giselle. It offers excellent balance and versatility across various tasks, including business document creation, analysis, and research. With GPT-4o, you can produce professional-quality content while maintaining efficiency in both simple and complex workflows.
+
+For detailed specifications, performance benchmarks, or additional assistance, please check [OpenAI Documentation](https://platform.openai.com/docs/models).
+

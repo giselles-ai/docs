@@ -1,0 +1,146 @@
+---
+title: Examples
+description: 'Effective Prompt Examples in Giselle’s Generator Nodes.'
+---
+
+This document provides effective and concrete prompt examples tailored specifically for Giselle’s Generator Nodes, leveraging various multimodal AI models including Anthropic's Claude, Google's Gemini, OpenAI's GPT-4o, Perplexity’s Sonar, and Fal AI for image generation.
+
+## Basic Examples
+
+### 1. Technical Query using GPT-4o
+
+```plaintext
+Role: Experienced programmer
+
+Task:
+Explain the most efficient way to extract unique elements from a Python list.
+
+Output Format:
+- Brief explanation
+- Python code example demonstrating the method clearly
+```
+
+**Why this prompt is effective:**
+- Clear role definition aligns the AI’s perspective.
+- Explicit instruction and clear output expectations.
+- Specifies programming language explicitly.
+
+### 2. Image Generation with Fal AI
+
+```plaintext
+Role: Graphic designer
+
+Task:
+Generate a high-quality, minimalist logo for a technology startup named "QuantumLeap."
+
+Constraints:
+- Model: flux-pro/v1.1
+- Color scheme: Blue and white
+- Style: Modern, minimalistic
+
+Output Format:
+- PNG image (1024x1024)
+```
+
+**Why this prompt is effective:**
+- Clearly defines role and creative constraints.
+- Utilizes specific Fal AI model for high-quality outputs.
+- Precise output format suitable for immediate use.
+
+## Advanced Examples
+
+### 1. Multimodal Analysis with Gemini
+
+```plaintext
+Role: Industry analyst
+
+Task:
+Analyze the attached PDF industry report and the accompanying infographic image.
+
+Steps:
+1. Summarize key findings from the PDF.
+2. Identify and explain trends visible in the infographic.
+3. Recommend strategic actions based on combined insights.
+
+Constraints:
+- Model: Gemini 2.5 Pro
+
+Output Format:
+- Concise summary
+- Clearly explained visual trends
+- Strategic recommendations as bullet points
+```
+
+**Why this prompt is effective:**
+- Clearly utilizes Gemini’s multimodal capabilities.
+- Sequential and structured instructions.
+- Explicitly states the model to ensure precise capability usage.
+
+### 2. Ethical Analysis and Content Structuring with Claude
+
+```plaintext
+Role: Ethics consultant
+
+Task:
+Review the provided research paper on AI surveillance technologies.
+
+Steps:
+1. Identify ethical implications.
+2. Suggest practical ethical guidelines for deployment.
+
+Constraints:
+- Model: Claude 3.7 Sonnet
+
+Output Format:
+- Ethical implications listed clearly
+- Practical guidelines structured as actionable points
+```
+
+**Why this prompt is effective:**
+- Aligns task specifically with Claude's strengths in nuanced understanding.
+- Structured clearly to maximize Claude's reasoning and analytical capabilities.
+
+## Integrated Workflow Examples
+
+### 1. Comprehensive Market Research Workflow
+
+```plaintext
+Step 1 (Perplexity Sonar Pro):
+Role: Market researcher
+Task: Gather the latest market insights on sustainable food packaging from web sources.
+Output Format: Fact-based summary with citations.
+
+Step 2 (Claude 3.7 Sonnet):
+Role: Sustainability analyst
+Task: Analyze insights from Step 1 for ethical and sustainability implications.
+Output Format: Analysis summary and recommendations.
+
+Step 3 (GPT-4o):
+Role: Technical writer
+Task: Format the insights and recommendations into a structured industry report.
+Output Format: Professional document in markdown format.
+
+Step 4 (Fal AI flux-pro/v1.1):
+Role: Graphic designer
+Task: Generate a compelling visual cover image for the final report.
+Constraints: Sustainability theme, professional style
+Output Format: High-quality cover image (PNG, 1200x800)
+```
+
+**Why this prompt is effective:**
+- Clearly leverages strengths of multiple AI models sequentially.
+- Structured, integrated steps with explicit model assignments.
+- Produces comprehensive, ready-to-use workflow outputs.
+
+## Key Effective Elements in Giselle Prompts
+
+Effective Giselle Generator Node prompts typically include:
+
+- **Explicit Role Definitions**
+- **Clear Constraints and Context**
+- **Structured Output Formats**
+- **Sequential or Stepwise Instructions**
+- **Specific Model Selections for Capabilities**
+
+For additional guidance and practical tips on creating impactful prompts, refer to [tips.mdx](./tips).
+
