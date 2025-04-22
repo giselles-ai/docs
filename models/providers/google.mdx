@@ -10,17 +10,21 @@ The following Gemini models are available in the Giselle workspace. Each model o
 | Models                            | Generate Text | Web Search | Reasoning | Input PDF | Input Image | Input Audio | Input Video | Context Window | Plan@Giselle     |
 |-----------------------------------|--------------|------------|-----------|-----------|-------------|------------|------------|----------------|----------|
 | gemini-2.5-pro-exp-03-25          | ✅           | ✅          | ✅         | ✅         | ✅           | ✅          | ✅          | 1M tokens (2M soon) | Free     |
+| gemini-2.5-pro-preview-03-25      | ✅           | ✅          | ✅         | ✅         | ✅           | ✅          | ✅          | 1M tokens (2M soon) | Pro     |
 | gemini-2.0-flash-001              | ✅           | ✅          | ❌         | ✅         | ✅           | ✅          | ✅          | 1M tokens      | Pro      |
 | gemini-2.0-flash-thinking-exp-01-21 | ✅         | ❌          | ✅         | ✅         | ✅           | ✅          | ✅          | 1M tokens      | Free     |
 | gemini-2.0-pro-exp-02-05          | ✅           | ✅          | ❌         | ✅         | ✅           | ✅          | ✅          | 1M tokens      | Free     |
 
-Please note that some features may not be available within Giselle even if they are offered in the official API. 
+*Note: Some features may not be available within Giselle even if they are offered in the Google official API. Features marked 'Free' or 'Pro' refer to the Giselle subscription plan required to access them.*
+
+### gemini-2.5-pro-preview-03-25
+A preview version of the next-generation comprehensive model, offering early access to cutting-edge features. It provides state-of-the-art capabilities similar to `gemini-2.5-pro-exp-03-25`, including text generation, web search, advanced reasoning, and robust coding features. It supports a wide range of input formats (PDF, images, audio, video) and has a 1 million token context window. Ideal for users wanting to experiment with the latest advancements for complex problems and deep multimodal understanding. Requires a Pro plan.
 
 ### gemini-2.5-pro-exp-03-25
 The latest comprehensive model supporting all features, with state-of-the-art capabilities. It offers text generation, web search, advanced reasoning, and robust coding features. It supports a wide range of input formats including PDF, images, audio, and video, and includes a context window of up to 1 million tokens (with expansion to 2 million tokens planned). Ideal for handling complex problems, deep multimodal understanding, and tasks requiring extensive data analysis.
 
 ### gemini-2.0-flash-001
-Optimized for speed, this model provides fast text generation and efficient web search functionality with support for PDF, image, audio, and video inputs, but lacks complex reasoning capabilities. With a context window of 1 million tokens, it's best suited for scenarios requiring quick, responsive interactions and moderate multimodal input handling.
+Optimized for speed, this model provides fast text generation and efficient web search functionality with support for PDF, image, audio, and video inputs, but lacks complex reasoning capabilities. With a context window of 1 million tokens, it's best suited for scenarios requiring quick, responsive interactions and moderate multimodal input handling. Requires a Pro plan.
 
 ### gemini-2.0-flash-thinking-exp-01-21
 A reasoning-focused, rapid-response model featuring advanced logical reasoning capabilities and multimodal support (PDF, images, audio, and video). This model does not include web search functionality but is optimized for tasks requiring analytical depth, critical thinking, and efficient multimodal reasoning within a context window of 1 million tokens.
@@ -32,13 +36,15 @@ A balanced, professional-level model offering robust text generation and effecti
 
 Guidelines for selecting the optimal model:
 
-- **For best overall performance and complex tasks**: gemini-2.5-pro-exp-03-25
-- **When speed and efficiency are a priority**: gemini-2.0-flash-001
-- **For advanced reasoning and logical analysis**: gemini-2.0-flash-thinking-exp-01-21
-- **For balanced general-purpose performance**: gemini-2.0-pro-exp-02-05
+- **For experimenting with advanced features for free**: `gemini-2.5-pro-exp-03-25`
+- **For best overall performance and complex tasks**: `gemini-2.5-pro-preview-03-25`
+- **When speed and efficiency are a priority**: `gemini-2.0-flash-001`
+- **For advanced reasoning & logical analysis**: `gemini-2.0-flash-thinking-exp-01-21`
+- **For balanced general-purpose performance**: `gemini-2.0-pro-exp-02-05`
 
 ## Practices for Giselle
-We recommend gemini-2.5-pro-exp-03-25 as your primary model in Giselle. It's the most powerful option available, capable of processing large volumes of data, executing complex code reviews, and handling a wide variety of business tasks. By enabling the Search grounding feature, you can access web search functionality, allowing you to supplement your workflows with the most current information available.
+We recommend `gemini-2.5-pro-preview-03-25` as your primary model in Giselle due to its proven power and stability for complex tasks. For users seeking the absolute latest features, the `gemini-2.5-pro-preview-03-25` model is also available and offers similar cutting-edge capabilities. Both are capable of processing large volumes of data, executing complex code reviews, and handling a wide variety of business tasks.
+
+By enabling the **Search grounding** feature with these models (where applicable), you can access web search functionality, allowing you to supplement your workflows with the most current information available.
 
 For detailed specifications, performance benchmarks, or additional assistance, please check [Google AI for Developers](https://ai.google.dev/gemini-api/docs/models).
-
