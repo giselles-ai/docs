@@ -19,6 +19,7 @@ The following table summarizes the key features of the OpenAI models available i
 | gpt-4.1-nano   | ✅            | ✅              | ❌         | ❌           | 1M tokens      | 32k tokens        | $0.10 / $0.40                        | Free         |
 | gpt-4o         | ✅            | ✅              | ✅         | ❌           | 128k tokens    | 16k tokens        | $2.50 / $10.00                       | Pro          |
 | gpt-4o-mini    | ✅            | ✅              | ✅         | ❌           | 128k tokens    | 16k tokens        | $0.15 / $0.60                        | Pro          |
+| gpt-image-1    | ❌            | ✅              | ❌         | ❌           | Unknown        | N/A               | $5.00 / $40.00                       | Pro          |
 
 *Please note that some features listed (like specific API functionalities e.g., fine-tuning, batch processing, specific tool use like audio or transcription) may not be directly exposed or available within the Giselle interface even if supported by the underlying OpenAI model.*
 
@@ -98,6 +99,20 @@ A fast, affordable small model ("o" for "omni") optimized for focused tasks. Sup
 *   **Inputs:** Text, Image
 *   **Availability:** Free Plan
 
+## Image Generation Models
+
+These models are specialized in generating high-quality images from text and image inputs.
+
+### gpt-image-1
+OpenAI's state-of-the-art image generation model. It is a natively multimodal language model that accepts both text and image inputs and produces image outputs. The model offers different quality levels (Low, Medium, High) and supports various image dimensions, allowing for flexible generation based on use case requirements.
+*   **Pricing:** Input text: $5.00 per 1M tokens, Input images: $10.00 per 1M tokens, Output images: $40.00 per 1M tokens
+*   **Quality Options:** Low, Medium, High
+*   **Supported Dimensions:** 1024x1024, 1024x1536, 1536x1024
+*   **Knowledge Cutoff:** April 2025 (estimate based on release date)
+*   **Inputs:** Text, Image
+*   **Outputs:** Image
+*   **Availability:** Pro Plan
+
 ## Model Selection Guide
 
 Guidelines for selecting the optimal OpenAI model within Giselle:
@@ -110,6 +125,7 @@ Guidelines for selecting the optimal OpenAI model within Giselle:
 *   **For the most cost-effective option with very large context (1M tokens)**: `gpt-4.1-nano` (Pro)
 *   **For comprehensive, high-intelligence tasks with multimodal needs and web search (128k context)**: `gpt-4o` (Pro)
 *   **For cost-effective, focused tasks (including multimodal, 128k context)**: `gpt-4o-mini` (Free)
+*   **For high-quality image generation from text or image inputs**: `gpt-image-1` (Pro)
 
 ## Practices for Giselle
 
@@ -123,6 +139,8 @@ The **GPT-4.1 series** (gpt-4.1, gpt-4.1-mini, gpt-4.1-nano) introduces a massiv
 *   **gpt-4.1-nano** is the most economical choice for leveraging the million-token context window.
 
 For users on the Free plan or those prioritizing cost and speed for moderately complex tasks, **gpt-4o-mini** (128k context) and **gpt-4.1-nano** (1M context) are the recommended choices.
+
+For image generation needs, **gpt-image-1** provides high-quality results and supports both text and image inputs. The model offers different quality tiers to balance cost and detail based on specific requirements.
 
 By combining these models in workflows, you can leverage their specific strengths. For example, use `gpt-4o` for initial research with web search, then pass the results to `o3` for deep analysis, or use `gpt-4.1` to analyze extremely large documents.
 
