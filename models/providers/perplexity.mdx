@@ -7,17 +7,19 @@ description: 'Available Perplexity AI Models Overview.'
 
 The following Perplexity AI models are available. Each model offers distinct capabilities tailored for various applications and needs.
 
-| Models                 | Generate Text | Web Search | Reasoning | Research Depth | Context Window | Max Output Tokens | Availability |
-|------------------------|---------------|------------|-----------|----------------|----------------|-------------------|--------------|
-| sonar-pro              | ✅            | ✅          | ❌        | High           | 200k tokens    | 8k tokens         | Pro          |
-| sonar                  | ✅            | ✅          | ❌        | Medium         | 128k tokens    | -                 | Free         |
+| Models    | Generate Text | Web Search | Reasoning | Research Depth | Context Window | Max Output Tokens | Availability |
+| --------- | ------------- | ---------- | --------- | -------------- | -------------- | ----------------- | ------------ |
+| sonar-pro | ✅             | ✅          | ❌         | High           | 200k tokens    | 8k tokens         | Pro          |
+| sonar     | ✅             | ✅          | ❌         | Medium         | 128k tokens    | -                 | Free         |
 
-Please note that some features may not be available within Giselle even if they are offered in the official API. 
+Please note that some features may not be available within Giselle even if they are offered in the official API.
 
 ### sonar-pro
+
 An advanced search model offering detailed responses with enhanced citation accuracy. Optimized for multi-step queries and tasks that require deep content understanding and comprehensive sourcing. Ideal for academic research, market analysis, and complex informational tasks.
 
 ### sonar
+
 A lightweight, cost-effective search model optimized for quick, accurate answers utilizing real-time web search with citations. Suitable for everyday queries, quick fact-checking, summarizations, and general-purpose use.
 
 
@@ -30,9 +32,35 @@ Guidelines for selecting the optimal Perplexity AI model:
 
 ## Practices for Giselle
 
-In Giselle, you can set up multiple sonar-pro nodes to approach different perspectives, creating detailed, multifaceted research outputs similar to original deep-research reports.
+### Multi-Node Research
+
+In Giselle, you can set up multiple `sonar-pro` nodes to approach different perspectives, creating detailed, multifaceted research outputs similar to original deep-research reports.
+
+### Search Domain Filtering
+
+Both `sonar` and `sonar-pro` nodes in Giselle now support the `search_domain_filter` option, allowing you to control which websites are included in or excluded from the search results used by the models. This feature is particularly useful for:
+
+*   Restricting search results to trusted sources.
+*   Filtering out specific domains (e.g., forums, social media).
+*   Focusing research on particular websites.
+
+**How to Use:**
+
+*   **Allowlist (Include):** Provide a list of simple domain names (e.g., `"wikipedia.org"`, `"nasa.gov"`). The search will *only* use results from these domains.
+*   **Denylist (Exclude):** Provide a list of simple domain names (e.g., `"pinterest.com"`, `"reddit.com"`). The search will *exclude* results from these domains.
+*   **Combine:** You can mix included and excluded domains in the same request.
+
+**Best Practices:**
+
+*   **Simple Domain Names:** Use domains in their simplest form (e.g., `example.com`) without protocol prefixes (`http://`, `https://`) or `www.`.
+*   **Main Domains:** Using the main domain (e.g., `nytimes.com`) will filter all its subdomains as well.
+*   **Limit Filter Size:** You can add a maximum of 10 domains. Using fewer, more targeted domains often yields better results.
+*   **Relevance:** Use domains most relevant to your query for the best results.
+
+**Performance Considerations:**
+
+*   Adding domain filters might slightly increase response time.
+*   Overly restrictive filters could lead to fewer search results, potentially affecting response quality.
 
 
 For detailed specifications or additional assistance, please refer to [Perplexity AI Documentation](https://docs.perplexity.ai).
-
-
