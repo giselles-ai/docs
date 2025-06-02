@@ -25,7 +25,28 @@ Text node is used to hold text data. It can be used to record prompts, instructi
 
 File node is used to handle file data. You can read files, use them as input for AI models, and save output results to files. It is useful for various tasks that involve utilizing file data, such as data-based analysis and report generation.
 
-Currently, the File node supports reading PDF files. We plan to support a wider variety of file formats in the future.
+## Tips for using Node
+
+Here are some helpful tips to enhance your experience with nodes in Giselle.
+
+### Node Duplication
+
+To enhance workflow efficiency, Giselle supports node duplication. This feature allows you to quickly create a copy of an existing node within the workflow designer.
+
+**How to Duplicate a Node:**
+
+*   **Right-Click Context Menu:** Right-click on any node in the workflow designer to open the context menu, then select "Duplicate Node."
+*   **Keyboard Shortcut:** Select the node you wish to duplicate and use the keyboard shortcut `Cmd + D` (on macOS) or `Ctrl + D` (on Windows/Linux).
+
+**Duplication Behavior:**
+
+*   The duplicated node will appear at an offset position from the original node.
+*   Connections from the original node are preserved in the duplicate where applicable.
+*   For File nodes, the duplicated node will correctly reference newly copied files.
+*   Cloned nodes will start in an "unconfigured" state, allowing you to customize their settings independently from the original node.
+*   If the duplication process encounters an issue, an error message will be displayed.
+
+This feature streamlines the process of building complex workflows by allowing for easy replication of configured or template nodes.
 
 ## Future Node Expansion Plans
 
@@ -35,7 +56,7 @@ We plan to expand node functionality to further empower our users to build AI wo
 
 We plan to expand the file formats supported by the File node, adding support for:
 
-* **Tabular Files** (CSV, Excel, etc.)
-* **Audio Files**
+*   **Tabular Files** (CSV, Excel, etc.)
+*   **Audio Files**
 
 Stay tuned for Giselle's product updates!
