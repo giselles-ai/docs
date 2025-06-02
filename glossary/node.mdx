@@ -25,6 +25,15 @@ Text node is used to hold text data. It can be used to record prompts, instructi
 
 File node is used to handle file data. You can read files, use them as input for AI models, and save output results to files. It is useful for various tasks that involve utilizing file data, such as data-based analysis and report generation.
 
+### Trigger Node
+
+The Trigger Node is the starting point for running the workflow built in the Giselle App. It initiates the execution of the connected nodes in a sequence.
+
+Currently, two types of Trigger Nodes are supported:
+
+*   **Manual Trigger Node**: This node allows you to manually initiate the workflow directly within the Giselle App Workspace. It's useful for testing, on-demand executions, or when you want direct control over when a workflow runs.
+*   **GitHub Trigger Node**: This node enables workflows to be automatically triggered by GitHub webhooks. When the Giselle GitHub App is installed in a repository, this node can listen for specific events (like issue comments or pull requests) and start the Giselle App's workflow in response.
+
 ## Tips for using Node
 
 Here are some helpful tips to enhance your experience with nodes in Giselle.
