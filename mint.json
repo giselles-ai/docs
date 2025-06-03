@@ -166,6 +166,7 @@
       "pages": [
             "glossary/node",
             "glossary/trigger-node",
+            "glossary/action-node",
             "glossary/ai-parameters"
       ]
     },
