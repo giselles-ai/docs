@@ -1,50 +1,72 @@
 ---
-title: Anthropic
-description: 'Available Anthropic AI Models Overview.'
+title: Action Node
+description: "Learn how Action Nodes in Giselle enable your workflows to interact with external services like GitHub, performing tasks such as creating issues or comments in your repositories."
 ---
 
-## Claude Models
+## Action Node in Giselle
 
-The following Claude models are available in the Anthropic workspace. Each model offers specific capabilities and features tailored to match your use case requirements. The "Reasoning" (Extended Thinking) capability is supported in Giselle for applicable models.
+**Action Node** empowers your Giselle workflows to connect with and control external services. It acts as a bridge, allowing you to automate tasks beyond the Giselle environment. Currently, the primary integration is with **GitHub**, enabling a variety of repository operations. We are continuously working to expand support for more external services.
 
-| Models                      | Generate Text | Reasoning | Input PDF | Input Image | Context Window | Max Output                         | Plan@Giselle |
-|-----------------------------|---------------|-----------|-----------|-------------|----------------|------------------------------------|----------------|
-| claude-4-opus-20250514      | ✅            | ✅         | ✅         | ✅           | 200k tokens    | 32k tokens                         | Pro            |
-| claude-4-sonnet-20250514    | ✅            | ✅         | ✅         | ✅           | 200k tokens    | 64k tokens                         | Pro            |
-| claude-3-7-sonnet-20250219  | ✅            | ✅         | ✅         | ✅           | 200k tokens    | 64k tokens                         | Pro            |
-| claude-3-5-sonnet-20241022  | ✅            | ❌         | ✅         | ✅           | 200k tokens    | 8192 tokens                        | Pro            |
-| claude-3-5-haiku-20241022   | ✅            | ❌         | ✅         | ✅           | 200k tokens    | 8192 tokens                        | Free           |
+### GitHub Action
 
-Please note that some features may not be available within Giselle even if they are offered in the official API. Extended thinking mode and other Anthropic API features will be gradually implemented within Giselle.
+The GitHub Action capability within the Action Node allows your workflows to perform specific operations in your GitHub repositories. This is useful for automating tasks like issue creation, commenting, and more, based on the logic and data processed within your Giselle flow.
 
-### claude-4-opus-20250514
-Claude Opus 4 is Anthropic's most powerful model, designed as the ultimate coding powerhouse. It excels at complex multi-step coding, sustained long-running tasks, and advanced reasoning. With a 200k token context window and the ability to output up to 32k tokens, Opus 4 delivers sustained performance for several hours and is ideal for projects requiring deep understanding and persistence, such as complex refactoring or multi-repository analysis. It supports text and image inputs.
+#### Setting up a GitHub Action:
 
-### claude-4-sonnet-20250514
-Claude Sonnet 4 is a balanced performance champion, offering high intelligence with an optimal cost-performance balance. It's suited for everyday coding tasks, content generation, and scenarios where frontier-level performance is needed without premium costs. Sonnet 4 features a 200k token context window, can output up to 64k tokens, and supports text and image inputs. It delivers exceptional value across most use cases, providing superior efficiency for a wide range of applications.
+1.  **Select GitHub Account/Organization**:
+    * Upon adding an Action Node and choosing GitHub as the service, you'll first need to select the GitHub account or organization where your target repository resides (e.g., `giselles-ai`, `liam-hq`).
 
-### claude-3-7-sonnet-20250219
-An advanced model offering superior intelligence and reasoning capabilities. Ideal for handling complex tasks, extended reasoning, detailed analyses, and multimodal tasks involving PDFs and images. It includes an extensive context window of up to 200k tokens with optional extended thinking capabilities allowing outputs up to 64k tokens (128k tokens available in beta).
+2.  **Choose a Repository**:
+    * Next, a list of repositories accessible under the selected account/organization will appear (e.g., `docs`, `giselle`).
+    * Click the **Set up** button next to the repository you want the action to target (e.g., `giselle`).
 
-### claude-3-5-sonnet-20241022
-High-level intelligence model providing excellent general-purpose performance without extended reasoning capabilities. It supports multimodal inputs (PDF, images) and delivers robust text generation suitable for a wide range of applications with a context window of 200k tokens.
+3.  **Choose the GitHub Action to Perform**:
+    * Once a repository is selected (e.g., `giselles-ai/giselle`), you'll need to specify what action the Giselle's app should execute.
+    * Click on the dropdown menu, which might be labeled "Choose what action you want to perform."
+    * Select the desired action from the list. Examples include:
+        * **Create Issue**
+        * **Create Issue Comment**
+        * **Create Pull Request Comment**
+        * **Reply Pull Request Review Comment**
+    * After selecting an action, click the **Setup Action** button to proceed to parameter configuration.
 
-### claude-3-5-haiku-20241022
-Optimized for speed, this model is ideal for real-time responsiveness. It supports PDF and image inputs with rapid text generation, suitable for fast interactions and scenarios requiring quick, concise responses within a 200k token context window.
+4.  **Configure Action Parameters**:
+    * Each GitHub action requires specific parameters to execute correctly. For instance, the "Create Issue Comment" action requires an `issueNumber` and a `body` for the comment, as indicated by "Required" fields.
+    * The configuration panel will display the selected repository and the chosen action (e.g., "Create Issue Comment"). Below this, the necessary parameters will be listed.
+    * For each parameter, you'll need to provide a value. This can often be done by:
+        * Entering a static value directly.
+        * **Selecting a Source**: This allows you to map data dynamically from the outputs of previous nodes in your flow or from the Giselle's app flow's initial trigger inputs. The "Select Source" option next to each parameter field facilitates this.
+    * Ensure all parameters marked as "Required" are filled in.
+    * Once all parameters are configured, the changes are typically saved by an "Action" button or similar confirmation in the UI. The node on the canvas will update to reflect the configured action (e.g., showing "Create Issue Comment" with inputs for `issueNumber` and `body`).
 
-## Model Selection Guide
+#### Output of the Action Node:
 
-Guidelines for selecting the optimal Claude model:
+After successfully performing its task, an Action Node will typically produce an **output**. This output can contain information relevant to the action performed, such as the ID or URL of a created issue or comment. This output can then be used as input by subsequent nodes in your workflow, enabling complex chains of operations. The node preview often indicates the availability of an "output".
 
-- **For the ultimate coding powerhouse and most complex reasoning**: `claude-4-opus-20250514`
-- **For balanced high-performance, everyday coding, and cost-effective workflows**: `claude-4-sonnet-20250514`
-- **For best overall intelligence and complex reasoning (previous generation)**: `claude-3-7-sonnet-20250219`
-- **For general-purpose high-quality performance without extended reasoning**: `claude-3-5-sonnet-20241022`
-- **When speed and immediate responsiveness matter**: `claude-3-5-haiku-20241022`
+#### Example: Creating an Issue Comment
 
-## Practices for Giselle
-We recommend `claude-4-opus-20250514` or `claude-4-sonnet-20250514` as your primary models in Giselle, especially for tasks involving advanced coding, complex problem-solving, and in-depth analysis. Both models feature hybrid reasoning modes, automatically switching between instant responses and extended thinking based on task complexity.
+Imagine you've configured an Action Node to "Create Issue Comment" for the `giselles-ai/giselle` repository:
 
-`claude-3-7-sonnet-20250219` remains a strong choice for its proven reasoning capabilities. These models excel not only at code generation, architectural design, and technical reviews but also produce remarkably natural text. Their "Reasoning" (Extended Thinking) capability, supported in Giselle, makes them particularly powerful for tasks requiring multi-step thought processes. These versatile models can be effectively utilized across a broad spectrum of tasks, from creating engaging blog articles to writing complex code implementations and performing detailed analytical work.
+* **Repository**: `giselles-ai/giselle`
+* **Action**: Create Issue Comment
+* **Required Parameters (Inputs)**:
+    * `issueNumber`: Sourced from a workflow trigger or a previous node (e.g., an issue number identified earlier in the flow).
+    * `body`: Sourced from another node (e.g., a text summary generated by an AI model in a preceding step).
+* **Execution**: When this node runs, it will post a new comment using the provided `body` to the issue specified by `issueNumber` within the `giselles-ai/giselle` repository.
+* **Potential Output**: The node might output details like the URL or ID of the newly created comment, which can be used in further steps.
 
-For detailed specifications, performance benchmarks, or additional assistance, please refer to the [Anthropic API Documentation](https://docs.anthropic.com/en/docs/about-claude/models/all-models) and the [Claude 4 announcement](https://www.anthropic.com/news/claude-4).
+#### Example: Replying to a Pull Request Review Comment
+
+Here's how you might configure an Action Node to "Reply Pull Request Review Comment" in the `giselles-ai/giselle` repository, as shown in the provided image:
+
+* **Repository**: `giselles-ai/giselle`
+* **Action**: Reply Pull Request Review Comment
+* **Required Parameters (Inputs)**:
+    * `pullNumber`: The number of the pull request containing the review comment. This would typically be sourced from a trigger event (e.g., a GitHub Trigger for "Pull Request Review Comment Created") or a previous node that identified the pull request.
+    * `commentId`: The ID of the specific review comment to which you are replying. This also would likely come from the trigger data or a preceding node that fetched comment details.
+    * `body`: The content of your reply. This could be static text, or more powerfully, dynamically generated text from an AI node in your workflow (e.g., an automated acknowledgment, a question, or a summary).
+* **Execution**: When this Action Node executes, it will post the content from the `body` parameter as a reply to the specified `commentId` on the given `pullNumber` within the `giselles-ai/giselle` repository.
+* **Potential Output**: The node may output information about the reply that was posted, such as its own ID or URL, which could be useful for further conditional workflow logic.
+
+
+The Action Node, particularly with its GitHub integration, is a versatile tool for extending Giselle's automation capabilities into your software development and project management lifecycles. Stay tuned for more actions and integrations with other external services!
