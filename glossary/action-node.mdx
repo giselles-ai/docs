@@ -1,6 +1,6 @@
 ---
 title: Action Node
-description: "Learn how Action Nodes in Giselle enable your workflows to interact with external services like GitHub, performing tasks such as creating issues or comments in your repositories."
+description: "Learn how Action Nodes in Giselle enable your workflows to interact with external services like GitHub, performing tasks such as creating issues, comments, or retrieving discussions in your repositories."
 ---
 
 ## Action Node in Giselle
@@ -9,7 +9,7 @@ description: "Learn how Action Nodes in Giselle enable your workflows to interac
 
 ### GitHub Action
 
-The GitHub Action capability within the Action Node allows your workflows to perform specific operations in your GitHub repositories. This is useful for automating tasks like issue creation, commenting, and more, based on the logic and data processed within your Giselle flow.
+The GitHub Action capability within the Action Node allows your workflows to perform specific operations in your GitHub repositories. This is useful for automating tasks like issue creation, commenting, retrieving data, and more, based on the logic and data processed within your Giselle flow.
 
 #### Setting up a GitHub Action:
 
@@ -28,20 +28,21 @@ The GitHub Action capability within the Action Node allows your workflows to per
         * **Create Issue Comment**
         * **Create Pull Request Comment**
         * **Reply Pull Request Review Comment**
+        * **Get Discussion**
     * After selecting an action, click the **Setup Action** button to proceed to parameter configuration.
 
 4.  **Configure Action Parameters**:
-    * Each GitHub action requires specific parameters to execute correctly. For instance, the "Create Issue Comment" action requires an `issueNumber` and a `body` for the comment, as indicated by "Required" fields.
-    * The configuration panel will display the selected repository and the chosen action (e.g., "Create Issue Comment"). Below this, the necessary parameters will be listed.
+    * Each GitHub action requires specific parameters to execute correctly. For instance, the "Create Issue Comment" action requires an `issueNumber` and a `body` for the comment, while the "Get Discussion" action requires a `discussionNumber`. These are often indicated by "Required" fields.
+    * The configuration panel will display the selected repository and the chosen action (e.g., "Create Issue Comment" or "Get Discussion"). Below this, the necessary parameters will be listed.
     * For each parameter, you'll need to provide a value. This can often be done by:
         * Entering a static value directly.
         * **Selecting a Source**: This allows you to map data dynamically from the outputs of previous nodes in your flow or from the Giselle's app flow's initial trigger inputs. The "Select Source" option next to each parameter field facilitates this.
     * Ensure all parameters marked as "Required" are filled in.
-    * Once all parameters are configured, the changes are typically saved by an "Action" button or similar confirmation in the UI. The node on the canvas will update to reflect the configured action (e.g., showing "Create Issue Comment" with inputs for `issueNumber` and `body`).
+    * Once all parameters are configured, the changes are typically saved by an "Action" button or similar confirmation in the UI. The node on the canvas will update to reflect the configured action (e.g., showing "Create Issue Comment" with inputs for `issueNumber` and `body`, or "Get Discussion" with an input for `discussionNumber`).
 
 #### Output of the Action Node:
 
-After successfully performing its task, an Action Node will typically produce an **output**. This output can contain information relevant to the action performed, such as the ID or URL of a created issue or comment. This output can then be used as input by subsequent nodes in your workflow, enabling complex chains of operations. The node preview often indicates the availability of an "output".
+After successfully performing its task, an Action Node will typically produce an **output**. This output can contain information relevant to the action performed, such as the ID or URL of a created issue or comment, or the data retrieved from a service (like discussion content). This output can then be used as input by subsequent nodes in your workflow, enabling complex chains of operations. The node preview often indicates the availability of an "output".
 
 #### Example: Creating an Issue Comment
 
@@ -68,5 +69,15 @@ Here's how you might configure an Action Node to "Reply Pull Request Review Comm
 * **Execution**: When this Action Node executes, it will post the content from the `body` parameter as a reply to the specified `commentId` on the given `pullNumber` within the `giselles-ai/giselle` repository.
 * **Potential Output**: The node may output information about the reply that was posted, such as its own ID or URL, which could be useful for further conditional workflow logic.
 
+#### Example: Getting a GitHub Discussion
+
+This action allows your workflow to retrieve the content and details of a specific GitHub Discussion from your repository.
+
+* **Repository**: `giselles-ai/giselle` (or any other configured repository)
+* **Action**: Get Discussion
+* **Required Parameters (Inputs)**:
+    * `discussionNumber`: The number of the GitHub Discussion to retrieve. This can be a static value or sourced dynamically from a previous node's output or a trigger input.
+* **Execution**: When this node runs, it connects to GitHub and fetches the details of the discussion specified by `discussionNumber` from the selected repository.
+* **Potential Output**: The node will output an object containing the discussion data. This typically includes details such as the discussion's `id`, `title`, `bodyHTML` (the content of the discussion in HTML format), `createdAt`, `updatedAt`, `author` information, and an array of `comments` associated with the discussion (each comment also having details like `bodyHTML`, `author`, etc.). This structured data can then be used by subsequent nodes in your workflow, for example, to summarize the discussion, extract key points, perform analysis on the comments, or trigger other actions based on its content.
 
 The Action Node, particularly with its GitHub integration, is a versatile tool for extending Giselle's automation capabilities into your software development and project management lifecycles. Stay tuned for more actions and integrations with other external services!
