@@ -20,12 +20,12 @@ When you add a Manual Trigger Node to your workflow, you can define parameters t
 To add and configure parameters:
 
 1.  In the "Add New Parameter" section:
-    * **Parameter Name**: Enter a descriptive name for the parameter (e.g., "Title", "Message", "Priority"). This name will be used to identify the input field when the trigger is run.
-    * **Type**: Select the type of data this parameter will accept. The available options are:
-        * **Text**: For single-line text input.
-        * **Text(multi-line)**: For longer text input that may span multiple lines.
-        * **Number**: For numerical input.
-    * **Required**: Check this box if the parameter must be filled in before the workflow can be triggered. An error will occur if a required parameter is left empty.
+    *   **Parameter Name**: Enter a descriptive name for the parameter (e.g., "Title", "Message", "Priority"). This name will be used to identify the input field when the trigger is run.
+    *   **Type**: Select the type of data this parameter will accept. The available options are:
+        *   **Text**: For single-line text input.
+        *   **Text(multi-line)**: For longer text input that may span multiple lines.
+        *   **Number**: For numerical input.
+    *   **Required**: Check this box if the parameter must be filled in before the workflow can be triggered. An error will occur if a required parameter is left empty.
 2.  Click the **plus icon (+)** to add the configured parameter to the list.
 3.  You can add multiple parameters by repeating the steps above.
 4.  Once all desired parameters are added and configured, click **Save Configuration**.
@@ -39,51 +39,51 @@ The **GitHub Trigger Node** enables you to automatically start your Giselle work
 **Setting up a GitHub Trigger:**
 
 1.  **Select GitHub Account/Organization**:
-    * When you add a GitHub Trigger node, you'll first need to choose the GitHub account or organization where your target repository resides (e.g., `giselles-ai`, `liam-hq`).
-    * If you're missing a GitHub account connection or need to adjust permissions, click on "Adjust GitHub App Permissions".
+    *   When you add a GitHub Trigger node, you'll first need to choose the GitHub account or organization where your target repository resides (e.g., `giselles-ai`, `liam-hq`).
+    *   If you're missing a GitHub account connection or need to adjust permissions, click on "Adjust GitHub App Permissions".
 
 2.  **Choose a Repository**:
-    * A list of repositories available under the selected account/organization will be displayed (e.g., `docs`, `giselle`).
-    * Click the **Set up** button next to the desired repository (e.g., `giselle`).
-    * If your repository isn't listed, you might need to "Adjust GitHub App Permissions" to grant Giselle access to it.
+    *   A list of repositories available under the selected account/organization will be displayed (e.g., `docs`, `giselle`).
+    *   Click the **Set up** button next to the desired repository (e.g., `giselle`).
+    *   If your repository isn't listed, you might need to "Adjust GitHub App Permissions" to grant Giselle access to it.
 
 3.  **Configure the Trigger Event**:
-    * Once a repository is selected (e.g., `giselles-ai/giselle`), you need to specify which GitHub event will trigger the workflow.
-    * Click on the dropdown menu labeled "Choose when you want to trigger the flow."
-    * Select an event from the list, such as:
-        * **Issue Created**: Triggers the flow when a new issue is created in the repository.
-        * **Issue Closed**: Triggers when an issue is closed.
-        * **Issue Comment Created**: Triggers when a new comment is made on an issue.
-        * **Pull Request Comment Created**: Triggers on a new pull request comment.
-        * **Pull Request Opened**: Triggers when a new pull request is opened.
-        * **Pull Request Ready for Review**: Triggers when a pull request is marked as ready for review.
-        * **Pull Request Closed**: Triggers when a pull request is closed.
+    *   Once a repository is selected (e.g., `giselles-ai/giselle`), you need to specify which GitHub event will trigger the workflow.
+    *   Click on the dropdown menu labeled "Choose when you want to trigger the flow."
+    *   Select an event from the list, such as:
+        *   **Issue Created**: Triggers the flow when a new issue is created in the repository.
+        *   **Issue Closed**: Triggers when an issue is closed.
+        *   **Issue Comment Created**: Triggers when a new comment is made on an issue.
+        *   **Pull Request Comment Created**: Triggers on a new pull request comment.
+        *   **Pull Request Opened**: Triggers when a new pull request is opened.
+        *   **Pull Request Ready for Review**: Triggers when a pull request is marked as ready for review.
+        *   **Pull Request Closed**: Triggers when a pull request is closed.
 
 4.  **Configure Callsign (for specific events)**:
-    * For some events, like "Issue Comment Created" or "Pull Request Comment Created," you can specify a **Callsign**.
-    * A Callsign is a specific string or command (e.g., `/code-review`, `/deep-research`) that must be present in the comment for the trigger to activate. This prevents the flow from running on every single comment.
-    * Enter your desired Callsign in the provided field. The example shows `/code-review`.
-    * Click **Set up** after configuring the Callsign.
+    *   For some events, like "Issue Comment Created" or "Pull Request Comment Created," you can specify a **Callsign**.
+    *   A Callsign is a specific string or command (e.g., `/code-review`, `/deep-research`) that must be present in the comment for the trigger to activate. This prevents the flow from running on every single comment.
+    *   Enter your desired Callsign in the provided field. The example shows `/code-review`.
+    *   Click **Set up** after configuring the Callsign.
 
 5.  **Enable the Trigger**:
-    * After configuring the event and any associated options (like Callsign), the trigger will initially be in a "Disabled" state. The node on the canvas will show "Requires Setup" or display the repository and event type with a "Disabled" status.
-    * On the configuration panel for the trigger (e.g., "On Issue Created" or "On Issue Comment Created"), you will see the current **State** as "Disable".
-    * Click on **Enable** to activate the trigger.
-    * Once enabled, the **State** will change to "Enable", and you will see an option to **Disable Trigger**. The node on the canvas will also reflect its "Enabled" status.
+    *   After configuring the event and any associated options (like Callsign), the trigger will initially be in a "Disabled" state. The node on the canvas will show "Requires Setup" or display the repository and event type with a "Disabled" status.
+    *   On the configuration panel for the trigger (e.g., "On Issue Created" or "On Issue Comment Created"), you will see the current **State** as "Disable".
+    *   Click on **Enable** to activate the trigger.
+    *   Once enabled, the **State** will change to "Enable", and you will see an option to **Disable Trigger**. The node on the canvas will also reflect its "Enabled" status.
 
 6.  **Run in the workspace**:
-    * For GitHub Trigger Nodes, clicking the "Run" button allows you to test your workflow without waiting for an actual GitHub webhook. You can enter values in a form that simulates the GitHub event, enabling you to verify that your workflow functions correctly before enabling it for real GitHub events.
+    *   For GitHub Trigger Nodes, clicking the "Run" button allows you to test your workflow without waiting for an actual GitHub webhook. You can enter values in a form that simulates the GitHub event (e.g., for a 'Pull Request Comment Created' event, this form might include fields for the comment body, pull request number, and an optional pull request `diff`), enabling you to verify that your workflow functions correctly before enabling it for real GitHub events.
 
 **Example Workflow after Setup:**
 
 On Issue Created:
-* **Trigger**: "On Issue Created" for repository `giselles-ai/giselle`.
-* **State**: Enabled.
-* **Action**: When a new issue is created in the `giselles-ai/giselle` repository, this Giselle workflow will automatically start.
+*   **Trigger**: "On Issue Created" for repository `giselles-ai/giselle`.
+*   **State**: Enabled.
+*   **Action**: When a new issue is created in the `giselles-ai/giselle` repository, this Giselle workflow will automatically start.
 
 On Pull Request Comment Created:
-* **Trigger**: "On Pull Request Comment Created" for repository `giselles-ai/giselle` with Callsign `/code-review`.
-* **State**: Enabled.
-* **Action**: When a comment containing `/code-review [enter your request...]` is posted on an pull request in `giselles-ai/giselle`, this workflow will start. The subsequent nodes can then access information like the comment body, issue number, etc.
+*   **Trigger**: "On Pull Request Comment Created" for repository `giselles-ai/giselle` with Callsign `/code-review`.
+*   **State**: Enabled.
+*   **Action**: When a comment containing `/code-review [enter your request...]` is posted on a pull request in `giselles-ai/giselle`, this workflow will start. The subsequent nodes can then access information like the comment body, pull request number, the pull request's `diff` content, etc.
 
 Stay tuned for more updates and functionalities for Giselle's nodes!
