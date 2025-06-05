@@ -9,6 +9,18 @@ description: 'Connect your Giselle workspace with external services'
 
 You can enhance your Giselle workspace by installing the official Giselle GitHub App. This integration allows you to connect your GitHub repositories with Giselle, enabling seamless workflows between your code and Giselle's AI apps.
 
+### GitHub Pull Request Comment Trigger with Diff Support
+
+Giselle's GitHub integration now supports an enhanced "Pull Request Comment" trigger. When configuring this trigger for events based on comments in GitHub Pull Requests, you now have the option to include the `diff` of the pull request.
+
+<img width="859" alt="UI showing optional Diff input for GitHub PR Comment Trigger" src="https://github.com/user-attachments/assets/4c805bdb-f899-4c6c-a806-016beeb78bee" />
+
+If this option is enabled (by providing a value or selecting it in the UI), the trigger's output payload will contain the full diff content of the pull request associated with the comment.
+
+<img width="959" alt="UI showing diff content in the trigger output" src="https://github.com/user-attachments/assets/34593804-5249-4a27-8162-4250117c8ded" />
+
+This allows your Giselle workflows to directly access and process the code changes discussed in the pull request, enabling more sophisticated automation, analysis, or context-aware responses.
+
 ### GitHub Comment Attribution
 
 When the Giselle GitHub App comments on GitHub issues, pull requests, or other GitHub elements, it automatically includes an attribution line at the end of each comment. This attribution appears as:
