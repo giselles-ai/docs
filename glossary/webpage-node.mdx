@@ -1,15 +1,11 @@
 ---
 title: WebPage Node
+description: "Learn how the WebPage Node in Giselle allows you to fetch and use content from web pages as static inputs in your AI workflows."
 ---
-
-# WebPage Node
-Source: https://docs.giselles.ai/glossary/webpage-node
-
-Learn how the WebPage Node in Giselle allows you to fetch and use content from web pages as dynamic inputs in your AI workflows.
 
 ## WebPage Node in Giselle
 
-The **WebPage Node** is used to fetch and hold content from web pages. You can input one or more URLs, and Giselle will attempt to retrieve the content from these pages. Currently, the fetched content is processed and made available primarily in **Markdown format**. This allows you to use web content as a dynamic input source for AI models or other processing nodes within your workflow, enabling tasks like summarization, analysis, or content generation based on information from the web.
+The **WebPage Node** is used to fetch and hold content from web pages. You can input one or more URLs, and Giselle will attempt to retrieve the content from these pages. Currently, the fetched content is processed and made available primarily in **Markdown format**. This allows you to use web content as a static input source for AI models or other processing nodes within your workflow, enabling tasks like summarization, analysis, or content generation based on information from the web.
 
 The WebPage Node functions as an independent variable node, providing a streamlined way to integrate web-based information into your Giselle applications.
 
@@ -22,22 +18,14 @@ The WebPage Node functions as an independent variable node, providing a streamli
     *   Select the WebPage node on the canvas to open its configuration panel on the right.
     *   In the text area labeled "URLs (one per line)", enter the full web addresses (URLs) of the pages from which you want to fetch content. If you have multiple URLs, enter each one on a new line.
         ```
-        https://example.com/article1
-        https://docs.giselles.ai/some-page
+        https://example.com/
+        https://docs.giselles.ai/glossary/node
         ```
-    *   The panel will look similar to this before you insert the URLs:
-
-        <img src="https://github.com/user-attachments/assets/5da1a720-f1be-4369-aba3-c8a232df7484" alt="WebPage Node configuration panel showing URL input field and Insert button." />
-        _The WebPage Node configuration panel with the "URLs (one per line)" input area and the "Insert" button._
 
 3.  **Insert URLs**:
     *   After entering the desired URLs, click the blue **Insert** button.
     *   Giselle will then attempt to fetch the content from the specified URLs.
     *   Once the URLs are processed, the configuration panel will update to list the added pages, often displaying their titles or a reference to the URL. The "URLs (one per line)" input area and the **Insert** button will remain, allowing you to add more URLs if needed.
-
-        *(Image below is based on the second screenshot provided in the prompt)*
-        <img src="PLACEHOLDER_FOR_SECOND_SCREENSHOT_URL_WEB flancs_CONFIG_AFTER_INSERT.png" alt="WebPage Node configuration panel after URLs have been inserted, showing a list of added pages." />
-        _After inserting URLs, the panel displays the added pages (e.g., "Example Domain", "About Giselle - Giselle Docs") above the URL input area. The node is now configured to output their content._
 
 ### Output of the WebPage Node:
 
@@ -51,7 +39,7 @@ The WebPage node on the canvas will have an "Output" port, which you can drag to
 
 1.  **Configure WebPage Node**:
     *   Add a WebPage Node.
-    *   Input the URL of an online news article (e.g., `https://example.com/news/latest-updates`).
+    *   Input the URL of an online blog article (e.g., `https://giselles.ai/blog/transforming-product-development-human-ai-collaboration`).
     *   Click **Insert**.
 
 2.  **Connect to Generator Node**:
@@ -67,4 +55,3 @@ The WebPage node on the canvas will have an "Output" port, which you can drag to
 ### Future Updates
 
 The WebPage Node's user interface and functionality, including supported output formats, may be updated incrementally in future Giselle releases.
-
