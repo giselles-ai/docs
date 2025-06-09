@@ -87,9 +87,7 @@
     {
       "group": "Workspaces",
       "pages": [
-        "guides/workspaces/build",
-        "guides/workspaces/preview",
-        "guides/workspaces/integrate"
+        "guides/workspaces/build"
       ]
     },
     {
