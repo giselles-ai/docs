@@ -4,19 +4,18 @@ description: 'Available Google AI Models Overview.'
 ---
 
 ## Gemini
-
 The following Gemini models are available in the Giselle workspace. Each model offers specific capabilities and features to match your use case requirements.
 
-| Models                            | Generate Text | Web Search | Reasoning | Input PDF | Input Image | Input Audio | Input Video | Context Window | Plan@Giselle     |
-|-----------------------------------|--------------|------------|-----------|-----------|-------------|------------|------------|----------------|----------|
-| gemini-2.5-pro-preview-05-06      | ✅           | ✅          | ✅         | ✅         | ✅           | ✅          | ✅          | 1M tokens (2M soon) | Pro     |
-| gemini-2.5-flash-preview-05-20    | ✅           | ✅          | ✅         | ✅         | ✅           | ✅          | ✅          | 1M tokens      | Pro      |
-| gemini-2.0-flash                  | ✅           | ✅          | ❌         | ✅         | ✅           | ✅          | ✅          | 1M tokens      | Free     |
-| gemini-2.0-flash-lite             | ✅           | ✅          | ❌         | ✅         | ✅           | ✅          | ✅          | 1M tokens      | Free     |
+| Models | Generate Text | Web Search | Reasoning | Input PDF | Input Image | Input Audio | Input Video | Context Window | Plan@Giselle |
+| ------------------------------ | ------------- | ---------- | --------- | --------- | ----------- | ----------- | ----------- | ------------------- | ------------- |
+| gemini-2.5-pro-preview-06-05 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens (2M soon) | Pro |
+| gemini-2.5-flash-preview-05-20 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Pro |
+| gemini-2.0-flash | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Free |
+| gemini-2.0-flash-lite | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Free |
 
 *Note: Some features may not be available within Giselle even if they are offered in the Google official API. Features marked 'Free' or 'Pro' refer to the Giselle subscription plan required to access them.*
 
-### gemini-2.5-pro-preview-05-06
+### gemini-2.5-pro-preview-06-05
 A preview version of the next-generation comprehensive model, offering early access to cutting-edge features. It provides state-of-the-art capabilities, including text generation, web search, advanced reasoning, and robust coding features. It supports a wide range of input formats (PDF, images, audio, video) and has a 1 million token context window (expansion to 2 million tokens planned). Ideal for users wanting to experiment with the latest advancements for complex problems and deep multimodal understanding. Requires a Pro plan.
 
 ### gemini-2.5-flash-preview-05-20
@@ -29,19 +28,18 @@ Optimized for speed, this model provides fast text generation and efficient web 
 The most lightweight and speed-optimized Flash model, `gemini-2.0-flash-lite` is designed for maximum efficiency and the quickest possible responses. It supports text generation, web search, and multimodal inputs (PDF, image, audio, video) but does not include complex reasoning. With a 1M token context window, it's ideal for high-throughput tasks and applications where immediate feedback is paramount. Available on the Free plan.
 
 ## Model Selection Guide
-
 Guidelines for selecting the optimal model based on your needs and plan:
 
 **Free Plan Models:**
-- **For fast responses without complex reasoning**: `gemini-2.0-flash` (Speed priority)
-- **For extremely fast responses and efficiency**: `gemini-2.0-flash-lite` (Maximum speed)
+* **For fast responses without complex reasoning**: `gemini-2.0-flash` (Speed priority)
+* **For extremely fast responses and efficiency**: `gemini-2.0-flash-lite` (Maximum speed)
 
 **Pro Plan Models:**
-- **For best overall performance and complex tasks**: `gemini-2.5-pro-preview-05-06` (Most powerful, all features)
-- **For fast responses with reasoning**: `gemini-2.5-flash-preview-05-20` (Speed + Reasoning balance)
+* **For best overall performance and complex tasks**: `gemini-2.5-pro-preview-06-05` (Most powerful, all features)
+* **For fast responses with reasoning**: `gemini-2.5-flash-preview-05-20` (Speed + Reasoning balance)
 
 ## Practices for Giselle
-We recommend `gemini-2.5-pro-preview-05-06` (Pro plan) as your primary model in Giselle due to its proven power and stability for complex tasks. It is capable of processing large volumes of data, executing complex code reviews, and handling a wide variety of business tasks.
+We recommend `gemini-2.5-pro-preview-06-05` (Pro plan) as your primary model in Giselle due to its proven power and stability for complex tasks. It is capable of processing large volumes of data, executing complex code reviews, and handling a wide variety of business tasks.
 
 For users prioritizing speed on the Free plan, `gemini-2.0-flash` and the even faster `gemini-2.0-flash-lite` are excellent options. Pro users seeking a balance of speed and reasoning might consider the `gemini-2.5-flash-preview-05-20`.
 
