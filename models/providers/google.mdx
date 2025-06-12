@@ -1,50 +1,107 @@
----
-title: Google
-description: 'Available Google AI Models Overview.'
----
-
-## Gemini
-
-The following Gemini models are available in the Giselle workspace. Each model offers specific capabilities and features to match your use case requirements.
-
-| Models                            | Generate Text | Web Search | Reasoning | Input PDF | Input Image | Input Audio | Input Video | Context Window | Plan@Giselle     |
-|-----------------------------------|--------------|------------|-----------|-----------|-------------|------------|------------|----------------|----------|
-| gemini-2.5-pro-preview-05-06      | ✅           | ✅          | ✅         | ✅         | ✅           | ✅          | ✅          | 1M tokens (2M soon) | Pro     |
-| gemini-2.5-flash-preview-05-20    | ✅           | ✅          | ✅         | ✅         | ✅           | ✅          | ✅          | 1M tokens      | Pro      |
-| gemini-2.0-flash                  | ✅           | ✅          | ❌         | ✅         | ✅           | ✅          | ✅          | 1M tokens      | Free     |
-| gemini-2.0-flash-lite             | ✅           | ✅          | ❌         | ✅         | ✅           | ✅          | ✅          | 1M tokens      | Free     |
-
-*Note: Some features may not be available within Giselle even if they are offered in the Google official API. Features marked 'Free' or 'Pro' refer to the Giselle subscription plan required to access them.*
-
-### gemini-2.5-pro-preview-05-06
-A preview version of the next-generation comprehensive model, offering early access to cutting-edge features. It provides state-of-the-art capabilities, including text generation, web search, advanced reasoning, and robust coding features. It supports a wide range of input formats (PDF, images, audio, video) and has a 1 million token context window (expansion to 2 million tokens planned). Ideal for users wanting to experiment with the latest advancements for complex problems and deep multimodal understanding. Requires a Pro plan.
-
-### gemini-2.5-flash-preview-05-20
-A preview version of the next-generation Flash model, optimized for speed *and* reasoning. It offers fast text generation, web search, reasoning capabilities, and supports various inputs (PDF, images, audio, video). With a 1 million token context window, it's ideal for tasks requiring quick responses combined with analytical depth and multimodal understanding. Requires a Pro plan.
-
-### gemini-2.0-flash
-Optimized for speed, this model provides fast text generation and efficient web search functionality with support for PDF, image, audio, and video inputs, but lacks complex reasoning capabilities. With a context window of 1 million tokens, it's best suited for scenarios requiring quick, responsive interactions and moderate multimodal input handling. Available on the Free plan.
-
-### gemini-2.0-flash-lite
-The most lightweight and speed-optimized Flash model, `gemini-2.0-flash-lite` is designed for maximum efficiency and the quickest possible responses. It supports text generation, web search, and multimodal inputs (PDF, image, audio, video) but does not include complex reasoning. With a 1M token context window, it's ideal for high-throughput tasks and applications where immediate feedback is paramount. Available on the Free plan.
-
-## Model Selection Guide
-
-Guidelines for selecting the optimal model based on your needs and plan:
-
-**Free Plan Models:**
-- **For fast responses without complex reasoning**: `gemini-2.0-flash` (Speed priority)
-- **For extremely fast responses and efficiency**: `gemini-2.0-flash-lite` (Maximum speed)
-
-**Pro Plan Models:**
-- **For best overall performance and complex tasks**: `gemini-2.5-pro-preview-05-06` (Most powerful, all features)
-- **For fast responses with reasoning**: `gemini-2.5-flash-preview-05-20` (Speed + Reasoning balance)
-
-## Practices for Giselle
-We recommend `gemini-2.5-pro-preview-05-06` (Pro plan) as your primary model in Giselle due to its proven power and stability for complex tasks. It is capable of processing large volumes of data, executing complex code reviews, and handling a wide variety of business tasks.
-
-For users prioritizing speed on the Free plan, `gemini-2.0-flash` and the even faster `gemini-2.0-flash-lite` are excellent options. Pro users seeking a balance of speed and reasoning might consider the `gemini-2.5-flash-preview-05-20`.
-
-By enabling the **Search grounding** feature with these models (where applicable), you can access web search functionality, allowing you to supplement your workflows with the most current information available.
-
-For detailed specifications, performance benchmarks, or additional assistance, please check [Google AI for Developers](https://ai.google.dev/gemini-api/docs/models).
+LS0tCnRpdGxlOiBHb29nbGUKZGVzY3JpcHRpb246ICdBdmFpbGFibGUgR29v
+Z2xlIEFJIE1vZGVscyBPdmVydmlldy4nCi0tLQoKIyMgR2VtaW5pCgpUaGUg
+Zm9sbG93aW5nIEdlbWluaSBtb2RlbHMgYXJlIGF2YWlsYWJsZSBpbiB0aGUg
+R2lzZWxsZSB3b3Jrc3BhY2UuIEVhY2ggbW9kZWwgb2ZmZXJzIHNwZWNpZmlj
+IGNhcGFiaWxpdGllcyBhbmQgZmVhdHVyZXMgdG8gbWF0Y2ggeW91ciB1c2Ug
+Y2FzZSByZXF1aXJlbWVudHMuCgp8IE1vZGVscyAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICB8IEdlbmVyYXRlIFRleHQgfCBXZWIgU2VhcmNoIHwgUmVh
+c29uaW5nIHwgSW5wdXQgUERGIHwgSW5wdXQgSW1hZ2UgfCBJbnB1dCBBdWRp
+byB8IElucHV0IFZpZGVvIHwgQ29udGV4dCBXaW5kb3cgfCBQbGFuQEdpc2Vs
+bGUgICAgIHwKfC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+fC0tLS0tLS0tLS0tLS1tfC0tLS0tLS0tLS0tLXwtLS0tLS0tLS0tLXwtLS0t
+LS0tLS0tLXwtLS0tLS0tLS0tLS0tfC0tLS0tLS0tLS0tLXwtLS0tLS0tLS0t
+LS18LS0tLS0tLS0tLS0tLS0tLXwtLS0tLS0tLS0tfAp8IGdlbWluaS0yLjUt
+cHJvLXByZXZpZXctMDYtMDUgICAgICAgfCDinIUgICAgICAgICAgIHwg4pyF
+ICAgICAgICAgIHwg4pyFICAgICAgICAgfCDinIUgICAgICAgICB8IOKchSAg
+ICAgICAgICAgfCDinIUgICAgICAgICAgfCDinIUgICAgICAgICAgfCAxTSB0
+b2tlbnMgKDJNIHNvb24pIHwgUHJvICAgICAgfAp8IGdlbWluaS0yLjUtZmxh
+c2gtcHJldmlldy0wNS0yMCAgICB8IOKchSAgICAgICAgICAgfCDinIUgICAg
+ICAgICAgfCDinIUgICAgICAgICB8IOKchSAgICAgICAgICB8IOKchSAgICAg
+ICAgICAgfCDinIUgICAgICAgICAgfCDinIUgICAgICAgICAgfCAxTSB0b2tl
+bnMgICAgICB8IFBybyAgICAgIHwKfCBnZW1pbmktMi4wLWZsYXNoICAgICAg
+ICAgICAgICAgICAgfCDinIUgICAgICAgICAgIHwg4pyFICAgICAgICAgIHwg
+4p2MICAgICAgICAgfCDinIUgICAgICAgICB8IOKchSAgICAgICAgICAgfCDi
+nIUgICAgICAgICAgfCDinIUgICAgICAgICAgfCAxTSB0b2tlbnMgICAgICB8
+IEZyZWUgICAgIHwKfCBnZW1pbmktMi4wLWZsYXNoLWxpdGUgICAgICAgICAg
+ICAgfCDinIUgICAgICAgICAgIHwg4pyFICAgICAgICAgIHwg4p2MICAgICAg
+ICAgfCDinIUgICAgICAgICB8IOKchSAgICAgICAgICAgfCDinIUgICAgICAg
+ICAgfCDinIUgICAgICAgICAgfCAxTSB0b2tlbnMgICAgICB8IEZyZWUgICAg
+IHwKCipOb3RlOiBTb21lIGZlYXR1cmVzIG1heSBub3QgYmUgYXZhaWxhYmxl
+IHdpdGhpbiBHaXNlbGxlIGV2ZW4gaWYgdGhleSBhcmUgb2ZmZXJlZCBpbiB0
+aGUgR29vZ2xlIG9mZmljaWFsIEFQSS4gRmVhdHVyZXMgbWFya2VkICdGcmVl
+JyBvciAnUHJvJyByZWZlciB0byB0aGUgR2lzZWxsZSBzdWJzY3JpcHRpb24g
+cGxhbiByZXF1aXJlZCB0byBhY2Nlc3MgdGhlbS4qCgojIyMgZ2VtaW5pLTIu
+NS1wcm8tcHJldmlldy0wNi0wNQpBIHByZXZpZXcgdmVyc2lvbiBvZiB0aGUg
+bmV4dC1nZW5lcmF0aW9uIGNvbXByZWhlbnNpdmUgbW9kZWwsIG9mZmVyaW5n
+IGVhcmx5IGFjY2VzcyB0byBjdXR0aW5nLWVkZ2UgZmVhdHVyZXMuIEl0IHBy
+b3ZpZGVzIHN0YXRlLW9mLXRoZS1hcnQgY2FwYWJpbGl0aWVzLCBpbmNsdWRp
+bmcgdGV4dCBnZW5lcmF0aW9uLCB3ZWIgc2VhcmNoLCBhZHZhbmNlZCByZWFz
+b25pbmcsIGFuZCByb2J1c3QgY29kaW5nIGZlYXR1cmVzLiBJdCBzdXBwb3J0
+cyBhIHdpZGUgcmFuZ2Ugb2YgaW5wdXQgZm9ybWF0cyAoUERGLCBpbWFnZXMs
+IGF1ZGlvLCB2aWRlbykgYW5kIGhhcyBhIDEgbWlsbGlvbiB0b2tlbiBjb250
+ZXh0IHdpbmRvdyAoZXhwYW5zaW9uIHRvIDIgbWlsbGlvbiB0b2tlbnMgcGxh
+bm5lZCkuIElkZWFsIGZvciB1c2VycyB3YW50aW5nIHRvIGV4cGVyaW1lbnQg
+d2l0aCB0aGUgbGF0ZXN0IGFkdmFuY2VtZW50cyBmb3IgY29tcGxleCBwcm9i
+bGVtcyBhbmQgZGVlcCBtdWx0aW1vZGFsIHVuZGVyc3RhbmRpbmcuIFJlcXVp
+cmVzIGEgUHJvIHBsYW4uCgojIyMgZ2VtaW5pLTIuNS1mbGFzaC1wcmV2aWV3
+LTA1LTIwCkEgcHJldmlldyB2ZXJzaW9uIG9mIHRoZSBuZXh0LWdlbmVyYXRp
+b24gRmxhc2ggbW9kZWwsIG9wdGltaXplZCBmb3Igc3BlZWQgKmFuZCogcmVh
+c29uaW5nLiBJdCBvZmZlcnMgZmFzdCB0ZXh0IGdlbmVyYXRpb24sIHdlYiBz
+ZWFyY2gsIHJlYXNvbmluZyBjYXBhYmlsaXRpZXMsIGFuZCBzdXBwb3J0cyB2
+YXJpb3VzIGlucHV0cyAoUERGLCBpbWFnZXMsIGF1ZGlvLCB2aWRlbykuIFdp
+dGggYSAxIG1pbGxpb24gdG9rZW4gY29udGV4dCB3aW5kb3csIGl0J3MgaWRl
+YWwgZm9yIHRhc2tzIHJlcXVpcmluZyBxdWljayByZXNwb25zZXMgY29tYmlu
+ZWQgd2l0aCBhbmFseXRpY2FsIGRlcHRoIGFuZCBtdWx0aW1vZGFsIHVuZGVy
+c3RhbmRpbmcuIFJlcXVpcmVzIGEgUHJvIHBsYW4uCgojIyMgZ2VtaW5pLTIu
+MC1mbGFzaApPcHRpbWl6ZWQgZm9yIHNwZWVkLCB0aGlzIG1vZGVsIHByb3Zp
+ZGVzIGZhc3QgdGV4dCBnZW5lcmF0aW9uIGFuZCBlZmZpY2llbnQgd2ViIHNl
+YXJjaCBmdW5jdGlvbmFsaXR5IHdpdGggc3VwcG9ydCBmb3IgUERGLCBpbWFn
+ZSwgYXVkaW8sIGFuZCB2aWRlbyBpbnB1dHMsIGJ1dCBsYWNrcyBjb21wbGV4
+IHJlYXNvbmluZyBjYXBhYmlsaXRpZXMuIFdpdGggYSBjb250ZXh0IHdpbmRv
+dyBvZiAxIG1pbGxpb24gdG9rZW5zLCBpdCdzIGJlc3Qgc3VpdGVkIGZvciBz
+Y2VuYXJpb3MgcmVxdWlyaW5nIHF1aWNrLCByZXNwb25zaXZlIGludGVyYWN0
+aW9ucyBhbmQgbW9kZXJhdGUgbXVsdGltb2RhbCBpbnB1dCBoYW5kbGluZy4g
+QXZhaWxhYmxlIG9uIHRoZSBGcmVlIHBsYW4uCgojIyMgZ2VtaW5pLTIuMC1m
+bGFzaC1saXRlClRoZSBtb3N0IGxpZ2h0d2VpZ2h0IGFuZCBzcGVlZC1vcHRp
+bWl6ZWQgRmxhc2ggbW9kZWwsIGBnZW1pbmktMi4wLWZsYXNoLWxpdGVgIGlz
+IGRlc2lnbmVkIGZvciBtYXhpbXVtIGVmZmljaWVuY3kgYW5kIHRoZSBxdWlj
+a2VzdCBwb3NzaWJsZSByZXNwb25zZXMuIEl0IHN1cHBvcnRzIHRleHQgZ2Vu
+ZXJhdGlvbiwgd2ViIHNlYXJjaCwgYW5kIG11bHRpbW9kYWwgaW5wdXRzIChQ
+REYsIGltYWdlLCBhdWRpbywgdmlkZW8pIGJ1dCBkb2VzIG5vdCBpbmNsdWRl
+IGNvbXBsZXggcmVhc29uaW5nLiBXaXRoIGEgMU0gdG9rZW4gY29udGV4dCB3
+aW5kb3csIGl0J3MgaWRlYWwgZm9yIGhpZ2gtdGhyb3VnaHB1dCB0YXNrcyBh
+bmQgYXBwbGljYXRpb25zIHdoZXJlIGltbWVkaWF0ZSBmZWVkYmFjayBpcyBw
+YXJhbW91bnQuIEF2YWlsYWJsZSBvbiB0aGUgRnJlZSBwbGFuLgoKIyMgTW9k
+ZWwgU2VsZWN0aW9uIEd1aWRlCgpHdWlkZWxpbmVzIGZvciBzZWxlY3Rpbmcg
+dGhlIG9wdGltYWwgbW9kZWwgYmFzZWQgb24geW91ciBuZWVkcyBhbmQgcGxh
+bjoKCioqRnJlZSBQbGFuIE1vZGVsczoqKgotICoqRm9yIGZhc3QgcmVzcG9u
+c2VzIHdpdGhvdXQgY29tcGxleCByZWFzb25pbmcqKjogYGdlbWluaS0yLjAt
+Zmxhc2hgIChTcGVlZCBwcmlvcml0eSkKLSAqKkZvciBleHRyZW1lbHkgZmFz
+dCByZXNwb25zZXMgYW5kIGVmZmljaWVuY3kqKjogYGdlbWluaS0yLjAtZmxh
+c2gtbGl0ZWAgKE1heGltdW0gc3BlZWQpCgoqKlBybyBQbGFuIE1vZGVsczoq
+KgotICoqRm9yIGJlc3Qgb3ZlcmFsbCBwZXJmb3JtYW5jZSBhbmQgY29tcGxl
+eCB0YXNrcyoqOiBgZ2VtaW5pLTIuNS1wcm8tcHJldmlldy0wNi0wNWAgKE1v
+c3QgcG93ZXJmdWwsIGFsbCBmZWF0dXJlcykKLSAqKkZvciBmYXN0IHJlc3Bv
+bnNlcyB3aXRoIHJlYXNvbmluZyoqOiBgZ2VtaW5pLTIuNS1mbGFzaC1wcmV2
+aWV3LTA1LTIwYCAoU3BlZWQgKyBSZWFzb25pbmcgYmFsYW5jZSkKCiMjIFBy
+YWN0aWNlcyBmb3IgR2lzZWxsZQpXZSByZWNvbW1lbmQgYGdlbWluaS0yLjUt
+cHJvLXByZXZpZXctMDYtMDVgIChQcm8gcGxhbikgYXMgeW91ciBwcmltYXJ5
+IG1vZGVsIGluIEdpc2VsbGUgZHVlIHRvIGl0cyBwcm92ZW4gcG93ZXIgYW5k
+IHN0YWJpbGl0eSBmb3IgY29tcGxleCB0YXNrcy4gSXQgaXMgY2FwYWJsZSBv
+ZiBwcm9jZXNzaW5nIGxhcmdlIHZvbHVtZXMgb2YgZGF0YSwgZXhlY3V0aW5n
+IGNvbXBsZXggY29kZSByZXZpZXdzLCBhbmQgaGFuZGxpbmcgYSB3aWRlIHZh
+cmllandkgb2YgYnVzaW5lc3MgdGFza3MuCgpGb3IgdXNlcnMgcHJpb3JpdGl6
+aW5nIHNwZWVkIG9uIHRoZSBGcmVlIHBsYW4sIGBnZW1pbmktMi4wLWZsYXNo
+YCBhbmQgdGhlIGV2ZW4gZmFzdGVyIGBnZW1pbmktMi4wLWZsYXNoLWxpdGVg
+IGFyZSBleGNlbGxlbnQgb3B0aW9ucy4gUHJvIHVzZXJzIHNlZWtpbmcgYSBi
+YWxhbmNlIG9mIHNwZWVkIGFuZCByZWFzb25pbmcgbWlnaHQgY29uc2lkZXIg
+dGhlIGBnZW1pbmktMi41LWZsYXNoLXByZXZpZXctMDUtMjBgLgoKQnkgZW5h
+YmxpbmcgdGhlICoqU2VhcmNoIGdyb3VuZGluZyoqIGZlYXR1cmUgd2l0aCB0
+aGVzZSBtb2RlbHMgKHdoZXJlIGFwcGxpY2FibGUpLCB5b3UgY2FuIGFjY2Vz
+cyB3ZWIgc2VhcmNoIGZ1bmN0aW9uYWxpdHksIGFsbG93aW5nIHlvdSB0byBz
+dXBwbGVtZW50IHlvdXIgd29ya2Zsb3dzIHdpdGggdGhlIG1vc3QgY3VycmVu
+dCBpbmZvcm1hdGlvbiBhdmFpbGFibGUuCgpGb3IgZGV0YWlsZWQgc3BlY2lm
+aWNhdGlvbnMsIHBlcmZvcm1hbmNlIGJlbmNobWFya3MsIG9yIGFkZGl0aW9u
+YWwgYXNzaXN0YW5jZSwgcGxlYXNlIGNoZWNrIFtHb29nbGUgQUkgZm9yIERl
+dmVsb3BlcnNdKGh0dHBzOi8vYWkuZ29vZ2xlLmRldi9nZW1pbmktYXBpL2Rv
+Y3MvbW9kZWxzKS4K
