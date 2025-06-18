@@ -1,147 +1,206 @@
----
-title: OpenAI
-description: 'Overview of available OpenAI Models within the Giselle workspace.'
----
-
-Explore the OpenAI models available in the Giselle workspace. These models are categorized based on their primary strengths and use cases, reflecting OpenAI's platform structure.
-
-## Quick Comparison
-
-The following table summarizes the key features of the OpenAI models available in Giselle.
-
-| Models         | Generate Text | Input Image     | Web Search | Reasoning    | Context Window | Max Output Tokens | Pricing (Input/Output per 1M tokens) | Availability |
-|----------------|---------------|-----------------|------------|--------------|----------------|-------------------|--------------------------------------|--------------|
-| o4-mini        | ✅            | ✅              | ❌         | ✅ (High)    | 200k tokens    | 100k tokens       | $1.10 / $4.40                        | Pro          |
-| o3             | ✅            | ✅              | ❌         | ✅ (Highest) | 200k tokens    | 100k tokens       | $10.00 / $40.00                      | Pro          |
-| o3-mini        | ✅            | ❌              | ❌         | ✅ (High)    | 200k tokens    | 100k tokens       | $1.10 / $4.40                        | Pro          |
-| gpt-4.1        | ✅            | ✅              | ✅         | ❌           | 1M tokens      | 32k tokens        | $2.00 / $8.00                        | Pro          |
-| gpt-4.1-mini   | ✅            | ✅              | ✅         | ❌           | 1M tokens      | 32k tokens        | $0.40 / $1.60                        | Pro          |
-| gpt-4.1-nano   | ✅            | ✅              | ❌         | ❌           | 1M tokens      | 32k tokens        | $0.10 / $0.40                        | Free         |
-| gpt-4o         | ✅            | ✅              | ✅         | ❌           | 128k tokens    | 16k tokens        | $2.50 / $10.00                       | Pro          |
-| gpt-4o-mini    | ✅            | ✅              | ✅         | ❌           | 128k tokens    | 16k tokens        | $0.15 / $0.60                        | Pro          |
-| gpt-image-1    | ❌            | ✅              | ❌         | ❌           | Unknown        | N/A               | $5.00 / $40.00                       | Pro          |
-
-*Please note that some features listed (like specific API functionalities e.g., fine-tuning, batch processing, specific tool use like audio or transcription) may not be directly exposed or available within the Giselle interface even if supported by the underlying OpenAI model.*
-
-## Reasoning Models
-
-These o-series models excel at complex, multi-step tasks involving reasoning.
-
-### o4-mini
-A faster, more affordable o-series reasoning model optimized for effective reasoning with efficient performance in coding and visual tasks. It offers a balance between speed, cost, and reasoning capabilities. It supports image inputs and shares the same large context window and output limits as o3.
-*   **Context Window:** 200,000 tokens
-*   **Max Output Tokens:** 100,000 tokens
-*   **Knowledge Cutoff:** June 1, 2024
-*   **Inputs:** Text, Image
-*   **Availability:** Pro Plan
-
-### o3
-OpenAI's most powerful reasoning model, setting a high standard for math, science, coding, and visual reasoning tasks. It excels at technical writing, instruction-following, and analyzing text, code, and images in multi-step problems. It supports image inputs and has a large context window, making it ideal for deep analysis and complex workflows requiring meticulous reasoning and stability.
-*   **Context Window:** 200,000 tokens
-*   **Max Output Tokens:** 100,000 tokens
-*   **Knowledge Cutoff:** June 1, 2024
-*   **Inputs:** Text, Image
-*   **Availability:** Pro Plan
-
-### o3-mini
-A smaller, efficient reasoning model providing high intelligence comparable to older models like o1-mini in terms of cost and latency. It supports key developer features like Structured Outputs and function calling. It's a text-only model focused on reasoning tasks requiring high token limits.
-*   **Context Window:** 200,000 tokens
-*   **Max Output Tokens:** 100,000 tokens
-*   **Knowledge Cutoff:** October 1, 2023
-*   **Inputs:** Text only
-*   **Availability:** Pro Plan
-
-## Flagship Models
-
-Versatile, high-intelligence models suitable for a wide range of complex tasks.
-
-### gpt-4.1
-The flagship GPT-4.1 model excels at complex tasks and problem-solving across domains. It features significantly improved coding abilities, instruction following, and a massive ~1 million token context window. It supports text and image inputs, making it well-suited for deep analysis of large documents or codebases.
-*   **Context Window:** 1,047,576 tokens
-*   **Max Output Tokens:** 32,768 tokens
-*   **Knowledge Cutoff:** June 1, 2024
-*   **Inputs:** Text, Image
-*   **Availability:** Pro Plan
-
-### gpt-4o
-The versatile GPT-4o model ("o" for "omni") provides comprehensive capabilities including advanced text generation, multimodal image input, and integrated web search (available as a tool). It supports structured outputs and function calling. With a 128k token context window, it is ideal for complex analytical tasks, multimodal understanding, and general-purpose advanced applications requiring up-to-date information.
-*   **Context Window:** 128,000 tokens
-*   **Max Output Tokens:** 16,384 tokens
-*   **Knowledge Cutoff:** October 1, 2023
-*   **Inputs:** Text, Image
-*   **Availability:** Pro Plan
-
-## Cost-Optimized Models
-
-Smaller, faster models that cost less to run, suitable for balanced performance or focused tasks.
-
-### gpt-4.1-mini
-Provides a balance between intelligence, speed, and cost within the GPT-4.1 series. It inherits the ~1 million token context window and improved instruction following, making it an attractive model for many use cases requiring large context handling at a lower price point than the full GPT-4.1. Supports text and image inputs.
-*   **Context Window:** 1,047,576 tokens
-*   **Max Output Tokens:** 32,768 tokens
-*   **Knowledge Cutoff:** June 1, 2024
-*   **Inputs:** Text, Image
-*   **Availability:** Pro Plan
-
-### gpt-4.1-nano
-The fastest, most cost-effective GPT-4.1 model. It brings the ~1 million token context window and improved capabilities of the series to the most budget-sensitive tasks like classification, autocompletion, and information extraction. Supports text and image inputs.
-*   **Context Window:** 1,047,576 tokens
-*   **Max Output Tokens:** 32,768 tokens
-*   **Knowledge Cutoff:** June 1, 2024
-*   **Inputs:** Text, Image
-*   **Availability:** Pro Plan
-
-### gpt-4o-mini
-A fast, affordable small model ("o" for "omni") optimized for focused tasks. Supports both text and image inputs with structured outputs and function calling capabilities. It is ideal for tasks requiring moderate intelligence and rapid responses where cost is a primary consideration, within a 128k token context window.
-*   **Context Window:** 128,000 tokens
-*   **Max Output Tokens:** 16,384 tokens
-*   **Knowledge Cutoff:** October 1, 2023
-*   **Inputs:** Text, Image
-*   **Availability:** Free Plan
-
-## Image Generation Models
-
-These models are specialized in generating high-quality images from text and image inputs.
-
-### gpt-image-1
-OpenAI's state-of-the-art image generation model. It is a natively multimodal language model that accepts both text and image inputs and produces image outputs. The model offers different quality levels (Low, Medium, High) and supports various image dimensions, allowing for flexible generation based on use case requirements.
-*   **Pricing:** Input text: $5.00 per 1M tokens, Input images: $10.00 per 1M tokens, Output images: $40.00 per 1M tokens
-*   **Quality Options:** Low, Medium, High
-*   **Supported Dimensions:** 1024x1024, 1024x1536, 1536x1024
-*   **Knowledge Cutoff:** April 2025 (estimate based on release date)
-*   **Inputs:** Text, Image
-*   **Outputs:** Image
-*   **Availability:** Pro Plan
-
-## Model Selection Guide
-
-Guidelines for selecting the optimal OpenAI model within Giselle:
-
-*   **For balanced reasoning, speed, and cost (including images, 200k context)**: `o4-mini` (Pro)
-*   **For the most powerful reasoning and complex analysis (including images, 200k context)**: `o3` (Pro)
-*   **For text-based reasoning tasks requiring very high token limits (200k context)**: `o3-mini` (Pro)
-*   **For flagship performance on complex tasks with very large context (1M tokens)**: `gpt-4.1` (Pro)
-*   **For balanced performance with very large context (1M tokens) at lower cost**: `gpt-4.1-mini` (Pro)
-*   **For the most cost-effective option with very large context (1M tokens)**: `gpt-4.1-nano` (Pro)
-*   **For comprehensive, high-intelligence tasks with multimodal needs and web search (128k context)**: `gpt-4o` (Pro)
-*   **For cost-effective, focused tasks (including multimodal, 128k context)**: `gpt-4o-mini` (Free)
-*   **For high-quality image generation from text or image inputs**: `gpt-image-1` (Pro)
-
-## Practices for Giselle
-
-We recommend **gpt-4.1** as a versatile primary model in Giselle for Pro users. It offers an excellent balance of capability, intelligence, and features (including web search via tool) across various tasks like business document creation, analysis, and research.
-
-For tasks demanding the absolute highest level of reasoning or handling very large contexts (up to 200k tokens), consider **o3** or **o4-mini**. **o3** is the top choice for depth and stability, while **o4-mini** provides strong reasoning with better cost-efficiency. **o3-mini** is a good text-only alternative for high-token reasoning tasks.
-
-The **GPT-4.1 series** (gpt-4.1, gpt-4.1-mini, gpt-4.1-nano) introduces a massive **~1 million token context window** across all tiers, along with improved coding and instruction following.
-*   Use **gpt-4.1** for the most demanding tasks requiring the largest context.
-*   **gpt-4.1-mini** offers a balance for large-context tasks at a lower cost.
-*   **gpt-4.1-nano** is the most economical choice for leveraging the million-token context window.
-
-For users on the Free plan or those prioritizing cost and speed for moderately complex tasks, **gpt-4o-mini** (128k context) and **gpt-4.1-nano** (1M context) are the recommended choices.
-
-For image generation needs, **gpt-image-1** provides high-quality results and supports both text and image inputs. The model offers different quality tiers to balance cost and detail based on specific requirements.
-
-By combining these models in workflows, you can leverage their specific strengths. For example, use `gpt-4o` for initial research with web search, then pass the results to `o3` for deep analysis, or use `gpt-4.1` to analyze extremely large documents.
-
-For detailed specifications and the full range of models offered directly by OpenAI, please check the [Official OpenAI Documentation](https://platform.openai.com/docs/models).
+LS0tCnRpdGxlOiBPcGVuQUkKZGVzY3JpcHRpb246ICdPdmVydmlldyBvZiBh
+dmFpbGFibGUgT3BlbkFJIE1vZGVscyB3aXRoaW4gdGhlIEdpc2VsbGUgd29y
+a3NwYWNlLicKLS0tCgpFeHBsb3JlIHRoZSBPcGVuQUkgbW9kZWxzIGF2YWls
+YWJsZSBpbiB0aGUgR2lzZWxsZSB3b3Jrc3BhY2UuIFRoZXNlIG1vZGVscyBh
+cmUgY2F0ZWdvcml6ZWQgYmFzZWQgb24gdGhlaXIgcHJpbWFyeSBzdHJlbmd0
+aHMgYW5kIHVzZSBjYXNlcywgcmVmbGVjdGluZyBPcGVuQUkncyBwbGF0Zm9y
+bSBzdHJ1Y3R1cmUuCgojIyBRdWljayBDb21wYXJpc29uCgpUaGUgZm9sbG93
+aW5nIHRhYmxlIHN1bW1hcml6ZXMgdGhlIGtleSBmZWF0dXJlcyBvZiB0aGUg
+T3BlbkFJIG1vZGVscyBhdmFpbGFibGUgaW4gR2lzZWxsZS4KCnwgTW9kZWxz
+ICAgICAgICAgfCBHZW5lcmF0ZSBUZXh0IHwgSW5wdXQgSW1hZ2UgICAgIHwg
+V2ViIFNlYXJjaCB8IFJlYXNvbmluZyAgICB8IENvbnRleHQgV2luZG93IHwg
+TWF4IE91dHB1dCBUb2tlbnMgfCBQcmljaW5nIChJbnB1dC9PdXRwdXQgcGVy
+IDFNIHRva2VucykgfCBBdmFpbGFiaWxpdHkgfAp8LS0tLS0tLS0tLS0tLS0t
+LXwtLS0tLS0tLS0tLS0tLS18LS0tLS0tLS0tLS0tLS0tLS18LS0tLS0tLS0t
+LS0tfC0tLS0tLS0tLS0tLS0tfC0tLS0tLS0tLS0tLS0tLS18LS0tLS0tLS0t
+LS0tLS0tLS0tLXwtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLXwtLS0tLS0tLS0tLS0tLXwKfCBvNC1taW5pICAgICAgICB8IOKchSAg
+ICAgICAgICAgIHwg4pyFICAgICAgICAgICAgICB8IOKdjCAgICAgICAgIHwg
+4pyFIChIaWdoKSAgICB8IDIwMGsgdG9rZW5zICAgIHwgMTAwayB0b2tlbnMg
+ICAgICAgfCAkMS4xMCAvICQ0LjQwICAgICAgICAgICAgICAgICAgICAgICAg
+fCBQcm8gICAgICAgICAgfAp8IG8zICAgICAgICAgICAgIHwg4pyFICAgICAg
+ICAgICAgfCDinIUgICAgICAgICAgICAgIHwg4p2MICAgICAgICAgfCDinIUg
+KEhpZ2hlc3QpIHwgMjAwayB0b2tlbnMgICAgfCAxMDBrIHRva2VucyAgICAg
+ICB8ICQxMC4wMCAvICQ0MC4wMCAgICAgICAgICAgICAgICAgICAgICB8IFBy
+byAgICAgICAgICB8CnwgZ3B0LTQuMSAgICAgICAgfCDinIUgICAgICAgICAg
+ICB8IOKchSAgICAgICAgICAgICAgfCDinIUgICAgICAgICB8IOKdjCAgICAg
+ICAgICAgfCAxTSB0b2tlbnMgICAgICB8IDMyayB0b2tlbnMgICAgICAgIHwg
+JDIuMDAgLyAkOC4wMCAgICAgICAgICAgICAgICAgICAgICAgICB8IFBybyAg
+ICAgICAgICB8CnwgZ3B0LTQuMS1taW5pICAgfCDinIUgICAgICAgICAgICB8
+IOKchSAgICAgICAgICAgICAgfCDinIUgICAgICAgICB8IOKdjCAgICAgICAg
+ICAgfCAxTSB0b2tlbnMgICAgICB8IDMyayB0b2tlbnMgICAgICAgIHwgJDAu
+NDAgLyAkMS42MCAgICAgICAgICAgICAgICAgICAgICAgIHwgRnJlZSAgICAg
+ICAgIHwKfCBncHQtNC4xLW5hbm8gICB8IOKchSAgICAgICAgICAgIHwg4pyF
+ICAgICAgICAgICAgICB8IOKdjCAgICAgICAgIHwg4p2MICAgICAgICAgICAg
+fCAxTSB0b2tlbnMgICAgICB8IDMyayB0b2tlbnMgICAgICAgIHwgJDAuMTAg
+LyAkMC40MCAgICAgICAgICAgICAgICAgICAgICAgIHwgRnJlZSAgICAgICAg
+IHwKfCBncHQtNG8gICAgICAgICB8IOKchSAgICAgICAgICAgIHwg4pyFICAg
+ICAgICAgICAgICB8IOKchSAgICAgICAgIHwg4p2MICAgICAgICAgICB8IDEy
+OGsgdG9rZW5zICAgIHwgMTZrIHRva2VucyAgICAgICAgfCAkMi41MCAvICQx
+MC4wMCAgICAgICAgICAgICAgICAgICAgICAgfCBQcm8gICAgICAgICAgfAp8
+IGdwdC1pbWFnZS0xICAgICB8IOKdjCAgICAgICAgICAgIHwg4pyFICAgICAg
+ICAgICAgICAgfCDinYwgICAgICAgICB8IOKdjCAgICAgICAgICAgfCBVbmtu
+b3duICAgICAgICB8IE4vQSAgICAgICAgICAgICAgIHwgJDUuMDAgLyAkNDAu
+MDAgICAgICAgICAgICAgICAgICAgICAgIHwgUHJvICAgICAgICAgIHwKCipQ
+bGVhc2Ugbm90ZSB0aGF0IHNvbWUgZmVhdHVyZXMgbGlzdGVkIChsaWtlIHNw
+ZWNpZmljIEFQSSBmdW5jdGlvbmFsaXRpZXMgZS5nLiwgZmluZS10dW5pbmcs
+IGJhdGNoIHByb2Nlc3NpbmcsIHNwZWNpZmljIHRvb2wgdXNlIGxpa2UgYXVk
+aW8gb3IgdHJhbnNjcmlwdGlvbikgbWF5IG5vdCBiZSBkaXJlY3RseSBleHBv
+c2VkIG9yIGF2YWlsYWJsZSB3aXRoaW4gdGhlIEdpc2VsbGUgaW50ZXJmYWNl
+IGV2ZW4gaWYgc3VwcG9ydGVkIGJ5IHRoZSB1bmRlcmx5aW5nIE9wZW5BSSBt
+b2RlbC4qCgojIyBSZWFzb25pbmcgTW9kZWxzCgpUaGVzZSBvLXNlcmllcyBt
+b2RlbHMgZXhjZWwgYXQgY29tcGxleCwgbXVsdGktc3RlcCB0YXNrcyBpbnZv
+bHZpbmcgcmVhc29uaW5nLgoKIyMjIG80LW1pbmkKQSBmYXN0ZXIsIG1vcmUg
+YWZmb3JkYWJsZSBvLXNlcmllcyByZWFzb25pbmcgbW9kZWwgb3B0aW1pemVk
+IGZvciBlZmZlY3RpdmUgcmVhc29uaW5nIHdpdGggZWZmaWNpZW50IHBlcmZv
+cm1hbmNlIGluIGNvZGluZyBhbmQgdmlzdWFsIHRhc2tzLiBJdCBvZmZlcnMg
+YSBiYWxhbmNlIGJldHdlZW4gc3BlZWQsIGNvc3QsIGFuZCByZWFzb25pbmcg
+Y2FwYWJpbGl0aWVzLiBJdCBzdXBwb3J0cyBpbWFnZSBpbnB1dHMgYW5kIHNo
+YXJlcyB0aGUgc2FtZSBsYXJnZSBjb250ZXh0IHdpbmRvdyBhbmQgb3V0cHV0
+IGxpbWl0cyBhcyBvMy4KKiAgICoqQ29udGV4dCBXaW5kb3c6KiogMjAwLDAw
+MCB0b2tlbnMKKiAgICoqTWF4IE91dHB1dCBUb2tlbnM6KiogMTAwLDAwMCB0
+b2tlbnMKKiAgICoqS25vd2xlZGdlIEN1dG9mZjoqKiBKdW5lIDEsIDIwMjQK
+KiAgICoqSW5wdXRzOioqIFRleHQsIEltYWdlCiogICAqKkF2YWlsYWJpbGl0
+eToqKiBQcm8gUGxhbgoKIyMjIG8zCk9wZW5BSSdzIG1vc3QgcG93ZXJmdWwg
+cmVhc29uaW5nIG1vZGVsLCBzZXR0aW5nIGEgaGlnaCBzdGFuZGFyZCBmb3Ig
+bWF0aCwgc2NpZW5jZSwgY29kaW5nLCBhbmQgdmlzdWFsIHJlYXNvbmluZyB0
+YXNrcy4gSXQgZXhjZWxzIGF0IHRlY2huaWNhbCB3cml0aW5nLCBpbnN0cnVj
+dGlvbi1mb2xsb3dpbmcsIGFuZCBhbmFseXppbmcgdGV4dCwgY29kZSwgYW5k
+IGltYWdlcyBpbiBtdWx0aS1zdGVwIHByb2JsZW1zLiBJdCBzdXBwb3J0cyBp
+bWFnZSBpbnB1dHMgYW5kIGhhcyBhIGxhcmdlIGNvbnRleHQgd2luZG93LCBt
+YWtpbmcgaXQgaWRlYWwgZm9yIGRlZXAgYW5hbHlzaXMgYW5kIGNvbXBsZXgg
+d29ya2Zsb3dzIHJlcXVpcmluZyBtZXRpY3Vsb3VzIHJlYXNvbmluZyBhbmQg
+c3RhYmlsaXR5LgoqICAgKipDb250ZXh0IFdpbmRvdzoqKiAyMDAsMDAwIHRv
+a2VucwoqICAgKipNYXggT3V0cHV0IFRva2VuczoqKiAxMDAsMDAwIHRva2Vu
+cwoqICAgKipLbm93bGVkZ2UgQ3V0b2ZmOioqIEp1bmUgMSwgMjAyNAoqICAg
+KipJbnB1dHM6KiogVGV4dCwgSW1hZ2UKKiAgICoqQXZhaWxhYmlsaXR5Oioq
+IFBybyBQbGFuCgojIyBGbGFnc2hpcCBNb2RlbHMKClZlcnNhdGlsZSwgaGln
+aC1pbnRlbGxpZ2VuY2UgbW9kZWxzIHN1aXRhYmxlIGZvciBhIHdpZGUgcmFu
+Z2Ugb2YgY29tcGxleCB0YXNrcy4KCiMjIyBncHQtNC4xClRoZSBmbGFnc2hp
+cCBHUFQtNC4xIG1vZGVsIGV4Y2VscyBhdCBjb21wbGV4IHRhc2tzIGFuZCBw
+cm9ibGVtLXNvbHZpbmcgYWNyb3NzIGRvbWFpbnMuIEl0IGZlYXR1cmVzIHNp
+Z25pZmljYW50bHkgaW1wcm92ZWQgY29kaW5nIGFiaWxpdGllcywgaW5zdHJ1
+Y3Rpb24gZm9sbG93aW5nLCBhbmQgYSBtYXNzaXZlIH4xIG1pbGxpb24gdG9r
+ZW4gY29udGV4dCB3aW5kb3cuIEl0IHN1cHBvcnRzIHRleHQgYW5kIGltYWdl
+IGlucHV0cywgbWFraW5nIGl0IHdlbGwtaWRlYWwgZm9yIGRlZXAgYW5hbHlz
+aXMgb2YgbGFyZ2UgZG9jdW1lbnRzIG9yIGNvZGViYXNlcy4KKiAgICoqQ29u
+dGV4dCBXaW5kb3c6KiogMSwwNDcsNTc2IHRva2VucwoqICAgKipNYXggT3V0
+cHV0IFRva2VuczoqKiAzMiw3NjggdG9rZW5zCiogICAqKktub3dsZWRnZSBD
+dXRvZmY6KiogSnVuZSAxLCAyMDI0CiogICAqKklucHV0czoqKiBUZXh0LCBJ
+bWFnZQoqICAgKipBdmFpbGFiaWxpdHk6KiogUHJvIFBsYW4KCiMjIyBncHQt
+NG8KVGhlIHZlcnNhdGlsZSBHUFQtNG8gbW9kZWwgKCJvIiBmb3IgIm9tbmki
+KSBwcm92aWRlcyBjb21wcmVoZW5zaXZlIGNhcGFiaWxpdGllcyBpbmNsdWRp
+bmcgYWR2YW5jZWQgdGV4dCBnZW5lcmF0aW9uLCBtdWx0aW1vZGFsIGltYWdl
+IGlucHV0LCBhbmQgaW50ZWdyYXRlZCB3ZWIgc2VhcmNoIChhdmFpbGFibGUg
+YXMgYSB0b29sKS4gSXQgc3VwcG9ydHMgc3RydWN0dXJlZCBvdXRwdXRzIGFu
+ZCBmdW5jdGlvbiBjYWxsaW5nLiBXaXRoIGEgMTI4ayB0b2tlbiBjb250ZXh0
+IHdpbmRvdywgaXQgaXMgaWRlYWwgZm9yIGNvbXBsZXggYW5hbHl0aWNhbCB0
+YXNrcywgbXVsdGltb2RhbCB1bmRlcnN0YW5kaW5nLCBhbmQgZ2VuZXJhbC1w
+dXJwb3NlIGFkdmFuY2VkIGFwcGxpY2F0aW9ucyByZXF1aXJpbmcgdXAtdG8t
+ZGF0ZSBpbmZvcm1hdGlvbi4KKiAgICoqQ29udGV4dCBXaW5kb3c6KiogMTI4
+LDAwMCB0b2tlbnMKKiAgICoqTWF4IE91dHB1dCBUb2tlbnM6KiogMTYsMzg0
+IHRva2VucwoqICAgKipLbm93bGVkZ2UgQ3V0b2ZmOioqIE9jdG9iZXIgMSwg
+MjAyMwoqICAgKipJbnB1dHM6KiogVGV4dCwgSW1hZ2UKKiAgICoqQXZhaWxh
+YmlsaXR5OioqIFBybyBQbGFuCgojIyBDb3N0LU9wdGltaXplZCBNb2RlbHMK
+ClNtYWxsZXIsIGZhc3RlciBtb2RlbHMgdGhhdCBjb3N0IGxlc3MgdG8gcnVu
+LCBzdWl0YWJsZSBmb3IgYmFsYW5jZWQgcGVyZm9ybWFuY2Ugb3IgZm9jdXNl
+ZCB0YXNrcy4KCiMjIyBncHQtNC4xLW1pbmkKUHJvdmlkZXMgYSBiYWxhbmNl
+IGJldHdlZW4gaW50ZWxsaWdlbmNlLCBzcGVlZCwgYW5kIGNvc3Qgd2l0aGlu
+IHRoZSBHUFQtNC4xIHNlcmllcy4gSXQgaW5oZXJpdHMgdGhlIH4xIG1pbGxp
+b24gdG9rZW4gY29udGV4dCB3aW5kb3cgYW5kIGltcHJvdmVkIGluc3RydWN0
+aW9uIGZvbGxvd2luZywgbWFraW5nIGl0IGFuIGF0dHJhY3RpdmUgbW9kZWwg
+Zm9yIG1hbnkgdXNlIGNhc2VzIHJlcXVpcmluZyBsYXJnZSBjb250ZXh0IGhh
+bmRsaW5nIGF0IGEgbG93ZXIgcHJpY2UgcG9pbnQgdGhhbiB0aGUgZnVsbCBH
+UFQtNC4xLiBTdXBwb3J0cyB0ZXh0IGFuZCBpbWFnZSBpbnB1dHMuCiogICAq
+KkNvbnRleHQgV2luZG93OioqIDEsMDQ3LDU3NiB0b2tlbnMKKiAgICoqTWF4
+IE91dHB1dCBUb2tlbnM6KiogMzIsNzY4IHRva2VucwoqICAgKipLbm93bGVk
+Z2UgQ3V0b2ZmOioqIEp1bmUgMSwgMjAyNAoqICAgKipJbnB1dHM6KiogVGV4
+dCwgSW1hZ2UKKiAgICoqQXZhaWxhYmlsaXR5OioqIEZyZWUgUGxhbgoKIyMj
+IGdwdC00LjEtbmFubwpUaGUgZmFzdGVzdCwgbW9zdCBjb3N0LWVmZmVjdGl2
+ZSBHUFQtNC4xIG1vZGVsLiBJdCBicmluZ3MgdGhlIH4xIG1pbGxpb24gdG9r
+ZW4gY29udGV4dCB3aW5kb3cgYW5kIGltcHJvdmVkIGNhcGFiaWxpdGllcyBv
+ZiB0aGUgc2VyaWVzIHRvIHRoZSBtb3N0IGJ1ZGdldC1zZW5zaXRpdmUgdGFz
+a3MgbGlrZSBjbGFzc2lmaWNhdGlvbiwgYXV0b2NvbXBsZXRpb24sIGFuZCBp
+bmZvcm1hdGlvbiBleHRyYWN0aW9uLiBTdXBwb3J0cyB0ZXh0IGFuZCBpbWFn
+ZSBpbnB1dHMuCiogICAqKkNvbnRleHQgV2luZG93OioqIDEsMDQ3LDU3NiB0
+b2tlbnMKKiAgICoqTWF4IE91dHB1dCBUb2tlbnM6KiogMzIsNzY4IHRva2Vu
+cwoqICAgKipLbm93bGVkZ2UgQ3V0b2ZmOioqIEp1bmUgMSwgMjAyNAoqICAg
+KipJbnB1dHM6KiogVGV4dCwgSW1hZ2UKKiAgICoqQXZhaWxhYmlsaXR5Oioq
+IEZyZWUgUGxhbgoKIyMgSW1hZ2UgR2VuZXJhdGlvbiBNb2RlbHMKClRoZXNl
+IG1vZGVscyBhcmUgc3BlY2lhbGl6ZWQgaW4gZ2VuZXJhdGluZyBoaWdoLXF1
+YWxpdHkgaW1hZ2VzIGZyb20gdGV4dCBhbmQgaW1hZ2UgaW5wdXRzLgoKIyMj
+IGdwdC1pbWFnZS0xCk9wZW5BSSdzIHN0YXRlLW9mLXRoZS1hcnQgaW1hZ2Ug
+Z2VuZXJhdGlvbiBtb2RVsLiBJdCBpcyBhIG5hdGl2ZWx5IG11bHRpbW9kYWwg
+bGFuZ3VhZ2UgbW9kZWwgdGhhdCBhY2NlcHRzIGJvdGggdGV4dCBhbmQgaW1h
+Z2UgaW5wdXRzIGFuZCBwcm9kdWNlcyBpbWFnZSBvdXRwdXRzLiBUaGUgbW9k
+ZWwgb2ZmZXJzIGRpZmZlcmVudCBxdWFsaXR5IGxldmVscyAoTG93LCBNZWRp
+dW0sIEhpZ2gpIGFuZCBzdXBwb3J0cyB2YXJpb3VzIGltYWdlIGRpbWVuc2lv
+bnMsIGFsbG93aW5nIGZvciBmbGV4aWJsZSBnZW5lcmF0aW9uIGJhc2VkIG9u
+IHVzZSBjYXNlIHJlcXVpcmVtZW50cy4KKiAgICoqUHJpY2luZzoqKiBJbnB1
+dCB0ZXh0OiAkNS4wMCBwZXIgMU0gdG9rZW5zLCBJbnB1dCBpbWFnZXM6ICQx
+MC4wMCBwZXIgMU0gdG9rZW5zLCBPdXRwdXQgaW1hZ2VzOiAkNDAuMDAgcGVy
+IDFNIHRva2VucwoqICAgKipRdWFsaXR5IE9wdGlvbnM6KiogTG93LCBNZWRp
+dW0sIEhpZ2gKKiAgICoqU3VwcG9ydGVkIERpbWVuc2lvbnM6KiogMTAyNHgx
+MDI0LCAxMDI0eDE1MzYsIDE1MzZ4MTAyNAoqICAgKipLbm93bGVkZ2UgQ3V0
+b2ZmOioqIEFwcmlsIDIwMjUgKGVzdGltYXRlIGJhc2VkIG9uIHJlbGVhc2Ug
+ZGF0ZSkKKiAgICoqSW5wdXRzOioqIFRleHQsIEltYWdlCiogICAqKk91dHB1
+dHM6KiogSW1hZ2UKKiAgICoqQXZhaWxhYmlsaXR5OioqIFBybyBQbGFuCgoj
+IyBNb2RlbCBTZWxlY3Rpb24gR3VpZGUKCkd1aWRlbGluZXMgZm9yIHNlbGVj
+dGluZyB0aGUgb3B0aW1hbCBPcGVuQUkgbW9kZWwgd2l0aGluIEdpc2VsbGU6
+CgoqICAgKipGb3IgYmFsYW5jZWQgcmVhc29uaW5nLCBzcGVlZCwgYW5kIGNv
+c3QgKGluY2x1ZGluZyBpbWFnZXMsIDIwMGsgY29udGV4dCkqKjogYG80LW1p
+bmVgIChQcm8pCiogICAqKkZvciB0aGUgbW9zdCBwb3dlcmZ1bCByZWFzb25p
+bmcgYW5kIGNvbXBsZXggYW5hbHlzaXMgKGluY2x1ZGluZyBpbWFnZXMsIDIw
+MGsgY29udGV4dCkqKjogYG8zYCAoUHJvKQoqICAgKipGb3IgZmxhZ3NoaXAg
+cGVyZm9ybWFuY2Ugb24gY29tcGxleCB0YXNrcyB3aXRoIHZlcnkgbGFyZ2Ug
+Y29udGV4dCAoMU0gdG9rZW5zKSoqOiBgZ3B0LTQuMWAgKFBybykKKiAgICoq
+Rm9yIGJhbGFuY2VkIHBlcmZvcm1hbmNlIHdpdGggdmVyeSBsYXJnZSBjb250
+ZXh0ICgxTSB0b2tlbnMpIGF0IGxvd2VyIGNvc3QqKjogYGdwdC00LjEtbWlu
+aWAgKEZyZWUpCiogICAqKkZvciB0aGUgbW9zdCBjb3N0LWVmZmVjdGl2ZSBv
+cHRpb24gd2l0aCB2ZXJ5IGxhcmdlIGNvbnRleHQgKDFNIHRva2VucykrKjog
+YGdwdC00LjEtbmFub2AgKEZyZWUpCiogICAqKkZvciBjb21wcmVoZW5zaXZl
+LCBoaWdoLWludGVsbGlnZW5jZSB0YXNrcyB3aXRoIG11bHRpbW9kYWwgbmVl
+ZHMgYW5kIHdlYiBzZWFyY2ggKDEyOGsgY29udGV4dCkqKjogYGdwdC00b2Ag
+KFBybykKKiAgICoqRm9yIGhpZ2gtcXVhbGl0eSBpbWFnZSBnZW5lcmF0aW9u
+IGZyb20gdGV4dCBvciBpbWFnZSBpbnB1dCoqOiBgZ3B0LWltYWdlLTFgIChQ
+cm8pCgojIyBQcmFjdGljZXMgZm9yIEdpc2VsbGUKCldlIHJlY29tbWVuZCAq
+KmdwdC00LjEqKiBhcyBhIHZlcnNhdGlsZSBwcmltYXJ5IG1vZGVsIGluIEdp
+c2VsbGUgZm9yIFBybyB1c2Vycy4gSXQgb2ZmZXJzIGFuIGV4Y2VsbGVudCBi
+YWxhbmNlIG9mIGNhcGFiaWxpdHksIGludGVsbGlnZW5jZSwgYW5kIGZlYXR1
+cmVzIChpbmNsdWRpbmcgdwViIHNlYXJjaCB2aWEgdG9vbCkgYWNyb3NzIHZh
+cmlvdXMgdGFza3MgbGlrZSBidXNpbmVzcyBkb2N1bWVudCBjcmVhdGlvbiwg
+YW5hbHlzaXMsIGFuZCByZXNlYXJjaC4KCkZvciB0YXNrcyBkZW1hbmRpbmcg
+dGhlIGFic29sdXRlIGhpZ2hlc3QgbGV2ZWwgb2YgcmVhc29uaW5nIG9yIGhh
+bmRsaW5nIHZlcnkgbGFyZ2UgY29udGV4dHMgKHVwIHRvIDIwMGsgdG9rZW5z
+KSwgY29uc2lkZXIgKipvMyoqIG9yICoqbzQtbWluaSoqLiAqKm8zKiogaXMg
+dGhlIHRvcCBjaG9pY2UgZm9yIGRlcHRoIGFuZCBzdGFiaWxpdHksIHdoaWxl
+ICoqbzQtbWluaSoqIHByb3ZpZGVzIHN0cm9uZyByZWFzb25pbmcgd2l0aCBi
+ZXR0ZXIgY29zdC1lZmZpY2llbmN5LgoKVGhlICoqR1BULTQuMSBzZXJpZXMq
+KiAoZ3B0LTQuMSwgZ3B0LTQuMS1taW5pLCBncHQtNC4xLW5hbm8pIGludHJv
+ZHVjZXMgYSBtYXNzaXZlICoqfjEgbWlsbGlvbiB0b2tlbiBjb250ZXh0IHdp
+bmRvdyoqIGFjcm9zcyBhbGwgdGllcnMsIGFsb25nIHdpdGggaW1wcm92ZWQg
+Y29kaW5nIGFuZCBpbnN0cnVjdGlvbiBmb2xsb3dpbmcuCiogICBVc2UgKipn
+cHQtNC4xKiogZm9yIHRoZSBtb3N0IGRlbWFuZGluZyB0YXNrcyByZXF1aXJp
+bmcgdGhlIGxhcmdlc3QgY29udGV4dC4KKiAgICoqZ3B0LTQuMS1taW5pKiog
+b2ZmZXJzIGEgYmFsYW5jZSBmb3IgbGFyZ2UtY29udGV4dCB0YXNrcyBhdCBh
+IGxvd2VyIGNvc3QuCiogICAqKmdwdC00LjEtbmFubyoqIGlzIHRoZSBtb3N0
+IGVjb25vbWljYWwgY2hvaWNlIGZvciBsZXZlcmFnaW5nIHRoZSBtaWxsaW9u
+LXRva2VuIGNvbnRleHQgd2luZG93LgoKRm9yIHVzZXJzIG9uIHRoZSBGcmVl
+IHBsYW4gb3IgdGhvc2UgcHJpb3JpdGl6aW5nIGNvc3QgYW5kIHNwZWVkIGZv
+ciBtb2RlcmF0ZWx5IGNvbXBsZXggdGFza3MsICoqZ3B0LTQuMS1taW5pKiog
+KDFNIGNvbnRleHQpIGFuZCAqKmdwdC00LjEtbmFubyoqICgxTSBjb250ZXh0
+KSBhcmUgdGhlIHJlY29tbWVuZGVkIGNob2ljZXMuCgpGb3IgaW1hZ2UgZ2Vu
+ZXJhdGlvbiBuZWVkcywgKipncHQtaW1hZ2UtMSoqIHByb3ZpZGVzIGhpZ2gt
+cXVhbGl0eSByZXN1bHRzIGFuZCBzdXBwb3J0cyBib3RoIHRleHQgYW5kIGlt
+YWdlIGlucHV0cy4gVGhlIG1vZGVsIG9mZmVycyBkaWZmZXJlbnQgcXVhbGl0
+eSB0aWVycyB0byBiYWxhbmNlIGNvc3QgYW5kIGRldGFpbCBiYXNlZCBvbiBz
+cGVjaWZpYyByZXF1aXJlbWVudHMuCgpCeSBjb21iaW5pbmcgdGhlc2UgbW9k
+ZWxzIGluIHdvcmtmbG93cywgeW91IGNhbiBsZXZlcmFnZSB0aGVpciBzcGVj
+aWZpYyBzdHJlbmd0aHMuIEZvciBleGFtcGxlLCB1c2UgYGdwdC00b2AgZm9y
+IGluaXRpYWwgcmVzZWFyY2ggd2l0aCB3ZWIgc2VhcmNoLCB0aGVuIHBhc3Mg
+dGhlIHJlc3VsdHMgdG8gYG8zYCBmb3IgZGVlcCBhbmFseXNpcywgb3IgdXNl
+IGBncHQtNC4xYCB0byBhbmFseXplIGV4dHJlbWVseSBsYXJnZSBkb2N1bWVu
+dHMuCgpGb3IgZGV0YWlsZWQgc3BlY2lmaWNhdGlvbnMgYW5kIHRoZSBmdWxs
+IHJhbmdlIG9mIG1vZGVscyBvZmZlcmVkIGRpcmVjdGx5IGJ5IE9wZW5BSSwg
+cGxlYXNlIGNoZWNrIHRoZSBbT2ZmaWNpYWwgT3BlbkFJIERvY3VtZW50YXRp
+b25dKGh0dHBzOi8vcGxhdGZvcm0ub3BlbmFpLmNvbS9kb2NzL21vZGVscyku
