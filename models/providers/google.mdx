@@ -7,9 +7,10 @@ description: 'Available Google AI Models Overview.'
 The following Gemini models are available in the Giselle workspace. Each model offers specific capabilities and features to match your use case requirements.
 
 | Models | Generate Text | Web Search | Reasoning | Input PDF | Input Image | Input Audio | Input Video | Context Window | Plan@Giselle |
-| ------------------------------ | ------------- | ---------- | --------- | --------- | ----------- | ----------- | ----------- | ------------------- | ------------- |
+| --------------------------------- | --------------| ------------ | ----------- | ----------- | ------------- | ------------ | ------------ | ----------------- | --------------- |
 | gemini-2.5-pro-preview-06-05 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens (2M soon) | Pro |
 | gemini-2.5-flash-preview-05-20 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Pro |
+| gemini-2.5-flash-lite-preview-06-17 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Free |
 | gemini-2.0-flash | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Free |
 | gemini-2.0-flash-lite | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Free |
 
@@ -21,6 +22,9 @@ A preview version of the next-generation comprehensive model, offering early acc
 ### gemini-2.5-flash-preview-05-20
 A preview version of the next-generation Flash model, optimized for speed *and* reasoning. It offers fast text generation, web search, reasoning capabilities, and supports various inputs (PDF, images, audio, video). With a 1 million token context window, it's ideal for tasks requiring quick responses combined with analytical depth and multimodal understanding. Requires a Pro plan.
 
+### gemini-2.5-flash-lite-preview-06-17
+A preview version of the next-generation Flash Lite model, `gemini-2.5-flash-lite-preview-06-17` is designed for maximum efficiency and the quickest possible responses. It supports text generation, web search, and multimodal inputs (PDF, image, audio, video) but does not include complex reasoning. With a 1M token context window, it's ideal for high-throughput tasks and applications where immediate feedback is paramount. Available on the Free plan.
+
 ### gemini-2.0-flash
 Optimized for speed, this model provides fast text generation and efficient web search functionality with support for PDF, image, audio, and video inputs, but lacks complex reasoning capabilities. With a context window of 1 million tokens, it's best suited for scenarios requiring quick, responsive interactions and moderate multimodal input handling. Available on the Free plan.
 
@@ -31,6 +35,7 @@ The most lightweight and speed-optimized Flash model, `gemini-2.0-flash-lite` is
 Guidelines for selecting the optimal model based on your needs and plan:
 
 **Free Plan Models:**
+* **For the latest extremely fast responses and efficiency (preview)**: `gemini-2.5-flash-lite-preview-06-17` (Newer maximum speed)
 * **For fast responses without complex reasoning**: `gemini-2.0-flash` (Speed priority)
 * **For extremely fast responses and efficiency**: `gemini-2.0-flash-lite` (Maximum speed)
 
@@ -41,7 +46,7 @@ Guidelines for selecting the optimal model based on your needs and plan:
 ## Practices for Giselle
 We recommend `gemini-2.5-pro-preview-06-05` (Pro plan) as your primary model in Giselle due to its proven power and stability for complex tasks. It is capable of processing large volumes of data, executing complex code reviews, and handling a wide variety of business tasks.
 
-For users prioritizing speed on the Free plan, `gemini-2.0-flash` and the even faster `gemini-2.0-flash-lite` are excellent options. Pro users seeking a balance of speed and reasoning might consider the `gemini-2.5-flash-preview-05-20`.
+For users prioritizing speed on the Free plan, the new `gemini-2.5-flash-lite-preview-06-17`, `gemini-2.0-flash` and `gemini-2.0-flash-lite` are excellent options. Pro users seeking a balance of speed and reasoning might consider the `gemini-2.5-flash-preview-05-20`.
 
 By enabling the **Search grounding** feature with these models (where applicable), you can access web search functionality, allowing you to supplement your workflows with the most current information available.
 
