@@ -13,12 +13,10 @@ The following table summarizes the key features of the OpenAI models available i
 |----------------|---------------|-----------------|------------|--------------|----------------|-------------------|--------------------------------------|--------------|
 | o4-mini        | ✅            | ✅              | ❌         | ✅ (High)    | 200k tokens    | 100k tokens       | $1.10 / $4.40                        | Pro          |
 | o3             | ✅            | ✅              | ❌         | ✅ (Highest) | 200k tokens    | 100k tokens       | $10.00 / $40.00                      | Pro          |
-| o3-mini        | ✅            | ❌              | ❌         | ✅ (High)    | 200k tokens    | 100k tokens       | $1.10 / $4.40                        | Pro          |
 | gpt-4.1        | ✅            | ✅              | ✅         | ❌           | 1M tokens      | 32k tokens        | $2.00 / $8.00                        | Pro          |
-| gpt-4.1-mini   | ✅            | ✅              | ✅         | ❌           | 1M tokens      | 32k tokens        | $0.40 / $1.60                        | Pro          |
+| gpt-4.1-mini   | ✅            | ✅              | ✅         | ❌           | 1M tokens      | 32k tokens        | $0.40 / $1.60                        | Free         |
 | gpt-4.1-nano   | ✅            | ✅              | ❌         | ❌           | 1M tokens      | 32k tokens        | $0.10 / $0.40                        | Free         |
 | gpt-4o         | ✅            | ✅              | ✅         | ❌           | 128k tokens    | 16k tokens        | $2.50 / $10.00                       | Pro          |
-| gpt-4o-mini    | ✅            | ✅              | ✅         | ❌           | 128k tokens    | 16k tokens        | $0.15 / $0.60                        | Pro          |
 | gpt-image-1    | ❌            | ✅              | ❌         | ❌           | Unknown        | N/A               | $5.00 / $40.00                       | Pro          |
 
 *Please note that some features listed (like specific API functionalities e.g., fine-tuning, batch processing, specific tool use like audio or transcription) may not be directly exposed or available within the Giselle interface even if supported by the underlying OpenAI model.*
@@ -41,14 +39,6 @@ OpenAI's most powerful reasoning model, setting a high standard for math, scienc
 *   **Max Output Tokens:** 100,000 tokens
 *   **Knowledge Cutoff:** June 1, 2024
 *   **Inputs:** Text, Image
-*   **Availability:** Pro Plan
-
-### o3-mini
-A smaller, efficient reasoning model providing high intelligence comparable to older models like o1-mini in terms of cost and latency. It supports key developer features like Structured Outputs and function calling. It's a text-only model focused on reasoning tasks requiring high token limits.
-*   **Context Window:** 200,000 tokens
-*   **Max Output Tokens:** 100,000 tokens
-*   **Knowledge Cutoff:** October 1, 2023
-*   **Inputs:** Text only
 *   **Availability:** Pro Plan
 
 ## Flagship Models
@@ -81,21 +71,13 @@ Provides a balance between intelligence, speed, and cost within the GPT-4.1 seri
 *   **Max Output Tokens:** 32,768 tokens
 *   **Knowledge Cutoff:** June 1, 2024
 *   **Inputs:** Text, Image
-*   **Availability:** Pro Plan
+*   **Availability:** Free Plan
 
 ### gpt-4.1-nano
 The fastest, most cost-effective GPT-4.1 model. It brings the ~1 million token context window and improved capabilities of the series to the most budget-sensitive tasks like classification, autocompletion, and information extraction. Supports text and image inputs.
 *   **Context Window:** 1,047,576 tokens
 *   **Max Output Tokens:** 32,768 tokens
 *   **Knowledge Cutoff:** June 1, 2024
-*   **Inputs:** Text, Image
-*   **Availability:** Pro Plan
-
-### gpt-4o-mini
-A fast, affordable small model ("o" for "omni") optimized for focused tasks. Supports both text and image inputs with structured outputs and function calling capabilities. It is ideal for tasks requiring moderate intelligence and rapid responses where cost is a primary consideration, within a 128k token context window.
-*   **Context Window:** 128,000 tokens
-*   **Max Output Tokens:** 16,384 tokens
-*   **Knowledge Cutoff:** October 1, 2023
 *   **Inputs:** Text, Image
 *   **Availability:** Free Plan
 
@@ -119,26 +101,24 @@ Guidelines for selecting the optimal OpenAI model within Giselle:
 
 *   **For balanced reasoning, speed, and cost (including images, 200k context)**: `o4-mini` (Pro)
 *   **For the most powerful reasoning and complex analysis (including images, 200k context)**: `o3` (Pro)
-*   **For text-based reasoning tasks requiring very high token limits (200k context)**: `o3-mini` (Pro)
 *   **For flagship performance on complex tasks with very large context (1M tokens)**: `gpt-4.1` (Pro)
-*   **For balanced performance with very large context (1M tokens) at lower cost**: `gpt-4.1-mini` (Pro)
-*   **For the most cost-effective option with very large context (1M tokens)**: `gpt-4.1-nano` (Pro)
+*   **For balanced performance with very large context (1M tokens) at lower cost**: `gpt-4.1-mini` (Free)
+*   **For the most cost-effective option with very large context (1M tokens)**: `gpt-4.1-nano` (Free)
 *   **For comprehensive, high-intelligence tasks with multimodal needs and web search (128k context)**: `gpt-4o` (Pro)
-*   **For cost-effective, focused tasks (including multimodal, 128k context)**: `gpt-4o-mini` (Free)
 *   **For high-quality image generation from text or image inputs**: `gpt-image-1` (Pro)
 
 ## Practices for Giselle
 
 We recommend **gpt-4.1** as a versatile primary model in Giselle for Pro users. It offers an excellent balance of capability, intelligence, and features (including web search via tool) across various tasks like business document creation, analysis, and research.
 
-For tasks demanding the absolute highest level of reasoning or handling very large contexts (up to 200k tokens), consider **o3** or **o4-mini**. **o3** is the top choice for depth and stability, while **o4-mini** provides strong reasoning with better cost-efficiency. **o3-mini** is a good text-only alternative for high-token reasoning tasks.
+For tasks demanding the absolute highest level of reasoning or handling very large contexts (up to 200k tokens), consider **o3** or **o4-mini**. **o3** is the top choice for depth and stability, while **o4-mini** provides strong reasoning with better cost-efficiency.
 
 The **GPT-4.1 series** (gpt-4.1, gpt-4.1-mini, gpt-4.1-nano) introduces a massive **~1 million token context window** across all tiers, along with improved coding and instruction following.
 *   Use **gpt-4.1** for the most demanding tasks requiring the largest context.
 *   **gpt-4.1-mini** offers a balance for large-context tasks at a lower cost.
 *   **gpt-4.1-nano** is the most economical choice for leveraging the million-token context window.
 
-For users on the Free plan or those prioritizing cost and speed for moderately complex tasks, **gpt-4o-mini** (128k context) and **gpt-4.1-nano** (1M context) are the recommended choices.
+For users on the Free plan or those prioritizing cost and speed for moderately complex tasks, **gpt-4.1-mini** (1M context) and **gpt-4.1-nano** (1M context) are the recommended choices.
 
 For image generation needs, **gpt-image-1** provides high-quality results and supports both text and image inputs. The model offers different quality tiers to balance cost and detail based on specific requirements.
 
