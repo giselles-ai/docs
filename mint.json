@@ -167,6 +167,7 @@
             "glossary/action-node",
             "glossary/webpage-node",
             "glossary/github-vector-store-node",
+            "glossary/query-node",
             "glossary/ai-parameters"
       ]
     },
