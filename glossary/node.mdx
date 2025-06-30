@@ -40,6 +40,21 @@ Trigger Node is the starting point for running the workflow built in the Giselle
 
 Action Node is a node that can call external services. Currently, it primarily supports integrations with GitHub, allowing workflows to perform actions within your repositories. We plan to expand its capabilities to enable interactions with a variety of other external services in the future.
 
+### GitHub Vector Store Node & Query Node
+
+Giselle supports advanced data retrieval and search capabilities through the **GitHub Vector Store Node** and the **Query Node**.
+
+- **GitHub Vector Store Node**: This specialized Source node allows you to vectorize the contents of a GitHub repository, creating a searchable knowledge base. It uses OpenAI's embedding models to convert your repository's code and documents into vector representations, enabling semantic search within your workflows. This is especially useful for building Retrieval-Augmented Generation (RAG) applications. For setup and details, see the [GitHub Vector Store Node documentation](github-vector-store-node).
+
+- **Query Node**: The Query Node is designed to execute search queries against connected data sources, such as the GitHub Vector Store Node. It retrieves the most relevant information (text chunks) from your vectorized repositories, which can then be used as dynamic context for AI generation or further processing. For more information, see the [Query Node documentation](query-node).
+
+**Typical Usage:**
+1. Add a GitHub Vector Store Node and configure it with your repository.
+2. Connect its output to a Query Node.
+3. Use the Query Node to search your repository's content and pass the results to other nodes, such as a Generator Node, for context-aware AI workflows.
+
+These nodes enable powerful, up-to-date, and context-rich AI applications by leveraging your own data sources within Giselle.
+
 ## Tips for using Node
 
 Here are some helpful tips to enhance your experience with nodes in Giselle.
