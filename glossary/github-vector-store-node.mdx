@@ -1,0 +1,48 @@
+---
+title: 'GitHub Vector Store Node'
+description: 'Learn how the GitHub Vector Store Node vectorizes your GitHub repositories, creating a searchable knowledge base for your AI workflows in Giselle.'
+---
+
+Learn how the GitHub Vector Store Node in Giselle vectorizes your GitHub repositories, creating a searchable knowledge base that can be queried within your AI workflows.
+
+## GitHub Vector Store Node in Giselle
+
+The **GitHub Vector Store Node** is a specialized "Source" node that creates a powerful, searchable database from the contents of a GitHub repository. It works by vectorizing the code and documents within the repository, allowing AI models to perform semantic searches and retrieve relevant context.
+
+This process uses OpenAI's powerful and efficient [`text-embedding-3-small`](https://platform.openai.com/docs/models/text-embedding-3-small) model to convert your repository's content into vector embeddings. These vectorized data are then stored securely in Giselle's dedicated Vector Store.
+
+To use this feature, the [Giselle GitHub App](https://github.com/apps/giselles-ai) must be installed on the target GitHub repository.
+
+### Setting up a GitHub Vector Store Node:
+
+1.  **Add the Node**:
+    *   From the toolbar at the bottom of the canvas, click the **Source** icon (a folder with a link symbol).
+    *   Select **GitHub Vector Store** from the pop-up menu to add the node to your workspace.
+
+2.  **Configure the Repository**:
+    *   When first added, the node will display a "REQUIRES SETUP" status.
+    *   Select the node to open its configuration panel on the right.
+    *   Click the **Select a repository** dropdown menu. This list will only show repositories that have the Giselle GitHub App installed.
+
+3.  **Finalize Setup**:
+    *   Choose the repository you want to use as a knowledge source (e.g., `giselles-ai/docs`).
+    *   Once selected, the node on the canvas will update to show the name of the configured repository. The vectorization process for this repository will be initiated or updated in the background.
+
+### Managing Your Vector Stores
+
+You can add or remove the GitHub repositories that are processed by the GitHub Vector Store Node from your team's settings page.
+
+*   Navigate to **Settings > Team > Vector Stores** in your Giselle account.
+*   Alternatively, you can click the **Set Up GitHub Vector Store** link directly from the node's configuration panel.
+*   This page allows you to manage which repositories are indexed and available for your workflows. You can access it here: [https://studio.giselles.ai/settings/team/vector-stores](https://studio.giselles.ai/settings/team/vector-stores).
+
+### Usage in Workflows
+
+The GitHub Vector Store Node is designed to be used in combination with a **Query Node**. It acts as the knowledge base that the Query Node searches through.
+
+*   **Connect the Output**: The "Output" of the GitHub Vector Store Node should be connected to the input of a Query Node.
+*   **Perform a Search**: The Query Node can then take a user's question or a dynamic input, search the vectorized repository content for the most relevant information, and pass that information to subsequent nodes (like a Generator Node) for processing, analysis, or summarization.
+
+### Output of the Node
+
+The GitHub Vector Store Node's **output** is a reference to the vectorized data of the selected repository. This output provides the necessary connection for other nodes, like the Query Node, to access and search the repository's content.

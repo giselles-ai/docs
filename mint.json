@@ -166,6 +166,7 @@
             "glossary/trigger-node",
             "glossary/action-node",
             "glossary/webpage-node",
+            "glossary/github-vector-store-node",
             "glossary/ai-parameters"
       ]
     },
