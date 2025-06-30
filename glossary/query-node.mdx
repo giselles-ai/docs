@@ -1,0 +1,68 @@
+---
+title: Query Node
+description: Learn how the Query Node in Giselle executes queries against data sources like the GitHub Vector Store to enable Retrieval-Augmented Generation (RAG).
+---
+
+import { Frame } from 'mintlify';
+
+## Query Node in Giselle
+
+The **Query Node** is a powerful component in Giselle designed to search and retrieve information from connected data sources. Its primary function is to execute a query (such as a question or a search term) against a dataset and return the most relevant results.
+
+Currently, the Query Node is optimized to work with the **GitHub Vector Store Node**, making it a crucial building block for creating Retrieval-Augmented Generation (RAG) applications directly within your Giselle workflows.
+
+<Frame>
+  <img src="https://gist.github.com/assets/3842080/15011119-301b-411c-911c-111111111111" />
+</Frame>
+
+### How to Use the Query Node
+
+Setting up a Query Node involves adding it to your canvas, connecting a data source, and running a query.
+
+#### 1. Add a Query Node
+
+From the node toolbar at the bottom of the canvas, select the **Query Node**, which is identifiable by its magnifying glass icon, and place it in your workspace.
+
+#### 2. Connect a Data Source
+
+The Query Node requires an input from a data source to function. You must connect the `Output` of a data source node (like the GitHub Vector Store Node) to the `Input` of the Query Node. Until a data source is connected, the node will indicate that it is waiting for a connection.
+
+<Frame>
+  <img src="https://gist.github.com/assets/3842080/15011119-301b-411c-911c-222222222222" />
+</Frame>
+
+#### 3. Write and Run a Query
+
+Once a data source is connected, you can configure the Query Node:
+*   **Enter a Query**: In the configuration panel, type your question or search term into the "Query" input field.
+*   **Run the Query**: Click the **Run Query** button to execute the search against the connected data source.
+
+#### 4. Review the Results
+
+After the query runs, the results will be displayed directly in the node's panel. The results typically include:
+*   A summary of the number of results found.
+*   A list of relevant "chunks" of text retrieved from the source documents.
+*   A similarity score (e.g., 58%) for each chunk, indicating its relevance to your query.
+
+You can expand each chunk to view its content and metadata.
+
+<Frame>
+  <img src="https://gist.github.com/assets/3842080/15011119-301b-411c-911c-333333333333" />
+</Frame>
+
+### Core Use Case: Retrieval-Augmented Generation (RAG)
+
+The primary purpose of the Query Node is to enable **Retrieval-Augmented Generation (RAG)** workflows. RAG enhances the capabilities of Large Language Models (LLMs) by providing them with relevant, up-to-date information from your own data sources before they generate a response.
+
+A typical RAG workflow in Giselle looks like this:
+1.  **Data Source (GitHub Vector Store Node)**: Ingests and vectorizes your documentation from a GitHub repository, making it searchable.
+2.  **Query Node**: Takes a user's question (the query) and retrieves the most relevant text chunks from the vector store.
+3.  **Generator Node**: Receives the original question *and* the retrieved information from the Query Node's output. It uses this combined context to generate a more accurate, detailed, and factually grounded answer.
+
+### Output of the Query Node
+
+The `Result` output of the Query Node contains the collection of retrieved data chunks. This structured data can be passed to subsequent nodes—most commonly a **Generator Node**—to serve as dynamic context for text generation.
+
+<Note>
+For more information on how to set up a data source for querying, see our documentation on the [GitHub Vector Store Node](glossary/github-vector-store-node).
+</Note>
