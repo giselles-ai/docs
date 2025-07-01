@@ -36,6 +36,12 @@ You can add or remove the GitHub repositories that are processed by the GitHub V
 *   Alternatively, you can click the **Set Up GitHub Vector Store** link directly from the node's configuration panel.
 *   This page allows you to manage which repositories are indexed and available for your workflows. You can access it here: [https://studio.giselles.ai/settings/team/vector-stores](https://studio.giselles.ai/settings/team/vector-stores).
 
+
+### Rate Limits and Considerations
+When using the GitHub Vector Store Node, please be aware of GitHub API rate limits. Giselle's GitHub Vector Store uses [GitHub App Installation](https://docs.github.com/ja/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28#primary-rate-limit-for-github-app-installations) for GitHub API access, which has a rate limit of approximately 5,000 requests per hour. You may encounter errors when working with large-scale projects. If this occurs, please wait some time before trying again.
+
+For large repositories or frequent updates, you may experience rate limiting during the vectorization process. If you encounter errors, simply wait and retry after the rate limit window resets.
+
 ### Usage in Workflows
 
 The GitHub Vector Store Node is designed to be used in combination with a **Query Node**. It acts as the knowledge base that the Query Node searches through.
