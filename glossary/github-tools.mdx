@@ -1,0 +1,128 @@
+# GitHub Tools
+
+Learn how to configure and use GitHub Tools within a Generator Node, empowering your AI models to interact directly with your GitHub repositories.
+
+**GitHub Tools** enable AI models inside a Generator Node to perform a wide range of actions on GitHub by giving them access to a curated set of functions. This feature, often referred to as "tool use" or "function calling," allows you to build powerful AI agents that can automate development workflows, such as creating issues, managing pull requests, searching for code, and more, all based on natural language instructions in your prompt.
+
+## Configuring GitHub Tools
+
+Follow these steps to connect your GitHub account and enable specific tools for a Generator Node.
+
+### 1. Navigate to the Tools Tab
+
+In any Generator Node (e.g., `gemini-2.5-pro`), select the **Tools** tab. You will see a list of available integrations that can be connected.
+
+<Frame>
+  <img src="https://mintlify.s3-us-west-1.amazonaws.com/giselle/images/github-tools/tools-tab.png" />
+</Frame>
+
+### 2. Connect to GitHub
+
+Click the **+ Connect** button next to the GitHub integration. This will open a configuration modal to add your credentials.
+
+### 3. Add Your Personal Access Token (PAT)
+
+To authenticate with GitHub, you need to provide a Personal Access Token (PAT).
+
+<Info>
+  You can create a new PAT from your GitHub account settings: [https://github.com/settings/personal-access-tokens](https://github.com/settings/personal-access-tokens). Ensure your token has the necessary permissions (scopes) for the actions you want to perform.
+</Info>
+
+In the "Connect to GitHub" window:
+
+1.  **Token Name**: Give your token a descriptive name for easy identification later (e.g., "Prod-bot" or "Create Pull Request – giselles-ai/docs").
+2.  **Personal Access Token (PAT)**: Paste your token into this field. Giselle encrypts the token with authenticated encryption before saving it.
+3.  Click **Save & Connect**.
+
+<Frame>
+  <img src="https://mintlify.s3-us-west-1.amazonaws.com/giselle/images/github-tools/connect-pat.png" />
+</Frame>
+
+### 4. Select the Tools to Enable
+
+After your token is validated, you'll be presented with a list of available GitHub tools, grouped by category. For security and control, you must explicitly select which actions the AI model is allowed to perform.
+
+Check the boxes next to the tools you want to enable for this node (e.g., `createIssue`, `getPullRequest`, `createOrUpdateFile`).
+
+<Frame>
+  <img src="https://mintlify.s3-us-west-1.amazonaws.com/giselle/images/github-tools/configure-tools.png" />
+</Frame>
+
+### 5. Save the Configuration
+
+Once you've selected the desired tools, click **Save & Connect** at the bottom of the modal. The Generator Node will now show that GitHub is connected, displaying the enabled tools and a **Configuration** button to make future changes.
+
+<Frame>
+  <img src="https://mintlify.s3-us-west-1.amazonaws.com/giselle/images/github-tools/configured-state.png" />
+</Frame>
+
+## Available GitHub Tools
+
+The following is a list of tools you can enable for your AI model, categorized as they appear in the configuration screen.
+
+### Repository
+
+*   `createRepository`
+*   `forkRepository`
+*   `getFileContents`
+*   `listBranches`
+
+### Issues
+
+*   `createIssue`
+*   `getIssue`
+*   `listIssues`
+*   `updateIssue`
+*   `addIssueComment`
+*   `getIssueComments`
+
+### Pull Requests
+
+*   `createPullRequest`
+*   `getPullRequest`
+*   `updatePullRequest`
+*   `listPullRequests`
+*   `getPullRequestComments`
+*   `getPullRequestFiles`
+*   `getPullRequestReviews`
+*   `getPullRequestStatus`
+*   `createPullRequestReview`
+*   `addPullRequestReviewComment`
+*   `mergePullRequest`
+*   `updatePullRequestBranch`
+
+### Code Management
+
+*   `createBranch`
+*   `createOrUpdateFile`
+*   `getCommit`
+*   `listCommits`
+*   `listCodeScanningAlerts`
+*   `getCodeScanningAlert`
+
+### Search
+
+*   `searchCode`
+*   `searchIssues`
+*   `searchPullRequests`
+*   `searchRepositories`
+*   `searchUsers`
+
+## How to Use GitHub Tools
+
+Once configured, you can instruct the AI model to use the enabled tools directly in your prompt. The model will understand your request and call the appropriate function with the necessary parameters to complete the task.
+
+### Example Prompt
+
+Imagine you have enabled the `getFileContents` and `createIssue` tools for a node.
+
+```plaintext
+Please read the content of the 'CONTRIBUTING.md' file from the 'giselles-ai/giselle' repository. After reading it, create a new issue in the same repository. The issue title should be "Review Contribution Guidelines" and the body should be a one-paragraph summary of the file's content.
+```
+
+When this prompt is run, the AI will:
+
+1.  Call the `getFileContents` tool to retrieve the content of `CONTRIBUTING.md`.
+2.  Process the content to create a summary.
+3.  Call the `createIssue` tool with the specified title and the generated summary as the body.
+```
