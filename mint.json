@@ -163,6 +163,7 @@
       "group": "Explore the Glossary",
       "pages": [
             "glossary/node",
+            "glossary/generator-node",
             "glossary/trigger-node",
             "glossary/action-node",
             "glossary/webpage-node",
