@@ -1,0 +1,127 @@
+---
+title: GitHub Tools
+description: "Learn how to configure and use GitHub Tools within a Generator Node, empowering your AI models to interact directly with your GitHub repositories."
+---
+
+**GitHub Tools** enable AI models inside a Generator Node to perform a wide range of actions on GitHub by giving them access to a curated set of functions. This feature, often referred to as "tool use" or "function calling," allows you to build powerful AI agents that can automate development workflows, such as creating issues, managing pull requests, searching for code, and more, all based on natural language instructions in your prompt.
+
+## Configuring GitHub Tools
+
+Follow these steps to connect your GitHub account and enable specific tools for a Generator Node.
+
+### 1. Navigate to the Tools Tab
+
+In any Generator Node (e.g., `gemini-2.5-pro`), select the **Tools** tab. You will see a list of available integrations that can be connected.
+
+### 2. Connect to GitHub
+
+Click the **+ Connect** button next to the GitHub integration. This will open a configuration modal to add your credentials.
+
+### 3. Add Your Personal Access Token (PAT)
+
+To authenticate with GitHub, you need to provide a Personal Access Token (PAT).
+
+<Info>
+  You can create a new PAT from your GitHub account settings: [https://github.com/settings/personal-access-tokens](https://github.com/settings/personal-access-tokens). Ensure your token has the necessary permissions (scopes) for the actions you want to perform.
+</Info>
+
+In the "Connect to GitHub" window:
+
+1.  **Token Name**: Give your token a descriptive name for easy identification later (e.g., "Create Issue" or "Update Docs").
+2.  **Personal Access Token (PAT)**: Paste your token into this field. Giselle encrypts the token with authenticated encryption before saving it.
+3.  Click **Save & Connect**.
+
+### 4. Select the Tools to Enable
+
+After your token is validated, you'll be presented with a list of available GitHub tools, grouped by category. For security and control, you must explicitly select which actions the AI model is allowed to perform.
+
+Check the boxes next to the tools you want to enable for this node (e.g., `createIssue`, `getPullRequest`, `createOrUpdateFile`).
+
+### 5. Save the Configuration
+
+Once you've selected the desired tools, click **Save & Connect** at the bottom of the modal. The Generator Node will now show that GitHub is connected, displaying the enabled tools and a **Configuration** button to make future changes.
+
+## Available GitHub Tools
+
+The following is a list of tools you can enable for your AI model, categorized as they appear in the configuration screen.
+
+### Repository
+
+*   `createRepository`
+*   `forkRepository`
+*   `getFileContents`
+*   `listBranches`
+
+### Issues
+
+*   `createIssue`
+*   `getIssue`
+*   `listIssues`
+*   `updateIssue`
+*   `addIssueComment`
+*   `getIssueComments`
+
+### Pull Requests
+
+*   `createPullRequest`
+*   `getPullRequest`
+*   `updatePullRequest`
+*   `listPullRequests`
+*   `getPullRequestComments`
+*   `getPullRequestFiles`
+*   `getPullRequestReviews`
+*   `getPullRequestStatus`
+*   `createPullRequestReview`
+*   `addPullRequestReviewComment`
+*   `mergePullRequest`
+*   `updatePullRequestBranch`
+
+### Code Management
+
+*   `createBranch`
+*   `createOrUpdateFile`
+*   `getCommit`
+*   `listCommits`
+*   `listCodeScanningAlerts`
+*   `getCodeScanningAlert`
+
+### Search
+
+*   `searchCode`
+*   `searchIssues`
+*   `searchPullRequests`
+*   `searchRepositories`
+*   `searchUsers`
+
+## How to Use GitHub Tools
+
+Once configured, you can instruct the AI model to use the enabled tools directly in your prompt. The model will understand your request and call the appropriate function with the necessary parameters to complete the task.
+
+### Example Prompt: Create a pull request to add a new documentation page
+
+Imagine you have enabled the `getFileContents`, `createPullRequest`, `createBranch` and `createOrUpdateFile` tools for a node.
+
+```markdown
+Please complete the last step without checking with me.
+
+Creating the pull request, please follow these steps:
+
+1. Create a new branch in your GitHub repository https://github.com/giselles-ai/docs
+  - Use GitHub tool createBranch
+  - fromBranch: main
+  - newBranchName: prefix giselle/create-docs-xxx
+
+2. Please create a new file based on the contents of followings
+  - Use GitHub tool createOrUpdateFile
+  - Contents: @generate-contents-node-output
+  - Latest SHA: @getSHA-node-output
+
+3. Create pull request to https://github.com/giselles-ai/docs
+  - Use GitHub tool createPullRequest
+```
+
+When this prompt is run, the Giselle will:
+
+1.  Create a new branch in your GitHub repository.
+2.  Create a new file based on the contents.
+3.  Create pull request.
