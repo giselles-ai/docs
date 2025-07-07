@@ -29,7 +29,7 @@ To authenticate with your PostgreSQL database, you need to provide a connection 
 
 In the "Connect to PostgreSQL" window:
 
-1.  **Connection Name**: Give your connection a short, descriptive name for easy identification (e.g., "giselle-db-preview", "Prod-DB"). You'll use this to link other nodes.
+1.  **Connection Name**: Give your connection a short, descriptive name for easy identification (e.g., "giselle-db-preview"). You'll use this to link other nodes.
 2.  **Connection String**: Paste your full PostgreSQL connection string into this field. Giselle encrypts the connection string with authenticated encryption before saving it.
 3.  Click **Save & Connect**.
 
@@ -66,15 +66,7 @@ Once configured, you can instruct the AI model to use the enabled tools directly
 Imagine you have enabled the `getTableStructure` and `query` tools for a node.
 
 ```markdown
-Role: Data Analyst
-
-Task:
-Please find out the total number of registered users from the database.
-
-Instructions:
-1. First, use the `getTableStructure` tool to inspect the database and identify the table that contains user information.
-2. Once you have identified the correct table, write and execute a SQL query using the `query` tool to count the total number of rows in that table.
-3. Finally, report the total count of users in your response.
+Please find out the total number of users from the database.
 ```
 
 When this prompt is run, the Giselle AI agent will:
@@ -83,5 +75,4 @@ When this prompt is run, the Giselle AI agent will:
 2.  Identify the relevant table (e.g., `users`).
 3.  Formulate a SQL query like `SELECT COUNT(*) FROM users;`.
 4.  Execute the query using the `query` tool.
-5.  Return a final answer based on the query result, such as: "The total number of registered users is 1,452."
-```
+5.  Return a final answer based on the query result, such as: "The total number of users is 1,234."
