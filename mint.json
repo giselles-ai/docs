@@ -170,7 +170,8 @@
             "glossary/github-vector-store-node",
             "glossary/query-node",
             "glossary/ai-parameters",
-            "glossary/github-tools"
+            "glossary/github-tools",
+            "glossary/postgresql-tools"
       ]
     },
     {
