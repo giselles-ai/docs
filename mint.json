@@ -169,6 +169,7 @@
             "glossary/webpage-node",
             "glossary/github-vector-store-node",
             "glossary/query-node",
+            "glossary/file-node",
             "glossary/ai-parameters",
             "glossary/github-tools",
             "glossary/postgresql-tools"
