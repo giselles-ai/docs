@@ -1,0 +1,45 @@
+# File Node
+
+Learn how the File Node in Giselle allows you to upload and use files like PDFs, images, and text as inputs for your AI workflows.
+
+## File Node in Giselle
+
+The **File Node** is a specialized type of "Variable Node" that allows you to handle file uploads and processing directly within your Giselle workflows. It acts as an input source, enabling you to incorporate documents, images, and text files for AI models to analyze, summarize, or transform.
+
+### How to Use a File Node
+
+1.  **Add the Node**: Drag and drop a "File" node from the toolbar at the bottom of the canvas onto your workspace.
+2.  **Upload a File**: Select the node to open its configuration panel. You can upload a file by dragging and dropping it onto the designated area or by clicking to open a file selector.
+3.  **Monitor Status**: The node will display the status of the upload. Files can be in one of three states: "uploading," "uploaded," or "failed." Once successfully uploaded, the file is securely stored in your workspace and ready to be used in your workflow.
+
+### Supported File Types
+
+The File Node supports several types of files, each with specific use cases and limitations.
+
+| File Type | Accepted Formats                  | Max Size | Common Use Cases                               |
+| :-------- | :-------------------------------- | :------- | :--------------------------------------------- |
+| **PDF**   | `application/pdf`                 | 4.5MB    | Document processing, text extraction, analysis |
+| **Image** | `image/png`, `image/jpeg`, `image/gif`, `image/svg` | 1MB      | Visual content analysis and generation         |
+| **Text**  | `text/plain`, `text/markdown`     | 4.5MB    | Text content processing and generation         |
+
+### Workflow Integration
+
+The primary purpose of a File Node is to provide data to other nodes, most commonly a [Generator Node](/glossary/generator-node).
+
+*   **Connect the Output**: The "Output" of a File Node can be connected to the input of a Generator Node.
+*   **Process the Content**: In the Generator Node, you can then prompt an AI model to perform a task on the file's content. For example, you can connect a PDF file and instruct the AI to "Summarize the key findings from the attached document."
+
+#### Model Compatibility
+
+The type of file you can connect depends on the capabilities of the target AI model. For example:
+
+*   **PDF and Text files** can be connected to text-based or multimodal models (like Claude or GPT-4o) for tasks like analysis, summarization, or Q&A.
+*   **Image files** can be connected to multimodal models that accept image inputs (like `gpt-4o` or `gemini-2.5-pro`) for analysis, or to image generation models for transformation tasks.
+
+### Technical Limitations
+
+Please be aware of the following limitations when using File Nodes:
+
+*   **Maximum File Size**: Due to platform constraints (Vercel Serverless Function limits), the maximum size for any single file upload is **4.5MB**.
+*   **Image Size Limit**: Image files have a stricter maximum size of **1MB**.
+*   **Connection Restrictions**: You cannot connect a file to a node that does not support its type. For instance, a PDF file cannot be connected to a node that only generates images, and an image file may not be compatible with older text-only generation models.
