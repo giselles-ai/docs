@@ -1,0 +1,54 @@
+---
+title: File Node
+description: Learn how the File Node in Giselle allows you to upload and use files as inputs for your AI models, enabling data-driven workflows.
+---
+
+## File Node in Giselle
+
+The **File Node** is a fundamental component in Giselle used to handle file data. It allows you to upload files directly into your workspace, making their content available as input for AI models and other nodes. This is essential for a wide range of tasks that rely on file-based data, such as document summarization, data analysis, and report generation.
+
+### Setting up a File Node:
+
+1.  **Add the Node**:
+    *   From the toolbar at the bottom of the canvas, drag and drop a **File Node** into your workspace.
+
+2.  **Upload a File**:
+    *   Select the File Node to open its configuration panel on the right.
+    *   Click the **Upload File** button. This will open your system's file browser.
+    *   Select the file you wish to use in your workflow.
+
+3.  **Finalize Setup**:
+    *   Once the file is successfully uploaded, the node on the canvas will update to display the name of the file (e.g., `research-notes.txt`).
+    *   The configuration panel will also show details about the uploaded file.
+
+### Output of the File Node:
+
+The primary **output** of a File Node is the content of the uploaded file. This output can be connected to the input of other nodes, allowing you to process the file's data within your flow.
+
+For example, the text content from a `.txt` file can be fed into a **Generator Node** to be summarized, translated, or analyzed.
+
+### Example: Summarizing a Document
+
+1.  **Configure File Node**:
+    *   Add a File Node and upload a text document (e.g., `meeting-transcript.txt`).
+
+2.  **Connect to Generator Node**:
+    *   Add a Generator Node.
+    *   Connect the "Output" of the File Node to the input of the Generator Node.
+
+3.  **Configure Generator Node**:
+    *   In the Generator Node's prompt, instruct the AI to summarize the input text. For example: "Please provide a concise summary of the following document:"
+
+4.  **Run Workflow**:
+    *   When the workflow runs, the File Node provides the document's content, and the Generator Node produces a summary based on that content.
+
+### Supported Formats and Future Plans
+
+Currently, the File Node is optimized for handling text-based files (e.g., `.txt`, `.md`).
+
+As mentioned in our [Nodes overview](https://docs.giselles.ai/glossary/node), we are actively working to expand the capabilities of the File Node. Future updates will include support for a wider range of file formats, such as:
+
+*   **Tabular Files**: CSV, Excel, etc.
+*   **Audio Files**
+
+This will enable even more powerful and diverse data-driven workflows in Giselle.
