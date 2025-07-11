@@ -166,6 +166,7 @@
             "glossary/generator-node",
             "glossary/trigger-node",
             "glossary/action-node",
+            "glossary/text-node",
             "glossary/webpage-node",
             "glossary/github-vector-store-node",
             "glossary/query-node",
