@@ -45,53 +45,56 @@ Once you've selected the desired tools, click **Save & Connect** at the bottom o
 
 The following is a list of tools you can enable for your AI model, categorized as they appear in the configuration screen.
 
+**Note**: GitHub tools conform to the definitions at https://github.com/github/github-mcp-server
+
+
 ### Repository
 
-*   `createRepository`
-*   `forkRepository`
-*   `getFileContents`
-*   `listBranches`
+*   `createRepository`: Creates a new GitHub repository with options for name, description, privacy settings (public/private), and auto-initialization with README
+*   `forkRepository`: Creates a fork of an existing repository to your account or a specified organization
+*   `getFileContents`: Retrieves file or directory contents from a repository
+*   `listBranches`: Lists all branches in a repository with pagination support
 
 ### Issues
 
-*   `createIssue`
-*   `getIssue`
-*   `listIssues`
-*   `updateIssue`
-*   `addIssueComment`
-*   `getIssueComments`
+*   `createIssue`: Opens a new issue with required title and optional body, assignees, labels, and milestone number
+*   `getIssue`: Retrieves detailed information about a specific issue by its number
+*   `listIssues`: Lists repository issues with filters for state, labels, date, sort order, and direction with pagination
+*   `updateIssue`: Lists repository issues with filters for state, labels, date (since), sort order, and direction with pagination
+*   `addIssueComment`: Adds a comment to an existing issue with required body content
+*   `getIssueComments`: Retrieves all comments on a specific issue with pagination support
 
 ### Pull Requests
 
-*   `createPullRequest`
-*   `getPullRequest`
-*   `updatePullRequest`
-*   `listPullRequests`
-*   `getPullRequestComments`
-*   `getPullRequestFiles`
-*   `getPullRequestReviews`
-*   `getPullRequestStatus`
-*   `createPullRequestReview`
-*   `addPullRequestReviewComment`
-*   `mergePullRequest`
-*   `updatePullRequestBranch`
+*   `createPullRequest`: Opens a new PR from head branch to base branch with title, optional body, draft status
+*   `getPullRequest`: Fetches detailed information about a specific pull request by number
+*   `updatePullRequest`: Edits PR properties including title, body, base branch, state, and maintainer permissions
+*   `listPullRequests`: Lists PRs with filters for state, base/head branches, sort order, and direction with pagination
+*   `getPullRequestComments`: Retrieves review comments on a pull request
+*   `getPullRequestFiles`: Lists all files changed in a pull request with pagination
+*   `getPullRequestReviews`: Gets all reviews submitted for a PR
+*   `getPullRequestStatus`: Checks CI/CD status checks for a pull request
+*   `createPullRequestReview`: Creates a pending review that can be submitted later
+*   `addPullRequestReviewComment`: Adds inline comments to specific lines/files during review with support for multi-line comments
+*   `mergePullRequest`: Merges a PR with options for merge method, commit title, and commit message
+*   `updatePullRequestBranch`: Updates PR branch with latest changes from base branch
 
 ### Code Management
 
-*   `createBranch`
-*   `createOrUpdateFile`
-*   `getCommit`
-*   `listCommits`
-*   `listCodeScanningAlerts`
-*   `getCodeScanningAlert`
+*   `createBranch`: Creates a new branch from an existing branch or repository's default branch
+*   `createOrUpdateFile`: Creates new files or updates existing ones with content, commit message, and branch. Requires SHA for updates
+*   `getCommit`: Retrieves detailed information about a specific commit by SHA, branch name, or tag name
+*   `listCommits`: Lists commit history with optional filtering by author and SHA/branch/tag reference
+*   `listCodeScanningAlerts`: Lists security vulnerabilities found by code scanning with filters for severity, state, and tool
+*   `getCodeScanningAlert`: Gets details about a specific code scanning alert by number
 
 ### Search
 
-*   `searchCode`
-*   `searchIssues`
-*   `searchPullRequests`
-*   `searchRepositories`
-*   `searchUsers`
+*   `searchCode`: Searches for code using GitHub's code search syntax
+*   `searchIssues`: Searches issues and pull requests using GitHub search syntax, can be scoped to specific owner/repo
+*   `searchPullRequests`: Specifically searches pull requests with advanced filtering and GitHub search syntax
+*   `searchRepositories`: Finds repositories matching search query with pagination support
+*   `searchUsers`: Searches for GitHub users using search syntax
 
 ## How to Use GitHub Tools
 
