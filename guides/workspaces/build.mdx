@@ -1,6 +1,66 @@
 ---
-title: 'Build'
-description: 'Learn how to build and configure workspaces in Giselle'
+title: 'Build and Configure Your App'
+description: 'Learn how to use the Giselle workspace to build, configure, and run your AI applications using our visual node-based editor.'
 ---
 
-TBD
+The Giselle workspace is your visual canvas for building powerful AI applications. By connecting different "nodes," you can design complex workflows that automate tasks, generate content, and interact with external services. This guide will walk you through the key components of the workspace and the core actions for building your app.
+
+For a hands-on tutorial that walks you through these steps, see our [Quickstart guide](/guides/get-started/quickstart).
+
+## The Workspace Interface
+
+When you create a new app, you'll be taken to the workspace. It's composed of several key areas:
+
+*   **The Canvas**: This is the main central area where you'll visually arrange and connect your nodes to build the logic of your app.
+*   **The Node Toolbar**: Located at the bottom of the screen, this toolbar contains all the available nodes you can add to your canvas, such as `Generator`, `Trigger`, and `Action` nodes.
+*   **The Configuration Panel**: When you select a node on the canvas, this panel appears on the right. It allows you to configure the specific settings for that node, like writing a prompt, selecting a model, or setting up an integration.
+*   **The Top Bar**: At the top of the workspace, you can name your app, save your progress, and run the entire workflow using the **Run** button.
+
+## Building Your Workflow: A Step-by-Step Guide
+
+Building an app in Giselle involves a few fundamental steps.
+
+### 1. Adding Nodes to the Canvas
+
+Your workflow starts by adding nodes.
+
+1.  Click on a node category (e.g., `Generator`, `Source`, `Trigger`) in the bottom toolbar.
+2.  Select the specific node you want to add from the pop-up menu.
+3.  The node will appear on your canvas, ready to be configured and connected.
+
+### 2. Configuring Nodes
+
+Each node needs to be configured to perform its task.
+
+1.  Click on a node on the canvas to select it.
+2.  The configuration panel will open on the right side of the screen.
+3.  Fill in the required fields. For example:
+    *   In a **[Generator Node](/glossary/generator-node)**, you'll write your prompt and select an AI model.
+    *   In a **[GitHub Trigger Node](/glossary/trigger-node)**, you'll select a repository and the event that should trigger the workflow.
+    *   In a **[Web Page Node](/glossary/webpage-node)**, you'll enter the URLs you want to fetch.
+4.  Save your configuration using the button at the bottom of the panel.
+
+### 3. Connecting Nodes
+
+The power of Giselle comes from connecting nodes to pass data between them.
+
+*   Nodes have **input** and **output** ports, represented by small circles on their sides.
+*   To create a connection, click and drag from an output port of one node to an input port of another.
+*   This creates a data flow. For example, you can connect the `Result` output of a **[Query Node](/glossary/query-node)** to the prompt input of a **Generator Node** to provide it with context for its generation.
+
+### 4. Running and Testing Your App
+
+Giselle provides two ways to test your work:
+
+*   **Test a Single Node**: Many nodes, like the **Generator Node**, have a "Generate" or "Run" button within their configuration panel. This allows you to test that specific node's functionality in isolation without running the entire app. This is useful for quickly iterating on prompts or settings.
+*   **Run the Entire App**: To execute the full workflow from start to finish, click the **Run** button in the top-right corner of the workspace. If your app starts with a **[Manual Trigger Node](/glossary/trigger-node)** that requires parameters, a form will pop up for you to enter them before the run begins.
+
+### 5. Managing Your Workspace
+
+As your app grows, you can keep your canvas organized:
+
+*   **Move Nodes**: Click and drag nodes to arrange them logically.
+*   **Duplicate Nodes**: Right-click a node and select "Duplicate Node" (or use `Cmd/Ctrl + D`) to quickly copy it. This is helpful for reusing complex configurations.
+*   **Delete Nodes**: Select a node and press the `Delete` or `Backspace` key, or right-click and select "Delete Node".
+
+By mastering these core actions, you can combine Giselle's various [nodes](/glossary/node) to build sophisticated AI applications tailored to your specific needs.
