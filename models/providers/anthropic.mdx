@@ -3,16 +3,16 @@ title: Anthropic
 description: 'Available Anthropic AI Models Overview.'
 ---
 
-## Claude Models
+### Claude Models
 
 The following Claude models are available in the Anthropic workspace. Each model offers specific capabilities and features tailored to match your use case requirements. The "Reasoning" (Extended Thinking) capability is supported in Giselle for applicable models.
 
-| Models                      | Generate Text | Reasoning | Input PDF | Input Image | Context Window | Max Output                         | Plan@Giselle |
-|-----------------------------|---------------|-----------|-----------|-------------|----------------|------------------------------------|----------------|
-| claude-4-opus-20250514      | ✅            | ✅         | ✅         | ✅           | 200k tokens    | 32k tokens                         | Pro            |
-| claude-4-sonnet-20250514    | ✅            | ✅         | ✅         | ✅           | 200k tokens    | 64k tokens                         | Pro            |
-| claude-3-7-sonnet-20250219  | ✅            | ✅         | ✅         | ✅           | 200k tokens    | 64k tokens                         | Pro            |
-| claude-3-5-haiku-20241022   | ✅            | ❌         | ✅         | ✅           | 200k tokens    | 8192 tokens                        | Free           |
+| Models | Generate Text | Reasoning | Input PDF | Input Image | Context Window | Max Output | Plan@Giselle |
+|---------------------------------|---------------|-----------|-----------|-------------|----------------|------------------------------------------|---------------|
+| claude-4-opus-20250514 | ✅ | ✅ | ✅ | ✅ | 200k tokens | 32k tokens | Pro |
+| claude-4-sonnet-20250514 | ✅ | ✅ | ✅ | ✅ | 200k tokens | 64k tokens | Pro |
+| claude-3-7-sonnet-20250219 | ✅ | ✅ | ✅ | ✅ | 200k tokens | 64k tokens | Pro |
+| claude-3-5-haiku-20241022 | ✅ | ❌ | ✅ | ✅ | 200k tokens | 8192 tokens | Free |
 
 Please note that some features may not be available within Giselle even if they are offered in the official API. Extended thinking mode and other Anthropic API features will be gradually implemented within Giselle.
 
@@ -28,16 +28,15 @@ An advanced model offering superior intelligence and reasoning capabilities. Ide
 ### claude-3-5-haiku-20241022
 Optimized for speed, this model is ideal for real-time responsiveness. It supports PDF and image inputs with rapid text generation, suitable for fast interactions and scenarios requiring quick, concise responses within a 200k token context window.
 
-## Model Selection Guide
+### Model Selection Guide
 
 Guidelines for selecting the optimal Claude model:
-
 - **For the ultimate coding powerhouse and most complex reasoning**: `claude-4-opus-20250514`
 - **For balanced high-performance, everyday coding, and cost-effective workflows**: `claude-4-sonnet-20250514`
 - **For best overall intelligence and complex reasoning (previous generation)**: `claude-3-7-sonnet-20250219`
 - **When speed and immediate responsiveness matter**: `claude-3-5-haiku-20241022`
 
-## Practices for Giselle
+### Practices for Giselle
 We recommend `claude-4-opus-20250514` or `claude-4-sonnet-20250514` as your primary models in Giselle, especially for tasks involving advanced coding, complex problem-solving, and in-depth analysis. Both models feature hybrid reasoning modes, automatically switching between instant responses and extended thinking based on task complexity.
 
 `claude-3-7-sonnet-20250219` remains a strong choice for its proven reasoning capabilities. These models excel not only at code generation, architectural design, and technical reviews but also produce remarkably natural text. Their "Reasoning" (Extended Thinking) capability, supported in Giselle, makes them particularly powerful for tasks requiring multi-step thought processes. These versatile models can be effectively utilized across a broad spectrum of tasks, from creating engaging blog articles to writing complex code implementations and performing detailed analytical work.
