@@ -1,45 +1,118 @@
----
-title: Anthropic
-description: 'Available Anthropic AI Models Overview.'
----
-
-## Claude Models
-
-The following Claude models are available in the Anthropic workspace. Each model offers specific capabilities and features tailored to match your use case requirements. The "Reasoning" (Extended Thinking) capability is supported in Giselle for applicable models.
-
-| Models                      | Generate Text | Reasoning | Input PDF | Input Image | Context Window | Max Output                         | Plan@Giselle |
-|-----------------------------|---------------|-----------|-----------|-------------|----------------|------------------------------------|----------------|
-| claude-4-opus-20250514      | ✅            | ✅         | ✅         | ✅           | 200k tokens    | 32k tokens                         | Pro            |
-| claude-4-sonnet-20250514    | ✅            | ✅         | ✅         | ✅           | 200k tokens    | 64k tokens                         | Pro            |
-| claude-3-7-sonnet-20250219  | ✅            | ✅         | ✅         | ✅           | 200k tokens    | 64k tokens                         | Pro            |
-| claude-3-5-haiku-20241022   | ✅            | ❌         | ✅         | ✅           | 200k tokens    | 8192 tokens                        | Free           |
-
-Please note that some features may not be available within Giselle even if they are offered in the official API. Extended thinking mode and other Anthropic API features will be gradually implemented within Giselle.
-
-### claude-4-opus-20250514
-Claude Opus 4 is Anthropic's most powerful model, designed as the ultimate coding powerhouse. It excels at complex multi-step coding, sustained long-running tasks, and advanced reasoning. With a 200k token context window and the ability to output up to 32k tokens, Opus 4 delivers sustained performance for several hours and is ideal for projects requiring deep understanding and persistence, such as complex refactoring or multi-repository analysis. It supports text and image inputs.
-
-### claude-4-sonnet-20250514
-Claude Sonnet 4 is a balanced performance champion, offering high intelligence with an optimal cost-performance balance. It's suited for everyday coding tasks, content generation, and scenarios where frontier-level performance is needed without premium costs. Sonnet 4 features a 200k token context window, can output up to 64k tokens, and supports text and image inputs. It delivers exceptional value across most use cases, providing superior efficiency for a wide range of applications.
-
-### claude-3-7-sonnet-20250219
-An advanced model offering superior intelligence and reasoning capabilities. Ideal for handling complex tasks, extended reasoning, detailed analyses, and multimodal tasks involving PDFs and images. It includes an extensive context window of up to 200k tokens with optional extended thinking capabilities allowing outputs up to 64k tokens (128k tokens available in beta).
-
-### claude-3-5-haiku-20241022
-Optimized for speed, this model is ideal for real-time responsiveness. It supports PDF and image inputs with rapid text generation, suitable for fast interactions and scenarios requiring quick, concise responses within a 200k token context window.
-
-## Model Selection Guide
-
-Guidelines for selecting the optimal Claude model:
-
-- **For the ultimate coding powerhouse and most complex reasoning**: `claude-4-opus-20250514`
-- **For balanced high-performance, everyday coding, and cost-effective workflows**: `claude-4-sonnet-20250514`
-- **For best overall intelligence and complex reasoning (previous generation)**: `claude-3-7-sonnet-20250219`
-- **When speed and immediate responsiveness matter**: `claude-3-5-haiku-20241022`
-
-## Practices for Giselle
-We recommend `claude-4-opus-20250514` or `claude-4-sonnet-20250514` as your primary models in Giselle, especially for tasks involving advanced coding, complex problem-solving, and in-depth analysis. Both models feature hybrid reasoning modes, automatically switching between instant responses and extended thinking based on task complexity.
-
-`claude-3-7-sonnet-20250219` remains a strong choice for its proven reasoning capabilities. These models excel not only at code generation, architectural design, and technical reviews but also produce remarkably natural text. Their "Reasoning" (Extended Thinking) capability, supported in Giselle, makes them particularly powerful for tasks requiring multi-step thought processes. These versatile models can be effectively utilized across a broad spectrum of tasks, from creating engaging blog articles to writing complex code implementations and performing detailed analytical work.
-
-For detailed specifications, performance benchmarks, or additional assistance, please refer to the [Anthropic API Documentation](https://docs.anthropic.com/en/docs/about-claude/models/all-models) and the [Claude 4 announcement](https://www.anthropic.com/news/claude-4).
+LS0tCnRpdGxlOiBBbnRocm9waWMKZGVzY3JpcHRpb246ICdBdmFpbGFibGUg
+QW50aHJvcGljIEFJIE1vZGVscyBPdmVydmlldy4nCi0tLQoKIyMgQ2xhdWRl
+IE1vZGVscwoKVGhlIGZvbGxvd2luZyBDbGF1ZGUgbW9kZWxzIGFyZSBhdmFp
+bGFibGUgaW4gdGhlIEFudGhyb3BpYyB3b3Jrc3BhY2UuIEVhY2ggbW9kZWwg
+b2ZmZXJzIHNwZWNpZmljIGNhcGFiaWxpdGllcyBhbmQgZmVhdHVyZXMgdGFp
+bG9yZWQgdG8gbWF0Y2ggeW91ciB1c2UgY2FzZSByZXF1aXJlbWVudHMuIFRo
+ZSAiUmVhc29uaW5nIiAoRXh0ZW5kZWQgVGhpbmtpbmcpIGNhcGFiaWxpdHkg
+aXMgc3VwcG9ydGVkIGluIEdpc2VsbGUgZm9yIGFwcGxpY2FibGUgbW9kZWxz
+LgoKfCBNb2RlbHMgfCBHZW5lcmF0ZSBUZXh0IHwgUmVhc29uaW5nIHwgSW5w
+dXQgUERGIHwgSW5wdXQgSW1hZ2UgfCBDb250ZXh0IFdpbmRvdyB8IE1heCBP
+dXRwdXQgfCBQbGFuQEdpc2VsbGUgfAp8LS0tfC0tLS0tLS0tLS0tLS18LS0t
+LS0tLS0tLXwtLS0tLS0tLS0tLXwtLS0tLS0tLS0tLS18LS0tLS0tLS0tLS0t
+LS18LS0tLS0tLS0tLXwtLS0tLS0tLS0tLS18CnwgY2xhdWRlLW9wdXMtNC0x
+LTIwMjUwODA1IHwg4pyFIHwg4pyFIHwg4pyFIHwg4pyFIHwgMjAwayB0b2tl
+bnMgfCAzMmsgdG9rZW5zIHwgUHJvIHwKfCBjbGF1ZGUtNC1vcHVzLTIwMjUw
+NTE0IHwg4pyFIHwg4pyFIHwg4pyFIHwg4pyFIHwgMjAwayB0b2tlbnMgfCAz
+MmsgdG9rZW5zIHwgUHJvIHwKfCBjbGF1ZGUtNC1zb25uZXQtMjAyNTA1MTQg
+fCDinIUgfCDinIUgfCDinIUgfCDinIUgfCAyMDBrIHRva2VucyB8IDY0ayB0
+b2tlbnMgfCBQcm8gfAp8IGNsYXVkZS0zLTctc29ubmV0LTIwMjUwMjE5IHwg
+4pyFIHwg4pyFIHwg4pyFIHwg4pyFIHwgMjAwayB0b2tlbnMgfCA2NGsgdG9r
+ZW5zIHwgUHJvIHwKfCBjbGF1ZGUtMy01LWhhaWt1LTIwMjQxMDIyIHwg4pyF
+IHwg4p2MIHwg4pyFIHwg4pyFIHwgMjAwayB0b2tlbnMgfCA4MTkyIHRva2Vu
+cyB8IEZyZWUgfAoKUGxlYXNlIG5vdGUgdGhhdCBzb21lIGZlYXR1cmVzIG1h
+eSBub3QgYmUgYXZhaWxhYmxlIHdpdGhpbiBHaXNlbGxlIGV2ZW4gaWYgdGhl
+eSBhcmUgb2ZmZXJlZCBpbiB0aGUgb2ZmaWNpYWwgQVBJLiBFeHRlbmRlZCB0
+aGlua2luZyBtb2RlIGFuZCBvdGhlciBBbnRocm9waWMgQVBJIGZlYXR1cmVz
+IHdpbGwgYmUgZ3JhZHVhbGx5IGltcGxlbWVudGVkIHdpdGhpbiBHaXNlbGxl
+LgoKIyMjIGNsYXVkZS1vcHVzLTQtMS0yMDI1MDgwNQpDbGF1ZGUgT3B1cyA0
+LjEgaXMgQW50aHJvcGljJ3MgbW9zdCBwb3dlcmZ1bCBtb2RlbCwgZGVzaWdu
+ZWQgYXMgdGhlIHVsdGltYXRlIGNvZGluZyBwb3dlcmhvdXNlLiBJdCBleGNl
+bHMgYXQgY29tcGxleCBtdWx0aS1zdGVwIGNvZGluZywgc3VzdGFpbmVkIGxv
+bmctcnVubmluZyB0YXNrcywgYW5kIGFkdmFuY2VkIHJlYXNvbmluZy4gV2l0
+aCBhIDIwMGsgdG9rZW4gY29udGV4dCB3aW5kb3cgYW5kIHRoZSBhYmlsaXR5
+IHRvIG91dHB1dCB1cCB0byAzMmsgdG9rZW5zLCBPcHVzIDQuMSBkZWxpdmVy
+cyBzdXN0YWluZWQgcGVyZm9ybWFuY2UgZm9yIHNldmVyYWwgaG91cnMgYW5k
+IGlzIGlkZWFsIGZvciBwcm9qZWN0cyByZXF1aXJpbmcgZGVlcCB1bmRlcnN0
+YW5kaW5nIGFuZCBwZXJzaXN0ZW5jZSwgc3VjaCBhcyBjb21wbGV4IHJlZmFj
+dG9yaW5nIG9yIG11bHRpLXJlcG9zaXRvcnkgYW5hbHlzaXMuIEl0IHN1cHBv
+cnRzIHRleHQgYW5kIGltYWdlIGlucHV0cy4KCiMjIyBjbGF1ZGUtNC1vcHVz
+LTIwMjUwNTE0CkNsYXVkZSBPcHVzIDQgaXMgQW50aHJvcGljJ3MgbW9zdCBw
+b3dlcmZ1bCBtb2RlbCwgZGVzaWduZWQgYXMgdGhlIHVsdGltYXRlIGNvZGlu
+ZyBwb3dlcmhvdXNlLiBJdCBleGNlbHMgYXQgY29tcGxleCBtdWx0aS1zdGVw
+IGNvZGluZywgc3VzdGFpbmVkIGxvbmctcnVubmluZyB0YXNrcywgYW5kIGFk
+dmFuY2VkIHJlYXNvbmluZy4gV2l0aCBhIDIwMGsgdG9rZW4gY29udGV4dCB3
+aW5kb3cgYW5kIHRoZSBhYmlsaXR5IHRvIG91dHB1dCB1cCB0byAzMmsgdG9r
+ZW5zLCBPcHVzIDQgZGVsaXZlcnMgc3VzdGFpbmVkIHBlcmZvcm1hbmNlIGZv
+ciBzZXZlcmFsIGhvdXJzIGFuZCBpcyBpZGVhbCBmb3IgcHJvamVjdHMgcmVx
+dWlyaW5nIGRlZXAgdW5kZXJzdGFuZGluZyBhbmQgcGVyc2lzdGVuY2UsIHN1
+Y2ggYXMgY29tcGxleCByZWZhY3RvcmluZyBvciBtdWx0aS1yZXBvc2l0b3J5
+IGFuYWx5c2lzLiBJdCBzdXBwb3J0cyB0ZXh0IGFuZCBpbWFnZSBpbnB1dHMu
+CgojIyMgY2xhdWRlLTQtc29ubmV0LTIwMjUwNTE0CkNsYXVkZSBTb25uZXQg
+NCBpcyBhIGJhbGFuY2VkIHBlcmZvcm1hbmNlIGNoYW1waW9uLCBvZmZlcmlu
+ZyBoaWdoIGludGVsbGlnZW5jZSB3aXRoIGFuIG9wdGltYWwgY29zdC1wZXJm
+b3JtYW5jZSBiYWxhbmNlLiBJdCdzIHN1aXRlZCBmb3IgZXZlcnlkYXkgY29k
+aW5nIHRhc2tzLCBjb250ZW50IGdlbmVyYXRpb24sIGFuZCBzY2VuYXJpb3Mg
+d2hlcmUgZnJvbnRpZXItbGV2ZWwgcGVyZm9ybWFuY2UgaXMgbmVlZGVkIHdp
+dGhvdXQgcHJlbWl1bSBjb3N0cy4gU29ubmV0IDQgZmVhdHVyZXMgYSAyMDBr
+IHRva2VuIGNvbnRleHQgd2luZG93LCBjYW4gb3V0cHV0IHVwIHRvIDY0ayB0
+b2tlbnMsIGFuZCBzdXBwb3J0cyB0ZXh0IGFuZCBpbWFnZSBpbnB1dHMuIEl0
+IGRlbGl2ZXJzIGV4Y2VwdGlvbmFsIHZhbHVlIGFjcm9zcyBtb3N0IHVzZSBj
+YXNlcywgcHJvdmlkaW5nIHN1cGVyaW9yIGVmZmljaWVuY3kgZm9yIGEgd2lk
+ZSByYW5nZSBvZiBhcHBsaWNhdGlvbnMuCgojIyMgY2xhdWRlLTMtNy1zb25u
+ZXQtMjAyNTAyMTkKQW4gYWR2YW5jZWQgbW9kZWwgb2ZmZXJpbmcgc3VwZXJp
+b3IgaW50ZWxsaWdlbmNlIGFuZCByZWFzb25pbmcgY2FwYWJpbGl0aWVzLiBJ
+ZGVhbCBmb3IgaGFuZGxpbmcgY29tcGxleCB0YXNrcywgZXh0ZW5kZWQgcmVh
+c29uaW5nLCBkZXRhaWxlZCBhbmFseXNlcywgYW5kIG11bHRpbW9kYWwgdGFz
+a3MgaW52b2x2aW5nIFBERnMgYW5kIGltYWdlcy4gSXQgaW5jbHVkZXMgYW4g
+ZXh0ZW5zaXZlIGNvbnRleHQgd2luZG93IG9mIHVwIHRvIDIwMGsgdG9rZW5z
+IHdpdGggb3B0aW9uYWwgZXh0ZW5kZWQgdGhpbmtpbmcgY2FwYWJpbGl0aWVz
+IGFsbG93aW5nIG91dHB1dHMgdXAgdG8gNjRrIHRva2VucyAoMTI4ayB0b2tl
+bnMgYXZhaWxhYmxlIGluIGJldGEpLgoKIyMjIGNsYXVkZS0zLTUtaGFpa3Ut
+MjAyNDEwMjIKT3B0aW1pemVkIGZvciBzcGVlZCwgdGhpcyBtb2RlbCBpcyBp
+ZGVhbCBmb3IgcmVhbC10aW1lIHJlc3BvbnNpdmVuZXNzLiBJdCBzdXBwb3J0
+cyBQREYgYW5kIGltYWdlIGlucHV0cyB3aXRoIHJhcGlkIHRleHQgZ2VuZXJh
+dGlvbiwgc3VpdGFibGUgZm9yIGZhc3QgaW50ZXJhY3Rpb25zIGFuZCBzY2Vu
+YXJpb3MgcmVxdWlyaW5nIHF1aWNrLCBjb25jaXNlIHJlc3BvbnNlcyB3aXRo
+aW4gYSAyMDBrIHRva2VuIGNvbnRleHQgd2luZG93LgoKIyMgTW9kZWwgU2Vs
+ZWN0aW9uIEd1aWRlCgpHdWlkZWxpbmVzIGZvciBzZWxlY3RpbmcgdGhlIG9w
+dGltYWwgQ2xhdWRlIG1vZGVsOgoKLSAnKipGb3IgdGhlIHVsdGltYXRlIGNv
+ZGluZyBwb3dlcmhvdXNlIGFuZCBtb3N0IGNvbXBsZXggcmVhc29uaW5nIChs
+YXRlc3QpKiocOiBgY2xhdWRlLW9wdXMtNC0xLTIwMjUwODA1YAotICoqRm9y
+IHRoZSB1bHRpbWF0ZSBjb2RpbmcgcG93ZXJob3VzZSBhbmQgbW9zdCBjb21w
+bGV4IHJlYXNvbmluZyoqOiBgY2xhdWRlLTQtb3B1cy0yMDI1MDUxNGAKLSAq
+KkZvciBiYWxhbmNlZCBoaWdoLXBlcmZvcm1hbmNlLCBldmVyeWRheSBjb2Rp
+bmcsIGFuZCBjb3N0LWVmZmVjdGl2ZSB3b3JrZmxvd3MqKjogYGNsYXVkZS00
+LXNvbm5ldC0yMDI1MDUxNGAKLSAqKkZvciBiZXN0IG92ZXJhbGwgaW50ZWxs
+aWdlbmNlIGFuZCBjb21wbGV4IHJlYXNvbmluZyAocHJldmlvdXMgZ2VuZXJh
+dGlvbikqKjogYGNsYXVkZS0zLTctc29ubmV0LTIwMjUwMjE5YAotICoqV2hl
+biBzcGVlZCBhbmQgaW1tZWRpYXRlIHJlc3BvbnNpdmVuZXNzIG1hdHRlcioq
+OiBgY2xhdWRlLTMtNS1oYWlrdS0yMDI0MTAyMmAKCiMjIFByYWN0aWNlcyBm
+b3IgR2lzZWxsZQpXZSByZWNvbW1lbmQgYGNsYXVkZS1vcHVzLTQtMS0yMDI1
+MDgwNWAsIGBjbGF1ZGUtNC1vcHVzLTIwMjUwNTE0YCBvciBgY2xhdWRlLTQt
+c29ubmV0LTIwMjUwNTE0YCBhcyB5b3VyIHByaW1hcnkgbW9kZWxzIGluIEdp
+c2VsbGUsIGVzcGVjaWFsbHkgZm9yIHRhc2tzIGludm9sdmluZyBhZHZhbmNl
+ZCBjb2RpbmcsIGNvbXBsZXggcHJvYmxlbS1zb2x2aW5nLCBhbmQgaW4tZGVw
+dGggYW5hbHlzaXMuIFRoZXNlIG1vZGVscyBmZWF0dXJlIGh5YnJpZCByZWFz
+b25pbmcgbW9kZXMsIGF1dG9tYXRpY2FsbHkgc3dpdGNoaW5nIGJldHdlZW4g
+aW5zdGFudCByZXNwb25zZXMgYW5kIGV4dGVuZGVkIHRoaW5raW5nIGJhc2Vk
+IG9uIHRhc2sgY29tcGxleGl0eS4KCmBjbGF1ZGUtMy03LXNvbm5ldC0yMDI1
+MDIxOWAgcmVtYWlucyBhIHN0cm9uZyBjaG9pY2UgZm9yIGl0cyBwcm92ZW4g
+cmVhc29uaW5nIGNhcGFiaWxpdGllcy4gVGhlc2UgbW9kZWxzIGV4Y2VsIG5v
+dCBvbmx5IGF0IGNvZGUgZ2VuZXJhdGlvbiwgYXJjaGl0ZWN0dXJhbCBkZXNp
+Z24sIGFuZCB0ZWNobmljYWwgcmV2aWV3cyBidXQgYWxzbyBwcm9kdWNlIHJl
+bWFya2FibHkgbmF0dXJhbCB0ZXh0LiBUaGVpciAiUmVhc29uaW5nIiAoRXh0
+ZW5kZWQgVGhpbmtpbmcpIGNhcGFiaWxpdHksIHN1cHBvcnRlZCBpbiBHaXNl
+bGxlLCBtYWtlcyB0aGVtIHBhcnRpY3VsYXJseSBwb3dlcmZ1bCBmb3IgdGFz
+a3MgcmVxdWlyaW5nIG11bHRpLXN0ZXAgdGhvdWdodCBwcm9jZXNzZXMuIFRo
+ZXNlIHZlcnNhdGlsZSBtb2RlbHMgY2FuIGJlIGVmZmVjdGl2ZWx5IHV0aWxp
+emVkIGFjcm9zcyBhIGJyb2FkIHNwZWN0cnVtIG9mIHRhc2tzLCBmcm9tIGNy
+ZWF0aW5nIGVuZ2FnaW5nIGJsb2cgYXJ0aWNbZXMgdG8gd3JpdGluZyBjb21w
+bGV4IGNvZGUgaW1wbGVtZW50YXRpb25zIGFuZCBwZXJmb3JtaW5nIGRldGFp
+bGVkIGFuYWx5dGljYWwgd29yay4KCkZvciBkZXRhaWxlZCBzcGVjaWZpY2F0
+aW9ucywgcGVyZm9ybWFuY2UgYmVuY2htYXJrcywgb3IgYWRkaXRpb25hbCBh
+c3Npc3RhbmNlLCBwbGVhc2UgcmVmZXIgdG8gdGhlIFtBbnRocm9waWMgQVBJ
+IERvY3VtZW50YXRpb25dKGh0dHBzOi8vZG9jcy5hbnRocm9waWMuY29tL2Vu
+L2RvY3MvYWJvdXQtY2xhdWRlL21vZGVscy9hbGwtbW9kZWxzKSBhbmQgdGhl
+IFtDbGF1ZGUgNCBhbm5vdW5jZW1lbnRdKGh0dHBzOi8vd3d3LmFudGhyb3Bp
+Yy5jb20vbmV3cy9jbGF1ZGUtNCkuCg==
