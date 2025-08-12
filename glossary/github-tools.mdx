@@ -50,51 +50,327 @@ The following is a list of tools you can enable for your AI model, categorized a
 
 ### Repository
 
-*   `createRepository`: Creates a new GitHub repository with options for name, description, privacy settings (public/private), and auto-initialization with README
-*   `forkRepository`: Creates a fork of an existing repository to your account or a specified organization
-*   `getFileContents`: Retrieves file or directory contents from a repository
-*   `listBranches`: Lists all branches in a repository with pagination support
+#### `getFileContents`
+Retrieves file or directory contents from a repository
+- **Required**:
+  - `owner` (Repository owner)
+  - `path` (Path to file/directory)
+  - `repo` (Repository name)
+- **Optional**: `branch` (Branch to get contents from)
+
+#### `listBranches`
+Lists all branches in a repository with pagination support
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+- **Optional**:
+  - `page` (Page number for pagination, min 1)
+  - `perPage` (Results per page, min 1, max 100)
 
 ### Issues
 
-*   `createIssue`: Opens a new issue with required title and optional body, assignees, labels, and milestone number
-*   `getIssue`: Retrieves detailed information about a specific issue by its number
-*   `listIssues`: Lists repository issues with filters for state, labels, date, sort order, and direction with pagination
-*   `updateIssue`: Lists repository issues with filters for state, labels, date (since), sort order, and direction with pagination
-*   `addIssueComment`: Adds a comment to an existing issue with required body content
-*   `getIssueComments`: Retrieves all comments on a specific issue with pagination support
+#### `createIssue`
+Opens a new issue with required title and optional body, assignees, labels, and milestone number
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+  - `title` (Issue title)
+- **Optional**:
+  - `body` (Issue body content)
+  - `assignees` (Array of usernames to assign)
+  - `labels` (Array of labels to apply)
+  - `milestone` (Milestone number)
+
+#### `getIssue`
+Retrieves detailed information about a specific issue by its number
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+  - `issueNumber` (Issue number)
+
+#### `listIssues`
+Lists repository issues with filters for state, labels, date, sort order, and direction with pagination
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+- **Optional**:
+  - `state` (open/closed/all)
+  - `labels` (Array of labels to filter by)
+  - `sort` (created/updated/comments)
+  - `direction` (asc/desc)
+  - `since` (ISO 8601 timestamp)
+  - `page` (Page number, min 1)
+  - `perPage` (Results per page, min 1, max 100)
+
+#### `updateIssue`
+Updates an existing issue's properties
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+  - `issueNumber` (Issue number to update)
+- **Optional**:
+  - `title` (New title)
+  - `body` (New description)
+  - `state` (open/closed)
+  - `assignees` (New assignees array)
+  - `labels` (New labels array)
+  - `milestone` (New milestone number)
+
+#### `addIssueComment`
+Adds a comment to an existing issue with required body content
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+  - `issueNumber` (Issue number)
+  - `body` (Comment content)
+
+#### `getIssueComments`
+Retrieves all comments on a specific issue with pagination support
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+  - `issueNumber` (Issue number)
+- **Optional**:
+  - `page` (Page number)
+  - `perPage` (Number of records per page)
 
 ### Pull Requests
 
-*   `createPullRequest`: Opens a new PR from head branch to base branch with title, optional body, draft status
-*   `getPullRequest`: Fetches detailed information about a specific pull request by number
-*   `updatePullRequest`: Edits PR properties including title, body, base branch, state, and maintainer permissions
-*   `listPullRequests`: Lists PRs with filters for state, base/head branches, sort order, and direction with pagination
-*   `getPullRequestComments`: Retrieves review comments on a pull request
-*   `getPullRequestFiles`: Lists all files changed in a pull request with pagination
-*   `getPullRequestReviews`: Gets all reviews submitted for a PR
-*   `getPullRequestStatus`: Checks CI/CD status checks for a pull request
-*   `createPullRequestReview`: Creates a pending review that can be submitted later
-*   `addPullRequestReviewComment`: Adds inline comments to specific lines/files during review with support for multi-line comments
-*   `mergePullRequest`: Merges a PR with options for merge method, commit title, and commit message
-*   `updatePullRequestBranch`: Updates PR branch with latest changes from base branch
+#### `createPullRequest`
+Opens a new PR from head branch to base branch with title, optional body, draft status
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+  - `title` (PR title)
+  - `head` (Branch containing changes)
+  - `base` (Branch to merge into)
+- **Optional**:
+  - `body` (PR description)
+  - `draft` (Create as draft PR)
+  - `maintainerCanModify` (Allow maintainer edits)
+
+#### `getPullRequest`
+Fetches detailed information about a specific pull request by number
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+  - `pullNumber` (Pull request number)
+
+#### `updatePullRequest`
+Edits PR properties including title, body, base branch, state, and maintainer permissions
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+  - `pullNumber` (Pull request number)
+- **Optional**:
+  - `title` (New title)
+  - `body` (New description)
+  - `state` (open/closed)
+  - `base` (New base branch name)
+  - `maintainerCanModify` (Allow maintainer edits)
+
+#### `listPullRequests`
+Lists PRs with filters for state, base/head branches, sort order, and direction with pagination
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+- **Optional**:
+  - `state` (open/closed/all)
+  - `head` (Filter by head user/org and branch)
+  - `base` (Filter by base branch)
+  - `sort` (created/updated/popularity/long-running)
+  - `direction` (asc/desc)
+  - `page` (Page number, min 1)
+  - `perPage` (Results per page, min 1, max 100)
+
+#### `getPullRequestComments`
+Retrieves review comments on a pull request
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+  - `pullNumber` (Pull request number)
+
+#### `getPullRequestFiles`
+Lists all files changed in a pull request with pagination
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+  - `pullNumber` (Pull request number)
+
+#### `getPullRequestReviews`
+Gets all reviews submitted for a PR
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+  - `pullNumber` (Pull request number)
+
+#### `getPullRequestStatus`
+Checks CI/CD status checks for a pull request
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+  - `pullNumber` (Pull request number)
+
+#### `createPullRequestReview`
+Creates a pending review that can be submitted later
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+  - `pullNumber` (Pull request number)
+  - `event` (APPROVE/REQUEST_CHANGES/COMMENT)
+- **Optional**:
+  - `body` (Review comment text)
+  - `commitId` (SHA of commit to review)
+  - `comments` (Array of line-specific comment objects)
+
+#### `addPullRequestReviewComment`
+Adds inline comments to specific lines/files during review with support for multi-line comments
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+  - `pullNumber` (Pull request number)
+  - `body` (Review comment text)
+- **Optional** (one of these patterns required):
+  - **Pattern 1 (reply)**: `inReplyTo` (ID of comment to reply to)
+  - **Pattern 2 (new comment)**:
+    - `commitId` (SHA of commit to comment on)
+    - `path` (Relative path to file)
+    - `line` (Line number in the diff)
+    - `side` (LEFT/RIGHT)
+    - `startLine` (For multi-line comments)
+    - `startSide` (LEFT/RIGHT for multi-line)
+    - `subjectType` (line/file)
+
+#### `mergePullRequest`
+Merges a PR with options for merge method, commit title, and commit message
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+  - `pullNumber` (Pull request number)
+- **Optional**:
+  - `mergeMethod` (merge/squash/rebase)
+  - `commitTitle` (Title for merge commit)
+  - `commitMessage` (Extra detail for merge commit)
+
+#### `updatePullRequestBranch`
+Updates PR branch with latest changes from base branch
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+  - `pullNumber` (Pull request number)
+- **Optional**:
+  - `expectedHeadSha` (Expected SHA of the PR's HEAD ref)
 
 ### Code Management
 
-*   `createBranch`: Creates a new branch from an existing branch or repository's default branch
-*   `createOrUpdateFile`: Creates new files or updates existing ones with content, commit message, and branch. Requires SHA for updates
-*   `getCommit`: Retrieves detailed information about a specific commit by SHA, branch name, or tag name
-*   `listCommits`: Lists commit history with optional filtering by author and SHA/branch/tag reference
-*   `listCodeScanningAlerts`: Lists security vulnerabilities found by code scanning with filters for severity, state, and tool
-*   `getCodeScanningAlert`: Gets details about a specific code scanning alert by number
+#### `createBranch`
+Creates a new branch from an existing branch or repository's default branch
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+  - `branch` (Name for new branch)
+- **Optional**:
+  - `fromBranch` (Source branch, defaults to repo default)
+
+#### `createOrUpdateFile`
+Creates new files or updates existing ones with content, commit message, and branch. Requires SHA for updates
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+  - `path` (Path where to create/update the file)
+  - `content` (Content of the file)
+  - `message` (Commit message)
+  - `branch` (Branch to create/update the file in)
+- **Optional**:
+  - `sha` (SHA of file being replaced, required for updates)
+
+#### `getCommit`
+Retrieves detailed information about a specific commit by SHA, branch name, or tag name
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+  - `sha` (Commit SHA, branch name, or tag name)
+- **Optional**:
+  - `page` (Page number, min 1)
+  - `perPage` (Results per page, min 1, max 100)
+
+#### `listCommits`
+Lists commit history with optional filtering by author and SHA/branch/tag reference
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+- **Optional**:
+  - `sha` (SHA or branch name)
+  - `page` (Page number, min 1)
+  - `perPage` (Results per page, min 1, max 100)
+
+#### `listCodeScanningAlerts`
+Lists security vulnerabilities found by code scanning with filters for severity, state, and tool
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+- **Optional**:
+  - `state` (open/dismissed/fixed)
+  - `severity` (critical/high/medium/low/warning/note/error)
+  - `toolName` (Name of the scanning tool)
+  - `ref` (Git reference for results)
+
+#### `getCodeScanningAlert`
+Gets details about a specific code scanning alert by number
+- **Required**:
+  - `owner` (Repository owner)
+  - `repo` (Repository name)
+  - `alertNumber` (Alert number)
 
 ### Search
 
-*   `searchCode`: Searches for code using GitHub's code search syntax
-*   `searchIssues`: Searches issues and pull requests using GitHub search syntax, can be scoped to specific owner/repo
-*   `searchPullRequests`: Specifically searches pull requests with advanced filtering and GitHub search syntax
-*   `searchRepositories`: Finds repositories matching search query with pagination support
-*   `searchUsers`: Searches for GitHub users using search syntax
+#### `searchCode`
+Searches for code using GitHub's code search syntax
+- **Required**:
+  - `q` (Search query using GitHub code search syntax)
+- **Optional**:
+  - `sort` (indexed)
+  - `order` (asc/desc)
+  - `page` (Page number, min 1)
+  - `perPage` (Results per page, min 1, max 100)
+
+#### `searchIssues`
+Searches issues and pull requests using GitHub search syntax, can be scoped to specific owner/repo
+- **Required**:
+  - `q` (Search query using GitHub issues search syntax)
+- **Optional**:
+  - `sort` (comments/reactions/reactions-+1/reactions--1/reactions-smile/reactions-thinking_face/reactions-heart/reactions-tada/interactions/created/updated)
+  - `order` (asc/desc)
+  - `page` (Page number, min 1)
+  - `perPage` (Results per page, min 1, max 100)
+
+#### `searchPullRequests`
+Specifically searches pull requests with advanced filtering and GitHub search syntax
+- **Required**:
+  - `q` (Search query using GitHub issues search syntax, automatically adds type:pr)
+- **Optional**:
+  - `sort` (comments/reactions/reactions-+1/reactions--1/reactions-smile/reactions-thinking_face/reactions-heart/reactions-tada/interactions/created/updated)
+  - `order` (asc/desc)
+  - `page` (Page number, min 1)
+  - `perPage` (Results per page, min 1, max 100)
+
+#### `searchRepositories`
+Finds repositories matching search query with pagination support
+- **Required**:
+  - `query` (Search query)
+- **Optional**:
+  - `page` (Page number, min 1)
+  - `perPage` (Results per page, min 1, max 100)
+
+#### `searchUsers`
+Searches for GitHub users using search syntax
+- **Required**:
+  - `q` (Search query using GitHub users search syntax)
+- **Optional**:
+  - `sort` (followers/repositories/joined)
+  - `order` (asc/desc)
+  - `page` (Page number, min 1)
+  - `perPage` (Results per page, min 1, max 100)
 
 ## How to Use GitHub Tools
 
