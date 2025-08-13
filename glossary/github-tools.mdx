@@ -1,406 +1,143 @@
----
-title: GitHub Tools
-description: "Learn how to configure and use GitHub Tools within a Generator Node, empowering your AI models to interact directly with your GitHub repositories."
----
-
-**GitHub Tools** enable AI models inside a Generator Node to perform a wide range of actions on GitHub by giving them access to a curated set of functions. This feature, often referred to as "tool use" or "function calling," allows you to build powerful AI agents that can automate development workflows, such as creating issues, managing pull requests, searching for code, and more, all based on natural language instructions in your prompt.
-
-## Configuring GitHub Tools
-
-Follow these steps to connect your GitHub account and enable specific tools for a Generator Node.
-
-### 1. Navigate to the Tools Tab
-
-In any Generator Node (e.g., `gemini-2.5-pro`), select the **Tools** tab. You will see a list of available integrations that can be connected.
-
-### 2. Connect to GitHub
-
-Click the **+ Connect** button next to the GitHub integration. This will open a configuration modal to add your credentials.
-
-### 3. Add Your Personal Access Token (PAT)
-
-To authenticate with GitHub, you need to provide a Personal Access Token (PAT).
-
-<Info>
-  You can create a new PAT from your GitHub account settings: [https://github.com/settings/personal-access-tokens](https://github.com/settings/personal-access-tokens). Ensure your token has the necessary permissions (scopes) for the actions you want to perform.
-</Info>
-
-In the "Connect to GitHub" window:
-
-1.  **Token Name**: Give your token a descriptive name for easy identification later (e.g., "Create Issue" or "Update Docs").
-2.  **Personal Access Token (PAT)**: Paste your token into this field. Giselle encrypts the token with authenticated encryption before saving it.
-3.  Click **Save & Connect**.
-
-### 4. Select the Tools to Enable
-
-After your token is validated, you'll be presented with a list of available GitHub tools, grouped by category. For security and control, you must explicitly select which actions the AI model is allowed to perform.
-
-Check the boxes next to the tools you want to enable for this node (e.g., `createIssue`, `getPullRequest`, `createOrUpdateFile`).
-
-### 5. Save the Configuration
-
-Once you've selected the desired tools, click **Save & Connect** at the bottom of the modal. The Generator Node will now show that GitHub is connected, displaying the enabled tools and a **Configuration** button to make future changes.
-
-## Available GitHub Tools
-
-The following is a list of tools you can enable for your AI model, categorized as they appear in the configuration screen.
-
-**Note**: GitHub tools conform to the definitions at https://github.com/github/github-mcp-server
-
-
-### Repository
-
-#### `getFileContents`
-Retrieves file or directory contents from a repository
-- **Required**:
-  - `owner` (Repository owner)
-  - `path` (Path to file/directory)
-  - `repo` (Repository name)
-- **Optional**: `branch` (Branch to get contents from)
-
-#### `listBranches`
-Lists all branches in a repository with pagination support
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-- **Optional**:
-  - `page` (Page number for pagination, min 1)
-  - `perPage` (Results per page, min 1, max 100)
-
-### Issues
-
-#### `createIssue`
-Opens a new issue with required title and optional body, assignees, labels, and milestone number
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-  - `title` (Issue title)
-- **Optional**:
-  - `body` (Issue body content)
-  - `assignees` (Array of usernames to assign)
-  - `labels` (Array of labels to apply)
-  - `milestone` (Milestone number)
-
-#### `getIssue`
-Retrieves detailed information about a specific issue by its number
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-  - `issueNumber` (Issue number)
-
-#### `listIssues`
-Lists repository issues with filters for state, labels, date, sort order, and direction with pagination
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-- **Optional**:
-  - `state` (open/closed/all)
-  - `labels` (Array of labels to filter by)
-  - `sort` (created/updated/comments)
-  - `direction` (asc/desc)
-  - `since` (ISO 8601 timestamp)
-  - `page` (Page number, min 1)
-  - `perPage` (Results per page, min 1, max 100)
-
-#### `updateIssue`
-Updates an existing issue's properties
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-  - `issueNumber` (Issue number to update)
-- **Optional**:
-  - `title` (New title)
-  - `body` (New description)
-  - `state` (open/closed)
-  - `assignees` (New assignees array)
-  - `labels` (New labels array)
-  - `milestone` (New milestone number)
-
-#### `addIssueComment`
-Adds a comment to an existing issue with required body content
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-  - `issueNumber` (Issue number)
-  - `body` (Comment content)
-
-#### `getIssueComments`
-Retrieves all comments on a specific issue with pagination support
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-  - `issueNumber` (Issue number)
-- **Optional**:
-  - `page` (Page number)
-  - `perPage` (Number of records per page)
-
-### Pull Requests
-
-#### `createPullRequest`
-Opens a new PR from head branch to base branch with title, optional body, draft status
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-  - `title` (PR title)
-  - `head` (Branch containing changes)
-  - `base` (Branch to merge into)
-- **Optional**:
-  - `body` (PR description)
-  - `draft` (Create as draft PR)
-  - `maintainerCanModify` (Allow maintainer edits)
-
-#### `getPullRequest`
-Fetches detailed information about a specific pull request by number
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-  - `pullNumber` (Pull request number)
-
-#### `updatePullRequest`
-Edits PR properties including title, body, base branch, state, and maintainer permissions
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-  - `pullNumber` (Pull request number)
-- **Optional**:
-  - `title` (New title)
-  - `body` (New description)
-  - `state` (open/closed)
-  - `base` (New base branch name)
-  - `maintainerCanModify` (Allow maintainer edits)
-
-#### `listPullRequests`
-Lists PRs with filters for state, base/head branches, sort order, and direction with pagination
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-- **Optional**:
-  - `state` (open/closed/all)
-  - `head` (Filter by head user/org and branch)
-  - `base` (Filter by base branch)
-  - `sort` (created/updated/popularity/long-running)
-  - `direction` (asc/desc)
-  - `page` (Page number, min 1)
-  - `perPage` (Results per page, min 1, max 100)
-
-#### `getPullRequestComments`
-Retrieves review comments on a pull request
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-  - `pullNumber` (Pull request number)
-
-#### `getPullRequestFiles`
-Lists all files changed in a pull request with pagination
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-  - `pullNumber` (Pull request number)
-
-#### `getPullRequestReviews`
-Gets all reviews submitted for a PR
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-  - `pullNumber` (Pull request number)
-
-#### `getPullRequestStatus`
-Checks CI/CD status checks for a pull request
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-  - `pullNumber` (Pull request number)
-
-#### `createPullRequestReview`
-Creates a pending review that can be submitted later
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-  - `pullNumber` (Pull request number)
-  - `event` (APPROVE/REQUEST_CHANGES/COMMENT)
-- **Optional**:
-  - `body` (Review comment text)
-  - `commitId` (SHA of commit to review)
-  - `comments` (Array of line-specific comment objects)
-
-#### `addPullRequestReviewComment`
-Adds inline comments to specific lines/files during review with support for multi-line comments
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-  - `pullNumber` (Pull request number)
-  - `body` (Review comment text)
-- **Optional** (one of these patterns required):
-  - **Pattern 1 (reply)**: `inReplyTo` (ID of comment to reply to)
-  - **Pattern 2 (new comment)**:
-    - `commitId` (SHA of commit to comment on)
-    - `path` (Relative path to file)
-    - `line` (Line number in the diff)
-    - `side` (LEFT/RIGHT)
-    - `startLine` (For multi-line comments)
-    - `startSide` (LEFT/RIGHT for multi-line)
-    - `subjectType` (line/file)
-
-#### `mergePullRequest`
-Merges a PR with options for merge method, commit title, and commit message
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-  - `pullNumber` (Pull request number)
-- **Optional**:
-  - `mergeMethod` (merge/squash/rebase)
-  - `commitTitle` (Title for merge commit)
-  - `commitMessage` (Extra detail for merge commit)
-
-#### `updatePullRequestBranch`
-Updates PR branch with latest changes from base branch
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-  - `pullNumber` (Pull request number)
-- **Optional**:
-  - `expectedHeadSha` (Expected SHA of the PR's HEAD ref)
-
-### Code Management
-
-#### `createBranch`
-Creates a new branch from an existing branch or repository's default branch
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-  - `branch` (Name for new branch)
-- **Optional**:
-  - `fromBranch` (Source branch, defaults to repo default)
-
-#### `createOrUpdateFile`
-Creates new files or updates existing ones with content, commit message, and branch. Requires SHA for updates
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-  - `path` (Path where to create/update the file)
-  - `content` (Content of the file)
-  - `message` (Commit message)
-  - `branch` (Branch to create/update the file in)
-- **Optional**:
-  - `sha` (SHA of file being replaced, required for updates)
-
-#### `getCommit`
-Retrieves detailed information about a specific commit by SHA, branch name, or tag name
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-  - `sha` (Commit SHA, branch name, or tag name)
-- **Optional**:
-  - `page` (Page number, min 1)
-  - `perPage` (Results per page, min 1, max 100)
-
-#### `listCommits`
-Lists commit history with optional filtering by author and SHA/branch/tag reference
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-- **Optional**:
-  - `sha` (SHA or branch name)
-  - `page` (Page number, min 1)
-  - `perPage` (Results per page, min 1, max 100)
-
-#### `listCodeScanningAlerts`
-Lists security vulnerabilities found by code scanning with filters for severity, state, and tool
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-- **Optional**:
-  - `state` (open/dismissed/fixed)
-  - `severity` (critical/high/medium/low/warning/note/error)
-  - `toolName` (Name of the scanning tool)
-  - `ref` (Git reference for results)
-
-#### `getCodeScanningAlert`
-Gets details about a specific code scanning alert by number
-- **Required**:
-  - `owner` (Repository owner)
-  - `repo` (Repository name)
-  - `alertNumber` (Alert number)
-
-### Search
-
-#### `searchCode`
-Searches for code using GitHub's code search syntax
-- **Required**:
-  - `q` (Search query using GitHub code search syntax)
-- **Optional**:
-  - `sort` (indexed)
-  - `order` (asc/desc)
-  - `page` (Page number, min 1)
-  - `perPage` (Results per page, min 1, max 100)
-
-#### `searchIssues`
-Searches issues and pull requests using GitHub search syntax, can be scoped to specific owner/repo
-- **Required**:
-  - `q` (Search query using GitHub issues search syntax)
-- **Optional**:
-  - `sort` (comments/reactions/reactions-+1/reactions--1/reactions-smile/reactions-thinking_face/reactions-heart/reactions-tada/interactions/created/updated)
-  - `order` (asc/desc)
-  - `page` (Page number, min 1)
-  - `perPage` (Results per page, min 1, max 100)
-
-#### `searchPullRequests`
-Specifically searches pull requests with advanced filtering and GitHub search syntax
-- **Required**:
-  - `q` (Search query using GitHub issues search syntax, automatically adds type:pr)
-- **Optional**:
-  - `sort` (comments/reactions/reactions-+1/reactions--1/reactions-smile/reactions-thinking_face/reactions-heart/reactions-tada/interactions/created/updated)
-  - `order` (asc/desc)
-  - `page` (Page number, min 1)
-  - `perPage` (Results per page, min 1, max 100)
-
-#### `searchRepositories`
-Finds repositories matching search query with pagination support
-- **Required**:
-  - `query` (Search query)
-- **Optional**:
-  - `page` (Page number, min 1)
-  - `perPage` (Results per page, min 1, max 100)
-
-#### `searchUsers`
-Searches for GitHub users using search syntax
-- **Required**:
-  - `q` (Search query using GitHub users search syntax)
-- **Optional**:
-  - `sort` (followers/repositories/joined)
-  - `order` (asc/desc)
-  - `page` (Page number, min 1)
-  - `perPage` (Results per page, min 1, max 100)
-
-## How to Use GitHub Tools
-
-Once configured, you can instruct the AI model to use the enabled tools directly in your prompt. The model will understand your request and call the appropriate function with the necessary parameters to complete the task.
-
-### Example Prompt: Create a pull request to add a new documentation page
-
-Imagine you have enabled the `getFileContents`, `createPullRequest`, `createBranch` and `createOrUpdateFile` tools for a node.
-
-```markdown
-Please complete the last step without checking with me.
-
-Creating the pull request, please follow these steps:
-
-1. Create a new branch in your GitHub repository https://github.com/giselles-ai/docs
-  - Use GitHub tool createBranch
-  - fromBranch: main
-  - newBranchName: prefix giselle/create-docs-xxx
-
-2. Please create a new file based on the contents of followings
-  - Use GitHub tool createOrUpdateFile
-  - Contents: @generate-contents-node-output
-  - Latest SHA: @getSHA-node-output
-
-3. Create pull request to https://github.com/giselles-ai/docs
-  - Use GitHub tool createPullRequest
-```
-
-When this prompt is run, the Giselle will:
-
-1.  Create a new branch in your GitHub repository.
-2.  Create a new file based on the contents.
-3.  Create pull request.
+LS0tCnRpdGxlOiBHaXRIdWIgVG9vbHMKZGVzY3JpcHRpb246ICdMZWFybiBo
+b3cgdG8gY29uZmlndXJlIGFuZCB1c2UgR2l0SHViIFRvb2xzIHdpdGhpbiBh
+IEdlbmVyYXRvciBOb2RlLCBlbXBvd2VyaW5nIHlvdXIgQUkgbW9kZWxzIHRv
+IGludGVyYWN0IGRpcmVjdGx5IHdpdGggeW91ciBHaXRIdWIgcmVwb3NpdG9y
+aWVzLicKLS0tCgoqKkdpdEh1YiBUb29scyoqIGVuYWJsZSBBSSBtb2RlbHMg
+aW5zaWRlIGEgR2VuZXJhdG9yIE5vZGUgdG8gcGVyZm9ybSBhIHdpZGUgcmFu
+Z2Ugb2YgYWN0aW9ucyBvbiBHaXRIdWIgYnkgZ2l2aW5nIHRoZW0gYWNjZXNz
+IHRvIGEgY3VyYXRlZCBzZXQgb2YgZnVuY3Rpb25zLiBUaGlzIGZlYXR1cmUs
+IG9mdGVuIHJlZmVycmVkIHRvIGFzICJ0b29sIHVzZSIgb3IgImZ1bmN0aW9u
+IGNhbGxpbmcsIiBhbGxvd3MgeW91IHRvIGJ1aWxkIHBvd2VyZnVsIEFJIGFn
+ZW50cyB0aGF0IGNhbiBhdXRvbWF0ZSBkZXZlbG9wbWVudCB3b3JrZmxvd3Ms
+IHN1Y2ggYXMgY3JlYXRpbmcgaXNzdWVzLCBtYW5hZ2luZyBwdWxsIHJlcXVl
+c3RzLCBzZWFyY2hpbmcgZm9yIGNvZGUsIGFuZCBtb3JlLCBhbGwgYmFzZWQg
+b24gbmF0dXJhbCBsYW5ndWFnZSBpbnN0cnVjdGlvbnMgaW4geW91ciBwcm9t
+cHQuCgojIyBDb25maWd1cmluZyBHaXRIdWIgVG9vbHMKCkZvbGxvdyB0aGVz
+ZSBzdGVwcyB0byBjb25uZWN0IHlvdXIgR2l0SHViIGFjY291bnQgYW5kIGVu
+YWJsZSBzcGVjaWZpYyB0b29scyBmb3IgYSBHZW5lcmF0b3IgTm9kZS4KCiMj
+IyAxLiBOYXZpZ2F0ZSB0byB0aGUgVG9vbHMgVGFiCgpJbiBhbnkgR2VuZXJh
+dG9yIE5vZGUgKGUuZy4sIGBnZW1pbmktMi41LXByb2ApLCBzZWxlY3QgdGhl
+ICoqVG9vbHMqKiB0YWIuIFlvdSB3aWxsIHNlZSBhIGxpc3Qgb2YgYXZhaWxh
+YmxlIGludGVncmF0aW9ucyB0aGF0IGNhbiBiZSBjb25uZWN0ZWQuCgojIyMg
+Mi4gQ29ubmVjdCB0byBHaXRIdWIKCkNsaWNrIHRoZSAqKisgQ29ubmVjdCoq
+IGJ1dHRvbiBuZXh0IHRvIHRoZSBHaXRIdWIgaW50ZWdyYXRpb24uIFRoaXMg
+d2lsbCBvcGVuIGEgY29uZmlndXJhdGlvbiBtb2RhbCB0byBhZGQgeW91ciBj
+cmVkZW50aWFscy4KCiMjIyAzLiBBZGQgWW91ciBQZXJzb25hbCBBY2Nlc3Mg
+VG9rZW4gKFBBVCkKClRvIGF1dGhlbnRpY2F0ZSB3aXRoIEdpdEh1YiwgeW91
+IG5lZWQgdG8gcHJvdmlkZSBhIFBlcnNvbmFsIEFjY2VzcyBUb2tlbiAoUEFU
+KS4KCjxJbmZvPgogIFlvdSBjYW4gY3JlYXRlIGEgbmV3IFBBVCBmcm9tIHlv
+dXIgR2l0SHViIGFjY291bnQgc2V0dGluZ3M6IFtodHRwczovL2dpdGh1Yi5j
+b20vc2V0dGluZ3MvcGVyc29uYWwtYWNjZXNzLXRva2Vuc10oaHR0cHM6Ly9n
+aXRodWIuY29tL3NldHRpbmdzL3BlcnNvbmFsLWFjY2Vzcy10b2tlbnMpLiBF
+bnN1cmUgeW91ciB0b2tlbiBoYXMgdGhlIG5lY2Vzc2FyeSBwZXJtaXNzaW9u
+cyAoc2NvcGVzKSBmb3IgdGhlIGFjdGlvbnMgeW91IHdhbnQgdG8gcGVyZm9y
+bS4KPC9JbmZvPgoKSW4gdGhlICJDb25uZWN0IHRvIEdpdEh1YiIgd2luZG93
+OgoKMS4gKipUb2tlbiBOYW1lKio6IEdpdmUgeW91ciB0b2tlbiBhIGRlc2Ny
+aXB0aXZlIG5hbWUgZm9yIGVhc3kgaWRlbnRpZmljYXRpb24gbGF0ZXIgKGUu
+Zy4sICJDcmVhdGUgSXNzdWUiIG9yICJVcGRhdGUgRG9jcyIpLgoyLiAqKlBl
+cnNvbmFsIEFjY2VzcyBUb2tlbiAoUEFUKSoqOiBQYXN0ZSB5b3VyIHRva2Vu
+IGludG8gdGhpcyBmaWVsZC4gR2lzZWxsZSBlbmNyeXB0cyB0aGUgdG9rZW4g
+d2l0aCBhdXRoZW50aWNhdGVkIGVuY3J5cHRpb24gYmVmb3JlIHNhdmluZyBp
+dC4KMy4gQ2xpY2sgKipTYXZlICYgQ29ubmVjdCoqLgoKIyMjIDQuIFNlbGVj
+dCB0aGUgVG9vbHMgdG8gRW5hYmxlCgpBZnRlciB5b3VyIHRva2VuIGlzIHZh
+bGlkYXRlZCwgeW91J2xsIGJlIHByZXNlbnRlZCB3aXRoIGEgbGlzdCBvZiBh
+dmFpbGFibGUgR2l0SHViIHRvb2xzLCBncm91cGVkIGJ5IGNhdGVnb3J5LiBG
+b3Igc2VjdXJpdHkgYW5kIGNvbnRyb2wsIHlvdSBtdXN0IGV4cGxpY2l0bHkg
+c2VsZWN0IHdoaWNoIGFjdGlvbnMgdGhlIEFJIG1vZGVsIGlzIGFsbG93ZWQg
+dG8gcGVyZm9ybS4KCkNoZWNrIHRoZSBib3hlcyBuZXh0IHRvIHRoZSB0b29s
+cyB5b3Ugd2FudCB0byBlbmFibGUgZm9yIHRoaXMgbm9kZSAoZS5nLiwgYGNy
+ZWF0ZUlzc3VlYCwgYGdldFB1bGxSZXF1ZXN0YCwgYGNyZWF0ZU9yVXBkYXRl
+RmlsZWApLgoKIyMjIDUuIFNhdmUgdGhlIENvbmZpZ3VyYXRpb24KCk9uY2Ug
+eW91J3ZlIHNlbGVjdGVkIHRoZSBkZXNpcmVkIHRvb2xzLCBjbGljayAqKlNh
+dmUgJiBDb25uZWN0KiogYXQgdGhlIGJvdHRvbSBvZiB0aGUgbW9kYWwuIFRo
+ZSBHZW5lcmF0b3IgTm9kZSB3aWxsIG5vdyBzaG93IHRoYXQgR2l0SHViIGlz
+IGNvbm5lY3RlZCwgZGlzcGxheWluZyB0aGUgZW5hYmxlZCB0b29scyBhbmQg
+YSAqKkNvbmZpZ3VyYXRpb24qKiBidXR0b24gdG8gbWFrZSBmdXR1cmUgY2hh
+bmdlcy4KCiMjIEF2YWlsYWJsZSBHaXRIdWIgVG9vbHMKClRoZSBmb2xsb3dp
+bmcgaXMgYSBsaXN0IG9mIHRvb2xzIHlvdSBjYW4gZW5hYmxlIGZvciB5b3Vy
+IEFJIG1vZGVsLCBjYXRlZ29yaXplZCBhcyB0aGV5IGFwcGVhciBpbiB0aGUg
+Y29uZmlndXJhdGlvbiBzY3JlZW4uCgoqKk5vdGUqKjogR2l0SHViIHRvb2xz
+IGNvbmZvcm0gdG8gdGhlIGRlZmluaXRpb25zIGF0IFtodHRwczovL2dpdGh1
+Yi5jb20vZ2l0aHViL2dpdGh1Yi1tY3Atc2VydmVyXShodHRwczovL2dpdGh1
+Yi5jb20vZ2l0aHViL2dpdGh1Yi1tY3Atc2VydmVyKQoKIyMjIFJlcG9zaXRv
+cnkKCiMjIyMgYGdldEZpbGVDb250ZW50c2AKClJldHJpZXZlcyBmaWxlIG9y
+IGRpcmVjdG9yeSBjb250ZW50cyBmcm9tIGEgcmVwb3NpdG9yeQoKKiAqKlJl
+cXVpcmVkKio6CiAgKiBgb3duZXJgIChSZXBvc2l0b3J5IG93bmVyKQogICog
+YHBhdGhgIChQYXRoIHRvIGZpbGUvZGlyZWN0b3J5KQogICogYHJlcG9gIChS
+ZXBvc2l0b3J5IG5hbWUpCisgKipPcHRpb25hbCoqOiBgYnJhbmNoYCAoQnJh
+bmNoIHRvIGdldCBjb250ZW50cyBmcm9tKQoKIyMjIyBgbGlzdEJyYW5jaGVz
+YwoKTGlzdHMgYWxsIGJyYW5jaGVzIGluIGEgcmVwb3NpdG9yeSB3aXRoIHBh
+Z2luYXRpb24gc3VwcG9ydAoKKiAqKlJlcXVpcmVkKio6CiAgKiBgb3duZXJg
+IChSZXBvc2l0b3J5IG93bmVyKQogICogYHJlcG9gIChSZXBvc2l0b3J5IG5h
+bWUpCisgKipPcHRpb25hbCoqOgogICogYHBhZ2VgIChQYWdlIG51bWJlciBm
+b3IgcGFnaW5hdGlvbiwgbWluIDEpCiAgKiBgYnlwYXNzUmVuZGVyQmxvY2tl
+cmAgKFNldCB0byB0cnVlIHRvIHRlbGwgR2lzZWxsZSB0byBieXBhc3MgdGhl
+IFJlbmRlciBCbG9ja2VyKQogICogYHBlclBhZ2VgIChSZXN1bHRzIHBlciBw
+YWdlLCBtaW4gMSwgbWF4IDEwMCkKCiMjIyBJc3N1ZXMKCiMjIyMgYGNyZWF0
+ZUlzc3VlYwoKT3BlbnMgYSBuZXcgaXNzdWUgd2l0aCByZXF1aXJlZCB0aXRs
+ZSBhbmQgb3B0aW9uYWwgYm9keSwgYXNzaWduZWVzLCBsYWJlbHMsIGFuZCBt
+aWxlc3RvbmUgbnVtYmVyCgoqICoqUmVxdWlyZWQqKjoKICAqIGBvd25lcmAg
+KFJlcG9zaXRvcnkgb3duZXIpCiAgKiBgcmVwb2AgKFJlcG9zaXRvcnkgbmFt
+ZSkKICAqIGB0aXRsZWAgKElzc3VlIHRpdGxlKQorICoqT3B0aW9uYWwqKjoK
+ICAqIGBib2R5YCAoSXNzdWUgYm9keSBjb250ZW50KQogICogYGFzc2lnbmVl
+c2AgKEFycmF5IG9mIHVzZXJuYW1lcyB0byBhc3NpZ24pCiAgKiBgbGFiZWxz
+YCAoQXJyYXkgb2YgbGFiZWxzIHRvIGFwcGx5KQogICogYG1pbGVzdG9uZWAg
+KE1pbGVzdG9uZSBudW1iZXIpCgojIyMjIGBnZXRJc3N1ZWAKClJldHJpZXZl
+cyBkZXRhaWxlZCBpbmZvcm1hdGlvbiBhYm91dCBhIHNwZWNpZmljIGlzc3Vl
+IGJ5IGl0cyBudW1iZXIKCisgKipSZXF1aXJlZCoqOgogICogYG93bmVyYCAo
+UmVwb3NpdG9yeSBvd25lcikKICAqIGByZXBvYCAoUmVwb3NpdG9yeSBuYW1l
+KQogICogYGlzc3VlTnVtYmVyYCAoSXNzdWUgbnVtYmVyKQoKIyMjIyBgbGlz
+dElzc3Vlc2AKCkxpc3RzIHJlcG9zaXRvcnkgaXNzdWVzIHdpdGggZmlsdGVy
+cyBmb3Igc3RhdGUsIGxhYmVscywgZGF0ZSwgc29ydCBvcmRlciwgYW5kIGRp
+cmVjdGlvbiB3aXRoIHBhZ2luYXRpb24KKiAqKlJlcXVpcmVkKio6CiAgKiBg
+b3duZXJgIChSZXBvc2l0b3J5IG93bmVyKQogICogYHJlcG9gIChSZXBvc2l0
+b3J5IG5hbWUpCisgKipPcHRpb25hbCoqOgogICogYHN0YXRlYCAob3Blbi9j
+bG9zZWQvYWxsKQogICogYGxhYmVsc2AgKEFycmF5IG9mIGxhYmVscyB0byBm
+aWx0ZXIgYnkpCiAgKiBgc29ydGAgKGNyZWF0ZWQvdXBkYXRlZC9jb21tZW50
+cykKICAqIGBkaXJlY3Rpb25gIChhc2MvZGVzYykKICAqIGBzaW5jZWAgKElT
+TyA4NjAxIHRpbWVzdGFtcCkKICAqIGBwYWdlYCAoUGFnZSBudW1iZXIsIG1p
+biAxKQogICogYHBlclBhZ2VgIChSZXN1bHRzIHBlciBwYWdlLCBtaW4gMSwg
+bWF4IDEwMCkKCiMjIyMgYHVwZGF0ZUlzc3VlYwoKVXBkYXRlcyBhbiBleGlz
+dGluZyBpc3N1ZSdzIHByb3BlcnRpZXMKCisgKipSZXF1aXJlZCoqOgogICog
+YG93bmVyYCAoUmVwb3NpdG9yeSBvd25lcikKICAqIGByZXBvYCAoUmVwb3Np
+dG9yeSBuYW1lKQogICogYGlzc3VlTnVtYmVyYCAoSXNzdWUgbnVtYmVyIHRv
+IHVwZGF0ZSkKLSAqKk9wdGlvbmFsKio6CiAgKiBgdGl0bGVgIChOZXcgdGl0
+bGUgZm9yIGlzc3VlKQogICogYm9keWAgKE5ldyBkZXNjcmlwdGlvbiBmb3Ig
+aXNzdWUpCiAgKiBgc3RhdGVgIChvcGVuL2Nsb3NlZCkKICAqIGBhc3NpZ25l
+ZXNgIChOZXcgYXNzaWduZWVzIGFycmF5KQogICogYGxhYmVsc2AgKE5ldyBs
+YWJlbHMgYXJyYXkpCiAgKiBgbWlsZXN0b25lYCAoTmV3IG1pbGVzdG9uZSBu
+dW1iZXIpCgojIyMjIGBhZGRJc3N1ZUNvbW1lbnRwCgpBZGRzIGEgY29tbWVu
+dCB0byBhbiBleGlzdGluZyBpc3N1ZSB3aXRoIHJlcXVpcmVkIGJvZHkgY29u
+dGVudAoKKiAqKlJlcXVpcmVkKio6CiAgKiBgb3duZXJgIChSZXBvc2l0b3J5
+IG93bmVyKQogICogYHJlcG9gIChSZXBvc2l0b3J5IG5hbWUpCiAgKiBgaXNz
+dWVOdW1iZXJgIChJc3N1ZSBudW1iZXIpCiAgKiBgYm9keWAgKENvbW1lbnQg
+Y29udGVudCkKCiMjIyMgYGdldElzc3VlQ29tbWVudHNgClJldHJpZXZlcyBh
+bGwgY29tbWVudHMgb24gYSBzcGVjaWZpYyBpc3N1ZSB3aXRoIHBhZ2luYXRp
+b24gc3VwcG9ydAoqICoqUmVxdWlyZWQqKjoKICAqIGBvd25lcmAgKFJlcG9z
+aXRvcnkgb3duZXIpCiAgKiBgcmVwb2AgKFJlcG9zaXRvcnkgbmFtZSkKICAq
+IGBpc3N1ZU51bWJlcmAgKElzc3VlIG51bWJlcikKLSAqKk9wdGlvbmFsKio6
+CiAgKiBgcGFnZWAgKFBhZ2UgbnVtYmVyKQogICogYHBlclBhZ2VgIChOdW1i
+ZXIgb2YgcmVjb3JkcyBwZXIgcGFnZSkKCiMjIyBQdWxsIFJlcXVlc3RzCgoj
+IyMjIGBjcmVhdGVQdWxsUmVxdWVzdGAKCk9wZW5zIGEgbmV3IFBSIHF1aWNr
+bHkgd2l0aCBiYXNpYyBpbmZvcm1hdGlvbjoKKiAqKlJlcXVpcmVkKio6CiAg
+KiBgb3duZXJgIChSZXBvc2l0b3J5IG93bmVyKQogICogYHJlcG9gIChSZXBv
+c2l0b3J5IG5hbWUpCiAgKiBgdGl0bGVgIChQUiB0aXRsZSkKICAqIGBoZWFk
+YCAoQnJhbmNoIGNvbnRhaW5pbmcgY2hhbmdlcikKICAqIGBiYXNlYCAoQnJh
+bmNoIHRvIG1lcmdlIGludG8pCi0gKipPcHRpb25hbCoqOgogICogYm9keWAg
+KFBSIGRlc2NyaXB0aW9uKQogICogYGRyYWZ0YCAoQ3JlYXRlIGFzIGRyYWZ0
+IFBSKQogICogYG1haW50YWluZXJDYW5Nb2RpZnlgIChBbGxvdyBtYWludGFp
+bmVyIGVkaXRzKQoKIyMjIyBgZ2V0UHVsbFJlcXVlc3RgCgpGZXRjaGVzIGRl
+dGFpbGVkIGluZm9ybWF0aW9uIGFib3V0IGEgc3BlY2lmaWMgcHVsbCByZXF1
+ZXN0IGJ5IG51bWJlcgoqICoqUmVxdWlyZWQqKjoKICAqIGBvd25lcmAgKFJl
+cG9zaXRvcnkgb3duZXIpCiAgKiBgcmVwb2AgKFJlcG9zaXRvcnkgbmFtZSkK
+ICAqIGBwdWxsTnVtYmVyYCAoUHVsbCByZXF1ZXN0IG51bWJlcikKCiMjIyMg
+YHVwZGF0ZVB1bGxSZXF1ZXN0YAoKRWRpdHMgUFIgcHJvcGVydGllcyBpbmNs
+dWRpbmcgdGl0bGUsIGJvZHksIGJhc2UgYnJhbmNoLCBzdGF0ZSwgYW5kIG1h
+aW50YWluZXIgcGVybWlzc2lvbnMKCisgKipSZXF1aXJlZCoqOgogICogYG93
+bmVyYCAoUmVwb3NpdG9yeSBvd25lcikKICAqIGByZXBvYCAoUmVwb3NpdG9y
+eSBuYW1lKQogICogYHB1bGxOdW1iZXJgIChQdWxsIHJlcXVlc3QgbnVtYmVy
+KQotICoqT3B0aW9uYWwqKjoKICAqIGB0aXRsZWAgKE5ldyB0aXRsZSkKICAq
+IGBib2R5YCAoTmV3IGRlc2NyaXB0aW9uKQogICogYHN0YXRlYCAob3Blbi9j
+bG9zZWQpCiAgKiBgYmFzZWAgKE5ldyBiYXNlIGJyYW5jaCBuYW1lKQogICog
+YG1haW50YWluZXJDYW5Nb2RpZnlgIChBbGxvdyBtYWludGFpbmVyIGVkaXRz
+KQoKIyMjIyBgbGlzdFB1bGxSZXF1ZXN0c2AKCkxpc3RzIFBScwreDOG 
