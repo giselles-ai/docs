@@ -22,11 +22,16 @@ To use this feature, the [Giselle GitHub App](https://github.com/apps/giselles-a
 2.  **Configure the Repository**:
     *   When first added, the node will display a "REQUIRES SETUP" status.
     *   Select the node to open its configuration panel on the right.
-    *   Click the **Select a repository** dropdown menu. This list will only show repositories that have the Giselle GitHub App installed.
+    *   Click the **Select a repository** dropdown menu. This list will only show repositories that have the Giselle GitHub App installed. Choose the repository you want to use as a knowledge source (e.g., `giselles-ai/docs`).
 
-3.  **Finalize Setup**:
-    *   Choose the repository you want to use as a knowledge source (e.g., `giselles-ai/docs`).
-    *   Once selected, the node on the canvas will update to show the name of the configured repository. The vectorization process for this repository will be initiated or updated in the background.
+3.  **Choose the Content Type**:
+    *   After selecting a repository, you will need to specify which type of content to vectorize. The available options are:
+      *   **Code**: Vectorizes the source code and documents from the repository's default branch. This is useful for creating a knowledge base from your codebase.
+      *   **Pull Requests**: Vectorizes the content from pull requests, including descriptions, comments, and discussions. This is ideal for analyzing development patterns or summarizing changes.
+    *   Select the radio button corresponding to the content you wish to use.
+
+4.  **Finalize Setup**:
+    *   Once the repository and content type are selected, the node on the canvas will update to show the name of the configured repository. The vectorization process for this repository will be initiated or updated in the background.
 
 ### Managing Your Vector Stores
 
