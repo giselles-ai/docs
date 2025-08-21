@@ -30,12 +30,17 @@ To use this feature, the [Giselle GitHub App](https://github.com/apps/giselles-a
 
 ### Managing Your Vector Stores
 
-You can add or remove the GitHub repositories that are processed by the GitHub Vector Store Node from your team's settings page.
+You can add, configure, and remove the GitHub repositories that are processed by the GitHub Vector Store Node from your team's settings page.
 
 *   Navigate to **Settings > Team > Vector Stores** in your Giselle account.
 *   Alternatively, you can click the **Set Up GitHub Vector Store** link directly from the node's configuration panel.
 *   This page allows you to manage which repositories are indexed and available for your workflows. You can access it here: [https://studio.giselles.ai/settings/team/vector-stores](https://studio.giselles.ai/settings/team/vector-stores).
 
+#### Sources to Ingest
+When registering a new repository, you can select which types of content to ingest. Giselle currently supports two sources:
+
+*   **Code**: Ingests the source code files from the repository. This source is required and cannot be disabled.
+*   **Pull Requests**: Ingests the content and discussions from merged pull requests. This is an optional source that can be enabled to provide additional context to your AI workflows.
 
 ### Rate Limits and Considerations
 When using the GitHub Vector Store Node, please be aware of GitHub API rate limits. Giselle's GitHub Vector Store uses [GitHub App Installation](https://docs.github.com/ja/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28#primary-rate-limit-for-github-app-installations) for GitHub API access, which has a rate limit of approximately 5,000 requests per hour. You may encounter errors when working with large-scale projects. If this occurs, please wait some time before trying again.
