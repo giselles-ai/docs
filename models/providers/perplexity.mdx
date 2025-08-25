@@ -62,5 +62,47 @@ Both `sonar` and `sonar-pro` nodes in Giselle now support the `search_domain_fil
 *   Adding domain filters might slightly increase response time.
 *   Overly restrictive filters could lead to fewer search results, potentially affecting response quality.
 
+---
+<Note>
+  The following section describes a **new Anthropic Web Search tool** and is included here as per specific instructions. For Anthropic-specific documentation, please refer to the [Anthropic provider overview](/models/providers/anthropic).
+</Note>
+
+## Anthropic Web Search Tool
+
+Giselle now supports the **Anthropic Web Search tool** within Generator Nodes, enabling Anthropic AI models to access real-time web content for up-to-date information beyond their knowledge cutoff. This tool facilitates answering questions with current data and dynamically grounding responses.
+
+### Configuring Anthropic Web Search
+
+To enable and configure the Anthropic Web Search tool for a Generator Node using an Anthropic model:
+
+1.  **Navigate to the Tools Tab**: In your Generator Node, select the **Tools** tab.
+2.  **Locate Anthropic Web Search**: Find "Anthropic Web Search" in the list of available integrations and click the **Configure** button.
+3.  **Enable/Disable Tool**: Use the toggle to enable or disable the tool.
+4.  **Set Maximum Uses**:
+    *   Specify the `Maximum Uses` for web searches within the range of 1 to 10. This limits how many times the AI model can perform a web search during a single generation task.
+    *   **Validation**: The input will validate that the value is between 1 and 10.
+5.  **Configure Domain Filtering**: Choose one of three filtering modes to control the scope of web searches:
+    *   **No Filtering**: The AI model will search all available domains without any restrictions.
+    *   **Allow Specific Domains**: Only search within the specified domains. All other domains will be blocked.
+        *   **How to Use**: Provide a list of simple domain names (e.g., `example.com`, `wikipedia.org`).
+    *   **Block Specific Domains**: Search all domains except those you specify. Blocked domains will be excluded.
+        *   **How to Use**: Provide a list of simple domain names (e.g., `pinterest.com`, `reddit.com`).
+    *   **Domain Validation**: Ensure valid domain names are entered (e.g., `example.com`). Invalid domains will trigger an error message.
+    *   **Best Practices**:
+        *   Use simple domain names (e.g., `example.com`, no `http://` or `www.`).
+        *   Main domains (e.g., `nytimes.com`) will filter all subdomains.
+        *   Limit filters to a maximum of 10 domains for optimal performance.
+        *   Use domains most relevant to your query.
+6.  **Save Configuration**: After setting your preferences, click **Save** to apply the configuration to your Generator Node.
+
+### Integration with Text Generation
+
+Once configured, the Anthropic Web Search tool is automatically integrated into Anthropic text generation processes. The AI model will leverage the specified web search parameters when it determines a search is necessary to fulfill the prompt's requirements. This includes tracing support, adding a `tool:web-search` tag and `anthropic.webSearch` provider metadata to track usage and performance.
+
+### Benefits
+
+*   **Real-time Information**: Access up-to-date content for accurate responses.
+*   **Reduced Hallucinations**: Ground AI responses with factual, current data.
+*   **Controlled Search Scope**: Fine-tune search results through domain filtering for focused research.
 
 For detailed specifications or additional assistance, please refer to [Perplexity AI Documentation](https://docs.perplexity.ai).
