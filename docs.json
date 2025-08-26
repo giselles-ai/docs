@@ -1,0 +1,212 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Giselle Docs",
+  "colors": {
+    "primary": "#1663F3",
+    "light": "#048DF6",
+    "dark": "#1663F3"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "guides/introduction",
+              "guides/get-started/quickstart"
+            ]
+          },
+          {
+            "group": "Workspaces",
+            "pages": [
+              "guides/workspaces/build"
+            ]
+          },
+          {
+            "group": "Apps",
+            "pages": [
+              "guides/apps/myapp",
+              "guides/apps/teamapp"
+            ]
+          },
+          {
+            "group": "Settings",
+            "pages": [
+              {
+                "group": "Account",
+                "pages": [
+                  "guides/settings/account/Authentication",
+                  "guides/settings/account/general",
+                  "guides/settings/account/overview"
+                ]
+              },
+              {
+                "group": "Team",
+                "pages": [
+                  "guides/settings/team/billing",
+                  "guides/settings/team/general",
+                  "guides/settings/team/integrations",
+                  "guides/settings/team/members",
+                  "guides/settings/team/usage"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Learn About",
+            "pages": [
+              "guides/learn-about/plans",
+              "guides/learn-about/usage",
+              "guides/learn-about/billing",
+              "guides/learn-about/privacy-security",
+              "guides/learn-about/open-source-license"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Models",
+        "groups": [
+          {
+            "group": "Providers",
+            "pages": [
+              "models/providers/overview",
+              "models/providers/anthropic",
+              "models/providers/fal",
+              "models/providers/google",
+              "models/providers/openai",
+              "models/providers/perplexity"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Prompts",
+        "groups": [
+          {
+            "group": "Prompt Engineering",
+            "pages": [
+              "prompts/overview",
+              "prompts/examples",
+              "prompts/tips"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Glossary",
+        "groups": [
+          {
+            "group": "Explore the Glossary",
+            "pages": [
+              "glossary/node",
+              "glossary/generator-node",
+              "glossary/trigger-node",
+              "glossary/action-node",
+              "glossary/text-node",
+              "glossary/webpage-node",
+              "glossary/github-vector-store-node",
+              "glossary/query-node",
+              "glossary/file-node",
+              "glossary/ai-parameters",
+              "glossary/github-tools",
+              "glossary/postgresql-tools"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "FAQ",
+        "groups": [
+          {
+            "group": "Application FAQs",
+            "pages": [
+              "faq/application/workspaces",
+              "faq/application/ai-models"
+            ]
+          },
+          {
+            "group": "Account & Billing FAQs",
+            "pages": [
+              "faq/account-billing/accounts",
+              "faq/account-billing/billing",
+              "faq/account-billing/plan"
+            ]
+          },
+          {
+            "group": "Security & Support FAQs",
+            "pages": [
+              "faq/security-support/privacy-security",
+              "faq/security-support/support"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Releases",
+        "groups": [
+          {
+            "group": "Information",
+            "pages": [
+              "releases/release-notes",
+              "releases/product-notes",
+              "releases/roadmap"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Website",
+          "href": "https://giselles.ai",
+          "icon": "house"
+        },
+        {
+          "anchor": "Open Source",
+          "href": "https://github.com/giselles-ai/giselle",
+          "icon": "github"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:support@giselles.ai"
+      },
+      {
+        "label": "Log in",
+        "href": "https://studio.giselles.ai/login"
+      },
+      {
+        "label": "Sign up",
+        "href": "https://studio.giselles.ai/signup"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Get Started",
+      "href": "https://studio.giselles.ai/"
+    }
+  },
+  "footer": {
+    "socials": {
+      "facebook": "https://www.facebook.com/GiselleAI",
+      "x": "https://x.com/Giselles_AI",
+      "youtube": "https://www.youtube.com/@Giselle_AI",
+      "instagram": "https://www.instagram.com/giselle_de_ai/",
+      "github": "https://github.com/giselles-ai/giselle"
+    }
+  }
+}
