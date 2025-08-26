@@ -1,0 +1,39 @@
+---
+title: fal.ai
+description: '利用可能な fal.ai 画像生成モデルの概要。'
+---
+
+## fal.ai 画像生成モデル
+
+fal.ai ワークスペースでは以下の画像生成モデルが利用可能です。各モデルは、速度、詳細、芸術的忠実度のバランスを取りながら、異なる使用事例に適した独特の機能を提供します。
+
+| Models                             | Text-to-Image | Speed     | Detail & Fidelity | Typography | Inference Steps | Safety Checker | Plan@Giselle |
+|------------------------------------|---------------|-----------|-------------------|------------|-----------------|----------------|----------------|
+| flux-pro/v1.1                      | ✅            | ⚡️ High    | ⭐️⭐️⭐️⭐️⭐️      | ✅         | Optimized       | ✅ (Tolerance levels 1-6) | Free              |
+| flux/schnell                       | ✅            | ⚡️⚡️ Turbo | ⭐️⭐️⭐️⭐️        | ✅         | 1-4 steps       | Pro              | ✅              |
+| stable-diffusion-v3-medium         | ✅            | Moderate  | ⭐️⭐️⭐️⭐️⭐️      | ✅ (Enhanced) | Default 28 steps | ✅              | Pro              |
+
+Please note that some features may not be available within Giselle even if they are offered in the official API. 
+
+### flux-pro/v1.1
+Enhanced version of FLUX.1, offering superior composition, detail, and artistic fidelity. With significantly accelerated speeds (up to 10x), it provides excellent results for professional-grade visual content. Includes adjustable safety tolerance levels, detailed typography support, and optimized inference steps for efficiency.
+
+### flux/schnell
+A highly efficient 12-billion-parameter model, optimized for extremely fast image generation (1-4 steps). Ideal for use-cases requiring rapid image production without significant compromise on quality. Suitable for both personal and commercial purposes, with built-in safety checking.
+
+### stable-diffusion-v3-medium
+An advanced Multimodal Diffusion Transformer (MMDiT) model that significantly improves image quality, typography handling, prompt comprehension, and overall efficiency. Provides excellent balance between quality and speed with enhanced typography capabilities and standard inference steps.
+
+## Model Selection Guide
+
+Guidelines for selecting the optimal fal.ai model:
+
+- **For highest artistic fidelity and professional results**: flux-pro/v1.1
+- **For fastest image generation**: flux/schnell
+- **For balanced image quality, typography, and efficiency**: stable-diffusion-v3-medium
+
+## Practices for Giselle
+
+We recommend flux-pro/v1.1 as your primary choice when exceptional detail, artistic accuracy, and overall superior image quality are essential. For real-time applications or projects requiring quick visual feedback, flux/schnell provides the necessary speed. When needing a versatile balance of quality, efficiency, and typographic precision, stable-diffusion-v3-medium is highly recommended.
+
+For detailed specifications, integration guides, and further assistance, please refer to the [fal.ai API Documentation](https://fal.ai/models).

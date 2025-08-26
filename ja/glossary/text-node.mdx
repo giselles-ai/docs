@@ -1,0 +1,43 @@
+---
+title: テキスト ノード
+description: "Giselle のテキスト ノードが、プロンプト、指示、データなどのプレーン テキストをワークフロー内で直接保存および管理する方法を学びます。"
+---
+
+## Text Node in Giselle
+
+The **Text Node** is one of the simplest yet most versatile "Source" nodes in Giselle. It is designed to hold and manage plain text content directly within your workflow, making it an essential tool for a wide range of applications. Unlike the File Node, which handles uploaded files, the Text Node stores its content inline, ensuring it is always immediately available without any loading or processing time.
+
+### Key Features
+
+*   **Direct Text Input**: You can write or paste any text directly into the node's built-in editor.
+*   **Inline Storage**: The content is stored as a simple string within the node itself, making your workflow self-contained and portable.
+*   **Instant Availability**: Since there are no file uploads or external storage, the text is instantly available as an output for other nodes.
+
+### How to Use a Text Node
+
+1.  **Add the Node**: From the toolbar at the bottom of the canvas, click the **Source** icon and select **Plain Text** to add the node to your workspace.
+2.  **Configure the Content**: Select the node to open its configuration panel on the right.
+3.  **Enter Text**: Type or paste your content directly into the text editor, which displays the placeholder "Write or paste text here...". The content is saved automatically as you type.
+
+### Common Use Cases
+
+The Text Node is ideal for:
+
+*   **Storing Prompts**: Write and store reusable prompts for Generator Nodes.
+*   **Creating Templates**: Keep text templates for various content generation tasks.
+*   **Writing Instructions**: Document workflow-specific instructions or guidelines for your team.
+*   **Holding Data**: Store small, structured datasets like JSON or CSV content for processing.
+*   **Quick Notes**: Use it for temporary text storage or as a scratchpad during workflow development.
+
+### Text Node vs. File Node
+
+While a **File Node** can also handle text files (like `.txt` or `.md`), the **Text Node** is fundamentally different and often more convenient:
+
+*   **Storage**: The Text Node stores content *directly* in the workflow. The File Node requires you to *upload* a file, which is stored separately.
+*   **Editing**: Content in a Text Node can be edited instantly within the Giselle interface. To change the content of a File Node, you would need to upload a new file.
+*   **Overhead**: The Text Node has no file management overhead (no size tracking, upload states, or potential upload failures).
+*   **Best For**: The Text Node is better suited for dynamic or frequently edited content, while the File Node is ideal for using large, static text files as a data source.
+
+### Output of the Node
+
+The **output** of a Text Node is the raw text content you have entered into its editor. This output can be connected to the input of any compatible node. For example, you can connect it to a Generator Node to use the text as a prompt, or to an Action Node to pass the text as a parameter to an external service.

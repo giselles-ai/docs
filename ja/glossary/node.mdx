@@ -1,0 +1,92 @@
+---
+title: Giselle のノード
+description: "ノードについて学びましょう。Giselle 上の AI アプリの構成要素です。さまざまな機能を持つノードを接続して、強力な AI ワークフローを視覚的に設計します。"
+---
+
+## Giselle の AI エージェントは「ノード」を組み合わせて構築できます
+
+Giselle is a platform that allows you to build powerful AI agents through an intuitive node-based interface. By connecting "nodes" with various functions, like assembling building blocks, you can visually design complex AI workflows. This makes it easy for anyone, even without specialized knowledge, to achieve automation with AI agents.
+
+## Giselle の主要ノードの紹介
+
+Giselle で利用可能な基本的なノードの一部を以下に紹介します。これらのノードを組み合わせることで、さまざまな AI ワークフローを構築できます。
+
+### ジェネレーター ノード
+
+The Generator node can create both text and images using advanced AI models. By configuring prompts and conditions, you can generate content tailored to your needs. For text, this includes applications such as document creation, blog writing, and research report generation, leveraging Giselle's LLM API for high-quality, natural-sounding text. For images, you can generate visuals from text prompts, enabling creative content creation and workflows that utilize visual data. The Generator node empowers you to flexibly produce a wide range of AI-generated outputs within your workflows.
+
+**Web Search Capability**: When using models that support web search functionality, the Generator node can access real-time information from the internet. This enables the creation of content based on the latest data and current events, making your AI workflows more dynamic and up-to-date.
+
+### Text Node
+
+Text node is used to hold text data. It can be used to record prompts, instructions, annotations, and more. It helps manage and organize text data within the workflow, streamlining input to text generation nodes and data usage in other nodes.
+
+### File Node
+
+File node is used to handle file data. You can read files, use them as input for AI models, and save output results to files. It is useful for various tasks that involve utilizing file data, such as data-based analysis and report generation.
+
+### Web Page Node
+
+The Web Page node is used to fetch and hold content from web pages. You can input one or more URLs, and Giselle will attempt to retrieve the content from these pages. Currently, the fetched content is processed and made available primarily in Markdown format. This allows you to use web content as a dynamic input source for AI models or other processing nodes within your workflow, enabling tasks like summarization, analysis, or content generation based on information from the web.
+
+### Trigger Node
+
+Trigger Node is the starting point for running the workflow built in the Giselle App. It initiates the execution of the connected nodes in a sequence. Currently, two types of Trigger Nodes are supported:
+
+*   **Manual Trigger Node**: This node allows you to manually initiate the workflow directly within the Giselle App Workspace. It's useful for testing, on-demand executions, or when you want direct control over when a workflow runs.
+*   **GitHub Trigger Node**: This node enables workflows to be automatically triggered by GitHub webhooks. When the Giselle GitHub App is installed in a repository, this node can listen for specific events (like issue comments or pull requests) and start the Giselle App's workflow in response.
+
+### Action Node
+
+Action Node is a node that can call external services. Currently, it primarily supports integrations with GitHub, allowing workflows to perform actions within your repositories. We plan to expand its capabilities to enable interactions with a variety of other external services in the future.
+
+### GitHub Vector Store Node & Query Node
+
+Giselle supports advanced data retrieval and search capabilities through the **GitHub Vector Store Node** and the **Query Node**.
+
+- **GitHub Vector Store Node**: This specialized Source node allows you to vectorize the contents of a GitHub repository, creating a searchable knowledge base. It uses OpenAI's embedding models to convert your repository's code and documents into vector representations, enabling semantic search within your workflows. This is especially useful for building Retrieval-Augmented Generation (RAG) applications. For setup and details, see the [GitHub Vector Store Node documentation](github-vector-store-node).
+
+- **Query Node**: The Query Node is designed to execute search queries against connected data sources, such as the GitHub Vector Store Node. It retrieves the most relevant information (text chunks) from your vectorized repositories, which can then be used as dynamic context for AI generation or further processing. For more information, see the [Query Node documentation](query-node).
+
+**Typical Usage:**
+1. Add a GitHub Vector Store Node and configure it with your repository.
+2. Connect its output to a Query Node.
+3. Use the Query Node to search your repository's content and pass the results to other nodes, such as a Generator Node, for context-aware AI workflows.
+
+These nodes enable powerful, up-to-date, and context-rich AI applications by leveraging your own data sources within Giselle.
+
+## Tips for using Node
+
+Here are some helpful tips to enhance your experience with nodes in Giselle.
+
+### Node Duplication
+
+To enhance workflow efficiency, Giselle supports node duplication. This feature allows you to quickly create a copy of an existing node within the workflow designer.
+
+**How to Duplicate a Node:**
+
+*   **Right-Click Context Menu:** Right-click on any node in the workflow designer to open the context menu, then select "Duplicate Node."
+*   **Keyboard Shortcut:** Select the node you wish to duplicate and use the keyboard shortcut `Cmd + D` (on macOS) or `Ctrl + D` (on Windows/Linux).
+
+**Duplication Behavior:**
+
+*   The duplicated node will appear at an offset position from the original node.
+*   Connections from the original node are preserved in the duplicate where applicable.
+*   For File nodes, the duplicated node will correctly reference newly copied files.
+*   Cloned nodes will start in an "unconfigured" state, allowing you to customize their settings independently from the original node.
+*   If the duplication process encounters an issue, an error message will be displayed.
+
+This feature streamlines the process of building complex workflows by allowing for easy replication of configured or template nodes.
+
+## Future Node Expansion Plans
+
+We plan to expand node functionality to further empower our users to build AI workflows. Here's a look at what our team is currently considering:
+
+### Expansion of the File Node
+
+We plan to expand the file formats supported by the File node, adding support for:
+
+*   **Tabular Files** (CSV, Excel, etc.)
+*   **Audio Files**
+
+Stay tuned for Giselle's product updates!

@@ -1,0 +1,57 @@
+---
+title: ウェブページ ノード
+description: "Giselle のウェブページ ノードがウェブページからコンテンツを取得し、AI ワークフローで静的入力として使用する方法を学びます。"
+---
+
+## Web Page Node in Giselle
+
+The **Web Page Node** is used to fetch and hold content from web pages. You can input one or more URLs, and Giselle will attempt to retrieve the content from these pages. Currently, the fetched content is processed and made available primarily in **Markdown format**. This allows you to use web content as a static input source for AI models or other processing nodes within your workflow, enabling tasks like summarization, analysis, or content generation based on information from the web.
+
+The Web Page Node functions as an independent variable node, providing a streamlined way to integrate web-based information into your Giselle applications.
+
+### Setting up a Web Page Node:
+
+1.  **Add a Web Page Node**:
+    *   Drag and drop a "Web Page" node from the toolbar at the bottom of the canvas onto your workspace.
+
+2.  **Configure URLs**:
+    *   Select the Web Page node on the canvas to open its configuration panel on the right.
+    *   In the text area labeled "URLs (one per line)", enter the full web addresses (URLs) of the pages from which you want to fetch content. If you have multiple URLs, enter each one on a new line.
+        ```
+        https://example.com/
+        https://docs.giselles.ai/glossary/node
+        ```
+
+3.  **Add URLs**:
+    *   After entering the desired URLs, click the blue **Add** button.
+    *   Giselle will then attempt to fetch the content from the specified URLs.
+    *   Once the URLs are processed, the configuration panel will update to list the added pages, often displaying their titles or a reference to the URL. The "URLs (one per line)" input area and the **Add** button will remain, allowing you to add more URLs if needed.
+
+### Output of the Web Page Node:
+
+*   **Content**: After successfully fetching data from the provided URLs, the Web Page Node makes this content available as its **output**.
+*   **Format**: The fetched content is primarily delivered in **Markdown format**. This standardized format makes it easy to use in subsequent text-processing nodes.
+*   **Connectivity**: The output of the Web Page Node can be connected to other nodes in your workflow. For instance, you can feed the Markdown content into a **Generator Node** to summarize an article, extract specific information, or use it as context for generating new content.
+
+The Web Page node on the canvas will have an "Output" port, which you can drag to connect to an input port of another node.
+
+### Example: Summarizing a Web Article
+
+1.  **Configure Web Page Node**:
+    *   Add a Web Page Node.
+    *   Input the URL of an online blog article (e.g., `https://giselles.ai/blog/transforming-product-development-human-ai-collaboration`).
+    *   Click **Add**.
+
+2.  **Connect to Generator Node**:
+    *   Add a Generator Node.
+    *   Connect the "Output" of the Web Page Node to an input (e.g., a context or document input) of the Generator Node.
+
+3.  **Configure Generator Node**:
+    *   Instruct the Generator Node to summarize the provided text. For example, use a prompt like: "Please summarize the following article concisely:"
+
+4.  **Run Workflow**:
+    *   When the workflow runs, the Web Page Node fetches the article content as Markdown, and the Generator Node produces a summary.
+
+### Future Updates
+
+The Web Page Node's user interface and functionality, including supported output formats, may be updated incrementally in future Giselle releases.

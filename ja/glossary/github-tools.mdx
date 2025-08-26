@@ -1,0 +1,445 @@
+---
+title: GitHub ツール
+description: "ジェネレーター ノード内で GitHub ツールを構成し使用する方法を学び、AI モデルが GitHub リポジトリと直接連携できるようにします。"
+---
+
+**GitHub Tools** enable AI models inside a Generator Node to perform a wide range of actions on GitHub by giving them access to a curated set of functions. This feature, often referred to as "tool use" or "function calling," allows you to build powerful AI agents that can automate development workflows, such as creating issues, managing pull requests, searching for code, and more, all based on natural language instructions in your prompt.
+
+## Configuring GitHub Tools
+
+Follow these steps to connect your GitHub account and enable specific tools for a Generator Node.
+
+### 1. Navigate to the Tools Tab
+
+In any Generator Node (e.g., `gemini-2.5-pro`), select the **Tools** tab. You will see a list of available integrations that can be connected.
+
+### 2. Connect to GitHub
+
+Click the **+ Connect** button next to the GitHub integration. This will open a configuration modal to add your credentials.
+
+### 3. Add Your Personal Access Token (PAT)
+
+To authenticate with GitHub, you need to provide a Personal Access Token (PAT).
+
+<Info>
+  You can create a new PAT from your GitHub account settings: [https://github.com/settings/personal-access-tokens](https://github.com/settings/personal-access-tokens). Ensure your token has the necessary permissions (scopes) for the actions you want to perform.
+</Info>
+
+In the "Connect to GitHub" window:
+
+1. **Token Name**: Give your token a descriptive name for easy identification later (e.g., "Create Issue" or "Update Docs").
+2. **Personal Access Token (PAT)**: Paste your token into this field. Giselle encrypts the token with authenticated encryption before saving it.
+3. Click **Save & Connect**.
+
+### 4. Select the Tools to Enable
+
+After your token is validated, you'll be presented with a list of available GitHub tools, grouped by category. For security and control, you must explicitly select which actions the AI model is allowed to perform.
+
+Check the boxes next to the tools you want to enable for this node (e.g., `createIssue`, `getPullRequest`, `createOrUpdateFile`).
+
+### 5. Save the Configuration
+
+Once you've selected the desired tools, click **Save & Connect** at the bottom of the modal. The Generator Node will now show that GitHub is connected, displaying the enabled tools and a **Configuration** button to make future changes.
+
+## Available GitHub Tools
+
+The following is a list of tools you can enable for your AI model, categorized as they appear in the configuration screen.
+
+**Note**: GitHub tools conform to the definitions at [https://github.com/github/github-mcp-server](https://github.com/github/github-mcp-server)
+
+### Repository
+
+#### `getFileContents`
+
+Retrieves file or directory contents from a repository
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `path` (Path to file/directory)
+  * `repo` (Repository name)
+* **Optional**: `branch` (Branch to get contents from)
+
+#### `listBranches`
+
+Lists all branches in a repository with pagination support
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+* **Optional**:
+  * `page` (Page number for pagination, min 1)
+  * `perPage` (Results per page, min 1, max 100)
+
+### Issues
+
+#### `createIssue`
+
+Opens a new issue with required title and optional body, assignees, labels, and milestone number
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+  * `title` (Issue title)
+* **Optional**:
+  * `body` (Issue body content)
+  * `assignees` (Array of usernames to assign)
+  * `labels` (Array of labels to apply)
+  * `milestone` (Milestone number)
+
+#### `getIssue`
+
+Retrieves detailed information about a specific issue by its number
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+  * `issueNumber` (Issue number)
+
+#### `listIssues`
+
+Lists repository issues with filters for state, labels, date, sort order, and direction with pagination
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+* **Optional**:
+  * `state` (open/closed/all)
+  * `labels` (Array of labels to filter by)
+  * `sort` (created/updated/comments)
+  * `direction` (asc/desc)
+  * `since` (ISO 8601 timestamp)
+  * `page` (Page number, min 1)
+  * `perPage` (Results per page, min 1, max 100)
+
+#### `updateIssue`
+
+Updates an existing issue's properties
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+  * `issueNumber` (Issue number to update)
+* **Optional**:
+  * `title` (New title)
+  * `body` (New description)
+  * `state` (open/closed)
+  * `assignees` (New assignees array)
+  * `labels` (New labels array)
+  * `milestone` (New milestone number)
+
+#### `addIssueComment`
+
+Adds a comment to an existing issue with required body content
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+  * `issueNumber` (Issue number)
+  * `body` (Comment content)
+
+#### `getIssueComments`
+
+Retrieves all comments on a specific issue with pagination support
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+  * `issueNumber` (Issue number)
+* **Optional**:
+  * `page` (Page number)
+  * `perPage` (Number of records per page)
+
+### Pull Requests
+
+#### `createPullRequest`
+
+Opens a new PR from head branch to base branch with title, optional body, draft status
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+  * `title` (PR title)
+  * `head` (Branch containing changes)
+  * `base` (Branch to merge into)
+* **Optional**:
+  * `body` (PR description)
+  * `draft` (Create as draft PR)
+  * `maintainerCanModify` (Allow maintainer edits)
+
+#### `getPullRequest`
+
+Fetches detailed information about a specific pull request by number
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+  * `pullNumber` (Pull request number)
+
+#### `updatePullRequest`
+
+Edits PR properties including title, body, base branch, state, and maintainer permissions
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+  * `pullNumber` (Pull request number)
+* **Optional**:
+  * `title` (New title)
+  * `body` (New description)
+  * `state` (open/closed)
+  * `base` (New base branch name)
+  * `maintainerCanModify` (Allow maintainer edits)
+
+#### `listPullRequests`
+
+Lists PRs with filters for state, base/head branches, sort order, and direction with pagination
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+* **Optional**:
+  * `state` (open/closed/all)
+  * `head` (Filter by head user/org and branch)
+  * `base` (Filter by base branch)
+  * `sort` (created/updated/popularity/long-running)
+  * `direction` (asc/desc)
+  * `page` (Page number, min 1)
+  * `perPage` (Results per page, min 1, max 100)
+
+#### `getPullRequestComments`
+
+Retrieves review comments on a pull request
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+  * `pullNumber` (Pull request number)
+
+#### `getPullRequestFiles`
+
+Lists all files changed in a pull request with pagination
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+  * `pullNumber` (Pull request number)
+
+#### `getPullRequestReviews`
+
+Gets all reviews submitted for a PR
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+  * `pullNumber` (Pull request number)
+
+#### `getPullRequestStatus`
+
+Checks CI/CD status checks for a pull request
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+  * `pullNumber` (Pull request number)
+
+#### `createPullRequestReview`
+
+Creates a pending review that can be submitted later
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+  * `pullNumber` (Pull request number)
+  * `event` (APPROVE/REQUEST\_CHANGES/COMMENT)
+* **Optional**:
+  * `body` (Review comment text)
+  * `commitId` (SHA of commit to review)
+  * `comments` (Array of line-specific comment objects)
+
+#### `addPullRequestReviewComment`
+
+Adds inline comments to specific lines/files during review with support for multi-line comments
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+  * `pullNumber` (Pull request number)
+  * `body` (Review comment text)
+* **Optional** (one of these patterns required):
+  * **Pattern 1 (reply)**: `inReplyTo` (ID of comment to reply to)
+  * **Pattern 2 (new comment)**:
+    * `commitId` (SHA of commit to comment on)
+    * `path` (Relative path to file)
+    * `line` (Line number in the diff)
+    * `side` (LEFT/RIGHT)
+    * `startLine` (For multi-line comments)
+    * `startSide` (LEFT/RIGHT for multi-line)
+    * `subjectType` (line/file)
+
+#### `mergePullRequest`
+
+Merges a PR with options for merge method, commit title, and commit message
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+  * `pullNumber` (Pull request number)
+* **Optional**:
+  * `mergeMethod` (merge/squash/rebase)
+  * `commitTitle` (Title for merge commit)
+  * `commitMessage` (Extra detail for merge commit)
+
+#### `updatePullRequestBranch`
+
+Updates PR branch with latest changes from base branch
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+  * `pullNumber` (Pull request number)
+* **Optional**:
+  * `expectedHeadSha` (Expected SHA of the PR's HEAD ref)
+
+### Code Management
+
+#### `createBranch`
+
+Creates a new branch from an existing branch or repository's default branch
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+  * `branch` (Name for new branch)
+* **Optional**:
+  * `fromBranch` (Source branch, defaults to repo default)
+
+#### `createOrUpdateFile`
+
+Creates new files or updates existing ones with content, commit message, and branch. Requires SHA for updates
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+  * `path` (Path where to create/update the file)
+  * `content` (Content of the file)
+  * `message` (Commit message)
+  * `branch` (Branch to create/update the file in)
+* **Optional**:
+  * `sha` (SHA of file being replaced, required for updates)
+
+#### `getCommit`
+
+Retrieves detailed information about a specific commit by SHA, branch name, or tag name
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+  * `sha` (Commit SHA, branch name, or tag name)
+* **Optional**:
+  * `page` (Page number, min 1)
+  * `perPage` (Results per page, min 1, max 100)
+
+#### `listCommits`
+
+Lists commit history with optional filtering by author and SHA/branch/tag reference
+
+* **Required**:
+  * `owner` (Repository owner)
+  * `repo` (Repository name)
+* **Optional**:
+  * `sha` (SHA or branch name)
+  * `page` (Page number, min 1)
+  * `perPage` (Results per page, min 1, max 100)
+
+### Search
+
+#### `searchCode`
+
+Searches for code using GitHub's code search syntax
+
+* **Required**:
+  * `q` (Search query using GitHub code search syntax)
+* **Optional**:
+  * `sort` (indexed)
+  * `order` (asc/desc)
+  * `page` (Page number, min 1)
+  * `perPage` (Results per page, min 1, max 100)
+
+#### `searchIssues`
+
+Searches issues and pull requests using GitHub search syntax, can be scoped to specific owner/repo
+
+* **Required**:
+  * `q` (Search query using GitHub issues search syntax)
+* **Optional**:
+  * `sort` (comments/reactions/reactions-+1/reactions--1/reactions-smile/reactions-thinking\_face/reactions-heart/reactions-tada/interactions/created/updated)
+  * `order` (asc/desc)
+  * `page` (Page number, min 1)
+  * `perPage` (Results per page, min 1, max 100)
+
+#### `searchPullRequests`
+
+Specifically searches pull requests with advanced filtering and GitHub search syntax
+
+* **Required**:
+  * `q` (Search query using GitHub issues search syntax, automatically adds type:pr)
+* **Optional**:
+  * `sort` (comments/reactions/reactions-+1/reactions--1/reactions-smile/reactions-thinking\_face/reactions-heart/reactions-tada/interactions/created/updated)
+  * `order` (asc/desc)
+  * `page` (Page number, min 1)
+  * `perPage` (Results per page, min 1, max 100)
+
+#### `searchRepositories`
+
+Finds repositories matching search query with pagination support
+
+* **Required**:
+  * `query` (Search query)
+* **Optional**:
+  * `page` (Page number, min 1)
+  * `perPage` (Results per page, min 1, max 100)
+
+#### `searchUsers`
+
+Searches for GitHub users using search syntax
+
+* **Required**:
+  * `q` (Search query using GitHub users search syntax)
+* **Optional**:
+  * `sort` (followers/repositories/joined)
+  * `order` (asc/desc)
+  * `page` (Page number, min 1)
+  * `perPage` (Results per page, min 1, max 100)
+
+## How to Use GitHub Tools
+
+Once configured, you can instruct the AI model to use the enabled tools directly in your prompt. The model will understand your request and call the appropriate function with the necessary parameters to complete the task.
+
+### Example Prompt: Create a pull request to add a new documentation page
+
+Imagine you have enabled the `getFileContents`, `createPullRequest`, `createBranch` and `createOrUpdateFile` tools for a node.
+
+```markdown
+Please complete the last step without checking with me.
+
+Creating the pull request, please follow these steps:
+
+1. Create a new branch in your GitHub repository https://github.com/giselles-ai/docs
+  - Use GitHub tool createBranch
+  - fromBranch: main
+  - newBranchName: prefix giselle/create-docs-xxx
+
+2. Please create a new file based on the contents of followings
+  - Use GitHub tool createOrUpdateFile
+  - Contents: @generate-contents-node-output
+  - Latest SHA: @getSHA-node-output
+
+3. Create pull request to https://github.com/giselles-ai/docs
+  - Use GitHub tool createPullRequest
+```
+
+When this prompt is run, the Giselle will:
+
+1. Create a new branch in your GitHub repository.
+2. Create a new file based on the contents.
+3. Create pull request.

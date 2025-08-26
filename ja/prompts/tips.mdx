@@ -1,0 +1,154 @@
+---
+title: コツ
+description: 'Giselle のジェネレーター ノードでの効果的なプロンプト作成のための実用的なコツ。'
+---
+
+This document provides concrete, actionable tips tailored specifically for creating effective prompts within Giselle’s Generator Nodes. Unlike conversational UIs, Giselle uses a single-shot prompting model, meaning each prompt must be precise and complete on its own. While direct iterative refinement through conversation within a single node isn't possible, strategically chaining multiple nodes can significantly elevate the output quality through careful node integration and diverse data sourcing.
+
+## Essential Principles
+
+### 1. Ensure Clarity and Precision
+
+- Clearly define the AI model’s role.
+- Provide explicit, focused instructions without ambiguity.
+
+```plaintext
+❌ Poor example:
+"Describe a useful invention."
+
+✅ Good example:
+"Role: Technology historian
+
+Task: Provide a concise summary (100 words max) of the invention of the telephone, highlighting its historical significance and modern impact.
+
+Output Format:
+- Summary paragraph
+- Clearly stated historical context and modern relevance"
+```
+
+### 2. Include Comprehensive Context
+
+- Provide necessary background and purpose clearly in your prompt.
+- Explicitly state constraints or expectations relevant to the task.
+
+### 3. Specify Structured Outputs
+
+- Clearly outline the desired response structure, length, and style.
+- Define formats explicitly (e.g., bullet points, structured paragraphs, JSON, image dimensions).
+
+## Advanced Node Integration Techniques
+
+### 1. Effective Role Definition
+
+Defining roles guides the AI to produce contextually accurate outputs:
+
+```plaintext
+✅ Example:
+"Role: UX Designer
+
+Task: Evaluate the provided web interface design for usability issues.
+
+Output Format:
+- List identified issues clearly
+- Provide specific recommendations for improvements"
+```
+
+### 2. Sequential Node Chaining
+
+Although Giselle nodes are single-shot, you can achieve iterative refinement by chaining multiple nodes:
+
+1. **Ideation Node**: Generate initial ideas or concepts.
+2. **Drafting Node**: Develop detailed drafts from initial concepts.
+3. **Review Node**: Critically evaluate drafts and suggest improvements.
+
+### 3. Leveraging Multi-Node Workflows
+
+Combine diverse AI models across nodes to maximize output quality:
+
+- **Perplexity Sonar** for research and fact verification.
+- **Claude** for nuanced analysis and ethical considerations.
+- **GPT-4o** for structured and creative content creation.
+- **Fal AI** for high-quality image and visual content generation.
+
+## Common Pitfalls to Avoid
+
+### 1. Overly Restrictive Instructions
+
+Avoid excessively rigid constraints:
+
+```plaintext
+❌ Avoid:
+"Create a detailed report exactly 200 words, including exactly four examples."
+```
+
+### 2. Contradictory or Confusing Instructions
+
+Ensure instructions remain logically consistent:
+
+```plaintext
+❌ Avoid:
+"Provide a highly detailed yet simple explanation using advanced terminology."
+```
+
+### 3. Ambiguous or Incomplete Prompts
+
+Avoid vague instructions that lead to unclear outputs:
+
+```plaintext
+❌ Avoid:
+"Explain something useful."
+```
+
+## Optimizing Giselle Workflows
+
+### 1. Iterative Node Refinement
+
+- Regularly review outputs from each node to optimize subsequent prompts.
+- Use multiple nodes strategically to iteratively refine concepts, drafts, and final outputs.
+
+### 2. Strategic Use of Templates
+
+Leverage prompt templates for consistent, effective outputs:
+
+```plaintext
+✅ Giselle Template:
+
+Role: [Defined AI role]
+
+Task: [Explicit, precise task description]
+
+Constraints:
+- [Specific constraint or limitation]
+- [Additional constraints as necessary]
+
+Input Data:
+- [Clearly referenced or provided data]
+
+Output Format:
+- [Detailed expected structure of response]
+```
+
+## Giselle-Specific Recommendations
+
+### 1. Select Appropriate AI Models
+
+Choose AI models carefully according to task requirements and capabilities:
+
+- **Claude**: nuanced, ethical analyses.
+- **Gemini**: complex multimodal inputs.
+- **GPT-4o**: structured outputs and creative content.
+- **Fal AI**: image generation tasks.
+
+### 2. Visualize and Collaborate
+
+- Clearly map your workflows visually within Giselle’s UI.
+- Share your workflows with teams to enhance collaboration and clarity.
+- Experiment with node combinations to achieve advanced, high-quality results beyond standard conversational interfaces.
+
+## Key Points for Effective Giselle Prompts
+
+- **Role Definition**: Clearly articulate the AI model’s role.
+- **Precision**: Provide exact, detailed instructions.
+- **Contextual Completeness**: Include essential context and constraints.
+- **Output Structure**: Clearly define response formats.
+- **Workflow Optimization**: Strategically chain multiple nodes to enhance output quality.

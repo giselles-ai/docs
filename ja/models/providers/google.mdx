@@ -1,0 +1,43 @@
+---
+title: Google
+description: '利用可能な Google AI モデルの概要。'
+---
+
+## Gemini
+Giselle ワークスペースでは以下の Gemini モデルが利用可能です。各モデルは、お客様の使用事例の要件に合わせた特定の機能と特徴を提供します。
+
+| Models | Generate Text | Web Search | Reasoning | Input PDF | Input Image | Input Audio | Input Video | Context Window | Plan@Giselle |
+| --------------------------------- | --------------| ------------ | ----------- | ----------- | ------------- | ------------ | ------------ | ----------------- | --------------- |
+| gemini-2.5-pro | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens (2M soon) | Pro |
+| gemini-2.5-flash | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Pro |
+| gemini-2.5-flash-lite-preview-06-17 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Free |
+
+*Note: Some features may not be available within Giselle even if they are offered in the Google official API. Features marked 'Free' or 'Pro' refer to the Giselle subscription plan required to access them.*
+
+### gemini-2.5-pro
+The next-generation comprehensive model. It provides state-of-the-art capabilities, including text generation, web search, advanced reasoning, and robust coding features. It supports a wide range of input formats (PDF, images, audio, video) and has a 1 million token context window (expansion to 2 million tokens planned). Ideal for users wanting to experiment with the latest advancements for complex problems and deep multimodal understanding. Requires a Pro plan.
+
+### gemini-2.5-flash
+The next-generation Flash model, optimized for speed *and* reasoning. It offers fast text generation, web search, reasoning capabilities, and supports various inputs (PDF, images, audio, video). With a 1 million token context window, it's ideal for tasks requiring quick responses combined with analytical depth and multimodal understanding. Requires a Pro plan.
+
+### gemini-2.5-flash-lite-preview-06-17
+A preview version of the next-generation Flash Lite model, `gemini-2.5-flash-lite-preview-06-17` is designed for maximum efficiency and the quickest possible responses. It supports text generation, web search, and multimodal inputs (PDF, image, audio, video). With a 1M token context window, it's ideal for high-throughput tasks and applications where immediate feedback is paramount. Available on the Free plan.
+
+## Model Selection Guide
+Guidelines for selecting the optimal model based on your needs and plan:
+
+**Free Plan Models:**
+* **For the latest extremely fast responses and efficiency (preview)**: `gemini-2.5-flash-lite-preview-06-17` (Newer maximum speed)
+
+**Pro Plan Models:**
+* **For best overall performance and complex tasks**: `gemini-2.5-pro` (Most powerful, all features)
+* **For fast responses with reasoning**: `gemini-2.5-flash` (Speed + Reasoning balance)
+
+## Practices for Giselle
+We recommend `gemini-2.5-pro` (Pro plan) as your primary model in Giselle due to its proven power and stability for complex tasks. It is capable of processing large volumes of data, executing complex code reviews, and handling a wide variety of business tasks.
+
+For users prioritizing speed on the Free plan, the new `gemini-2.5-flash-lite-preview-06-17` is an excellent option. Pro users seeking a balance of speed and reasoning might consider the `gemini-2.5-flash`.
+
+By enabling the **Search grounding** feature with these models (where applicable), you can access web search functionality, allowing you to supplement your workflows with the most current information available.
+
+For detailed specifications, performance benchmarks, or additional assistance, please check [Google AI for Developers](https://ai.google.dev/gemini-api/docs/models).

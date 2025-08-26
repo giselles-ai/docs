@@ -9,152 +9,311 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "Guides",
-        "groups": [
+        "language": "en",
+        "tabs": [
           {
-            "group": "Get Started",
-            "pages": [
-              "guides/introduction",
-              "guides/get-started/quickstart"
-            ]
-          },
-          {
-            "group": "Workspaces",
-            "pages": [
-              "guides/workspaces/build"
-            ]
-          },
-          {
-            "group": "Apps",
-            "pages": [
-              "guides/apps/myapp",
-              "guides/apps/teamapp"
-            ]
-          },
-          {
-            "group": "Settings",
-            "pages": [
+            "tab": "Guides",
+            "groups": [
               {
-                "group": "Account",
+                "group": "Get Started",
                 "pages": [
-                  "guides/settings/account/Authentication",
-                  "guides/settings/account/general",
-                  "guides/settings/account/overview"
+                  "en/guides/introduction",
+                  "en/guides/get-started/quickstart"
                 ]
               },
               {
-                "group": "Team",
+                "group": "Workspaces",
                 "pages": [
-                  "guides/settings/team/billing",
-                  "guides/settings/team/general",
-                  "guides/settings/team/integrations",
-                  "guides/settings/team/members",
-                  "guides/settings/team/usage"
+                  "en/guides/workspaces/build"
+                ]
+              },
+              {
+                "group": "Apps",
+                "pages": [
+                  "en/guides/apps/myapp",
+                  "en/guides/apps/teamapp"
+                ]
+              },
+              {
+                "group": "Settings",
+                "pages": [
+                  {
+                    "group": "Account",
+                    "pages": [
+                      "en/guides/settings/account/Authentication",
+                      "en/guides/settings/account/general",
+                      "en/guides/settings/account/overview"
+                    ]
+                  },
+                  {
+                    "group": "Team",
+                    "pages": [
+                      "en/guides/settings/team/billing",
+                      "en/guides/settings/team/general",
+                      "en/guides/settings/team/integrations",
+                      "en/guides/settings/team/members",
+                      "en/guides/settings/team/usage"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Learn About",
+                "pages": [
+                  "en/guides/learn-about/plans",
+                  "en/guides/learn-about/usage",
+                  "en/guides/learn-about/billing",
+                  "en/guides/learn-about/privacy-security",
+                  "en/guides/learn-about/open-source-license"
                 ]
               }
             ]
           },
           {
-            "group": "Learn About",
-            "pages": [
-              "guides/learn-about/plans",
-              "guides/learn-about/usage",
-              "guides/learn-about/billing",
-              "guides/learn-about/privacy-security",
-              "guides/learn-about/open-source-license"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Models",
-        "groups": [
-          {
-            "group": "Providers",
-            "pages": [
-              "models/providers/overview",
-              "models/providers/anthropic",
-              "models/providers/fal",
-              "models/providers/google",
-              "models/providers/openai",
-              "models/providers/perplexity"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Prompts",
-        "groups": [
-          {
-            "group": "Prompt Engineering",
-            "pages": [
-              "prompts/overview",
-              "prompts/examples",
-              "prompts/tips"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Glossary",
-        "groups": [
-          {
-            "group": "Explore the Glossary",
-            "pages": [
-              "glossary/node",
-              "glossary/generator-node",
-              "glossary/trigger-node",
-              "glossary/action-node",
-              "glossary/text-node",
-              "glossary/webpage-node",
-              "glossary/github-vector-store-node",
-              "glossary/query-node",
-              "glossary/file-node",
-              "glossary/ai-parameters",
-              "glossary/github-tools",
-              "glossary/postgresql-tools"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "FAQ",
-        "groups": [
-          {
-            "group": "Application FAQs",
-            "pages": [
-              "faq/application/workspaces",
-              "faq/application/ai-models"
+            "tab": "Models",
+            "groups": [
+              {
+                "group": "Providers",
+                "pages": [
+                  "en/models/providers/overview",
+                  "en/models/providers/anthropic",
+                  "en/models/providers/fal",
+                  "en/models/providers/google",
+                  "en/models/providers/openai",
+                  "en/models/providers/perplexity"
+                ]
+              }
             ]
           },
           {
-            "group": "Account & Billing FAQs",
-            "pages": [
-              "faq/account-billing/accounts",
-              "faq/account-billing/billing",
-              "faq/account-billing/plan"
+            "tab": "Prompts",
+            "groups": [
+              {
+                "group": "Prompt Engineering",
+                "pages": [
+                  "en/prompts/overview",
+                  "en/prompts/examples",
+                  "en/prompts/tips"
+                ]
+              }
             ]
           },
           {
-            "group": "Security & Support FAQs",
-            "pages": [
-              "faq/security-support/privacy-security",
-              "faq/security-support/support"
+            "tab": "Glossary",
+            "groups": [
+              {
+                "group": "Explore the Glossary",
+                "pages": [
+                  "en/glossary/node",
+                  "en/glossary/generator-node",
+                  "en/glossary/trigger-node",
+                  "en/glossary/action-node",
+                  "en/glossary/text-node",
+                  "en/glossary/webpage-node",
+                  "en/glossary/github-vector-store-node",
+                  "en/glossary/query-node",
+                  "en/glossary/file-node",
+                  "en/glossary/ai-parameters",
+                  "en/glossary/github-tools",
+                  "en/glossary/postgresql-tools"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "FAQ",
+            "groups": [
+              {
+                "group": "Application FAQs",
+                "pages": [
+                  "en/faq/application/workspaces",
+                  "en/faq/application/ai-models"
+                ]
+              },
+              {
+                "group": "Account & Billing FAQs",
+                "pages": [
+                  "en/faq/account-billing/accounts",
+                  "en/faq/account-billing/billing",
+                  "en/faq/account-billing/plan"
+                ]
+              },
+              {
+                "group": "Security & Support FAQs",
+                "pages": [
+                  "en/faq/security-support/privacy-security",
+                  "en/faq/security-support/support"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Releases",
+            "groups": [
+              {
+                "group": "Information",
+                "pages": [
+                  "en/releases/release-notes",
+                  "en/releases/product-notes",
+                  "en/releases/roadmap"
+                ]
+              }
             ]
           }
         ]
       },
       {
-        "tab": "Releases",
-        "groups": [
+        "language": "ja",
+        "tabs": [
           {
-            "group": "Information",
-            "pages": [
-              "releases/release-notes",
-              "releases/product-notes",
-              "releases/roadmap"
+            "tab": "ガイド",
+            "groups": [
+              {
+                "group": "はじめに",
+                "pages": [
+                  "ja/guides/introduction",
+                  "ja/guides/get-started/quickstart"
+                ]
+              },
+              {
+                "group": "ワークスペース",
+                "pages": [
+                  "ja/guides/workspaces/build"
+                ]
+              },
+              {
+                "group": "アプリ",
+                "pages": [
+                  "ja/guides/apps/myapp",
+                  "ja/guides/apps/teamapp"
+                ]
+              },
+              {
+                "group": "設定",
+                "pages": [
+                  {
+                    "group": "アカウント",
+                    "pages": [
+                      "ja/guides/settings/account/Authentication",
+                      "ja/guides/settings/account/general",
+                      "ja/guides/settings/account/overview"
+                    ]
+                  },
+                  {
+                    "group": "チーム",
+                    "pages": [
+                      "ja/guides/settings/team/billing",
+                      "ja/guides/settings/team/general",
+                      "ja/guides/settings/team/integrations",
+                      "ja/guides/settings/team/members",
+                      "ja/guides/settings/team/usage"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "詳細情報",
+                "pages": [
+                  "ja/guides/learn-about/plans",
+                  "ja/guides/learn-about/usage",
+                  "ja/guides/learn-about/billing",
+                  "ja/guides/learn-about/privacy-security",
+                  "ja/guides/learn-about/open-source-license"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "モデル",
+            "groups": [
+              {
+                "group": "プロバイダー",
+                "pages": [
+                  "ja/models/providers/overview",
+                  "ja/models/providers/anthropic",
+                  "ja/models/providers/fal",
+                  "ja/models/providers/google",
+                  "ja/models/providers/openai",
+                  "ja/models/providers/perplexity"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "プロンプト",
+            "groups": [
+              {
+                "group": "プロンプト エンジニアリング",
+                "pages": [
+                  "ja/prompts/overview",
+                  "ja/prompts/examples",
+                  "ja/prompts/tips"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "用語集",
+            "groups": [
+              {
+                "group": "用語集を調べる",
+                "pages": [
+                  "ja/glossary/node",
+                  "ja/glossary/generator-node",
+                  "ja/glossary/trigger-node",
+                  "ja/glossary/action-node",
+                  "ja/glossary/text-node",
+                  "ja/glossary/webpage-node",
+                  "ja/glossary/github-vector-store-node",
+                  "ja/glossary/query-node",
+                  "ja/glossary/file-node",
+                  "ja/glossary/ai-parameters",
+                  "ja/glossary/github-tools",
+                  "ja/glossary/postgresql-tools"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "FAQ",
+            "groups": [
+              {
+                "group": "アプリケーションに関するFAQ",
+                "pages": [
+                  "ja/faq/application/workspaces",
+                  "ja/faq/application/ai-models"
+                ]
+              },
+              {
+                "group": "アカウント・請求に関するFAQ",
+                "pages": [
+                  "ja/faq/account-billing/accounts",
+                  "ja/faq/account-billing/billing",
+                  "ja/faq/account-billing/plan"
+                ]
+              },
+              {
+                "group": "セキュリティ・サポートに関するFAQ",
+                "pages": [
+                  "ja/faq/security-support/privacy-security",
+                  "ja/faq/security-support/support"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "リリース",
+            "groups": [
+              {
+                "group": "情報",
+                "pages": [
+                  "ja/releases/release-notes",
+                  "ja/releases/product-notes",
+                  "ja/releases/roadmap"
+                ]
+              }
             ]
           }
         ]

@@ -1,0 +1,96 @@
+---
+title: AI パラメーター
+description: "Giselle の AI モデルで使用される生成パラメーターの辞書。"
+---
+
+
+This document provides a detailed overview of common generation parameters ("Generation Parameters") that can be configured within Giselle's Generator Nodes to fine-tune outputs from various multimodal AI models such as Claude, Gemini, GPT-4o, Sonar, and Fal AI.
+
+Please note that definitions and availability of generation parameters may vary depending on the AI provider and specific models. Additionally, Giselle does not currently implement all parameters supported by each provider's API. This document primarily covers general definitions and typical usages of the parameters that are available. If you have suggestions for parameters you would like Giselle to support, please feel free to contact us.
+
+
+## Common AI Parameters
+
+### Temperature
+- **Definition:** Controls randomness in text or image generation.
+- **Range:** 0 (less random, deterministic) to 1 (highly random, creative).
+- **Recommended use:**
+  - Lower values (0–0.3) for precise, factual outputs.
+  - Higher values (0.7–1.0) for creative or exploratory outputs.
+
+### Top-p (Nucleus Sampling)
+- **Definition:** Limits token selection to the smallest set whose cumulative probability exceeds a threshold (p).
+- **Range:** Typically 0.0 to 1.0.
+- **Recommended use:**
+  - Lower values (0.7–0.9) for focused, consistent outputs.
+  - Higher values (~1.0) for broader, diverse content generation.
+
+### Max Tokens
+- **Definition:** Maximum number of tokens generated in a response.
+- **Recommended use:**
+  - Adjust based on desired response length and API/model token limits.
+  - Essential for cost management and resource optimization.
+
+## Text-Specific Parameters
+
+### Frequency Penalty
+- **Definition:** Reduces repetition by penalizing repeated tokens.
+- **Range:** Typically 0.0 (no penalty) to 1.0 (strong penalty).
+- **Recommended use:**
+  - Increase when repetitive outputs are undesirable.
+
+### Presence Penalty
+- **Definition:** Encourages new content by penalizing tokens previously used.
+- **Range:** Typically 0.0 (no penalty) to 1.0 (strong penalty).
+- **Recommended use:**
+  - Helpful for generating more diverse text outputs.
+
+### Stop Sequences
+- **Definition:** Tokens or phrases indicating where the model should stop generating.
+- **Recommended use:**
+  - Define clearly when structured or partial outputs are required.
+
+## Image Generation Parameters
+
+### Guidance Scale
+- **Definition:** Influences how closely the generated image follows the provided prompt.
+- **Range:** Typically 1 (less strict adherence) to 20 (highly strict adherence).
+- **Recommended use:**
+  - Lower values for exploratory, abstract outputs.
+  - Higher values for precise, detailed adherence to prompts.
+
+### Inference Steps
+- **Definition:** Number of steps in the diffusion process.
+- **Recommended use:**
+  - Lower values (1–4 steps with flux/schnell) for rapid prototyping.
+  - Higher values (~28 steps with stable-diffusion) for detailed, high-quality images.
+
+## Multimodal Parameters
+
+### Context Window
+- **Definition:** Maximum tokens/models can "remember" or process at once.
+- **Typical values:**
+  - Gemini: up to 1M tokens.
+  - GPT-4o: 128k tokens.
+  - Claude: up to 200k tokens.
+- **Recommended use:**
+  - Use larger context windows for extensive documents, multimodal data analysis, and tasks requiring detailed understanding.
+
+### Input Modalities
+- **Definition:** Types of inputs supported by the model (text, images, audio, video).
+- **Models:**
+  - Gemini 2.5 Pro and GPT-4o support extensive multimodal inputs.
+  - Choose models based on required input modalities.
+
+## Web-Search Parameters
+
+### Grounding
+- **Definition:** Enables the model to incorporate real-time web-search results into generated responses.
+- **Recommended use:**
+  - Enable for up-to-date, fact-based research tasks or informational queries.
+
+## Practical Recommendations for Giselle
+
+- **Experimentation and Adjustment:** Regularly adjust parameters based on task-specific results.
+- **Node Integration:** Use parameters strategically across chained nodes to maximize workflow effectiveness.
+- **Document Settings Clearly:** Clearly document chosen parameter settings within your Giselle workflow for team clarity and reproducibility.

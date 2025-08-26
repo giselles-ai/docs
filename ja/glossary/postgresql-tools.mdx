@@ -1,0 +1,78 @@
+---
+title: PostgreSQL ツール
+description: ジェネレーター ノードで PostgreSQL ツールを使用して AI モデルを PostgreSQL データベースに接続し、クエリやデータ取得を可能にする方法を学びます。
+---
+
+**PostgreSQL Tools** empower AI models within a Generator Node to connect directly to your PostgreSQL databases. This feature, a form of "tool use" or "function calling," allows you to build AI agents that can query tables, retrieve data, and understand your database schema, all based on natural language instructions in your prompt.
+
+This enables powerful workflows, such as generating business reports, answering data-driven questions, or performing automated data analysis.
+
+## Configuring PostgreSQL Tools
+
+Follow these steps to connect your PostgreSQL database and enable specific tools for a Generator Node.
+
+### 1. Navigate to the Tools Tab
+
+In any Generator Node (e.g., `gemini-2.5-pro`), select the **Tools** tab. You will see a list of available integrations that can be connected.
+
+### 2. Connect to PostgreSQL
+
+Click the **+ Connect** button next to the PostgreSQL integration. This will open a configuration modal to add your database credentials.
+
+### 3. Add Your Connection String
+
+To authenticate with your PostgreSQL database, you need to provide a connection string.
+
+<Info>
+  The connection string typically follows the format: `postgresql://[user[:password]@][netloc][:port][/dbname][?param1=value1&...]`. For detailed information, refer to the [official PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING).
+</Info>
+
+In the "Connect to PostgreSQL" window:
+
+1.  **Connection Name**: Give your connection a short, descriptive name for easy identification (e.g., "giselle-db-preview"). You'll use this to link other nodes.
+2.  **Connection String**: Paste your full PostgreSQL connection string into this field. Giselle encrypts the connection string with authenticated encryption before saving it.
+3.  Click **Save & Connect**.
+
+### 4. Select the Tools to Enable
+
+After your connection is validated, you'll be presented with a list of available PostgreSQL tools. For security and control, you must explicitly select which actions the AI model is allowed to perform.
+
+Check the boxes next to the tools you want to enable for this node:
+*   `getTableStructure`
+*   `query`
+
+### 5. Save the Configuration
+
+Once you've selected the desired tools, click **Save & Connect**. The Generator Node will now show that PostgreSQL is connected, displaying the enabled tools and a **Configuration** button to make future changes.
+
+## Available PostgreSQL Tools
+
+The following is a list of tools you can enable for your AI model.
+
+### Schema
+
+*   `getTableStructure`: Allows the AI model to retrieve the schema of your database. This includes table names, column names, and data types. This is crucial for the AI to understand how to construct valid queries.
+
+### Query
+
+*   `query`: Allows the AI model to execute a standard SQL query against the connected database and retrieve the results.
+
+## How to Use PostgreSQL Tools
+
+Once configured, you can instruct the AI model to use the enabled tools directly in your prompt. The model will understand your request, call the appropriate function, and use the results to complete the task.
+
+### Example Prompt: Calculate the number of users
+
+Imagine you have enabled the `getTableStructure` and `query` tools for a node.
+
+```markdown
+Please find out the total number of users from the database.
+```
+
+When this prompt is run, the Giselle AI agent will:
+
+1.  Call the `getTableStructure` function to understand the database layout.
+2.  Identify the relevant table (e.g., `users`).
+3.  Formulate a SQL query like `SELECT COUNT(*) FROM users;`.
+4.  Execute the query using the `query` tool.
+5.  Return a final answer based on the query result, such as: "The total number of users is 1,234."
