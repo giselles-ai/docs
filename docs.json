@@ -14,14 +14,9 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "",
-            "pages": [
-              "guides/introduction"
-            ]
-          },
-          {
             "group": "Get Started",
             "pages": [
+              "guides/introduction",
               "guides/get-started/quickstart"
             ]
           },
@@ -77,14 +72,9 @@
         "tab": "Models",
         "groups": [
           {
-            "group": "",
-            "pages": [
-              "models/providers/overview"
-            ]
-          },
-          {
             "group": "Providers",
             "pages": [
+              "models/providers/overview",
               "models/providers/anthropic",
               "models/providers/fal",
               "models/providers/google",
@@ -98,14 +88,9 @@
         "tab": "Prompts",
         "groups": [
           {
-            "group": "",
-            "pages": [
-              "prompts/overview"
-            ]
-          },
-          {
             "group": "Prompt Engineering",
             "pages": [
+              "prompts/overview",
               "prompts/examples",
               "prompts/tips"
             ]
