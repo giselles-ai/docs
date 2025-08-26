@@ -8,6 +8,32 @@
     "dark": "#1663F3"
   },
   "favicon": "/favicon.svg",
+  "redirects": [
+    {
+      "source": "/guides/:slug*",
+      "destination": "/en/guides/:slug*"
+    },
+    {
+      "source": "/models/:slug*",
+      "destination": "/en/models/:slug*"
+    },
+    {
+      "source": "/prompts/:slug*",
+      "destination": "/en/prompts/:slug*"
+    },
+    {
+      "source": "/glossary/:slug*",
+      "destination": "/en/glossary/:slug*"
+    },
+    {
+      "source": "/faq/:slug*",
+      "destination": "/en/faq/:slug*"
+    },
+    {
+      "source": "/releases/:slug*",
+      "destination": "/en/releases/:slug*"
+    }
+  ],
   "navigation": {
     "languages": [
       {
