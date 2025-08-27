@@ -1,0 +1,44 @@
+---
+title: ジェネレーター ノード
+description: Giselle のジェネレーター ノードが AI モデルを使用してテキスト、画像などを生成し、AI フローの中核を形成する方法を学びます。
+---
+
+## Giselle のジェネレーター ノード
+
+**ジェネレーター ノード** は、Giselle における AI 駆動コンテンツ作成の中核コンポーネントです。様々な高度な AI モデルの力を活用して、指示に基づいてテキストと画像を生成できます。プロンプトの設定、モデルの選択、ツールの提供により、任意のフローに対して高度にカスタマイズされた出力を作成できます。
+
+ジェネレーター ノードは、設定パネルの 3 つの主要タブ **Prompt**、**Model**、**Tools** を通じて設定されます。
+
+### Prompt タブ
+
+ここで AI モデルへの指示を提供します。AI に実行させたいタスクを説明する明確で詳細なプロンプトを書いてください。モデルによって生成された出力がこのパネルの下部に表示され、結果をすぐに確認できます。
+
+**Generate** ボタンをクリックして、フロー全体を実行せずにこのノードのみを実行して、ノードを個別にテストすることもできます。
+
+### Model タブ
+
+Model タブでは、生成タスクに使用する特定の AI モデルを選択できます。Giselle は主要プロバイダーからの幅広いモデルへのアクセスを提供しています。
+
+*   **モデルを選択**: OpenAI の `gpt-4o`、Anthropic の `claude-4-opus`、Google の `gemini-2.5-pro` など、利用可能なモデルのリストから選択してください。
+*   **パラメータを設定**: 選択したモデルに応じて、出力を微調整するために `Temperature` や `Max Tokens` などの様々な [AI パラメータ](ai-parameters) を調整できます。
+
+各プロバイダーから利用可能なモデルの詳細については、ドキュメントを参照してください：
+*   [Anthropic](https://docs.giselles.ai/models/providers/anthropic)
+*   [fal.ai](https://docs.giselles.ai/models/providers/fal)
+*   [Google](https://docs.giselles.ai/models/providers/google)
+*   [OpenAI](https://docs.giselles.ai/models/providers/openai)
+*   [Perplexity AI](https://docs.giselles.ai/models/providers/perplexity)
+
+### Tools タブ
+
+Tools タブでは、AI モデルに外部サービスへのアクセス権を付与し、Giselle の外部からアクションを実行したりデータを取得したりできるようにします。これは、より動的で強力なフローを作成するのに役立ちます。
+
+現在、以下のツールがサポートされています：
+*   [GitHub](/glossary/github-tools)
+*   [PostgreSQL](/glossary/postgresql-tools)
+
+将来的により多くのツールのサポートを追加するため、継続的に取り組んでいます。
+
+## ジェネレーター ノードの出力
+
+ジェネレーター ノードの主要な出力は、作成するコンテンツ（テキストブロックや画像など）です。この出力は他のノードの入力に接続でき、AI タスクを連鎖させることができます。例えば、あるノードで生成されたテキストを、要約や翻訳を行う別のノードの入力として使用できます。
