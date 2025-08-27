@@ -3,52 +3,52 @@ title: クエリ ノード
 description: Giselle のクエリ ノードが GitHub ベクター ストアなどのデータソースに対してクエリを実行し、検索拡張生成（RAG）を可能にする方法を学びます。
 ---
 
-## Query Node in Giselle
+## Giselle のクエリ ノード
 
-The **Query Node** is a powerful component in Giselle designed to search and retrieve information from connected data sources. Its primary function is to execute a query (such as a question or a search term) against a dataset and return the most relevant results.
+**クエリ ノード**は、接続されたデータソースから情報を検索し、取得するために設計された Giselle の強力なコンポーネントです。その主要な機能は、データセットに対してクエリ（質問や検索用語など）を実行し、最も関連性の高い結果を返すことです。
 
-Currently, the Query Node is optimized to work with the **GitHub Vector Store Node**, making it a crucial building block for creating Retrieval-Augmented Generation (RAG) applications directly within your Giselle workflows.
+現在、クエリ ノードは **GitHub ベクター ストア ノード** との連携に最適化されており、Giselle ワークフロー内で検索拡張生成（RAG）アプリケーションを作成するための重要な構成要素となっています。
 
-### How to Use the Query Node
+### クエリ ノードの使用方法
 
-Setting up a Query Node involves adding it to your canvas, connecting a data source, and running a query.
+クエリ ノードの設定では、キャンバスに追加し、データソースを接続し、クエリを実行します。
 
-#### 1. Add a Query Node
+#### 1. クエリ ノードの追加
 
-From the node toolbar at the bottom of the canvas, select the **Query Node**, which is identifiable by its magnifying glass icon, and place it in your workspace.
+キャンバス下部のノードツールバーから、虫眼鏡のアイコンで識別される**クエリ ノード**を選択し、ワークスペースに配置します。
 
-#### 2. Connect a Data Source
+#### 2. データソースの接続
 
-The Query Node requires an input from a data source to function. You must connect the `Output` of a data source node (like the GitHub Vector Store Node) to the `Input` of the Query Node. Until a data source is connected, the node will indicate that it is waiting for a connection.
+クエリ ノードが機能するには、データソースからの入力が必要です。データソース ノード（GitHub ベクター ストア ノードなど）の `出力` をクエリ ノードの `入力` に接続する必要があります。データソースが接続されるまで、ノードは接続を待機していることを示します。
 
-#### 3. Write and Run a Query
+#### 3. クエリの記述と実行
 
-Once a data source is connected, you can configure the Query Node:
-*   **Enter a Query**: In the configuration panel, type your question or search term into the "Query" input field.
-*   **Run the Query**: Click the **Run Query** button to execute the search against the connected data source.
+データソースが接続されると、クエリ ノードを設定できます：
+*   **クエリを入力**: 設定パネルで、「クエリ」入力フィールドに質問や検索用語を入力します。
+*   **クエリを実行**: **クエリを実行** ボタンをクリックして、接続されたデータソースに対して検索を実行します。
 
-#### 4. Review the Results
+#### 4. 結果の確認
 
-After the query runs, the results will be displayed directly in the node's panel. The results typically include:
-*   A summary of the number of results found.
-*   A list of relevant "chunks" of text retrieved from the source documents.
-*   A similarity score (e.g., 58%) for each chunk, indicating its relevance to your query.
+クエリが実行された後、結果はノードのパネルに直接表示されます。結果には通常以下が含まれます：
+*   見つかった結果数の要約。
+*   ソースドキュメントから取得された関連するテキストの「チャンク」のリスト。
+*   各チャンクの類似度スコア（例：58%）で、クエリとの関連性を示します。
 
-You can expand each chunk to view its content and metadata.
+各チャンクを展開して、その内容とメタデータを表示できます。
 
-### Core Use Case: Retrieval-Augmented Generation (RAG)
+### 中核的な用途：検索拡張生成（RAG）
 
-The primary purpose of the Query Node is to enable **Retrieval-Augmented Generation (RAG)** workflows. RAG enhances the capabilities of Large Language Models (LLMs) by providing them with relevant, up-to-date information from your own data sources before they generate a response.
+クエリ ノードの主要な目的は、**検索拡張生成（RAG）** ワークフローを可能にすることです。RAG は、応答を生成する前に、独自のデータソースから関連性が高く最新の情報を提供することで、大規模言語モデル（LLM）の機能を強化します。
 
-A typical RAG workflow in Giselle looks like this:
-1.  **Data Source (GitHub Vector Store Node)**: Ingests and vectorizes your documentation from a GitHub repository, making it searchable.
-2.  **Query Node**: Takes a user's question (the query) and retrieves the most relevant text chunks from the vector store.
-3.  **Generator Node**: Receives the original question *and* the retrieved information from the Query Node's output. It uses this combined context to generate a more accurate, detailed, and factually grounded answer.
+Giselle における典型的な RAG ワークフローは次のようになります：
+1.  **データソース（GitHub ベクター ストア ノード）**: GitHub リポジトリからドキュメントを取得してベクトル化し、検索可能にします。
+2.  **クエリ ノード**: ユーザーの質問（クエリ）を受け取り、ベクター ストアから最も関連性の高いテキストチャンクを取得します。
+3.  **ジェネレーター ノード**: 元の質問*と*クエリ ノードの出力から取得された情報を受け取ります。この組み合わされたコンテキストを使用して、より正確で詳細、かつ事実に基づいた回答を生成します。
 
-### Output of the Query Node
+### クエリ ノードの出力
 
-The `Result` output of the Query Node contains the collection of retrieved data chunks. This structured data can be passed to subsequent nodes—most commonly a **Generator Node**—to serve as dynamic context for text generation.
+クエリ ノードの `結果` 出力には、取得されたデータチャンクのコレクションが含まれます。この構造化されたデータは、後続ノード（最も一般的には**ジェネレーター ノード**）に渡され、テキスト生成のための動的なコンテキストとして機能できます。
 
 <Note>
-For more information on how to set up a data source for querying, see our documentation on the [GitHub Vector Store Node](github-vector-store-node).
+クエリ用のデータソース設定の詳細については、[GitHub ベクター ストア ノード](github-vector-store-node) のドキュメントをご覧ください。
 </Note>

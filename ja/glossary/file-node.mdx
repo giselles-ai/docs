@@ -3,44 +3,44 @@ title: ファイル ノード
 description: "Giselle のファイル ノードが PDF、画像、テキストなどのファイルをアップロードし、AI ワークフローの入力として使用する方法を学びます。"
 ---
 
-## File Node in Giselle
+## Giselle のファイル ノード
 
-The **File Node** is a specialized type of "Variable Node" that allows you to handle file uploads and processing directly within your Giselle workflows. It acts as an input source, enabling you to incorporate documents, images, and text files for AI models to analyze, summarize, or transform.
+**ファイル ノード**は「変数ノード」の特殊なタイプで、Giselle ワークフロー内でファイルのアップロードと処理を直接行うことができます。入力ソースとして機能し、AI モデルが分析、要約、または変換を行うための文書、画像、テキストファイルを組み込むことができます。
 
-### How to Use a File Node
+### ファイル ノードの使用方法
 
-1.  **Add the Node**: Drag and drop a "File" node from the toolbar at the bottom of the canvas onto your workspace.
-2.  **Upload a File**: Select the node to open its configuration panel. You can upload a file by dragging and dropping it onto the designated area or by clicking to open a file selector.
-3.  **Monitor Status**: The node will display the status of the upload. Files can be in one of three states: "uploading," "uploaded," or "failed." Once successfully uploaded, the file is securely stored in your workspace and ready to be used in your workflow.
+1.  **ノードを追加**: キャンバス下部のツールバーから「ファイル」ノードをワークスペースにドラッグ＆ドロップします。
+2.  **ファイルをアップロード**: ノードを選択して設定パネルを開きます。指定された領域にファイルをドラッグ＆ドロップするか、クリックしてファイルセレクターを開くことでファイルをアップロードできます。
+3.  **ステータスを確認**: ノードはアップロードのステータスを表示します。ファイルは「アップロード中」「アップロード完了」「失敗」の3つの状態のいずれかになります。正常にアップロードされると、ファイルはワークスペース内に安全に保存され、ワークフローで使用する準備が整います。
 
-### Supported File Types
+### サポートされるファイル タイプ
 
-The File Node supports several types of files, each with specific use cases and limitations.
+ファイル ノードは複数のファイル タイプをサポートしており、それぞれ特定の用途と制限があります。
 
-| File Type | Accepted Formats                  | Max Size | Common Use Cases                               |
+| ファイル タイプ | 対応形式 | 最大サイズ | 一般的な用途 |
 | :-------- | :-------------------------------- | :------- | :--------------------------------------------- |
-| **PDF**   | `application/pdf`                 | 4.5MB    | Document processing, text extraction, analysis |
-| **Image** | `image/png`, `image/jpeg`, `image/gif`, `image/svg` | 1MB      | Visual content analysis and generation         |
-| **Text**  | `text/plain`, `text/markdown`     | 4.5MB    | Text content processing and generation         |
+| **PDF** | `application/pdf` | 4.5MB | 文書処理、テキスト抽出、分析 |
+| **画像** | `image/png`、`image/jpeg`、`image/gif`、`image/svg` | 1MB | ビジュアル コンテンツの分析と生成 |
+| **テキスト** | `text/plain`、`text/markdown` | 4.5MB | テキスト コンテンツの処理と生成 |
 
-### Workflow Integration
+### ワークフロー統合
 
-The primary purpose of a File Node is to provide data to other nodes, most commonly a [Generator Node](/glossary/generator-node).
+ファイル ノードの主要な目的は、他のノード（最も一般的には[ジェネレーター ノード](/glossary/generator-node)）にデータを提供することです。
 
-*   **Connect the Output**: The "Output" of a File Node can be connected to the input of a Generator Node.
-*   **Process the Content**: In the Generator Node, you can then prompt an AI model to perform a task on the file's content. For example, you can connect a PDF file and instruct the AI to "Summarize the key findings from the attached document."
+*   **出力を接続**: ファイル ノードの「出力」をジェネレーター ノードの入力に接続できます。
+*   **コンテンツを処理**: ジェネレーター ノードで、ファイルのコンテンツに対してタスクを実行するよう AI モデルに指示できます。例えば、PDF ファイルを接続して AI に「添付文書から主要な発見事項を要約してください」と指示できます。
 
-#### Model Compatibility
+#### モデル互換性
 
-The type of file you can connect depends on the capabilities of the target AI model. For example:
+接続できるファイルのタイプは、対象となる AI モデルの機能によって決まります。例えば：
 
-*   **PDF and Text files** can be connected to text-based or multimodal models for tasks like analysis, summarization, or Q&A.
-*   **Image files** can be connected to multimodal models that accept image inputs for analysis, or to image generation models for transformation tasks.
+*   **PDF とテキスト ファイル**は、分析、要約、質疑応答などのタスクのために、テキストベースまたはマルチモーダル モデルに接続できます。
+*   **画像ファイル**は、分析のために画像入力を受け入れるマルチモーダル モデルや、変換タスクのための画像生成モデルに接続できます。
 
-### Technical Limitations
+### 技術的制限
 
-Please be aware of the following limitations when using File Nodes:
+ファイル ノードを使用する際は、以下の制限にご注意ください：
 
-*   **Maximum File Size**: Due to platform constraints (Vercel Serverless Function limits), the maximum size for any single file upload is **4.5MB**.
-*   **Image Size Limit**: Image files have a stricter maximum size of **1MB**.
-*   **Connection Restrictions**: You cannot connect a file to a node that does not support its type. For instance, a PDF file cannot be connected to a node that only generates images, and an image file may not be compatible with older text-only generation models.
+*   **最大ファイル サイズ**: プラットフォームの制約（Vercel Serverless Function の制限）により、単一ファイル アップロードの最大サイズは **4.5MB** です。
+*   **画像サイズ制限**: 画像ファイルは **1MB** というより厳しい最大サイズ制限があります。
+*   **接続制限**: サポートしないタイプのノードにファイルを接続することはできません。例えば、PDF ファイルを画像のみを生成するノードに接続することはできませんし、画像ファイルは古いテキスト専用生成モデルと互換性がない場合があります。

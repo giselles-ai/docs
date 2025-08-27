@@ -3,62 +3,62 @@ title: 'GitHub ベクター ストア ノード'
 description: 'GitHub ベクター ストア ノードが GitHub リポジトリをベクター化し、Giselle の AI ワークフロー用の検索可能なナレッジベースを作成する方法を学びます。'
 ---
 
-Learn how the GitHub Vector Store Node in Giselle vectorizes your GitHub repositories, creating a searchable knowledge base that can be queried within your AI workflows.
+GitHub ベクター ストア ノードが GitHub リポジトリをベクトル化し、AI ワークフロー内でクエリできる検索可能なナレッジベースを作成する方法を学びます。
 
-## GitHub Vector Store Node in Giselle
+## Giselle の GitHub ベクター ストア ノード
 
-The **GitHub Vector Store Node** is a specialized "Source" node that creates a powerful, searchable database from the contents of a GitHub repository. It works by vectorizing the code and documents within the repository, allowing AI models to perform semantic searches and retrieve relevant context.
+**GitHub ベクター ストア ノード**は、GitHub リポジトリの内容から強力で検索可能なデータベースを作成する特殊な「ソース」ノードです。リポジトリ内のコードと文書をベクトル化することで動作し、AI モデルがセマンティック検索を実行し、関連するコンテキストを取得できるようにします。
 
-This process uses OpenAI's powerful and efficient [`text-embedding-3-small`](https://platform.openai.com/docs/models/text-embedding-3-small) model to convert your repository's content into vector embeddings. These vectorized data are then stored securely in Giselle's dedicated Vector Store.
+このプロセスでは、OpenAI の強力で効率的な [`text-embedding-3-small`](https://platform.openai.com/docs/models/text-embedding-3-small) モデルを使用して、リポジトリのコンテンツをベクターエンベディングに変換します。これらのベクトル化されたデータは、Giselle の専用ベクター ストアに安全に保存されます。
 
-To use this feature, the [Giselle GitHub App](https://github.com/apps/giselles-ai) must be installed on the target GitHub repository.
+この機能を使用するには、対象の GitHub リポジトリに [Giselle GitHub App](https://github.com/apps/giselles-ai) がインストールされている必要があります。
 
-### Setting up a GitHub Vector Store Node:
+### GitHub ベクター ストア ノードの設定:
 
-1.  **Add the Node**:
-    *   From the toolbar at the bottom of the canvas, click the **Source** icon (a folder with a link symbol).
-    *   Select **GitHub Vector Store** from the pop-up menu to add the node to your workspace.
+1.  **ノードの追加**:
+    *   キャンバス下部のツールバーから、**ソース** アイコン（リンクシンボル付きフォルダー）をクリックします。
+    *   ポップアップメニューから **GitHub ベクター ストア** を選択して、ノードをワークスペースに追加します。
 
-2.  **Configure the Repository**:
-    *   When first added, the node will display a "REQUIRES SETUP" status.
-    *   Select the node to open its configuration panel on the right.
-    *   Click the **Select a repository** dropdown menu. This list will only show repositories that have the Giselle GitHub App installed. Choose the repository you want to use as a knowledge source (e.g., `giselles-ai/docs`).
+2.  **リポジトリの設定**:
+    *   最初に追加されたとき、ノードは「設定が必要」ステータスを表示します。
+    *   ノードを選択して、右側の設定パネルを開きます。
+    *   **リポジトリを選択** ドロップダウンメニューをクリックします。このリストには、Giselle GitHub App がインストールされているリポジトリのみが表示されます。ナレッジソースとして使用したいリポジトリを選択します（例：`giselles-ai/docs`）。
 
-3.  **Choose the Content Type**:
-    *   After selecting a repository, you will need to specify which type of content to vectorize. The available options are:
-      *   **Code**: Vectorizes the source code and documents from the repository's default branch. This is useful for creating a knowledge base from your codebase.
-      *   **Pull Requests**: Vectorizes the content from pull requests, including descriptions, comments, and discussions. This is ideal for analyzing development patterns or summarizing changes.
-    *   Select the radio button corresponding to the content you wish to use.
+3.  **コンテンツタイプの選択**:
+    *   リポジトリを選択した後、ベクトル化するコンテンツのタイプを指定する必要があります。利用可能なオプションは次のとおりです：
+      *   **コード**: リポジトリのデフォルトブランチからソースコードと文書をベクトル化します。これは、コードベースからナレッジベースを作成するのに役立ちます。
+      *   **プルリクエスト**: 説明、コメント、ディスカッションを含むプルリクエストのコンテンツをベクトル化します。これは、開発パターンの分析や変更の要約に最適です。
+    *   使用したいコンテンツに対応するラジオボタンを選択します。
 
-4.  **Finalize Setup**:
-    *   Once the repository and content type are selected, the node on the canvas will update to show the name of the configured repository. The vectorization process for this repository will be initiated or updated in the background.
+4.  **設定の完了**:
+    *   リポジトリとコンテンツタイプが選択されると、キャンバス上のノードが更新されて設定されたリポジトリの名前が表示されます。このリポジトリのベクトル化プロセスがバックグラウンドで開始または更新されます。
 
-### Managing Your Vector Stores
+### ベクター ストアの管理
 
-You can add, configure, and remove the GitHub repositories that are processed by the GitHub Vector Store Node from your team's settings page.
+チームの設定ページから、GitHub ベクター ストア ノードによって処理される GitHub リポジトリを追加、設定、削除できます。
 
-*   Navigate to **Settings > Team > Vector Stores** in your Giselle account.
-*   Alternatively, you can click the **Set Up GitHub Vector Store** link directly from the node's configuration panel.
-*   This page allows you to manage which repositories are indexed and available for your workflows. You can access it here: [https://studio.giselles.ai/settings/team/vector-stores](https://studio.giselles.ai/settings/team/vector-stores).
+*   Giselle アカウントで **設定 > チーム > ベクター ストア** に移動します。
+*   または、ノードの設定パネルから直接 **GitHub ベクター ストアの設定** リンクをクリックできます。
+*   このページでは、インデックス化されてワークフローで使用できるリポジトリを管理できます。こちらでアクセスできます：[https://studio.giselles.ai/settings/team/vector-stores](https://studio.giselles.ai/settings/team/vector-stores)。
 
-#### Sources to Ingest
-When registering a new repository, you can select which types of content to ingest. Giselle currently supports two sources:
+#### 取り込むソース
+新しいリポジトリを登録する際、取り込むコンテンツのタイプを選択できます。Giselle は現在2つのソースをサポートしています：
 
-*   **Code**: Ingests the source code files from the repository. This source is required and cannot be disabled.
-*   **Pull Requests**: Ingests the content and discussions from merged pull requests. This is an optional source that can be enabled to provide additional context to your AI workflows.
+*   **コード**: リポジトリからソースコードファイルを取り込みます。このソースは必須で、無効にできません。
+*   **プルリクエスト**: マージされたプルリクエストからコンテンツとディスカッションを取り込みます。これは、AI ワークフローに追加のコンテキストを提供するために有効にできるオプションのソースです。
 
-### Rate Limits and Considerations
-When using the GitHub Vector Store Node, please be aware of GitHub API rate limits. Giselle's GitHub Vector Store uses [GitHub App Installation](https://docs.github.com/ja/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28#primary-rate-limit-for-github-app-installations) for GitHub API access, which has a rate limit of approximately 5,000 requests per hour. You may encounter errors when working with large-scale projects. If this occurs, please wait some time before trying again.
+### レート制限と考慮事項
+GitHub ベクター ストア ノードを使用する際は、GitHub API のレート制限にご注意ください。Giselle の GitHub ベクター ストアは GitHub API アクセスに [GitHub App Installation](https://docs.github.com/ja/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28#primary-rate-limit-for-github-app-installations) を使用しており、1時間あたり約5,000リクエストのレート制限があります。大規模プロジェクトで作業する際にエラーが発生する場合があります。この場合、しばらく待ってから再試行してください。
 
-For large repositories or frequent updates, you may experience rate limiting during the vectorization process. If you encounter errors, simply wait and retry after the rate limit window resets.
+大規模なリポジトリや頻繁な更新では、ベクトル化プロセス中にレート制限が発生する場合があります。エラーが発生した場合は、レート制限ウィンドウがリセットされた後に待機して再試行してください。
 
-### Usage in Workflows
+### ワークフローでの使用
 
-The GitHub Vector Store Node is designed to be used in combination with a **Query Node**. It acts as the knowledge base that the Query Node searches through.
+GitHub ベクター ストア ノードは、**クエリ ノード** と組み合わせて使用するように設計されています。クエリ ノードが検索するナレッジベースとして機能します。
 
-*   **Connect the Output**: The "Output" of the GitHub Vector Store Node should be connected to the input of a Query Node.
-*   **Perform a Search**: The Query Node can then take a user's question or a dynamic input, search the vectorized repository content for the most relevant information, and pass that information to subsequent nodes (like a Generator Node) for processing, analysis, or summarization.
+*   **出力を接続**: GitHub ベクター ストア ノードの「出力」をクエリ ノードの入力に接続する必要があります。
+*   **検索の実行**: クエリ ノードは、ユーザーの質問や動的な入力を受け取り、ベクトル化されたリポジトリコンテンツから最も関連性の高い情報を検索し、その情報を後続のノード（ジェネレーター ノードなど）に渡して処理、分析、または要約を行うことができます。
 
-### Output of the Node
+### ノードの出力
 
-The GitHub Vector Store Node's **output** is a reference to the vectorized data of the selected repository. This output provides the necessary connection for other nodes, like the Query Node, to access and search the repository's content.
+GitHub ベクター ストア ノードの**出力**は、選択されたリポジトリのベクトル化されたデータへの参照です。この出力は、クエリ ノードなどの他のノードがリポジトリのコンテンツにアクセスして検索するために必要な接続を提供します。

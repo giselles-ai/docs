@@ -5,7 +5,7 @@ description: "ノードについて学びましょう。Giselle 上の AI アプ
 
 ## Giselle の AI エージェントは「ノード」を組み合わせて構築できます
 
-Giselle is a platform that allows you to build powerful AI agents through an intuitive node-based interface. By connecting "nodes" with various functions, like assembling building blocks, you can visually design complex AI workflows. This makes it easy for anyone, even without specialized knowledge, to achieve automation with AI agents.
+Giselle は直感的なノードベースのインターフェースを通じて強力なAIエージェントを構築できるプラットフォームです。様々な機能を持つ「ノード」を接続することで、積み木を組み立てるように複雑なAIワークフローを視覚的に設計できます。これにより、専門知識がなくても誰でも簡単にAIエージェントによる自動化を実現できます。
 
 ## Giselle の主要ノードの紹介
 
@@ -13,80 +13,80 @@ Giselle で利用可能な基本的なノードの一部を以下に紹介しま
 
 ### ジェネレーター ノード
 
-The Generator node can create both text and images using advanced AI models. By configuring prompts and conditions, you can generate content tailored to your needs. For text, this includes applications such as document creation, blog writing, and research report generation, leveraging Giselle's LLM API for high-quality, natural-sounding text. For images, you can generate visuals from text prompts, enabling creative content creation and workflows that utilize visual data. The Generator node empowers you to flexibly produce a wide range of AI-generated outputs within your workflows.
+ジェネレーターノードは、高度なAIモデルを使用してテキストと画像の両方を作成できます。プロンプトと条件を設定することで、ニーズに合わせたコンテンツを生成できます。テキストについては、文書作成、ブログ執筆、研究レポート生成などのアプリケーションがあり、Giselleの LLM APIを活用して高品質で自然な響きのテキストを生成します。画像については、テキストプロンプトから視覚的コンテンツを生成でき、クリエイティブなコンテンツ作成や視覚データを活用したワークフローを可能にします。ジェネレーターノードにより、ワークフロー内で幅広いAI生成アウトプットを柔軟に作成できます。
 
-**Web Search Capability**: When using models that support web search functionality, the Generator node can access real-time information from the internet. This enables the creation of content based on the latest data and current events, making your AI workflows more dynamic and up-to-date.
+**ウェブ検索機能**: ウェブ検索機能をサポートするモデルを使用する場合、ジェネレーターノードはインターネットからリアルタイム情報にアクセスできます。これにより、最新データや現在の出来事に基づいたコンテンツ作成が可能になり、AIワークフローをより動的で最新のものにできます。
 
-### Text Node
+### テキストノード
 
-Text node is used to hold text data. It can be used to record prompts, instructions, annotations, and more. It helps manage and organize text data within the workflow, streamlining input to text generation nodes and data usage in other nodes.
+テキストノードはテキストデータを保持するために使用されます。プロンプト、指示、注釈などを記録するために使用できます。ワークフロー内でテキストデータの管理と整理を支援し、テキスト生成ノードへの入力や他のノードでのデータ使用を効率化します。
 
-### File Node
+### ファイルノード
 
-File node is used to handle file data. You can read files, use them as input for AI models, and save output results to files. It is useful for various tasks that involve utilizing file data, such as data-based analysis and report generation.
+ファイルノードはファイルデータを処理するために使用されます。ファイルを読み取り、AIモデルの入力として使用し、出力結果をファイルに保存できます。データベース分析やレポート生成など、ファイルデータを活用する様々なタスクに有用です。
 
-### Web Page Node
+### ウェブページノード
 
-The Web Page node is used to fetch and hold content from web pages. You can input one or more URLs, and Giselle will attempt to retrieve the content from these pages. Currently, the fetched content is processed and made available primarily in Markdown format. This allows you to use web content as a dynamic input source for AI models or other processing nodes within your workflow, enabling tasks like summarization, analysis, or content generation based on information from the web.
+ウェブページノードは、ウェブページからコンテンツを取得して保持するために使用されます。1つまたは複数のURLを入力でき、Giselleはこれらのページからコンテンツの取得を試みます。現在、取得されたコンテンツは主にMarkdown形式で処理され利用可能になります。これにより、ウェブコンテンツをAIモデルやワークフロー内の他の処理ノードの動的な入力ソースとして使用でき、ウェブからの情報に基づいた要約、分析、コンテンツ生成などのタスクが可能になります。
 
-### Trigger Node
+### トリガーノード
 
-Trigger Node is the starting point for running the workflow built in the Giselle App. It initiates the execution of the connected nodes in a sequence. Currently, two types of Trigger Nodes are supported:
+トリガーノードは、Giselle アプリで構築したワークフローを実行する開始点です。接続されたノードの実行を順序的に開始します。現在、2種類のトリガーノードがサポートされています：
 
-*   **Manual Trigger Node**: This node allows you to manually initiate the workflow directly within the Giselle App Workspace. It's useful for testing, on-demand executions, or when you want direct control over when a workflow runs.
-*   **GitHub Trigger Node**: This node enables workflows to be automatically triggered by GitHub webhooks. When the Giselle GitHub App is installed in a repository, this node can listen for specific events (like issue comments or pull requests) and start the Giselle App's workflow in response.
+*   **マニュアルトリガーノード**: このノードでは、Giselle アプリワークスペース内で直接ワークフローを手動で開始できます。テスト、オンデマンド実行、またはワークフローの実行タイミングを直接制御したい場合に有用です。
+*   **GitHubトリガーノード**: このノードはGitHubのwebhookによってワークフローを自動的にトリガーできます。Giselle GitHubアプリがリポジトリにインストールされている場合、このノードは特定のイベント（issueのコメントやプルリクエストなど）をリッスンし、それに応じてGiselleアプリのワークフローを開始できます。
 
-### Action Node
+### アクションノード
 
-Action Node is a node that can call external services. Currently, it primarily supports integrations with GitHub, allowing workflows to perform actions within your repositories. We plan to expand its capabilities to enable interactions with a variety of other external services in the future.
+アクションノードは外部サービスを呼び出すことができるノードです。現在は主にGitHubとの統合をサポートしており、ワークフローがリポジトリ内でアクションを実行できます。将来的には、様々な他の外部サービスとのインタラクションを可能にするために機能を拡張する予定です。
 
-### GitHub Vector Store Node & Query Node
+### GitHub Vector Store ノード & Query ノード
 
-Giselle supports advanced data retrieval and search capabilities through the **GitHub Vector Store Node** and the **Query Node**.
+Giselle は **GitHub Vector Store ノード** と **Query ノード** を通じて高度なデータ取得と検索機能をサポートしています。
 
-- **GitHub Vector Store Node**: This specialized Source node allows you to vectorize the contents of a GitHub repository, creating a searchable knowledge base. It uses OpenAI's embedding models to convert your repository's code and documents into vector representations, enabling semantic search within your workflows. This is especially useful for building Retrieval-Augmented Generation (RAG) applications. For setup and details, see the [GitHub Vector Store Node documentation](github-vector-store-node).
+- **GitHub Vector Store ノード**: この専用ソースノードは、GitHub リポジトリの内容をベクトル化し、検索可能なナレッジベースを作成できます。OpenAI の埋め込みモデルを使用してリポジトリのコードと文書をベクトル表現に変換し、ワークフロー内でセマンティック検索を可能にします。これは検索拡張生成（RAG）アプリケーションの構築に特に有用です。設定と詳細については、[GitHub Vector Store ノードドキュメント](github-vector-store-node)を参照してください。
 
-- **Query Node**: The Query Node is designed to execute search queries against connected data sources, such as the GitHub Vector Store Node. It retrieves the most relevant information (text chunks) from your vectorized repositories, which can then be used as dynamic context for AI generation or further processing. For more information, see the [Query Node documentation](query-node).
+- **Query ノード**: Query ノードは、GitHub Vector Store ノードなどの接続されたデータソースに対して検索クエリを実行するよう設計されています。ベクトル化されたリポジトリから最も関連性の高い情報（テキストチャンク）を取得し、AI 生成やさらなる処理の動的なコンテキストとして使用できます。詳細については、[Query ノードドキュメント](query-node)を参照してください。
 
-**Typical Usage:**
-1. Add a GitHub Vector Store Node and configure it with your repository.
-2. Connect its output to a Query Node.
-3. Use the Query Node to search your repository's content and pass the results to other nodes, such as a Generator Node, for context-aware AI workflows.
+**典型的な使用方法:**
+1. GitHub Vector Store ノードを追加し、リポジトリで設定します。
+2. その出力を Query ノードに接続します。
+3. Query ノードを使用してリポジトリのコンテンツを検索し、結果をジェネレーターノードなどの他のノードに渡して、コンテキスト認識 AI ワークフローを構築します。
 
-These nodes enable powerful, up-to-date, and context-rich AI applications by leveraging your own data sources within Giselle.
+これらのノードにより、Giselle 内で独自のデータソースを活用して、強力で最新かつコンテキストが豊富な AI アプリケーションを構築できます。
 
-## Tips for using Node
+## ノード使用のヒント
 
-Here are some helpful tips to enhance your experience with nodes in Giselle.
+Giselle でのノード体験を向上させるための役立つヒントをご紹介します。
 
-### Node Duplication
+### ノードの複製
 
-To enhance workflow efficiency, Giselle supports node duplication. This feature allows you to quickly create a copy of an existing node within the workflow designer.
+ワークフロー効率を向上させるため、Giselle はノードの複製をサポートしています。この機能により、ワークフローデザイナー内で既存のノードのコピーを素早く作成できます。
 
-**How to Duplicate a Node:**
+**ノードを複製する方法:**
 
-*   **Right-Click Context Menu:** Right-click on any node in the workflow designer to open the context menu, then select "Duplicate Node."
-*   **Keyboard Shortcut:** Select the node you wish to duplicate and use the keyboard shortcut `Cmd + D` (on macOS) or `Ctrl + D` (on Windows/Linux).
+*   **右クリックコンテキストメニュー:** ワークフローデザイナーで任意のノードを右クリックしてコンテキストメニューを開き、「ノードを複製」を選択します。
+*   **キーボードショートカット:** 複製したいノードを選択し、`Cmd + D`（macOS）または `Ctrl + D`（Windows/Linux）のキーボードショートカットを使用します。
 
-**Duplication Behavior:**
+**複製動作:**
 
-*   The duplicated node will appear at an offset position from the original node.
-*   Connections from the original node are preserved in the duplicate where applicable.
-*   For File nodes, the duplicated node will correctly reference newly copied files.
-*   Cloned nodes will start in an "unconfigured" state, allowing you to customize their settings independently from the original node.
-*   If the duplication process encounters an issue, an error message will be displayed.
+*   複製されたノードは、元のノードからオフセット位置に表示されます。
+*   元のノードからの接続は、適用可能な場合に複製で保持されます。
+*   ファイルノードの場合、複製されたノードは新しくコピーされたファイルを正しく参照します。
+*   クローンノードは「未設定」状態で開始され、元のノードから独立して設定をカスタマイズできます。
+*   複製プロセスで問題が発生した場合、エラーメッセージが表示されます。
 
-This feature streamlines the process of building complex workflows by allowing for easy replication of configured or template nodes.
+この機能により、設定済みまたはテンプレートノードの簡単な複製が可能になり、複雑なワークフローの構築プロセスが効率化されます。
 
-## Future Node Expansion Plans
+## 将来のノード拡張計画
 
-We plan to expand node functionality to further empower our users to build AI workflows. Here's a look at what our team is currently considering:
+ユーザーが AI ワークフローを構築する能力をさらに高めるため、ノード機能の拡張を計画しています。チームが現在検討している内容をご紹介します：
 
-### Expansion of the File Node
+### ファイルノードの拡張
 
-We plan to expand the file formats supported by the File node, adding support for:
+ファイルノードでサポートするファイル形式を拡張し、以下への対応を追加予定です：
 
-*   **Tabular Files** (CSV, Excel, etc.)
-*   **Audio Files**
+*   **表形式ファイル**（CSV、Excel など）
+*   **音声ファイル**
 
-Stay tuned for Giselle's product updates!
+Giselle の製品アップデートにご期待ください！

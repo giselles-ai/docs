@@ -5,85 +5,85 @@ description: "トリガー ノードについて学びましょう。Giselle の
 
 ## Giselle のトリガー ノード
 
-The **Trigger Node** is the starting point for running the workflow built in the Giselle App. It initiates the execution of the connected nodes in a sequence.
+**トリガー ノード** は、Giselle アプリで構築されたワークフローを実行する開始点です。接続されたノードの実行を順番に開始します。
 
-Currently, two types of Trigger Nodes are supported.
+現在、2種類のトリガー ノードがサポートされています。
 
-### Manual Trigger Node
+### マニュアル トリガー ノード
 
-The **Manual Trigger Node** allows you to start your workflow with the click of a button. You can also configure it to request specific parameters each time it's run. This is useful for providing dynamic inputs to your workflow at the moment of execution.
+**マニュアル トリガー ノード** では、ボタンをクリックしてワークフローを開始できます。また、実行するたびに特定のパラメータを要求するように設定することもできます。これは、実行時にワークフローに動的な入力を提供するのに便利です。
 
-**Configuring Manual Trigger Parameters:**
+**マニュアル トリガー パラメータの設定:**
 
-When you add a Manual Trigger Node to your workflow, you can define parameters that will be requested when the flow is manually triggered. If no parameters are configured, the flow will simply start when triggered.
+ワークフローにマニュアル トリガー ノードを追加する際、フローが手動でトリガーされた時に要求されるパラメータを定義できます。パラメータが設定されていない場合、フローはトリガーされた時に単純に開始されます。
 
-To add and configure parameters:
+パラメータを追加して設定するには：
 
-1.  In the "Add New Parameter" section:
-    *   **Parameter Name**: Enter a descriptive name for the parameter (e.g., "Title", "Message", "Priority"). This name will be used to identify the input field when the trigger is run.
-    *   **Type**: Select the type of data this parameter will accept. The available options are:
-        *   **Text**: For single-line text input.
-        *   **Text(multi-line)**: For longer text input that may span multiple lines.
-        *   **Number**: For numerical input.
-    *   **Required**: Check this box if the parameter must be filled in before the workflow can be triggered. An error will occur if a required parameter is left empty.
-2.  Click the **plus icon (+)** to add the configured parameter to the list.
-3.  You can add multiple parameters by repeating the steps above.
-4.  Once all desired parameters are added and configured, click **Save Configuration**.
+1.  「Add New Parameter」セクションで：
+    *   **Parameter Name**: パラメータの説明的な名前を入力します（例：「Title」、「Message」、「Priority」）。この名前は、トリガーが実行される時に入力フィールドを識別するために使用されます。
+    *   **Type**: このパラメータが受け入れるデータのタイプを選択します。利用可能なオプションは：
+        *   **Text**: 単一行のテキスト入力用。
+        *   **Text(multi-line)**: 複数行にまたがる可能性がある長いテキスト入力用。
+        *   **Number**: 数値入力用。
+    *   **Required**: ワークフローをトリガーする前にパラメータを入力する必要がある場合は、このボックスにチェックを入れます。必須パラメータが空のままの場合はエラーが発生します。
+2.  **プラスアイコン（+）** をクリックして、設定したパラメータをリストに追加します。
+3.  上記の手順を繰り返すことで、複数のパラメータを追加できます。
+4.  すべての必要なパラメータが追加・設定されたら、**Save Configuration** をクリックします。
 
-When you manually run this workflow, a form will appear prompting you to enter values for the parameters you've defined. These values can then be used by subsequent nodes in your workflow.
+このワークフローを手動で実行すると、定義したパラメータの値を入力するよう促すフォームが表示されます。これらの値は、ワークフロー内の後続のノードで使用できます。
 
-### GitHub Trigger Node
+### GitHub トリガー ノード
 
-The **GitHub Trigger Node** enables you to automatically start your Giselle workflows based on specific events occurring in your GitHub repositories. This allows for seamless integration between your code management and AI-powered tasks.
+**GitHub トリガー ノード** では、GitHub リポジトリで発生する特定のイベントに基づいて Giselle ワークフローを自動的に開始できます。これにより、コード管理と AI を活用したタスクの間でシームレスな統合が可能になります。
 
-**Setting up a GitHub Trigger:**
+**GitHub トリガーの設定:**
 
-1.  **Select GitHub Account/Organization**:
-    *   When you add a GitHub Trigger node, you'll first need to choose the GitHub account or organization where your target repository resides (e.g., `giselles-ai`, `liam-hq`).
-    *   If you're missing a GitHub account connection or need to adjust permissions, click on "Adjust GitHub App Permissions".
+1.  **GitHub アカウント/組織の選択**:
+    *   GitHub トリガー ノードを追加する際、まずターゲット リポジトリが存在する GitHub アカウントまたは組織を選択する必要があります（例：`giselles-ai`、`liam-hq`）。
+    *   GitHub アカウント接続が不足している場合や権限を調整する必要がある場合は、「Adjust GitHub App Permissions」をクリックしてください。
 
-2.  **Choose a Repository**:
-    *   A list of repositories available under the selected account/organization will be displayed (e.g., `docs`, `giselle`).
-    *   Click the **Set up** button next to the desired repository (e.g., `giselle`).
-    *   If your repository isn't listed, you might need to "Adjust GitHub App Permissions" to grant Giselle access to it.
+2.  **リポジトリを選択**:
+    *   選択したアカウント/組織で利用可能なリポジトリのリストが表示されます（例：`docs`、`giselle`）。
+    *   希望するリポジトリ（例：`giselle`）の横にある **Set up** ボタンをクリックします。
+    *   リポジトリがリストにない場合は、「Adjust GitHub App Permissions」でGiselle にアクセス権を付与する必要があるかもしれません。
 
-3.  **Configure the Trigger Event**:
-    *   Once a repository is selected (e.g., `giselles-ai/giselle`), you need to specify which GitHub event will trigger the workflow.
-    *   Click on the dropdown menu labeled "Choose when you want to trigger the flow."
-    *   Select an event from the list, such as:
-        *   **Issue Created**: Triggers the flow when a new issue is created in the repository.
-        *   **Issue Closed**: Triggers when an issue is closed.
-        *   **Issue Comment Created**: Triggers when a new comment is made on an issue.
-        *   **Pull Request Comment Created**: Triggers on a new pull request comment.
-        *   **Pull Request Opened**: Triggers when a new pull request is opened.
-        *   **Pull Request Ready for Review**: Triggers when a pull request is marked as ready for review.
-        *   **Pull Request Closed**: Triggers when a pull request is closed.
+3.  **トリガー イベントの設定**:
+    *   リポジトリが選択されたら（例：`giselles-ai/giselle`）、ワークフローをトリガーする GitHub イベントを指定する必要があります。
+    *   「Choose when you want to trigger the flow」というラベルのドロップダウン メニューをクリックします。
+    *   以下のようなリストからイベントを選択します：
+        *   **Issue Created**: リポジトリで新しい issue が作成された時にフローをトリガーします。
+        *   **Issue Closed**: issue がクローズされた時にトリガーします。
+        *   **Issue Comment Created**: issue に新しいコメントが作成された時にトリガーします。
+        *   **Pull Request Comment Created**: 新しいプルリクエスト コメントでトリガーします。
+        *   **Pull Request Opened**: 新しいプルリクエストが開かれた時にトリガーします。
+        *   **Pull Request Ready for Review**: プルリクエストがレビュー準備完了とマークされた時にトリガーします。
+        *   **Pull Request Closed**: プルリクエストがクローズされた時にトリガーします。
 
-4.  **Configure Callsign (for specific events)**:
-    *   For some events, like "Issue Comment Created" or "Pull Request Comment Created," you can specify a **Callsign**.
-    *   A Callsign is a specific string or command (e.g., `/code-review`, `/deep-research`) that must be present in the comment for the trigger to activate. This prevents the flow from running on every single comment.
-    *   Enter your desired Callsign in the provided field. The example shows `/code-review`.
-    *   Click **Set up** after configuring the Callsign.
+4.  **コールサインの設定（特定のイベントの場合）**:
+    *   「Issue Comment Created」や「Pull Request Comment Created」などの一部のイベントでは、**コールサイン** を指定できます。
+    *   コールサインは、トリガーを起動するためにコメント内に存在する必要がある特定の文字列またはコマンド（例：`/code-review`、`/deep-research`）です。これにより、すべてのコメントでフローが実行されることを防ぎます。
+    *   提供されたフィールドに希望するコールサインを入力します。例では `/code-review` が示されています。
+    *   コールサインの設定後、**Set up** をクリックします。
 
-5.  **Enable the Trigger**:
-    *   After configuring the event and any associated options (like Callsign), the trigger will initially be in a "Disabled" state. The node on the canvas will show "Requires Setup" or display the repository and event type with a "Disabled" status.
-    *   On the configuration panel for the trigger (e.g., "On Issue Created" or "On Issue Comment Created"), you will see the current **State** as "Disable".
-    *   Click on **Enable** to activate the trigger.
-    *   Once enabled, the **State** will change to "Enable", and you will see an option to **Disable Trigger**. The node on the canvas will also reflect its "Enabled" status.
+5.  **トリガーを有効化**:
+    *   イベントと関連オプション（コールサインなど）を設定した後、トリガーは最初「Disabled」状態になります。キャンバス上のノードは「Requires Setup」を表示するか、リポジトリとイベント タイプを「Disabled」ステータスで表示します。
+    *   トリガーの設定パネル（例：「On Issue Created」または「On Issue Comment Created」）で、現在の **State** が「Disable」と表示されます。
+    *   **Enable** をクリックしてトリガーを起動します。
+    *   有効化されると、**State** が「Enable」に変わり、**Disable Trigger** オプションが表示されます。キャンバス上のノードも「Enabled」ステータスを反映します。
 
-6.  **Run in the workspace**:
-    * For GitHub Trigger Nodes, clicking the "Run" button allows you to test your workflow without waiting for an actual GitHub webhook. You can enter values in a form that simulates the GitHub event, enabling you to verify that your workflow functions correctly before enabling it for real GitHub events.
+6.  **ワークスペースでの実行**:
+    * GitHub トリガー ノードでは、「Run」ボタンをクリックすることで、実際の GitHub webhook を待つことなくワークフローをテストできます。GitHub イベントをシミュレートするフォームに値を入力でき、実際の GitHub イベントに対して有効化する前にワークフローが正しく機能することを確認できます。
 
-**Example Workflow after Setup:**
+**設定後のワークフロー例:**
 
-On Issue Created:
-*   **Trigger**: "On Issue Created" for repository `giselles-ai/giselle`.
-*   **State**: Enabled.
-*   **Action**: When a new issue is created in the `giselles-ai/giselle` repository, this Giselle workflow will automatically start.
+Issue Created の場合:
+*   **トリガー**: リポジトリ `giselles-ai/giselle` の「On Issue Created」。
+*   **状態**: 有効。
+*   **アクション**: `giselles-ai/giselle` リポジトリで新しい issue が作成されると、この Giselle ワークフローが自動的に開始されます。
 
-On Pull Request Comment Created:
-*   **Trigger**: "On Pull Request Comment Created" for repository `giselles-ai/giselle` with Callsign `/code-review`.
-*   **State**: Enabled.
-*   **Action**: When a comment containing `/code-review [enter your request...]` is posted on a pull request in `giselles-ai/giselle`, this workflow will start. The subsequent nodes can then access information like the comment body, pull request number, the pull request's diff content, etc.
+Pull Request Comment Created の場合:
+*   **トリガー**: リポジトリ `giselles-ai/giselle` の「On Pull Request Comment Created」、コールサイン `/code-review`。
+*   **状態**: 有効。
+*   **アクション**: `giselles-ai/giselle` のプルリクエストに `/code-review [enter your request...]` を含むコメントが投稿されると、このワークフローが開始されます。後続のノードは、コメント本文、プルリクエスト番号、プルリクエストの差分コンテンツなどの情報にアクセスできます。
 
-Stay tuned for more updates and functionalities for Giselle's nodes!
+Giselle のノードの更新と機能追加にご期待ください！

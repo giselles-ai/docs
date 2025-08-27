@@ -3,152 +3,152 @@ title: コツ
 description: 'Giselle のジェネレーター ノードでの効果的なプロンプト作成のための実用的なコツ。'
 ---
 
-This document provides concrete, actionable tips tailored specifically for creating effective prompts within Giselle’s Generator Nodes. Unlike conversational UIs, Giselle uses a single-shot prompting model, meaning each prompt must be precise and complete on its own. While direct iterative refinement through conversation within a single node isn't possible, strategically chaining multiple nodes can significantly elevate the output quality through careful node integration and diverse data sourcing.
+このドキュメントでは、GiselleのGenerator Node内で効果的なプロンプトを作成するために特別に調整された、具体的で実行可能なコツを提供します。会話型UIとは異なり、Giselleは単発型プロンプトモデルを使用しており、各プロンプトは正確で独立して完結している必要があります。単一ノード内での会話による直接的な反復改良は不可能ですが、複数のノードを戦略的に連鎖させることで、慎重なノード統合と多様なデータソーシングを通じて出力品質を大幅に向上させることができます。
 
-## Essential Principles
+## 基本原則
 
-### 1. Ensure Clarity and Precision
+### 1. 明確性と正確性の確保
 
-- Clearly define the AI model’s role.
-- Provide explicit, focused instructions without ambiguity.
+- AIモデルの役割を明確に定義します。
+- 曖昧さのない明示的で焦点を絞った指示を提供します。
 
 ```plaintext
-❌ Poor example:
-"Describe a useful invention."
+❌ 悪い例：
+「有用な発明について説明してください。」
 
-✅ Good example:
-"Role: Technology historian
+✅ 良い例：
+「Role: 技術史研究者
 
-Task: Provide a concise summary (100 words max) of the invention of the telephone, highlighting its historical significance and modern impact.
+Task: 電話の発明について簡潔な要約（最大100語）を提供し、その歴史的意義と現代への影響を強調してください。
 
 Output Format:
-- Summary paragraph
-- Clearly stated historical context and modern relevance"
+- 要約段落
+- 明確に述べられた歴史的背景と現代的関連性」
 ```
 
-### 2. Include Comprehensive Context
+### 2. 包括的なコンテキストの提供
 
-- Provide necessary background and purpose clearly in your prompt.
-- Explicitly state constraints or expectations relevant to the task.
+- プロンプト内で必要な背景と目的を明確に提供します。
+- タスクに関連する制約や期待を明示的に述べます。
 
-### 3. Specify Structured Outputs
+### 3. 構造化された出力の指定
 
-- Clearly outline the desired response structure, length, and style.
-- Define formats explicitly (e.g., bullet points, structured paragraphs, JSON, image dimensions).
+- 希望する応答構造、長さ、スタイルを明確に概説します。
+- 形式を明示的に定義します（例：箇条書き、構造化された段落、JSON、画像寸法）。
 
-## Advanced Node Integration Techniques
+## 高度なノード統合技術
 
-### 1. Effective Role Definition
+### 1. 効果的な役割定義
 
-Defining roles guides the AI to produce contextually accurate outputs:
+役割を定義することで、AIがコンテキストに適した正確な出力を生成できるようにガイドします：
 
 ```plaintext
-✅ Example:
-"Role: UX Designer
+✅ 例：
+「Role: UXデザイナー
 
-Task: Evaluate the provided web interface design for usability issues.
+Task: 提供されたWebインターフェースデザインのユーザビリティの問題を評価してください。
 
 Output Format:
-- List identified issues clearly
-- Provide specific recommendations for improvements"
+- 特定された問題を明確にリスト化する
+- 改善のための具体的な推奨事項を提供する」
 ```
 
-### 2. Sequential Node Chaining
+### 2. 連続ノードチェーン
 
-Although Giselle nodes are single-shot, you can achieve iterative refinement by chaining multiple nodes:
+Giselleノードは単発型ですが、複数のノードを連続させることで反復的改良を達成できます：
 
-1. **Ideation Node**: Generate initial ideas or concepts.
-2. **Drafting Node**: Develop detailed drafts from initial concepts.
-3. **Review Node**: Critically evaluate drafts and suggest improvements.
+1. **アイデアノード**: 初期のアイデアやコンセプトを生成します。
+2. **下書きノード**: 初期コンセプトから詳細な下書きを開発します。
+3. **レビューノード**: 下書きを批判的に評価し、改善を提案します。
 
-### 3. Leveraging Multi-Node Workflows
+### 3. マルチノードワークフローの活用
 
-Combine diverse AI models across nodes to maximize output quality:
+出力品質を最大化するために、ノード間で多様なAIモデルを組み合わせます：
 
-- **Perplexity Sonar** for research and fact verification.
-- **Claude** for nuanced analysis and ethical considerations.
-- **GPT-4o** for structured and creative content creation.
-- **Fal AI** for high-quality image and visual content generation.
+- **Perplexity Sonar** 研究と事実検証用
+- **Claude** 繊細な分析と倫理的考慮用
+- **GPT-4o** 構造化された創造的コンテンツ作成用
+- **Fal AI** 高品質な画像とビジュアルコンテンツ生成用
 
-## Common Pitfalls to Avoid
+## 避けるべき一般的な落とし穴
 
-### 1. Overly Restrictive Instructions
+### 1. 過度に制限的な指示
 
-Avoid excessively rigid constraints:
+過度に硬直な制約を避けます：
 
 ```plaintext
-❌ Avoid:
-"Create a detailed report exactly 200 words, including exactly four examples."
+❌ 避けるべき例：
+「正確に200単語で、正確に4つの例を含む詳細レポートを作成してください。」
 ```
 
-### 2. Contradictory or Confusing Instructions
+### 2. 矛盾したまたは紛らわしい指示
 
-Ensure instructions remain logically consistent:
+指示が論理的に一貫していることを確認します：
 
 ```plaintext
-❌ Avoid:
-"Provide a highly detailed yet simple explanation using advanced terminology."
+❌ 避けるべき例：
+「高度な用語を使用して、非常に詳細でありながらシンプルな説明を提供してください。」
 ```
 
-### 3. Ambiguous or Incomplete Prompts
+### 3. 曖昧または不完全なプロンプト
 
-Avoid vague instructions that lead to unclear outputs:
+不明確な出力につながる曖昧な指示を避けます：
 
 ```plaintext
-❌ Avoid:
-"Explain something useful."
+❌ 避けるべき例：
+「何か有用なことを説明してください。」
 ```
 
-## Optimizing Giselle Workflows
+## Giselleワークフローの最適化
 
-### 1. Iterative Node Refinement
+### 1. 反復的ノード改良
 
-- Regularly review outputs from each node to optimize subsequent prompts.
-- Use multiple nodes strategically to iteratively refine concepts, drafts, and final outputs.
+- 各ノードからの出力を定期的にレビューし、後続プロンプトを最適化します。
+- 複数のノードを戦略的に使用して、コンセプト、下書き、最終出力を反復的に洗練します。
 
-### 2. Strategic Use of Templates
+### 2. テンプレートの戦略的使用
 
-Leverage prompt templates for consistent, effective outputs:
+一貫した効果的な出力のためにプロンプトテンプレートを活用します：
 
 ```plaintext
-✅ Giselle Template:
+✅ Giselleテンプレート：
 
-Role: [Defined AI role]
+Role: [定義されたAIの役割]
 
-Task: [Explicit, precise task description]
+Task: [明示的で正確なタスク説明]
 
 Constraints:
-- [Specific constraint or limitation]
-- [Additional constraints as necessary]
+- [特定の制約または制限]
+- [必要に応じて追加の制約]
 
 Input Data:
-- [Clearly referenced or provided data]
+- [明確に参照または提供されたデータ]
 
 Output Format:
-- [Detailed expected structure of response]
+- [応答の詳細な期待構造]
 ```
 
-## Giselle-Specific Recommendations
+## Giselle固有の推奨事項
 
-### 1. Select Appropriate AI Models
+### 1. 適切なAIモデルの選択
 
-Choose AI models carefully according to task requirements and capabilities:
+タスクの要件と機能に応じてAIモデルを注意深く選択します：
 
-- **Claude**: nuanced, ethical analyses.
-- **Gemini**: complex multimodal inputs.
-- **GPT-4o**: structured outputs and creative content.
-- **Fal AI**: image generation tasks.
+- **Claude**: 繊細な倫理分析用
+- **Gemini**: 複雑なマルチモーダル入力用
+- **GPT-4o**: 構造化された出力とクリエイティブコンテンツ用
+- **Fal AI**: 画像生成タスク用
 
-### 2. Visualize and Collaborate
+### 2. 視覚化とコラボレーション
 
-- Clearly map your workflows visually within Giselle’s UI.
-- Share your workflows with teams to enhance collaboration and clarity.
-- Experiment with node combinations to achieve advanced, high-quality results beyond standard conversational interfaces.
+- GiselleのUI内でワークフローを明確に視覚的にマッピングします。
+- コラボレーションと明確性を向上させるためにワークフローをチームと共有します。
+- 標準的な会話型インターフェースを超えた高度で高品質な結果を達成するためにノードの組み合わせを実験します。
 
-## Key Points for Effective Giselle Prompts
+## 効果的なGiselleプロンプトの要点
 
-- **Role Definition**: Clearly articulate the AI model’s role.
-- **Precision**: Provide exact, detailed instructions.
-- **Contextual Completeness**: Include essential context and constraints.
-- **Output Structure**: Clearly define response formats.
-- **Workflow Optimization**: Strategically chain multiple nodes to enhance output quality.
+- **役割定義**: AIモデルの役割を明確に明示する。
+- **精度**: 正確で詳細な指示を提供する。
+- **コンテキストの完全性**: 必須のコンテキストと制約を含める。
+- **出力構造**: 応答形式を明確に定義する。
+- **ワークフロー最適化**: 出力品質を向上させるために複数のノードを戦略的に連続させる。

@@ -3,97 +3,97 @@ title: GitHub ツール
 description: "ジェネレーター ノード内で GitHub ツールを構成し使用する方法を学び、AI モデルが GitHub リポジトリと直接連携できるようにします。"
 ---
 
-**GitHub Tools** enable AI models inside a Generator Node to perform a wide range of actions on GitHub by giving them access to a curated set of functions. This feature, often referred to as "tool use" or "function calling," allows you to build powerful AI agents that can automate development workflows, such as creating issues, managing pull requests, searching for code, and more, all based on natural language instructions in your prompt.
+**GitHub ツール**は、Generator Node内のAIモデルに厳選された機能セットへのアクセスを提供することで、GitHub上で幅広いアクションを実行できるようにします。この機能は、しばしば「ツール使用」や「関数呼び出し」と呼ばれ、プロンプトでの自然言語指示に基づいて、課題の作成、プルリクエストの管理、コードの検索など、開発ワークフローを自動化する強力なAIエージェントを構築できます。
 
-## Configuring GitHub Tools
+## GitHubツールの設定
 
-Follow these steps to connect your GitHub account and enable specific tools for a Generator Node.
+以下の手順に従ってGitHubアカウントを接続し、Generator Nodeで特定のツールを有効化してください。
 
-### 1. Navigate to the Tools Tab
+### 1. ツールタブに移動
 
-In any Generator Node (e.g., `gemini-2.5-pro`), select the **Tools** tab. You will see a list of available integrations that can be connected.
+任意のGenerator Node（例：`gemini-2.5-pro`）で、**ツール**タブを選択します。接続可能な統合の一覧が表示されます。
 
-### 2. Connect to GitHub
+### 2. GitHubへの接続
 
-Click the **+ Connect** button next to the GitHub integration. This will open a configuration modal to add your credentials.
+GitHub統合の隣の**+ Connect**ボタンをクリックします。これにより、認証情報を追加するための設定モーダルが開きます。
 
-### 3. Add Your Personal Access Token (PAT)
+### 3. パーソナルアクセストークン（PAT）の追加
 
-To authenticate with GitHub, you need to provide a Personal Access Token (PAT).
+GitHubで認証するために、パーソナルアクセストークン（PAT）を提供する必要があります。
 
 <Info>
-  You can create a new PAT from your GitHub account settings: [https://github.com/settings/personal-access-tokens](https://github.com/settings/personal-access-tokens). Ensure your token has the necessary permissions (scopes) for the actions you want to perform.
+  GitHubアカウント設定から新しいPATを作成できます：[https://github.com/settings/personal-access-tokens](https://github.com/settings/personal-access-tokens)。実行したいアクションに必要なアクセス許可（スコープ）がトークンに含まれていることを確認してください。
 </Info>
 
-In the "Connect to GitHub" window:
+「Connect to GitHub」ウィンドウで：
 
-1. **Token Name**: Give your token a descriptive name for easy identification later (e.g., "Create Issue" or "Update Docs").
-2. **Personal Access Token (PAT)**: Paste your token into this field. Giselle encrypts the token with authenticated encryption before saving it.
-3. Click **Save & Connect**.
+1. **トークン名**: 後で簡単に識別できるように、トークンに説明的な名前を付けてください（例：「Create Issue」や「Update Docs」）。
+2. **パーソナルアクセストークン（PAT）**: このフィールドにトークンを貼り付けてください。Giselleは保存前に認証暗号化でトークンを暗号化します。
+3. **Save & Connect**をクリックしてください。
 
-### 4. Select the Tools to Enable
+### 4. 有効化するツールの選択
 
-After your token is validated, you'll be presented with a list of available GitHub tools, grouped by category. For security and control, you must explicitly select which actions the AI model is allowed to perform.
+トークンが検証された後、カテゴリー別にグループ化された利用可能なGitHubツールの一覧が表示されます。セキュリティと制御のため、AIモデルが実行を許可されるアクションを明示的に選択する必要があります。
 
-Check the boxes next to the tools you want to enable for this node (e.g., `createIssue`, `getPullRequest`, `createOrUpdateFile`).
+このノードで有効化したいツールの隣のチェックボックスをオンにしてください（例：`createIssue`、`getPullRequest`、`createOrUpdateFile`）。
 
-### 5. Save the Configuration
+### 5. 設定の保存
 
-Once you've selected the desired tools, click **Save & Connect** at the bottom of the modal. The Generator Node will now show that GitHub is connected, displaying the enabled tools and a **Configuration** button to make future changes.
+希望のツールを選択したら、モーダルの下部の**Save & Connect**をクリックしてください。Generator NodeにGitHubが接続されたことが表示され、有効化されたツールと今後の変更用の**Configuration**ボタンが表示されます。
 
-## Available GitHub Tools
+## 利用可能なGitHubツール
 
-The following is a list of tools you can enable for your AI model, categorized as they appear in the configuration screen.
+以下は、設定画面に表示されるようにカテゴリー別に分類された、AIモデルに対して有効化できるツールの一覧です。
 
-**Note**: GitHub tools conform to the definitions at [https://github.com/github/github-mcp-server](https://github.com/github/github-mcp-server)
+**注意**: GitHubツールは [https://github.com/github/github-mcp-server](https://github.com/github/github-mcp-server) の定義に準拠しています。
 
-### Repository
+### リポジトリ
 
 #### `getFileContents`
 
-Retrieves file or directory contents from a repository
+リポジトリからファイルまたはディレクトリの内容を取得します
 
-* **Required**:
-  * `owner` (Repository owner)
-  * `path` (Path to file/directory)
-  * `repo` (Repository name)
-* **Optional**: `branch` (Branch to get contents from)
+* **必須**:
+  * `owner` (リポジトリ所有者)
+  * `path` (ファイル/ディレクトリへのパス)
+  * `repo` (リポジトリ名)
+* **オプション**: `branch` (内容を取得するブランチ)
 
 #### `listBranches`
 
-Lists all branches in a repository with pagination support
+リポジトリ内のすべてのブランチをページネーションサポート付きで一覧表示します
 
-* **Required**:
-  * `owner` (Repository owner)
-  * `repo` (Repository name)
-* **Optional**:
-  * `page` (Page number for pagination, min 1)
-  * `perPage` (Results per page, min 1, max 100)
+* **必須**:
+  * `owner` (リポジトリ所有者)
+  * `repo` (リポジトリ名)
+* **オプション**:
+  * `page` (ページネーション用ページ番号、最小1)
+  * `perPage` (1ページあたりの結果数、最小1、最大1000)
 
-### Issues
+### 課題（Issues）
 
 #### `createIssue`
 
-Opens a new issue with required title and optional body, assignees, labels, and milestone number
+必須のタイトルとオプションの本文、担当者、ラベル、マイルストーン番号で新しい課題を作成します
 
-* **Required**:
-  * `owner` (Repository owner)
-  * `repo` (Repository name)
-  * `title` (Issue title)
-* **Optional**:
-  * `body` (Issue body content)
-  * `assignees` (Array of usernames to assign)
-  * `labels` (Array of labels to apply)
-  * `milestone` (Milestone number)
+* **必須**:
+  * `owner` (リポジトリ所有者)
+  * `repo` (リポジトリ名)
+  * `title` (課題タイトル)
+* **オプション**:
+  * `body` (課題本文内容)
+  * `assignees` (担当するユーザー名の配列)
+  * `labels` (適用するラベルの配列)
+  * `milestone` (マイルストーン番号)
 
 #### `getIssue`
 
-Retrieves detailed information about a specific issue by its number
+番号で特定の課題の詳細情報を取得します
 
-* **Required**:
-  * `owner` (Repository owner)
-  * `repo` (Repository name)
-  * `issueNumber` (Issue number)
+* **必須**:
+  * `owner` (リポジトリ所有者)
+  * `repo` (リポジトリ名)
+  * `issueNumber` (課題番号)
 
 #### `listIssues`
 
@@ -411,35 +411,35 @@ Searches for GitHub users using search syntax
   * `page` (Page number, min 1)
   * `perPage` (Results per page, min 1, max 100)
 
-## How to Use GitHub Tools
+## GitHubツールの使用方法
 
-Once configured, you can instruct the AI model to use the enabled tools directly in your prompt. The model will understand your request and call the appropriate function with the necessary parameters to complete the task.
+設定が完了すると、プロンプト内で有効化されたツールを直接使用するようにAIモデルに指示できます。モデルはリクエストを理解し、適切なパラメータで必要な関数を呼び出してタスクを完了します。
 
-### Example Prompt: Create a pull request to add a new documentation page
+### プロンプト例: 新しいドキュメントページを追加するプルリクエストの作成
 
-Imagine you have enabled the `getFileContents`, `createPullRequest`, `createBranch` and `createOrUpdateFile` tools for a node.
+ノードに`getFileContents`、`createPullRequest`、`createBranch`、`createOrUpdateFile`ツールを有効化したと仮定します。
 
 ```markdown
-Please complete the last step without checking with me.
+最終ステップを確認なしで完了してください。
 
-Creating the pull request, please follow these steps:
+プルリクエストの作成では、以下の手順に従ってください：
 
-1. Create a new branch in your GitHub repository https://github.com/giselles-ai/docs
-  - Use GitHub tool createBranch
+1. GitHubリポジトリ https://github.com/giselles-ai/docs に新しいブランチを作成する
+  - GitHubツール createBranch を使用
   - fromBranch: main
   - newBranchName: prefix giselle/create-docs-xxx
 
-2. Please create a new file based on the contents of followings
-  - Use GitHub tool createOrUpdateFile
+2. 以下の内容に基づいて新しいファイルを作成してください
+  - GitHubツール createOrUpdateFile を使用
   - Contents: @generate-contents-node-output
   - Latest SHA: @getSHA-node-output
 
-3. Create pull request to https://github.com/giselles-ai/docs
-  - Use GitHub tool createPullRequest
+3. https://github.com/giselles-ai/docs へプルリクエストを作成する
+  - GitHubツール createPullRequest を使用
 ```
 
-When this prompt is run, the Giselle will:
+このプロンプトが実行されると、Giselleは以下を行います：
 
-1. Create a new branch in your GitHub repository.
-2. Create a new file based on the contents.
+1. GitHubリポジトリに新しいブランチを作成します。
+2. 内容に基づいて新しいファイルを作成します。
 3. Create pull request.

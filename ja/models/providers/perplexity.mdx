@@ -12,55 +12,55 @@ description: '利用可能な Perplexity AI モデルの概要。'
 | sonar-pro | ✅             | ✅          | ❌         | High           | 200k tokens    | 8k tokens         | Pro          |
 | sonar     | ✅             | ✅          | ❌         | Medium         | 128k tokens    | -                 | Free         |
 
-Please note that some features may not be available within Giselle even if they are offered in the official API.
+公式APIで提供されている機能であっても、Giselle内では一部の機能が利用できない場合があります。
 
 ### sonar-pro
 
-An advanced search model offering detailed responses with enhanced citation accuracy. Optimized for multi-step queries and tasks that require deep content understanding and comprehensive sourcing. Ideal for academic research, market analysis, and complex informational tasks.
+引用精度が向上した詳細な回答を提供する高度な検索モデルです。多段階クエリや深いコンテンツ理解と包括的なソーシングを必要とするタスクに最適化されています。学術研究、市場分析、複雑な情報タスクに最適です。
 
 ### sonar
 
-A lightweight, cost-effective search model optimized for quick, accurate answers utilizing real-time web search with citations. Suitable for everyday queries, quick fact-checking, summarizations, and general-purpose use.
+引用付きのリアルタイムウェブ検索を活用して迅速で正確な回答に最適化された、軽量でコスト効果の高い検索モデルです。日常のクエリ、迅速なファクトチェック、要約、汎用利用に適しています。
 
 
-## Model Selection Guide
+## モデル選択ガイド
 
-Guidelines for selecting the optimal Perplexity AI model:
+最適な Perplexity AI モデルを選択するためのガイドライン：
 
-- **For advanced multi-step research queries with citations**: sonar-pro
-- **For everyday quick searches and cost-effective queries**: sonar
+- **引用付きの高度な多段階研究クエリには**: sonar-pro
+- **日常的な迅速検索とコスト効率的なクエリには**: sonar
 
-## Practices for Giselle
+## Giselle でのプラクティス
 
-### Multi-Node Research
+### マルチノード研究
 
-In Giselle, you can set up multiple `sonar-pro` nodes to approach different perspectives, creating detailed, multifaceted research outputs similar to original deep-research reports.
+Giselle では、複数の `sonar-pro` ノードを設定して異なる観点からアプローチすることで、オリジナルの深い研究レポートに似た詳細で多面的な研究結果を作成できます。
 
-### Search Domain Filtering
+### 検索ドメインフィルタリング
 
-Both `sonar` and `sonar-pro` nodes in Giselle now support the `search_domain_filter` option, allowing you to control which websites are included in or excluded from the search results used by the models. This feature is particularly useful for:
+Giselle の `sonar` および `sonar-pro` ノードは両方とも `search_domain_filter` オプションをサポートしており、モデルが使用する検索結果に含めるウェブサイトまたは除外するウェブサイトをコントロールできます。この機能は特に以下の場合に有用です：
 
-*   Restricting search results to trusted sources.
-*   Filtering out specific domains (e.g., forums, social media).
-*   Focusing research on particular websites.
+*   信頼できるソースに検索結果を制限する
+*   特定のドメイン（フォーラム、ソーシャルメディアなど）を除外する
+*   特定のウェブサイトに研究を集中させる
 
-**How to Use:**
+**使用方法：**
 
-*   **Allowlist (Include):** Provide a list of simple domain names (e.g., `"wikipedia.org"`, `"nasa.gov"`). The search will *only* use results from these domains.
-*   **Denylist (Exclude):** Provide a list of simple domain names (e.g., `"pinterest.com"`, `"reddit.com"`). The search will *exclude* results from these domains.
-*   **Combine:** You can mix included and excluded domains in the same request.
+*   **許可リスト（含める）：** シンプルなドメイン名のリスト（例：`"wikipedia.org"`、`"nasa.gov"`）を提供します。検索は*これらのドメインからの結果のみ*を使用します。
+*   **拒否リスト（除外する）：** シンプルなドメイン名のリスト（例：`"pinterest.com"`、`"reddit.com"`）を提供します。検索は*これらのドメインからの結果を除外*します。
+*   **組み合わせ：** 同じリクエストで含めるドメインと除外するドメインを混在させることができます。
 
-**Best Practices:**
+**ベストプラクティス：**
 
-*   **Simple Domain Names:** Use domains in their simplest form (e.g., `example.com`) without protocol prefixes (`http://`, `https://`) or `www.`.
-*   **Main Domains:** Using the main domain (e.g., `nytimes.com`) will filter all its subdomains as well.
-*   **Limit Filter Size:** You can add a maximum of 10 domains. Using fewer, more targeted domains often yields better results.
-*   **Relevance:** Use domains most relevant to your query for the best results.
+*   **シンプルなドメイン名：** プロトコルプレフィックス（`http://`、`https://`）や `www.` を付けずに、最もシンプルな形式（例：`example.com`）でドメインを使用してください。
+*   **メインドメイン：** メインドメイン（例：`nytimes.com`）を使用すると、そのすべてのサブドメインもフィルタリングされます。
+*   **フィルタサイズの制限：** 最大10個のドメインを追加できます。より少なく、より的を絞ったドメインを使用することで、しばしばより良い結果が得られます。
+*   **関連性：** 最良の結果を得るために、クエリに最も関連性の高いドメインを使用してください。
 
-**Performance Considerations:**
+**パフォーマンスに関する考慮事項：**
 
-*   Adding domain filters might slightly increase response time.
-*   Overly restrictive filters could lead to fewer search results, potentially affecting response quality.
+*   ドメインフィルタを追加すると、応答時間がわずかに増加する場合があります。
+*   過度に制限的なフィルタは検索結果の減少につながる可能性があり、回答の品質に影響を与える可能性があります。
 
 
-For detailed specifications or additional assistance, please refer to [Perplexity AI Documentation](https://docs.perplexity.ai).
+詳細な仕様や追加サポートについては、[Perplexity AI ドキュメント](https://docs.perplexity.ai)をご参照ください。

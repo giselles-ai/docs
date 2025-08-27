@@ -3,144 +3,144 @@ title: 例
 description: 'Giselle のジェネレーター ノードでの効果的なプロンプト例。'
 ---
 
-This document provides effective and concrete prompt examples tailored specifically for Giselle’s Generator Nodes, leveraging various multimodal AI models including Anthropic's Claude, Google's Gemini, OpenAI's GPT-4o, Perplexity’s Sonar, and Fal AI for image generation.
+このドキュメントでは、GiselleのGenerator Node専用にカスタマイズされた効果的で具体的なプロンプト例を提供します。AnthropicのClaude、GoogleのGemini、OpenAIのGPT-4o、PerplexityのSonar、画像生成用のFal AIなど、さまざまなマルチモーダルAIモデルを活用します。
 
-## Basic Examples
+## 基本例
 
-### 1. Technical Query using GPT-4o
+### 1. GPT-4oを使用した技術的質問
 
 ```plaintext
-Role: Experienced programmer
+Role: 経験豊富なプログラマー
 
 Task:
-Explain the most efficient way to extract unique elements from a Python list.
+Pythonのリストから一意な要素を取り出す最も効率的な方法を説明してください。
 
 Output Format:
-- Brief explanation
-- Python code example demonstrating the method clearly
+- 簡潔な説明
+- 明確に手法を示すPythonコード例
 ```
 
-**Why this prompt is effective:**
-- Clear role definition aligns the AI’s perspective.
-- Explicit instruction and clear output expectations.
-- Specifies programming language explicitly.
+**このプロンプトが効果的な理由：**
+- 明確な役割定義がAIの立場を調整します。
+- 明示的な指示と明確な出力期待です。
+- プログラミング言語を明示的に指定しています。
 
-### 2. Image Generation with Fal AI
+### 2. Fal AIを使用した画像生成
 
 ```plaintext
-Role: Graphic designer
+Role: グラフィックデザイナー
 
 Task:
-Generate a high-quality, minimalist logo for a technology startup named "QuantumLeap."
+「QuantumLeap」という名前のテクノロジースタートアップのための高品質でミニマリストなロゴを生成してください。
 
 Constraints:
 - Model: flux-pro/v1.1
-- Color scheme: Blue and white
-- Style: Modern, minimalistic
+- 配色: 青と白
+- スタイル: モダン、ミニマリスティック
 
 Output Format:
-- PNG image (1024x1024)
+- PNG画像 (1024x1024)
 ```
 
-**Why this prompt is effective:**
-- Clearly defines role and creative constraints.
-- Utilizes specific Fal AI model for high-quality outputs.
-- Precise output format suitable for immediate use.
+**このプロンプトが効果的な理由：**
+- 役割とクリエイティブな制約を明確に定義しています。
+- 高品質な出力のために特定のFal AIモデルを利用しています。
+- 即座に使用可能な正確な出力形式です。
 
-## Advanced Examples
+## 上級例
 
-### 1. Multimodal Analysis with Gemini
+### 1. Geminiを使用したマルチモーダル分析
 
 ```plaintext
-Role: Industry analyst
+Role: 業界アナリスト
 
 Task:
-Analyze the attached PDF industry report and the accompanying infographic image.
+添付されたPDF業界レポートと付随のインフォグラフィック画像を分析してください。
 
 Steps:
-1. Summarize key findings from the PDF.
-2. Identify and explain trends visible in the infographic.
-3. Recommend strategic actions based on combined insights.
+1. PDFから主要な発見を要約する。
+2. インフォグラフィックで視覚化されたトレンドを特定し、説明する。
+3. 組み合わせた洞察に基づいて戦略的アクションを推奨する。
 
 Constraints:
 - Model: Gemini 2.5 Pro
 
 Output Format:
-- Concise summary
-- Clearly explained visual trends
-- Strategic recommendations as bullet points
+- 簡潔な要約
+- 明確に説明された視覚的トレンド
+- 箇条書きでまとめた戦略的推奨事項
 ```
 
-**Why this prompt is effective:**
-- Clearly utilizes Gemini’s multimodal capabilities.
-- Sequential and structured instructions.
-- Explicitly states the model to ensure precise capability usage.
+**このプロンプトが効果的な理由：**
+- Geminiのマルチモーダル機能を明確に活用しています。
+- 順次的で構造化された指示です。
+- 正確な機能利用を確実にするためにモデルを明示的に指定しています。
 
-### 2. Ethical Analysis and Content Structuring with Claude
+### 2. Claudeを使用した倫理分析とコンテンツ構造化
 
 ```plaintext
-Role: Ethics consultant
+Role: 倫理コンサルタント
 
 Task:
-Review the provided research paper on AI surveillance technologies.
+AI監視技術に関する提供された研究論文をレビューしてください。
 
 Steps:
-1. Identify ethical implications.
-2. Suggest practical ethical guidelines for deployment.
+1. 倫理的含意を特定する。
+2. 展開のための実用的な倫理ガイドラインを提案する。
 
 Constraints:
 - Model: Claude 3.7 Sonnet
 
 Output Format:
-- Ethical implications listed clearly
-- Practical guidelines structured as actionable points
+- 明確にリスト化された倫理的含意
+- 実行可能なポイントとして構造化された実用的ガイドライン
 ```
 
-**Why this prompt is effective:**
-- Aligns task specifically with Claude's strengths in nuanced understanding.
-- Structured clearly to maximize Claude's reasoning and analytical capabilities.
+**このプロンプトが効果的な理由：**
+- タスクをClaudeの繊細な理解における強みに特化しています。
+- Claudeの推論や分析機能を最大化するように明確に構造化されています。
 
-## Integrated Workflow Examples
+## 統合ワークフロー例
 
-### 1. Comprehensive Market Research Workflow
+### 1. 包括的な市場調査ワークフロー
 
 ```plaintext
-Step 1 (Perplexity Sonar Pro):
-Role: Market researcher
-Task: Gather the latest market insights on sustainable food packaging from web sources.
-Output Format: Fact-based summary with citations.
+ステップ 1 (Perplexity Sonar Pro):
+Role: 市場調査員
+Task: 持続可能な食品包装に関する最新の市場洞察をWebソースから収集してください。
+Output Format: 引用付きの事実ベースの要約。
 
-Step 2 (Claude 3.7 Sonnet):
-Role: Sustainability analyst
-Task: Analyze insights from Step 1 for ethical and sustainability implications.
-Output Format: Analysis summary and recommendations.
+ステップ 2 (Claude 3.7 Sonnet):
+Role: 持続可能性アナリスト
+Task: ステップ 1の洞察を倫理や持続可能性の観点から分析してください。
+Output Format: 分析要約と推奨事項。
 
-Step 3 (GPT-4o):
-Role: Technical writer
-Task: Format the insights and recommendations into a structured industry report.
-Output Format: Professional document in markdown format.
+ステップ 3 (GPT-4o):
+Role: テクニカルライター
+Task: 洞察と推奨事項を構造化された業界レポートにフォーマットしてください。
+Output Format: マークダウン形式のプロフェッショナルドキュメント。
 
-Step 4 (Fal AI flux-pro/v1.1):
-Role: Graphic designer
-Task: Generate a compelling visual cover image for the final report.
-Constraints: Sustainability theme, professional style
-Output Format: High-quality cover image (PNG, 1200x800)
+ステップ 4 (Fal AI flux-pro/v1.1):
+Role: グラフィックデザイナー
+Task: 最終レポートのための魅力的なビジュアルカバー画像を生成してください。
+Constraints: 持続可能性テーマ、プロフェッショナルスタイル
+Output Format: 高品質カバー画像 (PNG, 1200x800)
 ```
 
-**Why this prompt is effective:**
-- Clearly leverages strengths of multiple AI models sequentially.
-- Structured, integrated steps with explicit model assignments.
-- Produces comprehensive, ready-to-use workflow outputs.
+**このプロンプトが効果的な理由：**
+- 複数のAIモデルの強みを順次的に明確に活用しています。
+- 明示的なモデル割り当てを伴う構造化された統合ステップです。
+- 包括的で、すぐに使用可能なワークフロー出力を生成します。
 
-## Key Effective Elements in Giselle Prompts
+## Giselleプロンプトの主要な効果的要素
 
-Effective Giselle Generator Node prompts typically include:
+効果的なGiselle Generator Nodeプロンプトには一般的に以下が含まれます：
 
-- **Explicit Role Definitions**
-- **Clear Constraints and Context**
-- **Structured Output Formats**
-- **Sequential or Stepwise Instructions**
-- **Specific Model Selections for Capabilities**
+- **明示的な役割定義**
+- **明確な制約とコンテキスト**
+- **構造化された出力形式**
+- **連続的またはステップ別の指示**
+- **機能に対する特定のモデル選択**
 
-For additional guidance and practical tips on creating impactful prompts, refer to [tips.mdx](./tips).
+インパクトのあるプロンプト作成のための追加ガイダンスと実用的なコツについては、[tips.mdx](./tips)を参照してください。
 

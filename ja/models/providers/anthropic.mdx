@@ -15,56 +15,56 @@ Anthropic ワークスペースでは以下の Claude モデルが利用可能�
 | **claude-3-7-sonnet-20250219** | ✅ | ✅ | ✅ | ✅ | ✅ | 200k tokens | 64k tokens | Pro |
 | **claude-3-5-haiku-20241022** | ✅ | ✅ | ❌ | ✅ | ✅ | 200k tokens | 8192 tokens | Free |
 
-Please note that some features may not be available within Giselle even if they are offered in the official API. Extended thinking mode and other Anthropic API features will be gradually implemented within Giselle.
+公式APIで提供されている機能でも、Giselle内では利用できない場合があることにご注意ください。拡張思考モードおよびその他のAnthropic API機能は、Giselle内で段階的に実装される予定です。
 
 ### claude-opus-4-1-20250805
 
-Claude Opus 4.1 is Anthropic's most powerful model, designed as the ultimate coding powerhouse. It excels at complex multi-step coding, sustained long-running tasks, and advanced reasoning. With a 200k token context window and the ability to output up to 32k tokens, Opus 4.1 delivers sustained performance for several hours and is ideal for projects requiring deep understanding and persistence, such as complex refactoring or multi-repository analysis. It supports text and image inputs.
+Claude Opus 4.1 は Anthropic の最も強力なモデルで、究極のコーディングパワーハウスとして設計されています。複雑な多段階コーディング、持続的な長時間タスク、高度な推論に優れています。200k トークンのコンテキストウィンドウと最大32kトークンの出力能力を持つOpus 4.1は、数時間にわたって持続的なパフォーマンスを提供し、複雑なリファクタリングやマルチリポジトリ解析など、深い理解と永続性を要求するプロジェクトに最適です。テキストと画像入力をサポートしています。
 
 ### claude-4-opus-20250514
 
-Claude Opus 4 is Anthropic's most powerful model, designed as the ultimate coding powerhouse. It excels at complex multi-step coding, sustained long-running tasks, and advanced reasoning. With a 200k token context window and the ability to output up to 32k tokens, Opus 4 delivers sustained performance for several hours and is ideal for projects requiring deep understanding and persistence, such as complex refactoring or multi-repository analysis. It supports text and image inputs.
+Claude Opus 4 は Anthropic の最も強力なモデルで、究極のコーディングパワーハウスとして設計されています。複雑な多段階コーディング、持続的な長時間タスク、高度な推論に優れています。200k トークンのコンテキストウィンドウと最大32kトークンの出力能力を持つOpus 4は、数時間にわたって持続的なパフォーマンスを提供し、複雑なリファクタリングやマルチリポジトリ解析など、深い理解と永続性を要求するプロジェクトに最適です。テキストと画像入力をサポートしています。
 
 ### claude-4-sonnet-20250514
 
-Claude Sonnet 4 is a balanced performance champion, offering high intelligence with an optimal cost-performance balance. It's suited for everyday coding tasks, content generation, and scenarios where frontier-level performance is needed without premium costs. Sonnet 4 features a 200k token context window, can output up to 64k tokens, and supports text and image inputs. It delivers exceptional value across most use cases, providing superior efficiency for a wide range of applications.
+Claude Sonnet 4 はバランスの取れたパフォーマンスチャンピオンで、最適なコストパフォーマンスバランスで高い知性を提供します。日常的なコーディングタスク、コンテンツ生成、プレミアムコストを必要とせずに最先端レベルのパフォーマンスが必要なシナリオに適しています。Sonnet 4 は200k トークンのコンテキストウィンドウを特徴とし、最大64kトークンまで出力でき、テキストと画像入力をサポートしています。ほとんどの使用事例で優れた価値を提供し、幅広いアプリケーションで卓越した効率性を実現します。
 
 ### claude-3-7-sonnet-20250219
 
-An advanced model offering superior intelligence and reasoning capabilities. Ideal for handling complex tasks, extended reasoning, detailed analyses, and multimodal tasks involving PDFs and images. It includes an extensive context window of up to 200k tokens with optional extended thinking capabilities allowing outputs up to 64k tokens (128k tokens available in beta).
+優れた知性と推論能力を提供する先進的なモデルです。複雑なタスク、拡張推論、詳細な分析、PDFや画像を含むマルチモーダルタスクの処理に最適です。最大200kトークンの広範なコンテキストウィンドウを含み、オプションの拡張思考機能により最大64kトークンまでの出力が可能です（ベータ版では128kトークンが利用可能）。
 
 ### claude-3-5-haiku-20241022
 
-Optimized for speed, this model is ideal for real-time responsiveness. It supports PDF and image inputs with rapid text generation, suitable for fast interactions and scenarios requiring quick, concise responses within a 200k token context window.
+速度に最適化されたこのモデルは、リアルタイムの応答性に最適です。迅速なテキスト生成でPDFと画像入力をサポートし、高速なインタラクションと200kトークンのコンテキストウィンドウ内で迅速で簡潔な応答を必要とするシナリオに適しています。
 
-## Model Selection Guide
+## モデル選択ガイド
 
-Guidelines for selecting the optimal Claude model:
+最適なClaudeモデルを選択するためのガイドライン：
 
-*   **For the ultimate coding powerhouse and most complex reasoning (latest)**: `claude-opus-4-1-20250805`
-*   **For the ultimate coding powerhouse and most complex reasoning**: `claude-4-opus-20250514`
-*   **For balanced high-performance, everyday coding, and cost-effective workflows**: `claude-4-sonnet-20250514`
-*   **For best overall intelligence and complex reasoning (previous generation)**: `claude-3-7-sonnet-20250219`
-*   **When speed and immediate responsiveness matter**: `claude-3-5-haiku-20241022`
+*   **究極のコーディングパワーハウスと最も複雑な推論（最新）**: `claude-opus-4-1-20250805`
+*   **究極のコーディングパワーハウスと最も複雑な推論**: `claude-4-opus-20250514`
+*   **バランスの取れた高性能、日常的なコーディング、コスト効率的なワークフロー**: `claude-4-sonnet-20250514`
+*   **最高の総合知性と複雑な推論（前世代）**: `claude-3-7-sonnet-20250219`
+*   **速度と即座の応答性が重要な場合**: `claude-3-5-haiku-20241022`
 
-## Practices for Giselle
+## Giselleでの実践
 
-We recommend `claude-opus-4-1-20250805`, `claude-4-opus-20250514` or `claude-4-sonnet-20250514` as your primary models in Giselle, especially for tasks involving advanced coding, complex problem-solving, and in-depth analysis. These models feature hybrid reasoning modes, automatically switching between instant responses and extended thinking based on task complexity.
+特に高度なコーディング、複雑な問題解決、深い分析を含むタスクにおいて、Giselleでは`claude-opus-4-1-20250805`、`claude-4-opus-20250514`または`claude-4-sonnet-20250514`を主要モデルとして推奨します。これらのモデルはハイブリッド推論モードを特徴とし、タスクの複雑さに基づいて即座の応答と拡張思考を自動的に切り替えます。
 
-`claude-3-7-sonnet-20250219` remains a strong choice for its proven reasoning capabilities. These models excel not only at code generation, architectural design, and technical reviews but also produce remarkably natural text. Their "Reasoning" (Extended Thinking) capability, supported in Giselle, makes them particularly powerful for tasks requiring multi-step thought processes. These versatile models can be effectively utilized across a broad spectrum of tasks, from creating engaging blog articles to writing complex code implementations and performing detailed analytical work.
+`claude-3-7-sonnet-20250219`は実証された推論能力により、引き続き強力な選択肢です。これらのモデルはコード生成、アーキテクチャ設計、技術レビューだけでなく、驚くほど自然なテキストも生成します。Giselleでサポートされている「推論」（拡張思考）機能により、多段階の思考プロセスを必要とするタスクに特に強力です。これらの多用途モデルは、魅力的なブログ記事の作成から複雑なコード実装の記述、詳細な分析作業の実行まで、幅広いタスクで効果的に活用できます。
 
 ### Anthropic Web Search Tool
 
-For supported Claude models, Giselle integrates the Anthropic Web Search tool, which can be configured directly from a Generator Node's **Tools** tab. This feature allows Claude to access real-time information from the web, enabling it to answer questions and generate content based on the most up-to-date data, complete with source citations.
+サポートされているClaudeモデルについて、GiselleはAnthropic Web Search toolを統合しており、ジェネレーターノードの**Tools**タブから直接設定できます。この機能により、Claudeはウェブからリアルタイム情報にアクセスでき、最新のデータに基づいて質問に答え、ソース引用付きでコンテンツを生成できます。
 
-#### Configuration
+#### 設定
 
-In the Generator Node, navigate to the **Tools** tab and click **Configure** next to "Anthropic Web Search." You can then:
+ジェネレーターノードで**Tools**タブに移動し、「Anthropic Web Search」の横にある**Configure**をクリックします。その後、以下の設定が可能です：
 
-*   **Enable Tool**: Toggle the web search functionality on or off.
-*   **Set Maximum Uses**: Limit the number of web searches the model can perform in a single run (from 1 to 10).
-*   **Filter Domains**: Control the search scope by either:
-    *   **Allowing Specific Domains**: Restricting searches to a whitelist of trusted sources.
-    *   **Blocking Specific Domains**: Excluding certain websites from the search results.
+*   **Enable Tool**: ウェブ検索機能のオン/オフを切り替え
+*   **Set Maximum Uses**: 1回の実行でモデルが実行できるウェブ検索の回数を制限（1〜10回）
+*   **Filter Domains**: 以下のいずれかによって検索範囲を制御：
+    *   **Allowing Specific Domains**: 信頼できるソースのホワイトリストに検索を制限
+    *   **Blocking Specific Domains**: 検索結果から特定のウェブサイトを除外
 
-For detailed specifications, performance benchmarks, or additional assistance, please refer to the [Anthropic API Documentation](https://docs.anthropic.com/en/docs/about-claude/models/all-models) and the [Claude 4 announcement](https://www.anthropic.com/news/claude-4).
+詳細な仕様、パフォーマンスベンチマーク、または追加サポートについては、[Anthropic API Documentation](https://docs.anthropic.com/en/docs/about-claude/models/all-models)および[Claude 4 announcement](https://www.anthropic.com/news/claude-4)をご参照ください。

@@ -5,39 +5,39 @@ description: "Giselle のテキスト ノードが、プロンプト、指示、
 
 ## Text Node in Giselle
 
-The **Text Node** is one of the simplest yet most versatile "Source" nodes in Giselle. It is designed to hold and manage plain text content directly within your workflow, making it an essential tool for a wide range of applications. Unlike the File Node, which handles uploaded files, the Text Node stores its content inline, ensuring it is always immediately available without any loading or processing time.
+**テキストノード** は、Giselle で最もシンプルでありながら最も汎用性の高い「ソース」ノードの 1 つです。ワークフロー内でプレーンテキストコンテンツを直接保持・管理するように設計されており、幅広いアプリケーションにとって不可欠なツールです。アップロードされたファイルを処理するファイルノードとは異なり、テキストノードはコンテンツをインラインで保存し、読み込みや処理時間なしで常にすぐに利用できるようになっています。
 
-### Key Features
+### 主な機能
 
-*   **Direct Text Input**: You can write or paste any text directly into the node's built-in editor.
-*   **Inline Storage**: The content is stored as a simple string within the node itself, making your workflow self-contained and portable.
-*   **Instant Availability**: Since there are no file uploads or external storage, the text is instantly available as an output for other nodes.
+*   **直接テキスト入力**: ノードの内蔵エディターに任意のテキストを直接書き込んだり貼り付けたりできます。
+*   **インラインストレージ**: コンテンツはノード自体内に単純な文字列として保存され、ワークフローを自己完結型で可搬性の高いものにします。
+*   **即座の可用性**: ファイルのアップロードや外部ストレージがないため、テキストは他のノードの出力として即座に利用できます。
 
-### How to Use a Text Node
+### テキストノードの使用方法
 
-1.  **Add the Node**: From the toolbar at the bottom of the canvas, click the **Source** icon and select **Plain Text** to add the node to your workspace.
-2.  **Configure the Content**: Select the node to open its configuration panel on the right.
-3.  **Enter Text**: Type or paste your content directly into the text editor, which displays the placeholder "Write or paste text here...". The content is saved automatically as you type.
+1.  **ノードを追加**: キャンバス下部のツールバーから **Source** アイコンをクリックし、**Plain Text** を選択してノードをワークスペースに追加します。
+2.  **コンテンツを設定**: ノードを選択して、右側の設定パネルを開きます。
+3.  **テキストを入力**: 「Write or paste text here...」というプレースホルダーが表示されるテキストエディターに、コンテンツを直接入力または貼り付けします。コンテンツは入力と同時に自動保存されます。
 
-### Common Use Cases
+### 一般的な使用例
 
-The Text Node is ideal for:
+テキストノードは以下に最適です：
 
-*   **Storing Prompts**: Write and store reusable prompts for Generator Nodes.
-*   **Creating Templates**: Keep text templates for various content generation tasks.
-*   **Writing Instructions**: Document workflow-specific instructions or guidelines for your team.
-*   **Holding Data**: Store small, structured datasets like JSON or CSV content for processing.
-*   **Quick Notes**: Use it for temporary text storage or as a scratchpad during workflow development.
+*   **プロンプトの保存**: ジェネレーターノード用の再利用可能なプロンプトを書いて保存します。
+*   **テンプレートの作成**: 様々なコンテンツ生成タスク用のテキストテンプレートを保持します。
+*   **指示の記述**: チーム向けのワークフロー固有の指示やガイドラインを文書化します。
+*   **データの保持**: 処理用の JSON や CSV コンテンツなどの小さな構造化データセットを保存します。
+*   **クイックノート**: ワークフロー開発中の一時的なテキスト保存やスクラッチパッドとして使用します。
 
-### Text Node vs. File Node
+### テキストノード vs ファイルノード
 
-While a **File Node** can also handle text files (like `.txt` or `.md`), the **Text Node** is fundamentally different and often more convenient:
+**ファイルノード** もテキストファイル（`.txt` や `.md` など）を処理できますが、**テキストノード** は根本的に異なり、しばしばより便利です：
 
-*   **Storage**: The Text Node stores content *directly* in the workflow. The File Node requires you to *upload* a file, which is stored separately.
-*   **Editing**: Content in a Text Node can be edited instantly within the Giselle interface. To change the content of a File Node, you would need to upload a new file.
-*   **Overhead**: The Text Node has no file management overhead (no size tracking, upload states, or potential upload failures).
-*   **Best For**: The Text Node is better suited for dynamic or frequently edited content, while the File Node is ideal for using large, static text files as a data source.
+*   **ストレージ**: テキストノードはコンテンツをワークフロー内に*直接*保存します。ファイルノードは*アップロード*したファイルを別途保存する必要があります。
+*   **編集**: テキストノードのコンテンツは Giselle インターフェース内で即座に編集できます。ファイルノードのコンテンツを変更するには、新しいファイルをアップロードする必要があります。
+*   **オーバーヘッド**: テキストノードにはファイル管理のオーバーヘッドがありません（サイズ追跡、アップロード状態、潜在的なアップロード失敗なし）。
+*   **最適用途**: テキストノードは動的または頻繁に編集されるコンテンツにより適していますが、ファイルノードは大きな静的テキストファイルをデータソースとして使用するのに理想的です。
 
-### Output of the Node
+### ノードの出力
 
-The **output** of a Text Node is the raw text content you have entered into its editor. This output can be connected to the input of any compatible node. For example, you can connect it to a Generator Node to use the text as a prompt, or to an Action Node to pass the text as a parameter to an external service.
+テキストノードの**出力**は、エディターに入力した生のテキストコンテンツです。この出力は任意の互換性のあるノードの入力に接続できます。例えば、テキストをプロンプトとして使用するためにジェネレーターノードに接続したり、外部サービスにテキストをパラメータとして渡すためにアクションノードに接続したりできます。
