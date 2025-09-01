@@ -20,7 +20,7 @@ The File Node supports several types of files, each with specific use cases and 
 | File Type | Accepted Formats                  | Max Size | Common Use Cases                               |
 | :-------- | :-------------------------------- | :------- | :--------------------------------------------- |
 | **PDF**   | `application/pdf`                 | 4.5MB    | Document processing, text extraction, analysis |
-| **Image** | `image/png`, `image/jpeg`, `image/gif`, `image/svg` | 1MB      | Visual content analysis and generation         |
+| **Image** | `image/png`, `image/jpeg`, `image/gif`, `image/svg` | 4.5MB    | Visual content analysis and generation         |
 | **Text**  | `text/plain`, `text/markdown`     | 4.5MB    | Text content processing and generation         |
 
 ### Workflow Integration
@@ -42,5 +42,5 @@ The type of file you can connect depends on the capabilities of the target AI mo
 Please be aware of the following limitations when using File Nodes:
 
 *   **Maximum File Size**: Due to platform constraints (Vercel Serverless Function limits), the maximum size for any single file upload is **4.5MB**.
-*   **Image Size Limit**: Image files have a stricter maximum size of **1MB**.
+*   **Image Size Limit**: Image files have a maximum size of **4.5MB**.
 *   **Connection Restrictions**: You cannot connect a file to a node that does not support its type. For instance, a PDF file cannot be connected to a node that only generates images, and an image file may not be compatible with older text-only generation models.
