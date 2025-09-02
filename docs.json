@@ -107,8 +107,7 @@
                   "en/models/providers/anthropic",
                   "en/models/providers/fal",
                   "en/models/providers/google",
-                  "en/models/providers/openai",
-                  "en/models/providers/perplexity"
+                  "en/models/providers/openai"
                 ]
               }
             ]
@@ -261,8 +260,7 @@
                   "ja/models/providers/anthropic",
                   "ja/models/providers/fal",
                   "ja/models/providers/google",
-                  "ja/models/providers/openai",
-                  "ja/models/providers/perplexity"
+                  "ja/models/providers/openai"
                 ]
               }
             ]

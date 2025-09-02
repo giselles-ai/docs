@@ -3,7 +3,7 @@ title: 例
 description: 'Giselle のジェネレーター ノードでの効果的なプロンプト例。'
 ---
 
-このドキュメントでは、GiselleのGenerator Node専用にカスタマイズされた効果的で具体的なプロンプト例を提供します。AnthropicのClaude、GoogleのGemini、OpenAIのGPT-4o、PerplexityのSonar、画像生成用のFal AIなど、さまざまなマルチモーダルAIモデルを活用します。
+このドキュメントでは、GiselleのGenerator Node専用にカスタマイズされた効果的で具体的なプロンプト例を提供します。AnthropicのClaude、GoogleのGemini、OpenAIのGPT-4o、画像生成用のFal AIなど、さまざまなマルチモーダルAIモデルを活用します。
 
 ## 基本例
 
@@ -105,22 +105,17 @@ Output Format:
 ### 1. 包括的な市場調査ワークフロー
 
 ```plaintext
-ステップ 1 (Perplexity Sonar Pro):
-Role: 市場調査員
-Task: 持続可能な食品包装に関する最新の市場洞察をWebソースから収集してください。
-Output Format: 引用付きの事実ベースの要約。
-
-ステップ 2 (Claude 3.7 Sonnet):
-Role: 持続可能性アナリスト
-Task: ステップ 1の洞察を倫理や持続可能性の観点から分析してください。
+ステップ 1 (Claude 3.7 Sonnet):
+Role: 市場調査員と持続可能性アナリスト
+Task: 持続可能な食品包装のトレンドを調査し、その倫理や持続可能性の観点から分析してください。
 Output Format: 分析要約と推奨事項。
 
-ステップ 3 (GPT-4o):
+ステップ 2 (GPT-4o):
 Role: テクニカルライター
 Task: 洞察と推奨事項を構造化された業界レポートにフォーマットしてください。
 Output Format: マークダウン形式のプロフェッショナルドキュメント。
 
-ステップ 4 (Fal AI flux-pro/v1.1):
+ステップ 3 (Fal AI flux-pro/v1.1):
 Role: グラフィックデザイナー
 Task: 最終レポートのための魅力的なビジュアルカバー画像を生成してください。
 Constraints: 持続可能性テーマ、プロフェッショナルスタイル
