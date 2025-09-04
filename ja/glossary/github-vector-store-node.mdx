@@ -9,7 +9,7 @@ GitHub ベクター ストア ノードが GitHub リポジトリをベクトル
 
 **GitHub ベクター ストア ノード**は、GitHub リポジトリの内容から強力で検索可能なデータベースを作成する特殊な「ソース」ノードです。リポジトリ内のコードと文書をベクトル化することで動作し、AI モデルがセマンティック検索を実行し、関連するコンテキストを取得できるようにします。
 
-このプロセスでは、OpenAI の強力で効率的な [`text-embedding-3-small`](https://platform.openai.com/docs/models/text-embedding-3-small) モデルを使用して、リポジトリのコンテンツをベクターエンベディングに変換します。これらのベクトル化されたデータは、Giselle の専用ベクター ストアに安全に保存されます。
+このプロセスでは、先進的な埋め込みモデルを使用してリポジトリのコンテンツをベクターエンベディングに変換します。OpenAI の [`text-embedding-3-small`](https://platform.openai.com/docs/models/text-embedding-3-small) や [`text-embedding-3-large`](https://platform.openai.com/docs/models/text-embedding-3-large)、Google の [`gemini-embedding-001`](https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/gemini-embedding-001?hl=ja) など、複数の埋め込みモデルから選択できます。これらのベクトル化されたデータは、Giselle の専用ベクター ストアに安全に保存されます。
 
 この機能を使用するには、対象の GitHub リポジトリに [Giselle GitHub App](https://github.com/apps/giselles-ai) がインストールされている必要があります。
 
@@ -46,6 +46,15 @@ GitHub ベクター ストア ノードが GitHub リポジトリをベクトル
 
 *   **コード**: リポジトリからソースコードファイルを取り込みます。このソースは必須で、無効にできません。
 *   **プルリクエスト**: マージされたプルリクエストからコンテンツとディスカッションを取り込みます。これは、AI ワークフローに追加のコンテキストを提供するために有効にできるオプションのソースです。
+
+#### 埋め込みモデル
+GitHub ベクター ストアを設定する際、リポジトリコンテンツのインデックス化に使用する埋め込みモデルを複数から選択できます。少なくとも1つの埋め込みモデルを選択する必要があります。利用可能なオプションには以下があります：
+
+*   **OpenAI text-embedding-3-small**: プロバイダー: openai • 次元数: 1536 - ほとんどのユースケースに適した強力で効率的なモデルです。
+*   **OpenAI text-embedding-3-large**: プロバイダー: openai • 次元数: 3072 - 複雑なセマンティック理解により高い精度を提供する大型モデルです。
+*   **Google gemini-embedding-001**: プロバイダー: google • 次元数: 3072 - 代替のセマンティック表現機能を提供するGoogleの埋め込みモデルです。
+
+埋め込みモデルの選択は、コンテンツのベクトル化方法に影響し、検索品質とパフォーマンスに影響を与える可能性があります。ベクター ストアに異なるセマンティック表現機能を活用するために、複数のモデルを選択することができます。
 
 ### レート制限と考慮事項
 GitHub ベクター ストア ノードを使用する際は、GitHub API のレート制限にご注意ください。Giselle の GitHub ベクター ストアは GitHub API アクセスに [GitHub App Installation](https://docs.github.com/ja/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28#primary-rate-limit-for-github-app-installations) を使用しており、1時間あたり約5,000リクエストのレート制限があります。大規模プロジェクトで作業する際にエラーが発生する場合があります。この場合、しばらく待ってから再試行してください。
