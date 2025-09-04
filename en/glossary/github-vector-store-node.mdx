@@ -9,7 +9,7 @@ Learn how the GitHub Vector Store Node in Giselle vectorizes your GitHub reposit
 
 The **GitHub Vector Store Node** is a specialized "Source" node that creates a powerful, searchable database from the contents of a GitHub repository. It works by vectorizing the code and documents within the repository, allowing AI models to perform semantic searches and retrieve relevant context.
 
-This process uses OpenAI's powerful and efficient [`text-embedding-3-small`](https://platform.openai.com/docs/models/text-embedding-3-small) model to convert your repository's content into vector embeddings. These vectorized data are then stored securely in Giselle's dedicated Vector Store.
+This process uses advanced embedding models to convert your repository's content into vector embeddings. You can select from multiple embedding models, including OpenAI's [`text-embedding-3-small`](https://platform.openai.com/docs/models/text-embedding-3-small) and [`text-embedding-3-large`](https://platform.openai.com/docs/models/text-embedding-3-large), as well as Google's [`gemini-embedding-001`](https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/gemini-embedding-001?hl=en). These vectorized data are then stored securely in Giselle's dedicated Vector Store.
 
 To use this feature, the [Giselle GitHub App](https://github.com/apps/giselles-ai) must be installed on the target GitHub repository.
 
@@ -46,6 +46,15 @@ When registering a new repository, you can select which types of content to inge
 
 *   **Code**: Ingests the source code files from the repository. This source is required and cannot be disabled.
 *   **Pull Requests**: Ingests the content and discussions from merged pull requests. This is an optional source that can be enabled to provide additional context to your AI workflows.
+
+#### Embedding Models
+When setting up a GitHub Vector Store, you can select from multiple embedding models for indexing your repository content. You must select at least one embedding model. Available options include:
+
+*   **OpenAI text-embedding-3-small**: Provider: openai • Dimensions: 1536 - A powerful and efficient model suitable for most use cases.
+*   **OpenAI text-embedding-3-large**: Provider: openai • Dimensions: 3072 - A larger model with higher precision for complex semantic understanding.
+*   **Google gemini-embedding-001**: Provider: google • Dimensions: 3072 - Google's embedding model offering alternative semantic representation capabilities.
+
+The choice of embedding model affects how your content is vectorized and can impact search quality and performance. You can select multiple models to leverage different semantic representation capabilities for your vector store.
 
 ### Rate Limits and Considerations
 When using the GitHub Vector Store Node, please be aware of GitHub API rate limits. Giselle's GitHub Vector Store uses [GitHub App Installation](https://docs.github.com/ja/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28#primary-rate-limit-for-github-app-installations) for GitHub API access, which has a rate limit of approximately 5,000 requests per hour. You may encounter errors when working with large-scale projects. If this occurs, please wait some time before trying again.
