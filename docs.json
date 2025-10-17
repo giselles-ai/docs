@@ -68,7 +68,7 @@
                   {
                     "group": "Account",
                     "pages": [
-                      "en/guides/settings/account/Authentication",
+                      "en/guides/settings/account/authentication",
                       "en/guides/settings/account/general",
                       "en/guides/settings/account/overview"
                     ]
@@ -221,7 +221,7 @@
                   {
                     "group": "アカウント",
                     "pages": [
-                      "ja/guides/settings/account/Authentication",
+                      "ja/guides/settings/account/authentication",
                       "ja/guides/settings/account/general",
                       "ja/guides/settings/account/overview"
                     ]
