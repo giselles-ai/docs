@@ -76,7 +76,6 @@
                   {
                     "group": "Team",
                     "pages": [
-                      "en/guides/settings/team/billing",
                       "en/guides/settings/team/general",
                       "en/guides/settings/team/integrations",
                       "en/guides/settings/team/members",
@@ -230,7 +229,6 @@
                   {
                     "group": "チーム",
                     "pages": [
-                      "ja/guides/settings/team/billing",
                       "ja/guides/settings/team/general",
                       "ja/guides/settings/team/integrations",
                       "ja/guides/settings/team/members",
