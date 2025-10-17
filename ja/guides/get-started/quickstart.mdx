@@ -16,33 +16,18 @@ Giselle を数分で使い始めましょう！このクイックスタートガ
     <AccordionGroup>
       <Accordion title="エージェントを作成する" defaultOpen={true}>
         [Giselle Agents](https://studio.giselles.ai/agents) ページに移動し、「New Agent」ボタンをクリックして初めてのエージェントの作成を開始します。
-        <Frame>
-          <img src="/ja/images/quickstart/new-agent.png" />
-        </Frame>
       </Accordion>
       <Accordion title="ノードを配置する" defaultOpen={true}>
         下部のツールバーから「Text Generator」ノードをキャンバスにドラッグ＆ドロップして配置します。これがワークフローの最初のノードになります。
-        <Frame>
-          <img src="/ja/images/quickstart/place-text-generator.png" />
-        </Frame>
       </Accordion>
       <Accordion title="エージェントに指示を与える" defaultOpen={true}>
         「Instruction」テキストエリアに、エージェントに与えたいプロンプトを入力します。このテキストがエージェントの動作を導きます。
         ```markdown
         動物に関する興味深いトピックを1つ提案してください。
         ```
-        <Frame>
-          <img src="/ja/images/quickstart/give-instructions-to-your-agent.png" />
-        </Frame>
       </Accordion>
       <Accordion title="エージェントをテストする" defaultOpen={true}>
         「Text Generator」ノードの右上にある「Generate」ボタンをクリックします。これによりこのノードのみが実行され、プロンプトをテストして出力を確認できます。
-        <Frame>
-          <img src="/ja/images/quickstart/run-a-test-drive-of-your-agent.png" />
-        </Frame>
-        <Frame>
-          <img src="/ja/images/quickstart/run-a-test-drive-of-your-agent-result.png" />
-        </Frame>
       </Accordion>
     </AccordionGroup>
   </Step>
@@ -50,30 +35,18 @@ Giselle を数分で使い始めましょう！このクイックスタートガ
     <AccordionGroup>
       <Accordion title="別のノードを追加する" defaultOpen={true}>
         エージェントをワークフローとして実行するために、別のノードを追加しましょう。下部のツールバーから「Text Generator」ノードをドラッグして、キャンバスに配置します。
-        <Frame>
-          <img src="/ja/images/quickstart/add-another-node.png" />
-        </Frame>
       </Accordion>
       <Accordion title="ノードを接続する" defaultOpen={true}>
         2つのノードを接続するには、2番目のノードの右パネルの「Sources」メニューから最初のノードを選択します。
-        <Frame>
-          <img src="/ja/images/quickstart/connect-the-nodes.png" />
-        </Frame>
       </Accordion>
       <Accordion title="2番目のノードに指示を与える" defaultOpen={true}>
         「Instruction」テキストエリアに以下を入力して、2番目のノードに指示を与えます。最初のノードの出力を2番目のノードに入力することで、2番目のノードは最初のノードの出力に基づいて出力を生成します。
         ```markdown
         以下のトピックについて調査してください：
         ```
-        <Frame>
-          <img src="/ja/images/quickstart/give-instructions-to-the-second-node.png" />
-        </Frame>
       </Accordion>
       <Accordion title="エージェントを実行する" defaultOpen={true}>
         最後に、右上の「Run」ボタンをクリックしてエージェントをワークフローとして実行します。これにより両方のノードが実行され、最終出力が生成されます。おめでとうございます！Giselle で初めてのエージェントをワークフローとして実行しました！
-        <Frame>
-          <img src="/ja/images/quickstart/run-the-agent-as-a-workflow.png" />
-        </Frame>
       </Accordion>
     </AccordionGroup>
   </Step>
