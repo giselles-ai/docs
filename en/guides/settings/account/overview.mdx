@@ -1,21 +1,123 @@
 ---
-
-title: Overview  
-description: View and manage your teams  
+title: Account Overview
+description: View and manage your teams.
 
 ---
 
-<Info>  
-You can view and manage your teams on the [Settings > Account > Overview](https://studio.giselles.ai/settings/account) page.  
-</Info>  
+<Info>
+You can access the Account Overview page by navigating to [Settings > Account > Overview](https://studio.giselles.ai/settings/account).
+</Info>
 
-### Teams  
+## Account Overview Page Summary
 
-- View a list of your current teams.
-- Create new teams from the Account Overview page.
+The Account Overview page displays all teams you belong to and allows you to switch between teams and manage team settings. You can create new teams or leave existing teams.
+
+## Team List
+
+### Team Information Display
+
+Each team card displays the following information:
+
+- **Team Avatar**: Team profile image (or random image if not set)
+- **Team Name**: Display name of the team
+- **Plan Badge**: Pro Plan or Free Plan indicator
+- **Role**: Admin or Member designation
+- **Action Menu**: Dropdown menu for team operations (...)
+
+### Team Search and Filter
+
+A search field is available at the top of the team list to filter teams by name:
+
+- Real-time search (filters instantly as you type)
+- Case-insensitive search
+- Shows only teams matching the search criteria
+
+### Team Actions
+
+Click the menu icon (...) in the top-right corner of each team card to access the following actions:
+
+#### Apps
+- Navigate to the team's apps page
+- Switches to that team's context and redirects to `/apps` page
+
+#### Settings
+- Navigate to team settings page
+- Switches to that team's context and redirects to `/settings/team` page
+
+#### Leave team
+- Leave the team
+- Requires confirmation before execution
+- Cannot leave if:
+  - It's your only team
+  - You are the last admin of the team
+
+<Warning>
+Leaving a team will remove your access to all apps, workflows, and data in that team. This action cannot be undone.
+</Warning>
+
+## Creating a New Team
+
+### Create New Team Button
+
+You can create a new team using the **Create New Team** button at the top of the team list.
+
+#### Creation Restrictions
+
+- **Free Plan Users**: Can create only 1 team
+- **Pro Plan Users**: Can create multiple teams
 
 <Note>
-**Note**: Creating multiple teams requires upgrading to a paid (Pro) plan.
-</Note>  
+Upgrading to Pro Plan is required to create multiple teams. See the [pricing page](https://giselles.ai/pricing) for details.
+</Note>
 
-We're actively working to bring additional configuration options soon. Stay tuned for updates!
+#### Creation Steps
+
+1. Click the **Create New Team** button
+2. A team creation dialog will appear
+3. Enter a team name (1-256 characters)
+4. Optionally select a team avatar image
+5. Click **Create** to complete creation
+
+The created team will be automatically selected as your current team and added to the team list.
+
+## Plans and Roles
+
+### Plan Types
+
+**Free Plan**:
+- Can create only 1 team
+- Basic features available
+
+**Pro Plan**:
+- Can create multiple teams
+- Invite and manage team members
+- Advanced features and integrations
+- See the [Plans page](/en/guides/learn-about/plans) for details
+
+### Role Types
+
+**Admin (Administrator)**:
+- Invite and remove team members
+- Manage team settings
+- Delete teams
+- Access to all apps and workflows
+
+**Member**:
+- Access to apps and workflows
+- Can only leave teams themselves
+- No team management permissions
+
+For detailed permissions, see the [Members documentation](/en/guides/settings/team/members).
+
+## Related Pages
+
+From Account Settings, you can also access the following settings pages:
+
+- [General](/en/guides/settings/account/general) - Display name, email address, session management
+- [Authentication](/en/guides/settings/account/authentication) - Google and GitHub authentication integration
+
+These pages can be accessed from the sidebar menu on the left side of the page.
+
+## Support
+
+If you have questions or encounter issues with team management, please contact our support team at support@giselles.ai.
