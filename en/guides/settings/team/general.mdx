@@ -1,18 +1,191 @@
 ---
-title: General
-description: Configure your teams basic settings and preferences
+title: Team Settings
+description: Manage your team's profile, plan, and other settings.
+
 ---
 
 <Info>
-You can access the General settings page by navigating to [Settings > Team > General](https://studio.giselles.ai/settings/team).
+You can access the Team Settings page by navigating to [Settings > Team Settings](https://studio.giselles.ai/settings/team).
 </Info>
 
-### Team Name
+## Team Settings Page Overview
 
-You can edit your team name by clicking the "Edit" button on the General Settings page.
+The Team Settings page provides centralized management of key team settings. You can edit your team profile, manage your plan, delete your team, and access detailed configuration pages.
 
-### Team Deletion
+From this page, you can also access the following detailed settings pages:
 
-If needed, you can permanently delete your team and all associated data from the Giselle platform. This action cannot be undone, so please proceed with caution.
+- **Members**: Invite and manage team members
+- **Integrations**: Configure external service connections
+- **Vector Stores**: Manage document and code vector stores
+- **Usage**: Track agent usage and activity
 
-Our team is actively working to bring these additional configuration options to you soon. Stay tuned for updates!
+## Team Profile
+
+The Team Profile section allows you to manage your team's display name and profile image.
+
+### Viewing Team Information
+
+The Team Profile card displays:
+
+- **Team Avatar**: 48x48 pixel circular image
+- **Team Name**: Click to edit
+- **Edit Button**: Opens the profile editing dialog
+
+### Editing Team Profile
+
+Click the **Edit** button to open the "Edit Team Profile" dialog.
+
+#### Editable Fields
+
+**Team Name**:
+- Must be between 1 and 256 characters
+- Required field
+- Cannot be blank or whitespace only
+
+**Profile Image**:
+- Supported formats: JPG, PNG, GIF, WebP
+- Maximum file size: 1MB
+- Image preview available
+- If not set, displays team name initials
+
+#### Editing Steps
+
+1. Click the **Edit** button
+2. Enter team name (1-256 characters)
+3. Optionally select a profile image
+4. Review the preview
+5. Click **Save** to save changes
+
+<Note>
+Image uploads are limited to 1MB. Supported formats are JPEG, PNG, GIF, and WebP.
+</Note>
+
+### Validation
+
+The following validations are performed when editing:
+
+- **Team Name**: Must be 1-256 characters
+- **Image Format**: JPG, PNG, GIF, or WebP only
+- **Image Size**: 1MB or less
+
+If validation errors occur, error messages will be displayed and saving will be prevented.
+
+## Plan Management
+
+Different information and actions are displayed based on your team's current plan.
+
+### Free Plan
+
+For teams on the Free Plan, the following is displayed:
+
+#### Display Content
+
+- **Heading**: "Free Plan"
+- **Description**: "Have questions about your plan?"
+- **Pricing Link**: "Learn about plans and pricing" (links to https://giselles.ai/pricing)
+
+#### Actions
+
+**Upgrade to Pro Button**:
+- Initiates upgrade to Pro Plan
+- Clicking starts the upgrade process
+- Redirects to Stripe checkout
+
+### Pro Plan
+
+For teams on the Pro Plan, the following is displayed:
+
+#### Display Content
+
+- **Heading**: "Pro Plan" (displayed in primary color)
+- **Description**: "Have questions about your plan?"
+- **Pricing Link**: "Learn about plans and pricing" (links to https://giselles.ai/pricing)
+- **Cancellation Notice** (if applicable): "Subscription will end on [date]" (displayed in warning color)
+
+#### Actions
+
+**Manage Subscription Button**:
+- Opens subscription management interface
+- Redirects to Stripe customer portal
+- Available operations:
+  - Change payment method
+  - Cancel subscription
+  - View invoices and receipts
+
+<Info>
+Subscription management is handled through the Stripe customer portal. You can update payment information, cancel your plan, and view billing history.
+</Info>
+
+### Cancellation Schedule
+
+If you cancel your Pro Plan subscription, the following is displayed:
+
+- Cancellation notice: "Subscription will end on [end date]"
+- You can continue using Pro Plan features until the end date
+- Automatically switches to Free Plan after the end date
+
+<Warning>
+Canceling your subscription will prevent access to Pro Plan features after the end date.
+</Warning>
+
+## Danger Zone
+
+The Danger Zone section allows you to completely delete your team. This action is irreversible and requires caution.
+
+### Deleting a Team
+
+#### Deletion Requirements
+
+To delete a team, all of the following conditions must be met:
+
+1. **Admin Permission**: You must be a team administrator
+2. **Free Plan**: Pro Plan teams cannot be deleted (you must cancel the plan first)
+3. **Multiple Team Membership**: You must belong to at least one other team (your only team cannot be deleted)
+
+#### Deletion Steps
+
+1. Click the **Delete Team** button
+2. A confirmation dialog is displayed
+   - Title: "Delete Team"
+   - Description: "This action cannot be undone. This will permanently delete the team and remove all members."
+3. Confirm deletion by clicking **Delete Team**
+4. Team is deleted and you are automatically switched to another team
+
+<Warning>
+Deleting a team will permanently delete all of the following data:
+- Team profile
+- All team members
+- Team apps and workflows
+- Vector Stores and documents
+- Integration settings
+- Usage history
+
+This action cannot be undone. We strongly recommend backing up important data before deletion.
+</Warning>
+
+#### Deletion Restrictions
+
+You cannot delete a team in the following cases:
+
+- **Active Pro Plan**: You must first cancel the subscription and wait until the plan ends
+- **Only Team**: Your last team cannot be deleted. At least one team is required
+- **Member Permission**: You cannot delete without Admin permission
+
+If deletion is not possible, the delete button will not be displayed or an error message will be shown when clicked.
+
+## Related Pages
+
+From Team Settings, you can access the following detailed settings pages:
+
+- [Members](/settings/team/members) - Invite and manage team members
+- [Integrations](/settings/team/integrations) - Connect external services like GitHub
+- [Vector Stores](/settings/team/vector-stores) - Document and code vector stores
+- [Usage](/settings/team/usage) - Agent usage and activity
+
+These pages can be accessed from the navigation menu at the top of the page.
+
+## Support
+
+If you have questions or encounter issues with Team Settings, please contact our support team at support@giselles.ai.
+
+For information about plans and pricing, visit the [pricing page](https://giselles.ai/pricing).
