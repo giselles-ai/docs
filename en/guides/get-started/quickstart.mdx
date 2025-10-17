@@ -1,52 +1,55 @@
 ---
 title: Quickstart
-description: "Build your first AI agent with Giselle in minutes! This quick start guide covers signup to running a workflow."
+description: "Build your first AI workflow with Giselle in minutes! This quick start guide covers signup to running a workflow."
 ---
 
-## Build Your First AI Agent with Giselle
+## Build Your First AI Workflow with Giselle
 
-Get up and running with Giselle in minutes! This quick start guide walks you through creating your first AI agent, step by step, from signup to running a complete workflow. Learn to build and test agents with our user-friendly interface.
+Get up and running with Giselle in minutes! This quick start guide walks you through creating your first Workspace, step by step, from signup to running a complete workflow. Learn to build and test workflows with our user-friendly interface.
 
 <Steps>
   <Step title="Sign Up">
     Unlock the power of Giselle! If you're joining us for the first time, create your account on the [sign up](https://studio.giselles.ai/signup) page. If
     you're already part of the Giselle community, [log in](https://studio.giselles.ai/login) to jump right in.
   </Step>
-  <Step title="Build an Agent">
+  <Step title="Build a Workspace">
     <AccordionGroup>
-      <Accordion title="Create an Agent" defaultOpen={true}>
-        Go to the [Giselle Agents](https://studio.giselles.ai/agents) page and click the "New Agent" button to start creating your first Agent.
+      <Accordion title="Create a Workspace" defaultOpen={true}>
+        Go to the [Workspaces](https://studio.giselles.ai/apps) page and click the "New Workspace" button in the top right to start creating your first Workspace.
       </Accordion>
       <Accordion title="Place a Node" defaultOpen={true}>
-        From the toolbar at the bottom, drag and drop a "Text Generator" node onto the canvas to place it. This will be the first node in your workflow.
+        From the toolbar at the bottom, drag and drop a "Generator" node onto the canvas to place it. This will be the first node in your workflow.
       </Accordion>
-      <Accordion title="Give Instructions to Your Agent" defaultOpen={true}>
-        In the "Instruction" text area, enter the prompt that you would like to give to the Agent. This text will guide how your Agent works.
+      <Accordion title="Set the Prompt" defaultOpen={true}>
+        In the right panel, open the "Prompt" tab and enter your prompt in the text area. This text will guide how the node works.
         ```markdown
         Suggest one interesting topic related to animals.
         ```
       </Accordion>
-      <Accordion title="Test Out Your Agent" defaultOpen={true}>
-        Click the "Generate" button located in the top right corner of the "Text Generator" node. This will execute only this node, allowing you to test your prompt and see the output.
+      <Accordion title="Select a Model" defaultOpen={true}>
+        In the "Model" tab, select the AI model provider (OpenAI, Anthropic, Google, etc.) and the specific model you want to use.
+      </Accordion>
+      <Accordion title="Test the Node" defaultOpen={true}>
+        Click the "Generate" button (or press Cmd+Enter) at the top of the right panel. This will execute only this node, allowing you to test your prompt and see the output.
       </Accordion>
     </AccordionGroup>
   </Step>
-  <Step title="Run the Agent as a Workflow">
+  <Step title="Run as a Workflow">
     <AccordionGroup>
       <Accordion title="Add Another Node" defaultOpen={true}>
-        To run the Agent as a workflow, let's add another Node. Drag the "Text Generator" node from the bottom toolbar and place it on the canvas.
+        To build a workflow, let's add another node. Drag the "Generator" node from the bottom toolbar and place it on the canvas.
       </Accordion>
       <Accordion title="Connect the Nodes" defaultOpen={true}>
-        To connect the two Nodes, select the first Node from the "Sources" menu in the right panel of the second Node.
+        To connect the two nodes, drag from the Output port of the first node to the Input port of the second node.
       </Accordion>
-      <Accordion title="Give Instructions to the Second Node" defaultOpen={true}>
-        Provide instructions to the second Node by entering the following into the "Instruction" text area. By feeding the output of the first Node into the second Node, the second Node will generate its output based on the first Node's output.
+      <Accordion title="Set the Second Node's Prompt" defaultOpen={true}>
+        Enter the following into the "Prompt" tab of the second node. By feeding the output of the first node into the second node, a continuous workflow is built.
         ```markdown
         Please research on the following topics:
         ```
       </Accordion>
-      <Accordion title="Run Your Agent" defaultOpen={true}>
-        Finally, click the "Run" button in the upper right corner to execute the Agent as a workflow. This will run both Nodes and generate the final output. Congratulations, you've run your first Agent as a workflow in Giselle!
+      <Accordion title="Run the Workflow" defaultOpen={true}>
+        Finally, click the "Run" button in the upper right corner to execute the workflow. This will run both nodes in sequence and generate the final output. Congratulations, you've run your first workflow in Giselle!
       </Accordion>
     </AccordionGroup>
   </Step>
