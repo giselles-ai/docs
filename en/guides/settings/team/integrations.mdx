@@ -1,51 +1,139 @@
 ---
 title: Integrations
-description: Configure, manage, and oversee integrations with your Giselle AI apps.
+description: Configure and manage integrations with external services for your team.
 ---
 
 <Info>
 You can access the Integrations page by navigating to [Settings > Team > Integrations](https://studio.giselles.ai/settings/team/integrations).
 </Info>
 
-## Integrations Overview
+## Integrations Page Overview
 
-The Integrations page enables administrators and team owners to efficiently connect and manage third-party integrations with your Giselle AI apps. You can link new integrations, adjust integration permissions, and remove integrations as needed.
+The Integrations page allows you to connect and manage external services with Giselle AI. Currently, GitHub integration is supported, enabling access to GitHub repositories and management of GitHub App installations.
 
-## Managing Integrations
+## GitHub Integration
 
-### Configure New Integrations
+### Connecting Your GitHub Account
 
-To configure a new integration:
+To set up GitHub integration for the first time:
 
-1. Click **Configure Giselle's GitHub App** or the relevant integration option.
-2. Follow the prompts to authorize and link your external accounts or services.
+1. Click the **Configure GitHub App** button on the Integrations page
+2. Navigate to the [account authentication page](/settings/account/authentication)
+3. Follow the on-screen instructions to authenticate your GitHub account
 
-### Integration Permissions
+<Note>
+When your GitHub account is not connected, you'll see "Not connected" displayed with a "Configure GitHub App" button.
+</Note>
 
-- **Public**: Accessible to all team members with appropriate roles.
-- **Private**: Restricted access, visible and manageable only by specific users or administrators.
+### GitHub App Installation
 
-### Adjusting Integration Settings
+The GitHub App is required for Giselle AI to access your GitHub repositories.
 
-To change settings or permissions for an integration:
+#### New Installation
 
-- Select the integration you want to modify and adjust permissions or settings as necessary.
+1. Click **Add Giselle's GitHub App** or **Configure Giselle's GitHub App** button on the Integrations page
+2. A popup window will open with the GitHub installation page
+3. Select where to install (personal account or organization)
+4. Choose which repositories to grant access to:
+   - All repositories
+   - Only select repositories
+5. Click **Install** to complete the installation
+6. The popup window will close automatically and the page will refresh
 
-### Removing Integrations
+#### Managing Installations
 
-To remove a GitHub integration:
+The Integrations page displays installed GitHub Apps in the following format:
 
-1. Go to your GitHub account settings.
-2. Navigate to **Settings > Applications > Installed GitHub Apps**.
-3. Locate the Giselle AI integration and click **Uninstall** under the Danger Zone section.
+- **Login status**: Displayed as "Logged in as (@username)"
+- **Installation cards**: A card is displayed for each installation
+  - Account/organization name where installed
+  - Avatar image
+  - List of accessible repositories
+  - Repository visibility status (Private/Public badge)
+  - Links to repositories (opens in GitHub)
 
 <Warning>
-Removing an integration will revoke all related permissions and access immediately.
+Each installation can retrieve up to 100 repositories. A warning will be displayed if the limit is exceeded.
 </Warning>
 
-## Integration Details
+### Authentication Status and Troubleshooting
 
-Each integration entry displays the integration's name and access level (Public or Private). Integrations without specified details will appear clearly labeled with their default settings.
+#### Authentication Error
 
-For assistance or if you encounter issues managing integrations, please contact our support team at support@giselles.ai.
+When your GitHub authentication token is expired or invalid, an "Authentication Error" will be displayed. In this case:
 
+1. Review the displayed error message
+2. Re-authenticate via the [account authentication page](/settings/account/authentication)
+
+#### Automatic Token Refresh
+
+Giselle AI automatically refreshes your GitHub access tokens:
+
+- Automatically checks token expiration
+- Uses refresh tokens to auto-renew before expiration
+- Displays an error if refresh fails
+
+### Uninstalling GitHub App
+
+To uninstall the GitHub App, use the GitHub settings:
+
+1. Open your GitHub account settings
+2. Navigate to **Settings > Applications > Installed GitHub Apps**
+3. Find "Giselle AI"
+4. Click **Uninstall** in the Danger Zone section
+
+<Warning>
+Uninstalling the GitHub App will immediately revoke all access permissions from Giselle AI to those repositories. Related workflows and triggers may stop functioning.
+</Warning>
+
+### Disconnecting GitHub Account
+
+To disconnect your GitHub account itself:
+
+1. Navigate to the [account authentication page](/settings/account/authentication)
+2. Follow the disconnection steps
+
+<Note>
+You can only disconnect your GitHub account if you have multiple authentication methods configured. The last authentication method cannot be removed.
+</Note>
+
+## Permissions and Access Control
+
+### Team Member Access
+
+- The Integrations page is accessible to all team members
+- GitHub App installations are shared across the entire team
+- Team members can access repositories selected in each installation
+
+### GitHub App Permissions
+
+The GitHub App has the following permissions configured:
+
+- Read access to repository metadata
+- Read access to repository contents
+- Other permissions necessary for Giselle AI functionality
+
+<Info>
+Specific permission details can be reviewed on the GitHub App installation page.
+</Info>
+
+## Leveraging Integrations
+
+### Using Repository Information
+
+Connected GitHub repositories can be utilized in the following features:
+
+- **Vector Stores**: Ingest repository contents as a knowledge base
+- **Workflow Triggers**: Execute workflows triggered by repository events
+
+<Note>
+For vector store configuration, refer to the [Vector Stores documentation](/settings/team/vector-stores).
+</Note>
+
+## Future Support
+
+While currently only GitHub integration is supported, we plan to add more external service integrations in the future.
+
+## Support
+
+If you encounter issues with integration setup or have questions, please contact our support team at support@giselles.ai.
