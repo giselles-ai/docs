@@ -1,0 +1,305 @@
+---
+title: Vector Stores
+description: GitHub リポジトリやドキュメントをナレッジベースとして取り込み、管理します。
+---
+
+<Info>
+[設定 > チーム > Vector Stores](https://studio.giselles.ai/settings/team/vector-stores) から Vector Stores ページにアクセスできます。
+</Info>
+
+## Vector Stores ページの概要
+
+Vector Stores ページでは、プロジェクトのコードやドキュメントを Vector Store に取り込んで管理できます。取り込んだデータは、GitHub Vector Store Node や Document Vector Store Node で活用できます。
+
+現在、以下の2種類の Vector Store に対応しています：
+
+- **Document Vector Stores**: PDF、TXT、Markdown ファイルを取り込み
+- **GitHub Repositories**: GitHub リポジトリのコードや Pull Request を取り込み
+
+## Document Vector Stores
+
+<Warning>
+Document Vector Stores は現在**プライベートベータ版**として提供されています。この機能は一部のユーザーのみが利用可能で、まだパブリックリリースされていません。機能フラグで有効化されている場合にのみ使用できます。
+</Warning>
+
+<Note>
+Document Vector Stores が有効な場合、ページ左側のサイドバーに "Document" と "GitHub" のナビゲーションが表示されます。
+</Note>
+
+Document Vector Stores では、PDF、TXT、Markdown ファイルをアップロードして Vector Store に取り込むことができます。
+
+### Document Vector Store の作成
+
+1. **New Vector Store** ボタンをクリック
+2. "Create Vector Store" ダイアログが開きます
+3. 以下の項目を設定：
+
+#### Name
+Vector Store の名前を入力（例: "Product Docs"）
+
+#### Embedding Models
+使用する埋め込みモデルを選択（最低1つ必須）
+
+各モデルには以下が表示されます：
+- モデル名
+- プロバイダー
+- ディメンション数
+
+4. **Create** をクリックして作成
+
+### Document Vector Store の管理
+
+作成された Document Vector Store は、"Document Vector Stores" セクションに一覧表示されます。
+
+各 Vector Store カードには以下が表示されます：
+- Store 名
+- Store ID
+- アクションメニュー（3点ドット）
+
+#### アクションメニュー
+
+- **Configure Sources**: 名前、埋め込みモデル、ソースファイルを更新
+- **Delete**: Document Vector Store を削除
+
+### ファイルのアップロードと管理
+
+Document Vector Store にファイルをアップロードする手順：
+
+1. アクションメニューから **Configure Sources** を選択
+2. "Configure Sources" ダイアログが開きます
+
+#### Name セクション
+Vector Store の名前を更新できます。
+
+#### Embedding Models セクション
+使用する埋め込みモデルを選択（最低1つ必須）
+
+#### Source Files セクション
+
+**サポートされるファイル形式**: PDF, TXT, Markdown (.md)
+**最大ファイルサイズ**: 4.5MB
+
+ファイルのアップロード方法：
+- ドラッグ&ドロップで追加
+- **Select files** ボタンをクリックしてファイル選択
+
+#### Uploaded Files リスト
+
+アップロードされたファイルは、以下の情報とともに表示されます：
+
+- **ファイル名**: 長い場合は省略表示
+- **ステータスバッジ**:
+  - **Pending** (黄色、時計アイコン): 取り込み待機中
+  - **Processing** (青、ローディングアイコン): 処理中
+  - **Ready** (緑、チェックアイコン): 取り込み完了
+  - **Failed** (赤、警告アイコン): 取り込み失敗
+- **削除ボタン**: ファイルごとに削除可能（ゴミ箱アイコン）
+
+<Note>
+失敗したファイルにカーソルを合わせると、エラーコードがツールチップで表示されます。
+</Note>
+
+3. **Save** をクリックして変更を保存
+
+ファイルのアップロード後、自動的に取り込みプロセスが開始されます。
+
+### Document Vector Store の削除
+
+Document Vector Store を削除する手順：
+
+1. アクションメニューから **Delete** を選択
+2. "Delete Document Vector Store" ダイアログで確認
+3. 削除を実行
+
+<Warning>
+削除は取り消せません。Document Vector Store とその埋め込みプロファイル、ソースファイルが完全に削除されます。
+</Warning>
+
+## GitHub Repositories
+
+GitHub Vector Stores を使用するには：
+
+1. **GitHub アカウントの認証**: [アカウント設定の認証ページ](/settings/account/authentication)で GitHub アカウントを接続
+2. **GitHub App のインストール**: [Integrations 設定](/settings/team/integrations)で Giselle の GitHub App をインストール
+
+これらの条件が満たされていない場合、Vector Stores ページに案内メッセージが表示されます。
+
+### リポジトリの登録
+
+GitHub リポジトリを Vector Store に登録する手順：
+
+1. **Register Repository** ボタンをクリック
+2. "Register GitHub Repository" ダイアログが開きます
+3. 以下の項目を設定：
+
+#### Owner / Organization
+インストールされている GitHub App から選択します。個人アカウントまたは組織を選択できます。
+
+#### Repository Name
+選択した Owner 配下のリポジトリから選択します。
+
+#### Sources to Ingest
+取り込むコンテンツタイプを選択：
+
+- **Code**: ソースコードファイルを取り込み（必須、無効化不可）
+- **Pull Requests**: マージされた Pull Request のコンテンツとディスカッションを取り込み（オプション）
+
+<Note>
+Code は必須のコンテンツタイプのため、常に有効になります。
+</Note>
+
+#### Embedding Models
+インデックス作成に使用する埋め込みモデルを選択します。最低1つのモデルを選択する必要があります。
+
+利用可能なモデル：
+- OpenAI (各種サイズ)
+- Google (各種サイズ)
+
+各モデルには、プロバイダー名とディメンション数が表示されます。
+
+4. **Register** をクリックして登録完了
+
+### リポジトリの管理
+
+登録されたリポジトリは、"GitHub Repositories" セクションに一覧表示されます。
+
+各リポジトリカードには以下が表示されます：
+
+#### リポジトリ情報
+- リポジトリ名（`owner/repo` 形式、クリックで GitHub に移動）
+- アクションメニュー（3点ドット）
+
+#### アクションメニュー
+
+- **Ingest Now**: 手動で取り込みを実行
+- **Configure Sources**: コンテンツタイプと埋め込みモデルを変更
+- **Delete**: リポジトリを Vector Store から削除
+
+#### 埋め込みモデルのステータス
+
+各埋め込みモデルごとにステータスカードが表示されます：
+
+**Code セクション**:
+- ステータスバッジ：
+  - **Enabled** (緑): 有効
+  - **Running** (青、アニメーション): 取り込み実行中
+  - **Idle** (グレー): アイドル状態
+  - **Error** (赤): エラー発生
+  - **Disabled** (グレー): 無効
+- Last sync: 最終同期時刻（相対時間形式）
+- 最新の取り込まれたコミット SHA（最初の7文字）
+- エラーメッセージとリトライ時刻（失敗時）
+
+**Pull Requests セクション**:
+- Code と同様のステータス表示
+- 最新の取り込まれた PR 番号（取り込み済みの場合）
+
+<Warning>
+リポジトリへのアクセスが失敗した場合、Error ステータスに "Check" リンクが表示されます。クリックすると診断モーダルが開き、接続の復元を試みることができます。
+</Warning>
+
+### 手動取り込み
+
+**Ingest Now** ボタンで手動取り込みを実行できます。
+
+取り込みが可能な条件：
+- ステータスが "Idle"、"Completed"、または "Failed"（リトライ時刻を過ぎている場合）
+- 最低1つのコンテンツタイプが有効
+
+取り込み中は、ステータスが "Running" に変わり、完了後に "Completed" または "Error" に更新されます。
+
+### Configure Sources
+
+リポジトリの設定を変更するには：
+
+1. アクションメニューから **Configure Sources** を選択
+2. "Configure Vector Stores" ダイアログが開きます
+
+#### Sources セクション
+取り込むコンテンツタイプを選択：
+- **Code**: 常に有効（トグル無効化）
+- **Pull Requests**: オプション（トグルで有効/無効切り替え可能）
+
+#### Embedding Models セクション
+使用する埋め込みモデルを選択（最低1つ必須）
+
+3. **Save Changes** をクリックして変更を保存
+
+### リポジトリの削除
+
+リポジトリを Vector Store から削除する手順：
+
+1. アクションメニューから **Delete** を選択
+2. "Delete Repository" ダイアログで確認
+3. 削除を実行
+
+<Warning>
+削除は取り消せません。リポジトリ `{owner}/{repo}` とその埋め込みプロファイルが完全に削除されます。
+</Warning>
+
+### 接続の診断と復元
+
+リポジトリへのアクセスでエラーが発生した場合：
+
+1. Error ステータスの **Check** リンクをクリック
+2. "Checking Repository Access" モーダルが開き、診断を実行
+3. 診断結果に応じて以下のアクションが表示されます：
+
+#### 復元可能な場合
+- タイトル: "Connection can be restored"
+- メッセージ: "Click Restore Connection to reconnect and continue ingesting data from this repository."
+- ボタン: **Restore Connection** - クリックして接続を復元
+
+#### 復元不可能な場合
+- タイトル: "Repository no longer accessible"
+- カスタムエラーメッセージが表示されます
+- ボタン: **Delete Repository** - リポジトリを削除
+
+診断が検出する問題：
+- GitHub App インストールがリポジトリにアクセスできない
+- リポジトリが見つからない
+- その他の診断エラー
+
+## Empty State
+
+### Document Vector Stores
+
+Document Vector Store が作成されていない場合：
+- "No document vector stores yet."
+- 'Use the "New Vector Store" button to create one.'
+
+### GitHub Repositories
+
+リポジトリが登録されていない場合：
+- "No repositories are registered."
+- 'Please register a repository using the "Register Repository" button.'
+
+## エラーメッセージ
+
+以下のエラーが発生する可能性があります：
+
+- **Repository not found.**: リポジトリが見つかりません
+- **Rate limited.**: レート制限に達しました
+- **Repository too large.**: リポジトリが大きすぎます
+- **Repository error.**: リポジトリエラー
+- **Failed to upload files**: ファイルのアップロードに失敗しました
+- **Failed to delete file**: ファイルの削除に失敗しました
+
+## Vector Stores の活用
+
+取り込んだデータは、以下の Node で活用できます：
+
+- **Document Vector Store Node** （プライベートベータ版）: アップロードしたドキュメントを検索・利用
+- **GitHub Vector Store Node**: GitHub リポジトリから取り込んだコードや Pull Request を検索・利用
+
+<Note>
+Document Vector Store Node は現在プライベートベータ版として提供されており、一部のユーザーのみが利用可能です。パブリックリリースまでお待ちください。
+</Note>
+
+これらの Node を使用することで、プロジェクトのナレッジベースを AI ワークフローに統合できます。
+
+## サポート
+
+Vector Stores の設定で問題が発生した場合や、ご不明な点がある場合は、サポートチーム（support@giselles.ai）までお問い合わせください。
+
+詳細については、[Vector Stores のドキュメント](https://docs.giselles.ai/en/guides/settings/team/vector-stores)をご覧ください。

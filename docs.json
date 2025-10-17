@@ -80,7 +80,8 @@
                       "en/guides/settings/team/general",
                       "en/guides/settings/team/integrations",
                       "en/guides/settings/team/members",
-                      "en/guides/settings/team/usage"
+                      "en/guides/settings/team/usage",
+                      "en/guides/settings/team/vector-stores"
                     ]
                   }
                 ]
@@ -233,7 +234,8 @@
                       "ja/guides/settings/team/general",
                       "ja/guides/settings/team/integrations",
                       "ja/guides/settings/team/members",
-                      "ja/guides/settings/team/usage"
+                      "ja/guides/settings/team/usage",
+                      "ja/guides/settings/team/vector-stores"
                     ]
                   }
                 ]

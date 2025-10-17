@@ -1,0 +1,306 @@
+---
+title: Vector Stores
+description: Ingest and manage GitHub repositories and documents as knowledge bases.
+
+---
+
+<Info>
+You can access the Vector Stores page by navigating to [Settings > Team > Vector Stores](https://studio.giselles.ai/settings/team/vector-stores).
+</Info>
+
+## Vector Stores Page Overview
+
+The Vector Stores page allows you to ingest and manage your project's code and documents into Vector Stores. The ingested data can be utilized in GitHub Vector Store Nodes and Document Vector Store Nodes.
+
+Currently, two types of Vector Stores are supported:
+
+- **Document Vector Stores**: Ingest PDF, TXT, and Markdown files
+- **GitHub Repositories**: Ingest code and Pull Requests from GitHub repositories
+
+## Document Vector Stores
+
+<Warning>
+Document Vector Stores is currently provided as a **private beta**. This feature is only available to select users and has not been publicly released yet. It can only be used when enabled via a feature flag.
+</Warning>
+
+<Note>
+When Document Vector Stores is enabled, a sidebar navigation with "Document" and "GitHub" options will appear on the left side of the page.
+</Note>
+
+Document Vector Stores allows you to upload PDF, TXT, and Markdown files to ingest into Vector Stores.
+
+### Creating a Document Vector Store
+
+1. Click the **New Vector Store** button
+2. The "Create Vector Store" dialog opens
+3. Configure the following items:
+
+#### Name
+Enter a name for the Vector Store (e.g., "Product Docs")
+
+#### Embedding Models
+Select at least one embedding model to use
+
+Each model displays:
+- Model name
+- Provider
+- Dimensions
+
+4. Click **Create** to complete creation
+
+### Managing Document Vector Stores
+
+Created Document Vector Stores are displayed in the "Document Vector Stores" section.
+
+Each Vector Store card displays:
+- Store name
+- Store ID
+- Action menu (three-dot icon)
+
+#### Action Menu
+
+- **Configure Sources**: Update name, embedding models, and source files
+- **Delete**: Delete the Document Vector Store
+
+### Uploading and Managing Files
+
+To upload files to a Document Vector Store:
+
+1. Select **Configure Sources** from the action menu
+2. The "Configure Sources" dialog opens
+
+#### Name Section
+You can update the Vector Store name.
+
+#### Embedding Models Section
+Select embedding models to use (at least one required)
+
+#### Source Files Section
+
+**Supported file formats**: PDF, TXT, Markdown (.md)
+**Maximum file size**: 4.5MB
+
+File upload methods:
+- Drag and drop to add files
+- Click the **Select files** button to choose files
+
+#### Uploaded Files List
+
+Uploaded files are displayed with the following information:
+
+- **File name**: Truncated if long
+- **Status badge**:
+  - **Pending** (yellow, clock icon): Waiting for ingestion
+  - **Processing** (blue, loading icon): Processing
+  - **Ready** (green, check icon): Ingestion complete
+  - **Failed** (red, alert icon): Ingestion failed
+- **Delete button**: Can delete each file (trash icon)
+
+<Note>
+Hover over a failed file to see the error code in a tooltip.
+</Note>
+
+3. Click **Save** to save changes
+
+After uploading files, the ingestion process starts automatically.
+
+### Deleting a Document Vector Store
+
+To delete a Document Vector Store:
+
+1. Select **Delete** from the action menu
+2. Confirm in the "Delete Document Vector Store" dialog
+3. Execute deletion
+
+<Warning>
+Deletion cannot be undone. The Document Vector Store and its embedding profiles and source files will be permanently deleted.
+</Warning>
+
+## GitHub Repositories
+
+To use GitHub Vector Stores:
+
+1. **GitHub Account Authentication**: Connect your GitHub account on the [account authentication page](/settings/account/authentication)
+2. **GitHub App Installation**: Install Giselle's GitHub App from [Integrations settings](/settings/team/integrations)
+
+If these conditions are not met, a guidance message will be displayed on the Vector Stores page.
+
+### Registering a Repository
+
+Steps to register a GitHub repository to Vector Store:
+
+1. Click the **Register Repository** button
+2. The "Register GitHub Repository" dialog opens
+3. Configure the following items:
+
+#### Owner / Organization
+Select from installed GitHub Apps. You can choose a personal account or organization.
+
+#### Repository Name
+Select from repositories under the selected Owner.
+
+#### Sources to Ingest
+Select content types to ingest:
+
+- **Code**: Ingest source code files (required, cannot be disabled)
+- **Pull Requests**: Ingest merged Pull Request content and discussions (optional)
+
+<Note>
+Code is a required content type and is always enabled.
+</Note>
+
+#### Embedding Models
+Select embedding models to use for indexing. At least one model must be selected.
+
+Available models:
+- OpenAI (various sizes)
+- Google (various sizes)
+
+Each model displays provider name and dimensions.
+
+4. Click **Register** to complete registration
+
+### Managing Repositories
+
+Registered repositories are displayed in the "GitHub Repositories" section.
+
+Each repository card displays:
+
+#### Repository Information
+- Repository name (`owner/repo` format, click to go to GitHub)
+- Action menu (three-dot icon)
+
+#### Action Menu
+
+- **Ingest Now**: Manually trigger ingestion
+- **Configure Sources**: Modify content types and embedding models
+- **Delete**: Remove repository from Vector Store
+
+#### Embedding Model Status
+
+A status card is displayed for each embedding model:
+
+**Code Section**:
+- Status badge:
+  - **Enabled** (green): Enabled
+  - **Running** (blue, animated): Ingestion in progress
+  - **Idle** (gray): Idle state
+  - **Error** (red): Error occurred
+  - **Disabled** (gray): Disabled
+- Last sync: Last sync time (relative time format)
+- Latest ingested commit SHA (first 7 characters)
+- Error message and retry time (when failed)
+
+**Pull Requests Section**:
+- Similar status display as Code
+- Latest ingested PR number (if ingested)
+
+<Warning>
+If repository access fails, a "Check" link will appear on the Error status. Click it to open a diagnostic modal and attempt to restore the connection.
+</Warning>
+
+### Manual Ingestion
+
+You can manually trigger ingestion with the **Ingest Now** button.
+
+Conditions for ingestion:
+- Status is "Idle", "Completed", or "Failed" (if retry time has passed)
+- At least one content type is enabled
+
+During ingestion, the status changes to "Running" and updates to "Completed" or "Error" upon completion.
+
+### Configure Sources
+
+To modify repository settings:
+
+1. Select **Configure Sources** from the action menu
+2. The "Configure Vector Stores" dialog opens
+
+#### Sources Section
+Select content types to ingest:
+- **Code**: Always enabled (toggle disabled)
+- **Pull Requests**: Optional (toggle to enable/disable)
+
+#### Embedding Models Section
+Select embedding models to use (at least one required)
+
+3. Click **Save Changes** to save modifications
+
+### Deleting a Repository
+
+To delete a repository from Vector Store:
+
+1. Select **Delete** from the action menu
+2. Confirm in the "Delete Repository" dialog
+3. Execute deletion
+
+<Warning>
+Deletion cannot be undone. The repository `{owner}/{repo}` and its embedding profiles will be permanently deleted.
+</Warning>
+
+### Diagnosing and Restoring Connection
+
+If an error occurs accessing the repository:
+
+1. Click the **Check** link on the Error status
+2. The "Checking Repository Access" modal opens and performs diagnostics
+3. Actions are displayed based on diagnostic results:
+
+#### If Restorable
+- Title: "Connection can be restored"
+- Message: "Click Restore Connection to reconnect and continue ingesting data from this repository."
+- Button: **Restore Connection** - Click to restore connection
+
+#### If Not Restorable
+- Title: "Repository no longer accessible"
+- Custom error message is displayed
+- Button: **Delete Repository** - Delete the repository
+
+Issues detected by diagnostics:
+- GitHub App installation cannot access the repository
+- Repository not found
+- Other diagnostic errors
+
+## Empty State
+
+### Document Vector Stores
+
+When no Document Vector Store is created:
+- "No document vector stores yet."
+- 'Use the "New Vector Store" button to create one.'
+
+### GitHub Repositories
+
+When no repository is registered:
+- "No repositories are registered."
+- 'Please register a repository using the "Register Repository" button.'
+
+## Error Messages
+
+The following errors may occur:
+
+- **Repository not found.**: Repository not found
+- **Rate limited.**: Rate limit reached
+- **Repository too large.**: Repository is too large
+- **Repository error.**: Repository error
+- **Failed to upload files**: File upload failed
+- **Failed to delete file**: File deletion failed
+
+## Leveraging Vector Stores
+
+Ingested data can be utilized in the following Nodes:
+
+- **Document Vector Store Node** (Private Beta): Search and use uploaded documents
+- **GitHub Vector Store Node**: Search and use code and Pull Requests ingested from GitHub repositories
+
+<Note>
+Document Vector Store Node is currently provided as a private beta and is only available to select users. Please wait for the public release.
+</Note>
+
+By using these Nodes, you can integrate your project's knowledge base into AI workflows.
+
+## Support
+
+If you encounter issues with Vector Stores configuration or have questions, please contact our support team at support@giselles.ai.
+
+For more details, please refer to the [Vector Stores documentation](https://docs.giselles.ai/en/guides/settings/team/vector-stores).
