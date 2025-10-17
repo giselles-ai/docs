@@ -9,43 +9,213 @@ You can access the Members page by navigating to [Settings > Team > Members](htt
 
 ## Members Overview
 
-The Members page allows administrators and team owners to manage and organize member access within your Giselle AI apps efficiently. You can invite new members, modify roles, and remove users as needed.
+The Members page allows administrators to comprehensively manage member access within your team. You can invite new members, modify roles, remove members, and manage invitations.
 
-## Managing Members
+<Note>
+Member invitations and role management are **Pro Plan** features available to administrators only.
+</Note>
 
-### Invite New Members
+## Member Roles & Permissions
 
-To add a new member:
+There are two roles available in a team:
 
-1. Enter the member's email address in the input field provided.
-2. Select the appropriate role (e.g., Member or Admin).
-3. Click **Invite** to send the invitation.
+### Admin
 
-### Member Roles
+- Invite and remove members
+- Change member roles
+- Manage team settings (integrations, billing, etc.)
+- Access to all AI apps
 
-- **Admin**: Full access to manage members, integrations, billing, and other settings.
-- **Member**: Standard user access to AI apps without administrative privileges.
+### Member
 
-### Modify Member Access
+- Access to AI apps
+- Can only leave the team themselves
+- No member management permissions
 
-To change a member’s access:
+| Action | Admin | Member |
+|--------|-------|--------|
+| Invite members | ✓ (Pro Plan only) | ✗ |
+| Change other member roles | ✓ (Pro Plan only) | ✗ |
+| Change own role | ✗ | ✗ |
+| Remove other members | ✓ | ✗ |
+| Leave team | ✓ | ✓ |
 
-- Click the **Manage Access** button next to the user's name to adjust their role or permissions.
+## Inviting Members
 
-### Removing Members
+### How to Invite New Members
 
-To remove a member from your team:
+<Steps>
+  <Step title="Open the invite dialog">
+    Click the **Invite Member** button (visible only to Pro Plan admins).
+  </Step>
 
-1. Click on the options icon (**...**) next to the member’s name.
-2. Select **Remove from Team**.
+  <Step title="Enter email addresses">
+    Enter the email addresses of the members you want to invite in the email input field.
+
+    - You can enter multiple email addresses (separated by commas, semicolons, or spaces)
+    - Press Enter or click outside the field to add email tags
+    - Added email addresses appear as removable tags
+  </Step>
+
+  <Step title="Select a role">
+    Choose the role for the invited members:
+    - **Member**: Standard user access
+    - **Admin**: Full administrative privileges
+  </Step>
+
+  <Step title="Send invitations">
+    Click the **Invite** button to send invitation emails.
+  </Step>
+</Steps>
+
+### Email Validation
+
+The following validations are automatically performed when inviting:
+
+- **Email format validation**: Ensures valid email address format
+- **Duplicate check**: Detects duplicate email addresses
+- **Existing member check**: Detects email addresses already in the team
+- **Already invited check**: Detects email addresses with active invitations
+
+Email addresses that fail validation will be displayed with error messages.
+
+### Pricing Information
 
 <Warning>
-Removing a member will revoke all their access to Giselle AI apps immediately.
+Each member added to your team will be charged as an additional seat (**$20/seat**) on your Pro Plan subscription.
 </Warning>
 
-## Member Details
+## Managing Invitations
 
-Each member entry displays the user's email address and assigned role. Members without a specified display name will appear as **No display name**.
+### Invitation Status
 
-For assistance or if you encounter issues managing team members, please contact our support team at support@giselles.ai.
+Sent invitations appear at the bottom of the member list with an **"(Invitation pending)"** label.
+
+- Invitations are valid for **24 hours**
+- Expired invitations appear in red with "Expired" status
+- Users who receive invitations can join the team via the link in the email
+
+### Invitation Actions (Admins Only)
+
+The following actions are available for each invitation:
+
+#### Copy Invite Link
+
+1. Click the options icon (**...**) next to the invitation
+2. Select **Copy invite link**
+3. The link is copied to your clipboard (format: `/join/{token}`)
+
+#### Resend Invitation
+
+Use this when an invitation has expired or the email wasn't received:
+
+1. Click the options icon (**...**)
+2. Select **Resend invitation**
+3. The old invitation is revoked and a new 24-hour invitation is created
+4. The invitation email is resent with the same email address and role
+
+#### Revoke Invitation
+
+1. Click the options icon (**...**)
+2. Select **Revoke invitation**
+3. Confirm in the confirmation dialog
+4. The invitation is permanently revoked (the invite link becomes invalid)
+
+## Changing Member Roles
+
+<Note>
+Role changes can only be performed by **Pro Plan** administrators.
+</Note>
+
+### How to Change a Role
+
+1. Click the role dropdown for the member you want to change
+2. Select the new role (**Admin** or **Member**)
+3. The role is updated immediately
+
+### Restrictions
+
+You cannot change roles in the following cases:
+
+- **Last admin**: If there is only one admin in the team, you cannot downgrade that admin to Member
+- **Own role**: You cannot change your own role
+
+<Warning>
+A team must always have at least one administrator.
+</Warning>
+
+## Removing Members
+
+### How to Remove a Member
+
+1. Click the options icon (**...**) next to the member's name
+2. Select **Remove from Team**
+3. Confirm the removal in the confirmation dialog
+4. The member is immediately removed from the team
+
+### Removal Restrictions
+
+You cannot remove members in the following cases:
+
+- **Last member**: If there is only one member in the team, you cannot remove that member
+- **Last admin**: If the member you're trying to remove is the last admin, you cannot remove them
+- **Only team**: If you're trying to remove yourself and it's your only team, you cannot leave
+
+<Warning>
+Removing a member will immediately revoke all their access to Giselle AI apps. This action cannot be undone.
+</Warning>
+
+### Leaving a Team
+
+Both regular members and admins can remove themselves from a team (unless restricted by the above conditions):
+
+- You must belong to other teams
+- If you're the last admin, you need to promote another member to admin first
+
+## Member Details Display
+
+Each member entry displays the following information:
+
+- **Avatar image**: User's profile image (36×36 pixels)
+- **Display name**: User's name (shows "**No display name**" if not set)
+- **Email address**: User's email address
+- **Role**: Current role (Admin or Member)
+
+## Notifications & Feedback
+
+Operation results are displayed as toast notifications at the top of the screen:
+
+- **Success**: "Role updated: Admin", "Member removed", "Invitation resent!", etc.
+- **Error**: Specific error messages (e.g., "Cannot remove the last admin from the team")
+- **Info**: "Invite link copied!", etc.
+
+When errors occur, detailed error messages may also appear below the member row.
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="Can I invite multiple members at once?">
+    Yes, you can enter multiple email addresses in the invite dialog. Separate them with commas, semicolons, or spaces. All invitations will be sent with the same role.
+  </Accordion>
+
+  <Accordion title="What should I do if an invitation expires?">
+    Admins can resend invitations. Resending creates a new 24-hour invitation and sends it to the same email address.
+  </Accordion>
+
+  <Accordion title="What happens if the last admin leaves?">
+    The system prevents the removal of the last admin. Before leaving, you need to promote another member to admin.
+  </Accordion>
+
+  <Accordion title="Can I re-invite a member after removing them?">
+    Yes, removed members can be re-invited as new members. However, their previous access rights and settings will not be restored.
+  </Accordion>
+
+  <Accordion title="Can I invite members on the Free Plan?">
+    No, member invitations and role management are Pro Plan features. You need to upgrade to Pro Plan.
+  </Accordion>
+</AccordionGroup>
+
+## Support
+
+For assistance or if you encounter issues managing team members, please contact our support team at [support@giselles.ai](mailto:support@giselles.ai).
 
