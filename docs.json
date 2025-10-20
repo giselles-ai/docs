@@ -391,5 +391,17 @@
       "instagram": "https://www.instagram.com/giselle_de_ai/",
       "github": "https://github.com/giselles-ai/giselle"
     }
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   }
 }
