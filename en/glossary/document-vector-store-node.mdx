@@ -1,0 +1,128 @@
+---
+title: 'Document Vector Store Node'
+description: 'Learn how the Document Vector Store Node enables you to upload and search documents using vector embeddings for AI-powered retrieval in your Giselle workflows.'
+---
+
+Learn how the Document Vector Store Node in Giselle enables Retrieval-Augmented Generation (RAG) by allowing you to upload documents, process them into searchable vector embeddings, and query them within your AI workflows.
+
+## Document Vector Store Node in Giselle
+
+The **Document Vector Store Node** is a specialized "Variable" node that creates a powerful, searchable knowledge base from uploaded documents. It works by processing your documents (PDFs, text files, and markdown) into vector embeddings, allowing AI models to perform semantic searches and retrieve relevant context for answering questions and generating responses.
+
+This process uses advanced embedding models to convert your document content into vector embeddings. You can select from multiple embedding models, including OpenAI's [`text-embedding-3-small`](https://platform.openai.com/docs/models/text-embedding-3-small) (1536 dimensions) and [`text-embedding-3-large`](https://platform.openai.com/docs/models/text-embedding-3-large) (3072 dimensions). These vectorized data are then stored securely in Giselle's dedicated Vector Store.
+
+### Setting up a Document Vector Store:
+
+Before using the Document Vector Store Node in your workflow, you need to create and configure a vector store through your team settings:
+
+1.  **Navigate to Vector Store Settings**:
+    *   Go to **Settings > Team > Vector Stores** in your Giselle account.
+    *   You can access this page here: [https://studio.giselles.ai/settings/team/vector-stores/document](https://studio.giselles.ai/settings/team/vector-stores/document).
+
+2.  **Create a New Document Vector Store**:
+    *   Click the button to create a new document vector store.
+    *   Enter a descriptive name for your vector store (e.g., "Company Documentation" or "Product Manuals").
+
+3.  **Upload Documents**:
+    *   After creating the vector store, you can upload documents by clicking the upload area or dragging and dropping files.
+    *   **Supported File Types**: PDF (`.pdf`), Text (`.txt`), Markdown (`.md`)
+    *   **Maximum File Size**: 4.5 MB per file
+    *   You can upload multiple documents to build a comprehensive knowledge base.
+
+4.  **Document Processing**:
+    *   Once uploaded, documents are automatically processed through several stages:
+      *   **Text Extraction**: Text is extracted from PDFs and decoded from text files.
+      *   **Chunking**: Content is divided into manageable chunks (max 150 lines or 6000 characters per chunk, with 30-line overlap).
+      *   **Embedding Generation**: Each chunk is converted into vector embeddings using the selected embedding model.
+      *   **Storage**: Embeddings are stored with HNSW (Hierarchical Navigable Small World) indexes for fast similarity search.
+
+5.  **Monitor Processing Status**:
+    *   Each document shows its status: **Pending**, **Processing**, **Ready**, or **Failed**.
+    *   Wait for documents to reach the "Ready" status before using the vector store in your workflows.
+
+### Adding a Document Vector Store Node to Your Workflow:
+
+1.  **Add the Node**:
+    *   From the toolbar at the bottom of the canvas, click the **Variable** icon.
+    *   Select **Document Vector Store** from the pop-up menu to add the node to your workspace.
+
+2.  **Configure the Vector Store**:
+    *   When first added, the node will display a "REQUIRES SETUP" status.
+    *   Select the node to open its configuration panel on the right.
+    *   Click the **Select a vector store** dropdown menu and choose the document vector store you created earlier.
+
+3.  **Select the Embedding Profile**:
+    *   After selecting a vector store, choose which embedding model to use for queries.
+    *   This must match one of the embedding profiles used when the documents were processed.
+    *   Available options typically include:
+      *   **text-embedding-3-small**: 1536 dimensions - Efficient and suitable for most use cases.
+      *   **text-embedding-3-large**: 3072 dimensions - Higher precision for complex semantic understanding.
+
+4.  **Finalize Setup**:
+    *   Once configured, the node on the canvas will update to show the name of the selected vector store.
+    *   The node is now ready to be connected to other nodes in your workflow.
+
+### Supported File Types
+
+The Document Vector Store supports multiple file types, each with specific size limits:
+
+| File Type | Supported Formats | Maximum Size | Common Use Cases |
+| :-------- | :---------------- | :----------- | :--------------- |
+| **PDF** | `.pdf` | 4.5MB | Documentation, reports, manuals, articles |
+| **Text** | `.txt` | 4.5MB | Plain text documents, logs, transcripts |
+| **Markdown** | `.md` | 4.5MB | Technical documentation, README files, notes |
+
+### Usage in Workflows
+
+The Document Vector Store Node is designed to be used in combination with a **Query Node**. It acts as the knowledge base that the Query Node searches through.
+
+*   **Connect the Output**: The "Output" of the Document Vector Store Node should be connected to the input of a Query Node.
+*   **Perform a Search**: The Query Node takes a user's question or dynamic input, searches the vectorized document content for the most relevant information, and passes that information to subsequent nodes (like a Generator Node) for processing, analysis, or summarization.
+
+#### Example Workflow:
+
+```
+[Text Node: "What are the safety guidelines?"]
+         ↓
+[Query Node] ←── [Document Vector Store Node]
+         ↓
+[Generator Node: Summarizes safety guidelines based on search results]
+```
+
+### Query Parameters
+
+When using a Query Node with the Document Vector Store, you can configure:
+
+*   **Max Results**: The maximum number of document chunks to return (default: 20, maximum: 100).
+*   **Similarity Threshold**: The minimum cosine similarity score for results (default: 0.3, range: 0-1). Higher values return only more relevant results.
+
+### Output of the Node
+
+The Document Vector Store Node's **output** is a reference to the vectorized data of your uploaded documents. This output provides the necessary connection for other nodes, like the Query Node, to access and search the document content.
+
+### Managing Your Document Vector Stores
+
+You can manage all your document vector stores from the team settings page:
+
+*   **Add Documents**: Upload additional documents to existing vector stores.
+*   **Monitor Status**: View the processing status of each document.
+*   **Remove Documents**: Delete documents that are no longer needed.
+*   **Delete Vector Stores**: Remove entire vector stores when they're no longer in use.
+
+### Technical Considerations
+
+*   **File Size Limit**: The maximum file size per document is **4.5 MB** due to platform constraints.
+*   **Processing Time**: Larger documents or multiple simultaneous uploads may take longer to process.
+*   **Embedding Consistency**: Ensure you use the same embedding profile when querying that was used during document ingestion for optimal search results.
+*   **Concurrent Processing**: The system prevents duplicate processing through atomic claim mechanisms, ensuring each document is processed only once.
+
+### Error Handling
+
+If a document fails to process, possible reasons include:
+
+*   **Unsupported File Type**: Ensure your file is PDF, TXT, or MD format.
+*   **File Too Large**: Files exceeding 4.5 MB will fail to upload.
+*   **Extraction Failed**: PDFs with non-standard encoding or corruption may fail during text extraction.
+*   **Processing Errors**: Network issues or system errors during embedding generation.
+
+When errors occur, you can re-upload the document or contact support if the issue persists.
