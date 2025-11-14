@@ -15,7 +15,7 @@ The Vector Stores page allows you to ingest and manage your project's code and d
 Currently, two types of Vector Stores are supported:
 
 - **Document Vector Stores**: Ingest PDF, TXT, and Markdown files
-- **GitHub Repositories**: Ingest code and Pull Requests from GitHub repositories
+- **GitHub Repositories**: Ingest code, Issues, and Pull Requests from GitHub repositories
 
 ## Document Vector Stores
 
@@ -139,6 +139,7 @@ Select from repositories under the selected Owner.
 Select content types to ingest:
 
 - **Code**: Ingest source code files (required, cannot be disabled)
+- **Issues**: Ingest Issue descriptions, comments, and discussions (optional)
 - **Pull Requests**: Ingest merged Pull Request content and discussions (optional)
 
 <Note>
@@ -187,6 +188,10 @@ A status card is displayed for each embedding model:
 - Latest ingested commit SHA (first 7 characters)
 - Error message and retry time (when failed)
 
+**Issues Section**:
+- Similar status display as Code
+- Latest ingested Issue number (if ingested)
+
 **Pull Requests Section**:
 - Similar status display as Code
 - Latest ingested PR number (if ingested)
@@ -215,6 +220,7 @@ To modify repository settings:
 #### Sources Section
 Select content types to ingest:
 - **Code**: Always enabled (toggle disabled)
+- **Issues**: Optional (toggle to enable/disable)
 - **Pull Requests**: Optional (toggle to enable/disable)
 
 #### Embedding Models Section
@@ -287,7 +293,7 @@ The following errors may occur:
 Ingested data can be utilized in the following Nodes:
 
 - **Document Vector Store Node**: Search and use uploaded documents
-- **GitHub Vector Store Node**: Search and use code and Pull Requests ingested from GitHub repositories
+- **GitHub Vector Store Node**: Search and use code, Issues, and Pull Requests ingested from GitHub repositories
 
 By using these Nodes, you can integrate your project's knowledge base into AI workflows.
 

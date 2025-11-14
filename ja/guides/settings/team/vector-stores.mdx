@@ -14,7 +14,7 @@ Vector Stores ページでは、プロジェクトのコードやドキュメン
 現在、以下の2種類の Vector Store に対応しています：
 
 - **Document Vector Stores**: PDF、TXT、Markdown ファイルを取り込み
-- **GitHub Repositories**: GitHub リポジトリのコードや Pull Request を取り込み
+- **GitHub Repositories**: GitHub リポジトリのコード、Issues、Pull Request を取り込み
 
 ## Document Vector Stores
 
@@ -138,6 +138,7 @@ GitHub リポジトリを Vector Store に登録する手順：
 取り込むコンテンツタイプを選択：
 
 - **Code**: ソースコードファイルを取り込み（必須、無効化不可）
+- **Issues**: Issue の本文、コメント、ディスカッションを取り込み（オプション）
 - **Pull Requests**: マージされた Pull Request のコンテンツとディスカッションを取り込み（オプション）
 
 <Note>
@@ -186,6 +187,10 @@ Code は必須のコンテンツタイプのため、常に有効になります
 - 最新の取り込まれたコミット SHA（最初の7文字）
 - エラーメッセージとリトライ時刻（失敗時）
 
+**Issues セクション**:
+- Code と同様のステータス表示
+- 最新の取り込まれた Issue 番号（取り込み済みの場合）
+
 **Pull Requests セクション**:
 - Code と同様のステータス表示
 - 最新の取り込まれた PR 番号（取り込み済みの場合）
@@ -214,6 +219,7 @@ Code は必須のコンテンツタイプのため、常に有効になります
 #### Sources セクション
 取り込むコンテンツタイプを選択：
 - **Code**: 常に有効（トグル無効化）
+- **Issues**: オプション（トグルで有効/無効切り替え可能）
 - **Pull Requests**: オプション（トグルで有効/無効切り替え可能）
 
 #### Embedding Models セクション
@@ -286,7 +292,7 @@ Document Vector Store が作成されていない場合：
 取り込んだデータは、以下の Node で活用できます：
 
 - **Document Vector Store Node**: アップロードしたドキュメントを検索・利用
-- **GitHub Vector Store Node**: GitHub リポジトリから取り込んだコードや Pull Request を検索・利用
+- **GitHub Vector Store Node**: GitHub リポジトリから取り込んだコード、Issues、Pull Request を検索・利用
 
 これらの Node を使用することで、プロジェクトのナレッジベースを AI ワークフローに統合できます。
 
