@@ -27,6 +27,7 @@ To use this feature, the [Giselle GitHub App](https://github.com/apps/giselles-a
 3.  **Choose the Content Type**:
     *   After selecting a repository, you will need to specify which type of content to vectorize. The available options are:
       *   **Code**: Vectorizes the source code and documents from the repository's default branch. This is useful for creating a knowledge base from your codebase.
+      *   **Issues**: Vectorizes the content from issues, including descriptions, comments, and discussions. This is ideal for analyzing problem patterns or summarizing bug tracking.
       *   **Pull Requests**: Vectorizes the content from pull requests, including descriptions, comments, and discussions. This is ideal for analyzing development patterns or summarizing changes.
     *   Select the radio button corresponding to the content you wish to use.
 
@@ -42,9 +43,10 @@ You can add, configure, and remove the GitHub repositories that are processed by
 *   This page allows you to manage which repositories are indexed and available for your workflows. You can access it here: [https://studio.giselles.ai/settings/team/vector-stores](https://studio.giselles.ai/settings/team/vector-stores).
 
 #### Sources to Ingest
-When registering a new repository, you can select which types of content to ingest. Giselle currently supports two sources:
+When registering a new repository, you can select which types of content to ingest. Giselle currently supports three sources:
 
 *   **Code**: Ingests the source code files from the repository. This source is required and cannot be disabled.
+*   **Issues**: Ingests the descriptions, comments, and discussions from issues. This is an optional source that can be enabled to provide additional context to your AI workflows.
 *   **Pull Requests**: Ingests the content and discussions from merged pull requests. This is an optional source that can be enabled to provide additional context to your AI workflows.
 
 #### Embedding Models
