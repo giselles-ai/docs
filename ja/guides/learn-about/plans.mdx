@@ -49,17 +49,18 @@ AI モデル使用クレジットは毎月更新され、未使用クレジッ�
 
 ## Vector Store クォータ
 
-各プランには、Document Vector Stores の作成数に制限があります。
+各プランには、Vector Stores の作成・登録数に制限があります。
 
 ### プランごとの制限
 
-| プラン | Document Vector Stores |
-|--------|----------------------|
-| Free   | 利用不可               |
-| Pro    | 最大5個               |
-| Team   | 最大20個              |
+| プラン | Document Vector Stores | GitHub Repositories |
+|--------|----------------------|-------------------|
+| Free   | 利用不可               | 利用不可            |
+| Pro    | 最大5個               | 最大3個            |
+| Team   | 最大20個              | 最大10個           |
 
-Document Vector Stores では、PDF、TXT、Markdown ファイルをアップロードして、AI ワークフローで活用できるナレッジベースを構築できます。
+- **Document Vector Stores**: PDF、TXT、Markdown ファイルをアップロードして、AI ワークフローで活用できるナレッジベースを構築できます
+- **GitHub Repositories**: GitHub リポジトリのコード、Issues、Pull Request を取り込んで検索可能にできます
 
 <Note>
 Vector Stores の詳細については、[Vector Stores 設定](/ja/guides/settings/team/vector-stores)をご覧ください。
@@ -67,9 +68,16 @@ Vector Stores の詳細については、[Vector Stores 設定](/ja/guides/setti
 
 ### 制限に達した場合の対処方法
 
-- **Free プラン**: Document Vector Stores を使用するには、Pro または Team プランへのアップグレードが必要です
-- **Pro プラン**: 5個の制限に達した場合、既存の Vector Store を削除するか、Team プランへのアップグレードを検討してください
-- **Team プラン**: 20個の制限に達した場合、既存の Vector Store を削除してください
+#### Free プラン
+- Vector Stores を使用するには、Pro または Team プランへのアップグレードが必要です
+
+#### Pro プラン
+- **Document Vector Stores**: 5個の制限に達した場合、既存の Vector Store を削除するか、Team プランへのアップグレードを検討してください
+- **GitHub Repositories**: 3個の制限に達した場合、既存のリポジトリを削除するか、Team プランへのアップグレードを検討してください
+
+#### Team プラン
+- **Document Vector Stores**: 20個の制限に達した場合、既存の Vector Store を削除してください
+- **GitHub Repositories**: 10個の制限に達した場合、既存のリポジトリを削除してください
 
 ## プラン変更および請求情報
 
