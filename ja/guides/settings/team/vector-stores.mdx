@@ -169,6 +169,64 @@ Document Vector Store を削除する手順：
 
 ## GitHub Repositories
 
+### プランベースの利用制限
+
+GitHub Vector Stores の登録可能数は、チームのサブスクリプションプランによって制限されています。
+
+#### 各プランの制限
+
+| プラン | 登録可能な GitHub Repositories 数 |
+|--------|----------------------------------|
+| Free   | 0個（利用不可）                   |
+| Pro    | 3個                              |
+| Team   | 10個                             |
+
+#### 使用状況の確認
+
+GitHub Repositories ページでは、現在の使用状況が表示されます：
+
+- **使用数 / 最大数**: 例："2 / 3 repositories"
+- **残り数**: 例："1 GitHub Repository remaining in your Pro plan."
+- **プラン名**: 現在のプラン（Free、Pro、Team）
+
+#### 制限に達した場合
+
+登録可能数の上限に達した場合：
+
+1. **アラートが表示されます**:
+   - タイトル："Maximum capacity reached"
+   - メッセージ："Delete an existing repository or upgrade your plan in Team Settings to add more GitHub Vector Stores."
+
+2. **Register Repository ボタンが無効化されます**:
+   - ボタンにカーソルを合わせると、ツールチップで理由が表示されます
+   - "You've reached the number of GitHub Vector Stores included in your plan."
+
+3. **対処方法**:
+   - 既存のリポジトリを削除する
+   - [チーム設定](/ja/guides/settings/team/general)でプランをアップグレードする
+
+#### Free プランの場合
+
+Free プランでは GitHub Vector Stores が利用できません：
+
+1. **ロック状態が表示されます**:
+   - タイトル："GitHub Vector Stores are locked"
+   - メッセージ："Upgrade to Pro or Team to index GitHub repositories and connect them to your agents."
+
+2. **警告アラート**:
+   - "GitHub Vector Stores are not included in the Free plan"
+   - "Upgrade to Pro or Team to index GitHub repositories."
+
+3. **アップグレード方法**:
+   - **View plans** ボタンをクリックして[チーム設定](/ja/guides/settings/team/general)に移動
+   - Pro または Team プランにアップグレード
+
+<Note>
+プランの詳細については、[プランの詳細情報](/ja/guides/learn-about/plans)をご覧ください。
+</Note>
+
+### 前提条件
+
 GitHub Vector Stores を使用するには：
 
 1. **GitHub アカウントの認証**: [アカウント設定の認証ページ](/ja/guides/settings/account/authentication)で GitHub アカウントを接続

@@ -170,6 +170,64 @@ Deletion cannot be undone. The Document Vector Store and its embedding profiles 
 
 ## GitHub Repositories
 
+### Plan-Based Quotas
+
+The number of GitHub repositories you can register is limited based on your team's subscription plan.
+
+#### Quotas by Plan
+
+| Plan | GitHub Repositories Limit |
+|------|---------------------------|
+| Free | 0 (unavailable)           |
+| Pro  | 3                         |
+| Team | 10                        |
+
+#### Checking Usage
+
+The GitHub Repositories page displays your current usage:
+
+- **Used / Maximum**: Example: "2 / 3 repositories"
+- **Remaining**: Example: "1 GitHub Repository remaining in your Pro plan."
+- **Plan name**: Your current plan (Free, Pro, Team)
+
+#### When Limit is Reached
+
+When you reach the maximum capacity:
+
+1. **An alert is displayed**:
+   - Title: "Maximum capacity reached"
+   - Message: "Delete an existing repository or upgrade your plan in Team Settings to add more GitHub Vector Stores."
+
+2. **Register Repository button is disabled**:
+   - Hover over the button to see a tooltip explaining why
+   - "You've reached the number of GitHub Vector Stores included in your plan."
+
+3. **How to proceed**:
+   - Delete an existing repository
+   - Upgrade your plan in [Team Settings](/en/guides/settings/team/general)
+
+#### For Free Plan Users
+
+GitHub Vector Stores are not available on the Free plan:
+
+1. **Locked state is displayed**:
+   - Title: "GitHub Vector Stores are locked"
+   - Message: "Upgrade to Pro or Team to index GitHub repositories and connect them to your agents."
+
+2. **Warning alert**:
+   - "GitHub Vector Stores are not included in the Free plan"
+   - "Upgrade to Pro or Team to index GitHub repositories."
+
+3. **How to upgrade**:
+   - Click the **View plans** button to go to [Team Settings](/en/guides/settings/team/general)
+   - Upgrade to Pro or Team plan
+
+<Note>
+For more details about plans, see [Plans Information](/en/guides/learn-about/plans).
+</Note>
+
+### Prerequisites
+
 To use GitHub Vector Stores:
 
 1. **GitHub Account Authentication**: Connect your GitHub account on the [account authentication page](/en/guides/settings/account/authentication)
