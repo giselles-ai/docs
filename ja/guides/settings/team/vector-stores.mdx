@@ -24,6 +24,62 @@ Vector Stores ページでは、プロジェクトのコードやドキュメン
 
 Document Vector Stores では、PDF、TXT、Markdown ファイルをアップロードして Vector Store に取り込むことができます。
 
+### プランベースの利用制限
+
+Document Vector Stores の作成可能数は、チームのサブスクリプションプランによって制限されています。
+
+#### 各プランの制限
+
+| プラン | 作成可能な Document Vector Stores 数 |
+|--------|-------------------------------------|
+| Free   | 0個（利用不可）                      |
+| Pro    | 5個                                 |
+| Team   | 20個                                |
+
+#### 使用状況の確認
+
+Document Vector Stores ページでは、現在の使用状況が表示されます：
+
+- **使用数 / 最大数**: 例："3 / 5 stores"
+- **残り数**: 例："2 Document Vector Stores remaining in your Pro plan."
+- **プラン名**: 現在のプラン（Free、Pro、Team）
+
+#### 制限に達した場合
+
+作成可能数の上限に達した場合：
+
+1. **アラートが表示されます**:
+   - タイトル："Maximum capacity reached"
+   - メッセージ："Delete an existing store or upgrade your plan in Team Settings to add more Document Vector Stores."
+
+2. **New Vector Store ボタンが無効化されます**:
+   - ボタンにカーソルを合わせると、ツールチップで理由が表示されます
+   - "You've reached the number of Document Vector Stores included in your plan."
+
+3. **対処方法**:
+   - 既存の Document Vector Store を削除する
+   - [チーム設定](/ja/guides/settings/team/general)でプランをアップグレードする
+
+#### Free プランの場合
+
+Free プランでは Document Vector Stores が利用できません：
+
+1. **ロック状態が表示されます**:
+   - タイトル："Document Vector Stores are locked"
+   - メッセージ："Upgrade to Pro or Team to ingest knowledge bases and connect Document Vector Stores to your agents."
+
+2. **警告アラート**:
+   - "Document Vector Stores are not included in the Free plan"
+   - "Upgrade to Pro or Team to ingest documents with Vector Stores."
+
+3. **アップグレード方法**:
+   - **View plans** ボタンをクリックして[チーム設定](/ja/guides/settings/team/general)に移動
+   - Pro または Team プランにアップグレード
+
+<Note>
+プランの詳細については、[プランの詳細情報](/ja/guides/learn-about/plans)をご覧ください。
+</Note>
+
 ### Document Vector Store の作成
 
 1. **New Vector Store** ボタンをクリック
