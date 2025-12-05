@@ -1,36 +1,11 @@
 ---
 title: Trigger Node
-description: Learn about Trigger Nodes, the starting points for workflows in Giselle. Configure Manual Triggers with parameters or use GitHub Triggers to initiate your AI workflow sequences.
+description: Learn about Trigger Nodes, the starting points for workflows in Giselle. Use GitHub Triggers to initiate your AI workflow sequences.
 ---
 
 ## Trigger Node in Giselle
 
 The **Trigger Node** is the starting point for running the workflow built in the Giselle App. It initiates the execution of the connected nodes in a sequence.
-
-Currently, two types of Trigger Nodes are supported.
-
-### Manual Trigger Node
-
-The **Manual Trigger Node** allows you to start your workflow with the click of a button. You can also configure it to request specific parameters each time it's run. This is useful for providing dynamic inputs to your workflow at the moment of execution.
-
-**Configuring Manual Trigger Parameters:**
-
-When you add a Manual Trigger Node to your workflow, you can define parameters that will be requested when the flow is manually triggered. If no parameters are configured, the flow will simply start when triggered.
-
-To add and configure parameters:
-
-1. In the "Add New Parameter" section:
-   * **Parameter Name**: Enter a descriptive name for the parameter (e.g., "Title", "Message", "Priority"). This name will be used to identify the input field when the trigger is run.
-   * **Type**: Select the type of data this parameter will accept. The available options are:
-     * **Text**: For single-line text input.
-     * **Text(multi-line)**: For longer text input that may span multiple lines.
-     * **Number**: For numerical input.
-   * **Required**: Check this box if the parameter must be filled in before the workflow can be triggered. An error will occur if a required parameter is left empty.
-2. Click the **plus icon (+)** to add the configured parameter to the list.
-3. You can add multiple parameters by repeating the steps above.
-4. Once all desired parameters are added and configured, click **Save Configuration**.
-
-When you manually run this workflow, a form will appear prompting you to enter values for the parameters you've defined. These values can then be used by subsequent nodes in your workflow.
 
 ### GitHub Trigger Node
 
