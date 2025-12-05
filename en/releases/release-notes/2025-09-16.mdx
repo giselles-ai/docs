@@ -1,0 +1,46 @@
+---
+title: September 16, 2025
+description: Gemini image generation, image editing, enhanced Image Generator Node, and cancelable text generation
+---
+
+This update brings Gemini-powered image generation, image editing capabilities, enhanced input support for Image Generator Nodes, and the ability to cancel long-running text generations.
+
+## Gemini Image Generation (Nano Banana)
+
+Added **Gemini 2.5 Flash Image Preview** (codenamed Nano Banana) for text-to-image generation. You can now create images using Google's Gemini models directly in your workflows.
+
+## Image Editing
+
+The image generation capabilities now include **image editing** support. Edit and modify existing images as part of your AI workflows.
+
+## Enhanced Image Generator Node
+
+The **Image Generator Node** now supports the same input types as the Text Generator Node:
+
+- Connect multiple input sources
+- Reference outputs from other nodes
+- Build more complex image generation workflows
+
+## Cancelable Text Generation
+
+You can now **cancel text generation** while it's in progress. This is especially useful for:
+
+- Stopping long-running generations
+- Testing and iterating faster
+- Managing resource usage
+
+## Long-Running Task Support
+
+Redesigned the text generation pipeline to support **durable execution** beyond the previous 800-second limit. Complex, long-running AI tasks now complete reliably.
+
+## Bug Fixes
+
+- Fixed duplicate and delete dialog issues on apps list
+- Fixed prompt references missing after connecting inputs
+- Added validation for empty prompts before generation
+- Improved error handling for GitHub Trigger configuration
+- Fixed open redirect vulnerability in OAuth callback
+
+---
+
+*This release includes [v0.47.0](https://github.com/giselles-ai/giselle/releases/tag/v0.47.0) through [v0.47.5](https://github.com/giselles-ai/giselle/releases/tag/v0.47.5)*
