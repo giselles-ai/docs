@@ -1,0 +1,45 @@
+---
+title: July 16, 2025
+description: V2 Workflow Designer, GitHub Pull Request loader, redesigned UI, and PostgreSQL validation
+---
+
+This major update introduces the V2 Workflow Designer with a completely redesigned interface, adds GitHub Pull Request loading for RAG/vector search, and brings numerous UI improvements and internal architecture updates.
+
+## V2 Workflow Designer
+
+Replaced the legacy UI with the **V2 Workflow Designer**, featuring:
+
+- Completely redesigned workflow interface
+- Improved node organization and grouping
+- Simplified properties panel UI
+- Redesigned GitHub Action properties panel with icon support
+- New dropdown menu components
+
+## GitHub Pull Request Loader
+
+Added **GitHub Pull Request loader** for RAG/vector search. Load and index pull requests from your repositories to enable AI-powered code review and documentation workflows.
+
+## PostgreSQL Tools Enhancement
+
+**Connection string validation** now available for PostgreSQL tools, helping you catch configuration errors before running queries.
+
+## Team-Based Flow Selection
+
+New **team-based flow selection** component on the stage page, making it easier to organize and access workflows across your teams.
+
+## Internal Improvements
+
+- Improved error handling with early return after step failures
+- Skip remaining sequences after failure and update act status accordingly
+- Simplified Act navigation UI and aligned status terminology
+- Better run button logic with visibility control
+
+## Bug Fixes
+
+- Fixed inconsistent column names in studio
+- Fixed import issues and updated tests
+- Hide run button when no runnable items exist
+
+---
+
+*This release includes [v0.44.0](https://github.com/giselles-ai/giselle/releases/tag/v0.44.0) through [v0.44.15](https://github.com/giselles-ai/giselle/releases/tag/v0.44.15)*
