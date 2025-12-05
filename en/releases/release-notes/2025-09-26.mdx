@@ -1,0 +1,56 @@
+---
+title: September 26, 2025
+description: Document Vector Store, GPT-5-codex model, @ mentions in prompts, and PDF support
+---
+
+This update introduces Document Vector Store for uploading your own documents, the GPT-5-codex model, @ mention functionality in prompts, and PDF text extraction.
+
+## Document Vector Store
+
+We've added **Document Vector Store**, allowing you to upload and manage your own documents as a searchable knowledge base:
+
+- Upload documents directly to your workspace
+- Your AI agents can reference uploaded documents when generating responses
+- Integrated with Query nodes for seamless document retrieval
+- Metadata tracking and version management for uploads
+
+## GPT-5-codex Model
+
+Added **GPT-5-codex** to the available OpenAI models. This model is optimized for code generation and understanding, making it ideal for:
+
+- Code explanation and documentation
+- Code review assistance
+- Programming-related workflows
+
+## @ Mentions in Prompts
+
+You can now use **@ mentions** to reference other nodes directly in your prompts:
+
+- Type `@` in the prompt editor to see available nodes
+- Select a node to insert a reference
+- The referenced node's output will be included as context
+
+This makes it easier to build connected workflows where outputs from one node inform another.
+
+## PDF Support
+
+Document Vector Store now supports **PDF text extraction**:
+
+- Upload PDF files directly
+- Text content is automatically extracted and indexed
+- Search and reference PDF content in your workflows
+
+## UI Improvements
+
+- Redesigned login page with improved styling
+- Updated settings pages with better visual consistency
+- Improved usage and team pages interface
+
+## Bug Fixes
+
+- Fixed node copy behavior—pasted nodes are now automatically selected
+- Fixed connection handling in graph slicing
+
+---
+
+*This release includes [v0.48.0](https://github.com/giselles-ai/giselle/releases/tag/v0.48.0) through [v0.48.13](https://github.com/giselles-ai/giselle/releases/tag/v0.48.13)*
