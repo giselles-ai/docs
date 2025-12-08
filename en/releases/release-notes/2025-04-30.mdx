@@ -1,0 +1,32 @@
+---
+title: April 30, 2025
+description: GitHub Trigger Node, GitHub Action Node, and PR/Issue event triggers
+---
+
+This update introduces GitHub Trigger and Action nodes for powerful GitHub automation and expands PR and Issue event support.
+
+## GitHub Trigger Node
+
+New **GitHub Trigger Node** enables workflow automation based on GitHub events:
+
+- **Pull request triggers**: opened, ready_for_review, closed, and comment events
+- **Issue triggers**: comment and closed events
+- **Reactions support**: Add reactions to GitHub items via GraphQL API
+
+## GitHub Action Node
+
+New **GitHub Action Node** for performing GitHub operations from your workflows:
+
+- **Create issues**: Automatically create GitHub issues
+- **Post comments**: Add comments to issues and pull requests
+- **Action results**: View action outcomes directly in the workflow
+
+## Workflow Execution Improvements
+
+- **Animated completion status**: Visual feedback showing workflow node completion
+- **Manual Trigger execution**: Start flows with Manual Trigger as the entry point
+- File removal now works for files stuck in uploading or failed status
+
+---
+
+*This release includes [v0.30.0](https://github.com/giselles-ai/giselle/releases/tag/v0.30.0) through [v0.35.1](https://github.com/giselles-ai/giselle/releases/tag/v0.35.1)*
