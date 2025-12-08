@@ -1,0 +1,36 @@
+---
+title: 2025年5月23日
+description: RAG用Query Node、Web Page Node、Claude 4サポート、GitHub PRコメントトリガー
+---
+
+このアップデートでは、RAG機能を備えたQuery Node、Webコンテンツ取得用のWeb Page Node、Claude 4モデルサポート、PRコメントトリガーによるGitHub連携の拡張を導入します。
+
+## Query Node
+
+完全なRAG（Retrieval-Augmented Generation）機能を備えた新しい**Query Node**。ベクトルストアに接続し、AIが応答生成前に関連するコンテキストを取得できます。
+
+## Web Page Node
+
+ワークフロー内で直接Webコンテンツを取得・処理する**Web Page Node**を追加しました。Webページからテキストを抽出し、AI生成の入力として使用できます。
+
+## Claude 4サポート
+
+Anthropicの**Claude 4**モデルシリーズのサポートを追加し、最新のClaude機能をワークフローで利用できるようになりました。
+
+## GitHub PRコメントトリガー＆アクション
+
+- **Pull Requestコメントトリガー**: Pull Requestにコメントが追加されたときにワークフローを開始
+- **Pull Requestコメントアクション**: ワークフローからPull Requestにコメントを投稿
+- **GitHub Discussionサポート**: 新しいgetDiscussion関数でDiscussionの内容を取得
+
+## ワークフローキャンセル
+
+トーストフィードバック付きの新しい**ワークフローキャンセル**サポート。必要に応じて実行中のワークフローを明確な視覚的確認とともに停止できます。
+
+## 実行インサイト
+
+テキスト生成パネルが**実行時間とトークン使用量**を表示するようになり、ワークフローの監視と最適化に役立ちます。
+
+---
+
+*このリリースには [v0.36.0](https://github.com/giselles-ai/giselle/releases/tag/v0.36.0) から [v0.39.0](https://github.com/giselles-ai/giselle/releases/tag/v0.39.0) が含まれます*
