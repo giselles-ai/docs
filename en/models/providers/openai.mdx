@@ -11,6 +11,8 @@ The following table summarizes the key features of the OpenAI models available i
 
 | Models | Generate Text | Input Image | Web Search | Reasoning | Context Window | Max Output Tokens | Pricing (Input/Output per 1M tokens) | Availability |
 |---|---|---|---|---|---|---|---|---|
+| gpt-5.1-thinking | ✅ | ✅ | ✅ | ✅ (Highest) | 400k tokens | 128k tokens | $1.25 / $10.00 | Pro |
+| gpt-5.1-codex | ✅ | ✅ | ✅ | ✅ (Highest) | 400k tokens | 128k tokens | $1.25 / $10.00 | Pro |
 | gpt-5 | ✅ | ✅ | ✅ | ✅ (Highest) | 400k tokens | 128k tokens | $1.25 / $10.00 | Pro |
 | gpt-5-mini | ✅ | ✅ | ✅ | ✅ (High) | 400k tokens | 128k tokens | $0.25 / $2.00 | Pro |
 | gpt-5-nano | ✅ | ✅ | ❌ | ✅ (Medium) | 400k tokens | 128k tokens | $0.05 / $0.40 | Free |
@@ -18,9 +20,33 @@ The following table summarizes the key features of the OpenAI models available i
 
 *Please note that some features listed (like specific API functionalities e.g., fine-tuning, batch processing, specific tool use like audio or transcription) may not be directly exposed or available within the Giselle interface even if supported by the underlying OpenAI model.*
 
+## GPT-5.1 Series Models
+
+The GPT-5.1 series represents the latest evolution of OpenAI's GPT-5 models, delivering meaningful improvements in both intelligence and communication style. These models are smarter and more natural in tone, with enhanced instruction following capabilities.
+
+### gpt-5.1-thinking
+
+GPT-5.1 Thinking is OpenAI's advanced reasoning model, designed for complex problem-solving tasks. It features **adaptive thinking time**—spending more time on complex problems while responding more quickly to simpler ones. This results in more thorough answers for difficult requests and less waiting for simpler ones. The model's responses are clearer, with less jargon and fewer undefined terms, making it more approachable for complex tasks at work and explaining technical concepts.
+
+*   **Key Features:** Adaptive reasoning, clearer explanations, improved math and coding performance
+*   **Context Window:** 400,000 tokens
+*   **Max Output Tokens:** 128,000 tokens
+*   **Inputs:** Text, Image
+*   **Availability:** Pro Plan
+
+### gpt-5.1-codex
+
+GPT-5.1 Codex is specialized for coding and software development tasks. Building on GPT-5.1's improvements in intelligence and instruction following, it provides enhanced code generation, debugging, refactoring, and technical documentation capabilities. This model is the optimal choice for developers and engineering workflows requiring precise, reliable code output.
+
+*   **Key Features:** Enhanced code generation, improved debugging, better instruction following
+*   **Context Window:** 400,000 tokens
+*   **Max Output Tokens:** 128,000 tokens
+*   **Inputs:** Text, Image
+*   **Availability:** Pro Plan
+
 ## GPT-5 Series Models
 
-Introducing the GPT-5 series, OpenAI's latest and most advanced family of models. These models set new benchmarks for performance across a wide range of tasks, featuring enhanced reasoning capabilities, faster speeds, and improved efficiency.
+The GPT-5 series offers a range of models balancing performance, speed, and cost-efficiency for various use cases.
 
 ### gpt-5
 
@@ -74,7 +100,9 @@ OpenAI's state-of-the-art image generation model. It is a natively multimodal la
 
 Guidelines for selecting the optimal OpenAI model within Giselle:
 
-*   **For the best overall performance, coding, agentic tasks, and highest reasoning**: `gpt-5` (Pro)
+*   **For deep reasoning and complex problem-solving**: `gpt-5.1-thinking` (Pro)
+*   **For coding and software development**: `gpt-5.1-codex` (Pro)
+*   **For best overall performance, coding, agentic tasks, and highest reasoning**: `gpt-5` (Pro)
 *   **For a faster, cost-efficient version of GPT-5 for well-defined tasks**: `gpt-5-mini` (Pro)
 *   **For the fastest, most cost-effective version of GPT-5 for summarization and classification**: `gpt-5-nano` (Free)
 *   **For high-quality image generation from text or image inputs**: `gpt-image-1` (Pro)
