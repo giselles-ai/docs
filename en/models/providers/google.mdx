@@ -27,6 +27,24 @@ The next-generation Flash model, optimized for speed *and* reasoning. It offers 
 ### gemini-2.5-flash-lite
 The next-generation Flash Lite model, `gemini-2.5-flash-lite` is designed for maximum efficiency and the quickest possible responses. It supports text generation, web search, and multimodal inputs (PDF, image, audio, video). With a 1M token context window, it's ideal for high-throughput tasks and applications where immediate feedback is paramount. Available on the Free plan.
 
+## Image Generation Models
+
+These models are specialized in generating images from text and image inputs.
+
+### gemini-2.5-flash-image
+
+Gemini 2.5 Flash Image is Google's image generation model optimized for image understanding and generation, offering a balance of price and performance. It accepts both text and image inputs and produces image outputs.
+
+*   **Inputs:** Text, Image
+*   **Outputs:** Image
+*   **Maximum images per prompt:** 3
+*   **Maximum output images:** 10
+*   **Context Window:** 32,768 tokens
+*   **Max Output Tokens:** 32,768 tokens
+*   **Supported image formats:** PNG, JPEG, WebP, HEIC, HEIF
+*   **Supported aspect ratios:** 1:1, 3:2, 2:3, 3:4, 4:3, 4:5, 5:4, 9:16, 16:9, 21:9
+*   **Availability:** Pro Plan
+
 ## Model Selection Guide
 Guidelines for selecting the optimal model based on your needs and plan:
 
@@ -37,6 +55,7 @@ Guidelines for selecting the optimal model based on your needs and plan:
 * **For cutting-edge reasoning and complex tasks**: `gemini-3-pro-preview` (Latest model, enhanced reasoning)
 * **For proven stability and comprehensive features**: `gemini-2.5-pro` (Stable, full-featured)
 * **For fast responses with reasoning**: `gemini-2.5-flash` (Speed + Reasoning balance)
+* **For image generation and editing**: `gemini-2.5-flash-image` (Text-to-image, image editing)
 
 ## Practices for Giselle
 We recommend `gemini-2.5-pro` (Pro plan) as your primary model in Giselle due to its proven power and stability for complex tasks. It is capable of processing large volumes of data, executing complex code reviews, and handling a wide variety of business tasks.
@@ -44,5 +63,7 @@ We recommend `gemini-2.5-pro` (Pro plan) as your primary model in Giselle due to
 For users prioritizing speed on the Free plan, `gemini-2.5-flash-lite` is an excellent option. Pro users seeking a balance of speed and reasoning might consider the `gemini-2.5-flash`.
 
 By enabling the **Search grounding** feature with these models (where applicable), you can access web search functionality, allowing you to supplement your workflows with the most current information available.
+
+For image generation needs, **gemini-2.5-flash-image** provides versatile capabilities including text-to-image generation and image editing. It supports multiple aspect ratios and can process up to 3 images per prompt while generating up to 10 output images.
 
 For detailed specifications, performance benchmarks, or additional assistance, please check [Google AI for Developers](https://ai.google.dev/gemini-api/docs/models).
