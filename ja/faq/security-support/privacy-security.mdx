@@ -3,4 +3,79 @@ title: 'プライバシー・セキュリティ FAQ'
 description: 'Giselle のプライバシーとセキュリティ対策についてよくある質問'
 ---
 
-TBD
+## 私のデータは AI モデルの学習に使用されますか？
+
+**いいえ。** Giselle を使用する際、データは AI プロバイダー（Anthropic、OpenAI、Google）の API を通じて送信されます。これらのプロバイダーはすべて、API データがデフォルトで**モデルの学習に使用されない**ことを明示しています。
+
+### Anthropic
+
+Anthropic の商用利用規約には以下のように明記されています：
+
+> "Anthropic may not train models on Customer Content from Services."
+
+（以下、Giselle チームによる日本語訳）
+
+> Anthropic はサービスから得た顧客コンテンツでモデルを学習することはできません。
+
+つまり、Giselle を通じて Claude モデルを使用する際の入力と出力は、Anthropic のモデル学習に使用されません。
+
+さらに、Anthropic のプライバシーセンターには以下のように記載されています：
+
+> "Anthropic does not use Customer Content to train our models."
+
+（以下、Giselle チームによる日本語訳）
+
+> Anthropic は顧客コンテンツをモデルの学習に使用しません。
+
+**ソース：**
+- [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms)（セクション B. Customer Content）
+- [Is my data used for model training?](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)
+
+### OpenAI
+
+OpenAI の公式ドキュメントには以下のように記載されています：
+
+> "By default, we do not train on any inputs or outputs from our products for business users, including ChatGPT Business, ChatGPT Enterprise, and the API. We offer API customers a way to opt-in to share data with us, such as by providing feedback in the Playground, which we then use to improve our models. Unless they explicitly opt-in, organizations are opted out of data-sharing by default."
+
+（以下、Giselle チームによる日本語訳）
+
+> デフォルトでは、ChatGPT Business、ChatGPT Enterprise、API を含むビジネスユーザー向け製品からの入力や出力でモデルを学習することはありません。API のお客様には、Playground でフィードバックを提供するなどの方法でデータを共有するオプトインの機会を提供していますが、明示的にオプトインしない限り、組織はデフォルトでデータ共有からオプトアウトされています。
+
+**ソース：**
+- [How your data is used to improve model performance](https://help.openai.com/en/articles/5722486-how-your-data-is-used-to-improve-model-performance)
+- [Data controls in the OpenAI platform](https://platform.openai.com/docs/guides/your-data)
+
+### Google
+
+Giselle は Google Cloud の Vertex AI を通じて Gemini モデルを使用しています。Vertex AI のドキュメントには以下のように記載されています：
+
+> "Google does not use your data, including your prompts, inputs, and outputs, to train foundation models without your permission."
+> （Google がお客様の許可なく、お客様のデータ（プロンプト、入力、出力を含む）を使用して基盤モデルをトレーニングすることはありません。）
+>
+> "By default, Google Cloud does not use your data for training."
+> （デフォルトでは、Google Cloud がお客様のデータをトレーニングに使用することはありません。）
+
+これは Giselle で使用される Gemini モデルを含む、Vertex AI 上のすべての管理モデルに適用されます。
+
+**注意:** Giselle を介さず Google AI Studio で直接 Gemini API を使用する場合、規約が異なります。有料サービスでは：
+
+> "Google doesn't use your prompts (including associated system instructions, cached content, and files such as images, videos, or documents) or responses to improve our products"
+
+（以下、Giselle チームによる日本語訳）
+
+> Google は、お客様のプロンプト（関連するシステム指示、キャッシュされたコンテンツ、画像、動画、ドキュメントなどのファイルを含む）や回答を、製品の改善に使用しません。
+
+**ソース：**
+- [Data governance for Generative AI on Vertex AI](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance)
+- [Vertex AI Zero Data Retention](https://cloud.google.com/vertex-ai/generative-ai/docs/vertex-ai-zero-data-retention)
+- [Google API Service Terms (Generative AI)](https://ai.google.dev/gemini-api/terms)
+
+## まとめ
+
+| プロバイダー | 学習への使用 | ソース |
+|-------------|-------------|--------|
+| Anthropic | なし | [Commercial Terms](https://www.anthropic.com/legal/commercial-terms) |
+| OpenAI | なし | [Data Usage Policy](https://help.openai.com/en/articles/5722486-how-your-data-is-used-to-improve-model-performance) |
+| Google | なし | [Data Governance](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance) |
+
+Giselle はこれらのプロバイダーの API を使用しているため、お客様のデータは同様の保護を受けます。プロンプト、入力、出力は応答を生成するために処理されますが、AI モデルの学習や改善には使用されません。
