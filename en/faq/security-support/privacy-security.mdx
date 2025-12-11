@@ -1,6 +1,63 @@
 ---
 title: 'Privacy & Security FAQ'
-description: 'Frequently asked questions about Giselle7s privacy and security measures'
+description: 'Frequently asked questions about Giselle privacy and security measures'
 ---
 
-TBD
+## Is my data used for AI model training?
+
+**No.** When you use Giselle, your data is sent to AI providers (Anthropic, OpenAI, Google) via their APIs. All of these providers explicitly state that API data is **not used for model training** by default.
+
+### Anthropic
+
+Anthropic's Commercial Terms of Service clearly states:
+
+> "Anthropic may not train models on Customer Content from Services."
+
+This means your inputs and outputs when using Claude models through Giselle are not used to train Anthropic's models.
+
+Additionally, Anthropic's Privacy Center states:
+
+> "Anthropic does not use Customer Content to train our models."
+
+**Sources:**
+- [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms) (Section B. Customer Content)
+- [Is my data used for model training?](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)
+
+### OpenAI
+
+OpenAI's official documentation states:
+
+> "By default, we do not train on any inputs or outputs from our products for business users, including ChatGPT Business, ChatGPT Enterprise, and the API. We offer API customers a way to opt-in to share data with us, such as by providing feedback in the Playground, which we then use to improve our models. Unless they explicitly opt-in, organizations are opted out of data-sharing by default."
+
+**Sources:**
+- [How your data is used to improve model performance](https://help.openai.com/en/articles/5722486-how-your-data-is-used-to-improve-model-performance)
+- [Data controls in the OpenAI platform](https://platform.openai.com/docs/guides/your-data)
+
+### Google
+
+Giselle uses Gemini models through Google Cloud's Vertex AI. The Vertex AI documentation states:
+
+> "Google does not use your data, including your prompts, inputs, and outputs, to train foundation models without your permission."
+>
+> "By default, Google Cloud does not use your data for training."
+
+This applies to all managed models on Vertex AI, including Gemini models used through Giselle.
+
+**Note:** For those using the Gemini API directly via Google AI Studio (not through Giselle), the terms differ. With paid services:
+
+> "Google doesn't use your prompts (including associated system instructions, cached content, and files such as images, videos, or documents) or responses to improve our products"
+
+**Sources:**
+- [Data governance for Generative AI on Vertex AI](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance)
+- [Vertex AI Zero Data Retention](https://cloud.google.com/vertex-ai/generative-ai/docs/vertex-ai-zero-data-retention)
+- [Google API Service Terms (Generative AI)](https://ai.google.dev/gemini-api/terms)
+
+## Summary
+
+| Provider | Data Used for Training | Source |
+|----------|----------------------|--------|
+| Anthropic | No | [Commercial Terms](https://www.anthropic.com/legal/commercial-terms) |
+| OpenAI | No | [Data Usage Policy](https://help.openai.com/en/articles/5722486-how-your-data-is-used-to-improve-model-performance) |
+| Google | No | [Data Governance](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance) |
+
+Giselle uses these providers' APIs, so your data benefits from the same protections. Your prompts, inputs, and outputs are processed to generate responses but are not used to train or improve the AI models.
