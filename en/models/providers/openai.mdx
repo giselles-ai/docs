@@ -11,6 +11,7 @@ The following table summarizes the key features of the OpenAI models available i
 
 | Models | Generate Text | Input Image | Web Search | Reasoning | Context Window | Max Output Tokens | Pricing (Input/Output per 1M tokens) | Availability |
 |---|---|---|---|---|---|---|---|---|
+| gpt-5.2 | ✅ | ✅ | ✅ | ✅ (Highest) | 400k tokens | 128k tokens | $1.75 / $14.00 | Pro |
 | gpt-5.1-thinking | ✅ | ✅ | ✅ | ✅ (Highest) | 400k tokens | 128k tokens | $1.25 / $10.00 | Pro |
 | gpt-5.1-codex | ✅ | ✅ | ✅ | ✅ (Highest) | 400k tokens | 128k tokens | $1.25 / $10.00 | Pro |
 | gpt-5 | ✅ | ✅ | ✅ | ✅ (Highest) | 400k tokens | 128k tokens | $1.25 / $10.00 | Pro |
@@ -19,6 +20,23 @@ The following table summarizes the key features of the OpenAI models available i
 | gpt-image-1 | ❌ | ✅ | ❌ | ❌ | Unknown | N/A | $5.00 / $40.00 | Open Source |
 
 *Please note that some features listed (like specific API functionalities e.g., fine-tuning, batch processing, specific tool use like audio or transcription) may not be directly exposed or available within the Giselle interface even if supported by the underlying OpenAI model.*
+
+## GPT-5.2 Series Models
+
+GPT-5.2 is OpenAI's best general-purpose model, part of the GPT-5 flagship model family. It is the most intelligent model yet for both general and agentic tasks, showing significant improvements over the previous GPT-5.1 in general intelligence, instruction following, accuracy and token efficiency, multimodality (especially vision), code generation (especially front-end UI creation), tool calling and context management, and spreadsheet understanding and creation.
+
+### gpt-5.2
+
+GPT-5.2 is OpenAI's flagship model for coding and agentic tasks across industries. It replaces the previous GPT-5.1 model and delivers state-of-the-art performance in complex reasoning, broad world knowledge, and code-heavy or multi-step agentic tasks. The model supports configurable reasoning effort levels (`none`, `low`, `medium`, `high`, `xhigh`) with `none` as the default for lower-latency interactions, and text verbosity control (`low`, `medium`, `high`) with `medium` as the default.
+
+*   **Key Features:** Enhanced general intelligence, superior instruction following, improved vision capabilities, advanced code generation, configurable reasoning effort (including `xhigh` for deepest reasoning)
+*   **Context Window:** 400,000 tokens
+*   **Max Output Tokens:** 128,000 tokens
+*   **Knowledge Cutoff:** August 31, 2025
+*   **Inputs:** Text, Image
+*   **Reasoning Effort:** `none` (default), `low`, `medium`, `high`, `xhigh`
+*   **Text Verbosity:** `low`, `medium` (default), `high`
+*   **Availability:** Pro Plan
 
 ## GPT-5.1 Series Models
 
@@ -100,16 +118,23 @@ OpenAI's state-of-the-art image generation model. It is a natively multimodal la
 
 Guidelines for selecting the optimal OpenAI model within Giselle:
 
+*   **For best overall performance, coding, agentic tasks, and highest reasoning**: `gpt-5.2` (Pro) - OpenAI's most capable model
 *   **For deep reasoning and complex problem-solving**: `gpt-5.1-thinking` (Pro)
 *   **For coding and software development**: `gpt-5.1-codex` (Pro)
-*   **For best overall performance, coding, agentic tasks, and highest reasoning**: `gpt-5` (Pro)
+*   **For reliable general-purpose tasks**: `gpt-5` (Pro)
 *   **For a faster, cost-efficient version of GPT-5 for well-defined tasks**: `gpt-5-mini` (Pro)
 *   **For the fastest, most cost-effective version of GPT-5 for summarization and classification**: `gpt-5-nano` (Free)
 *   **For high-quality image generation from text or image inputs**: `gpt-image-1` (Pro)
 
 ## Practices for Giselle
 
-We recommend **gpt-5** as the versatile primary model in Giselle for Pro users. It offers an unparalleled balance of capability, intelligence, and features (including web search via tool) across various tasks like complex coding, business document creation, in-depth analysis, and advanced research. GPT-5 is designed to be highly reliable and accurate, significantly reducing hallucinations and improving instruction following.
+We recommend **gpt-5.2** as the versatile primary model in Giselle for Pro users. It is OpenAI's most capable model, offering state-of-the-art performance in general intelligence, instruction following, accuracy, multimodality (especially vision), code generation, tool calling, and spreadsheet understanding. GPT-5.2 is designed to be highly reliable and accurate, with 30% fewer errors compared to GPT-5.1 Thinking.
+
+**Configuring GPT-5.2:**
+*   **Reasoning Effort:** GPT-5.2 supports five reasoning effort levels: `none` (default), `low`, `medium`, `high`, and `xhigh`. Use `none` for low-latency interactions, and increase to `medium` or higher for tasks requiring deeper reasoning. The new `xhigh` level provides the deepest reasoning for complex problems.
+*   **Text Verbosity:** Control output length with `low`, `medium` (default), or `high`. Use `low` for concise answers and simple code generation (like SQL queries), and `high` for thorough explanations and extensive code refactoring.
+
+For users who need proven stability, **gpt-5** remains an excellent choice with strong overall performance, coding, and agentic capabilities.
 
 For Pro users requiring a balance of speed and cost-efficiency for well-defined tasks, **gpt-5-mini** is an excellent choice, maintaining strong reasoning and multimodal capabilities.
 
@@ -124,6 +149,6 @@ Giselle now automatically maps previously available OpenAI models to the new GPT
 
 For image generation needs, **gpt-image-1** provides high-quality results and supports both text and image inputs. The model offers different quality tiers to balance cost and detail based on specific requirements.
 
-By combining these models in workflows, you can leverage their specific strengths. For example, use `gpt-5` for its advanced reasoning and coding, `gpt-5-mini` for cost-efficient tasks, or `gpt-5-nano` for rapid, high-volume operations.
+By combining these models in workflows, you can leverage their specific strengths. For example, use `gpt-5.2` for its state-of-the-art reasoning and coding capabilities, `gpt-5-mini` for cost-efficient tasks, or `gpt-5-nano` for rapid, high-volume operations.
 
 For detailed specifications and the full range of models offered directly by OpenAI, please check the [Official OpenAI Documentation](https://platform.openai.com/docs/models).
