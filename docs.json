@@ -50,6 +50,12 @@
                 ]
               },
               {
+                "group": "Run Apps",
+                "pages": [
+                  "en/guides/playground"
+                ]
+              },
+              {
                 "group": "Workspaces",
                 "pages": [
                   "en/guides/workspaces/build"
@@ -227,6 +233,12 @@
                 "pages": [
                   "ja/guides/introduction",
                   "ja/guides/get-started/quickstart"
+                ]
+              },
+              {
+                "group": "アプリの実行",
+                "pages": [
+                  "ja/guides/playground"
                 ]
               },
               {
