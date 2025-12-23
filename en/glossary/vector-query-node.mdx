@@ -1,13 +1,16 @@
 ---
 title: Vector Query Node
-description: Learn how the Vector Query Node in Giselle executes queries against data sources like the GitHub Vector Store to enable Retrieval-Augmented Generation (RAG).
+description: Learn how the Vector Query Node in Giselle executes queries against vector store data sources to enable Retrieval-Augmented Generation (RAG).
 ---
 
 ## Vector Query Node in Giselle
 
-The **Vector Query Node** is a powerful component in Giselle designed to search and retrieve information from connected data sources. Its primary function is to execute a query (such as a question or a search term) against a dataset and return the most relevant results.
+The **Vector Query Node** is a powerful component in Giselle designed to search and retrieve information from connected vector store data sources. Its primary function is to execute a query (such as a question or a search term) against a vectorized dataset and return the most relevant results.
 
-Currently, the Vector Query Node is optimized to work with the **GitHub Vector Store Node**, making it a crucial building block for creating Retrieval-Augmented Generation (RAG) applications directly within your Giselle workflows.
+The Vector Query Node works with the following vector store nodes, making it a crucial building block for creating Retrieval-Augmented Generation (RAG) applications directly within your Giselle workflows:
+
+- **[GitHub Vector Store Node](github-vector-store-node)**: Search through vectorized GitHub repository content including code, issues, and pull requests.
+- **[Document Vector Store Node](document-vector-store-node)**: Search through your uploaded documents such as PDFs, text files, and markdown files.
 
 ### How to Use the Vector Query Node
 
@@ -19,7 +22,7 @@ From the node toolbar at the bottom of the canvas, select the **Vector Query Nod
 
 #### 2. Connect a Data Source
 
-The Vector Query Node requires an input from a data source to function. You must connect the `Output` of a data source node (like the GitHub Vector Store Node) to the `Input` of the Vector Query Node. Until a data source is connected, the node will indicate that it is waiting for a connection.
+The Vector Query Node requires an input from a vector store data source to function. You must connect the `Output` of a vector store node (GitHub Vector Store Node or Document Vector Store Node) to the `Input` of the Vector Query Node. Until a data source is connected, the node will indicate that it is waiting for a connection.
 
 #### 3. Write and Run a Query
 
@@ -41,7 +44,7 @@ You can expand each chunk to view its content and metadata.
 The primary purpose of the Vector Query Node is to enable **Retrieval-Augmented Generation (RAG)** workflows. RAG enhances the capabilities of Large Language Models (LLMs) by providing them with relevant, up-to-date information from your own data sources before they generate a response.
 
 A typical RAG workflow in Giselle looks like this:
-1.  **Data Source (GitHub Vector Store Node)**: Ingests and vectorizes your documentation from a GitHub repository, making it searchable.
+1.  **Data Source (Vector Store Node)**: Ingests and vectorizes your content from a GitHub repository or uploaded documents, making it searchable.
 2.  **Vector Query Node**: Takes a user's question (the query) and retrieves the most relevant text chunks from the vector store.
 3.  **Generator Node**: Receives the original question *and* the retrieved information from the Vector Query Node's output. It uses this combined context to generate a more accurate, detailed, and factually grounded answer.
 
@@ -50,5 +53,5 @@ A typical RAG workflow in Giselle looks like this:
 The `Result` output of the Vector Query Node contains the collection of retrieved data chunks. This structured data can be passed to subsequent nodes—most commonly a **Generator Node**—to serve as dynamic context for text generation.
 
 <Note>
-For more information on how to set up a data source for querying, see our documentation on the [GitHub Vector Store Node](github-vector-store-node).
+For more information on how to set up a data source for querying, see our documentation on the [GitHub Vector Store Node](github-vector-store-node) and [Document Vector Store Node](document-vector-store-node).
 </Note>
