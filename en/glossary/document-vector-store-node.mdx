@@ -72,31 +72,31 @@ The Document Vector Store supports multiple file types, each with specific size 
 
 ### Usage in Workflows
 
-The Document Vector Store Node is designed to be used in combination with a **Query Node**. It acts as the knowledge base that the Query Node searches through.
+The Document Vector Store Node is designed to be used in combination with a **Vector Query Node**. It acts as the knowledge base that the Vector Query Node searches through.
 
-*   **Connect the Output**: The "Output" of the Document Vector Store Node should be connected to the input of a Query Node.
-*   **Perform a Search**: The Query Node takes a user's question or dynamic input, searches the vectorized document content for the most relevant information, and passes that information to subsequent nodes (like a Generator Node) for processing, analysis, or summarization.
+*   **Connect the Output**: The "Output" of the Document Vector Store Node should be connected to the input of a Vector Query Node.
+*   **Perform a Search**: The Vector Query Node takes a user's question or dynamic input, searches the vectorized document content for the most relevant information, and passes that information to subsequent nodes (like a Generator Node) for processing, analysis, or summarization.
 
 #### Example Workflow:
 
 ```
 [Text Node: "What are the safety guidelines?"]
          ↓
-[Query Node] ←── [Document Vector Store Node]
+[Vector Query Node] ←── [Document Vector Store Node]
          ↓
 [Generator Node: Summarizes safety guidelines based on search results]
 ```
 
 ### Query Parameters
 
-When using a Query Node with the Document Vector Store, you can configure:
+When using a Vector Query Node with the Document Vector Store, you can configure:
 
 *   **Max Results**: The maximum number of document chunks to return (default: 20, maximum: 100).
 *   **Similarity Threshold**: The minimum cosine similarity score for results (default: 0.3, range: 0-1). Higher values return only more relevant results.
 
 ### Output of the Node
 
-The Document Vector Store Node's **output** is a reference to the vectorized data of your uploaded documents. This output provides the necessary connection for other nodes, like the Query Node, to access and search the document content.
+The Document Vector Store Node's **output** is a reference to the vectorized data of your uploaded documents. This output provides the necessary connection for other nodes, like the Vector Query Node, to access and search the document content.
 
 ### Managing Your Document Vector Stores
 

@@ -65,11 +65,11 @@ For large repositories or frequent updates, you may experience rate limiting dur
 
 ### Usage in Workflows
 
-The GitHub Vector Store Node is designed to be used in combination with a **Query Node**. It acts as the knowledge base that the Query Node searches through.
+The GitHub Vector Store Node is designed to be used in combination with a **Vector Query Node**. It acts as the knowledge base that the Vector Query Node searches through.
 
-*   **Connect the Output**: The "Output" of the GitHub Vector Store Node should be connected to the input of a Query Node.
-*   **Perform a Search**: The Query Node can then take a user's question or a dynamic input, search the vectorized repository content for the most relevant information, and pass that information to subsequent nodes (like a Generator Node) for processing, analysis, or summarization.
+*   **Connect the Output**: The "Output" of the GitHub Vector Store Node should be connected to the input of a Vector Query Node.
+*   **Perform a Search**: The Vector Query Node can then take a user's question or a dynamic input, search the vectorized repository content for the most relevant information, and pass that information to subsequent nodes (like a Generator Node) for processing, analysis, or summarization.
 
 ### Output of the Node
 
-The GitHub Vector Store Node's **output** is a reference to the vectorized data of the selected repository. This output provides the necessary connection for other nodes, like the Query Node, to access and search the repository's content.
+The GitHub Vector Store Node's **output** is a reference to the vectorized data of the selected repository. This output provides the necessary connection for other nodes, like the Vector Query Node, to access and search the repository's content.
