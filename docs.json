@@ -129,20 +129,45 @@
             "tab": "Glossary",
             "groups": [
               {
-                "group": "Explore the Glossary",
+                "group": "Overview",
                 "pages": [
-                  "en/glossary/node",
-                  "en/glossary/start-end-nodes",
+                  "en/glossary/node"
+                ]
+              },
+              {
+                "group": "App",
+                "pages": [
+                  "en/glossary/start-end-nodes"
+                ]
+              },
+              {
+                "group": "Model",
+                "pages": [
                   "en/glossary/generator-node",
-                  "en/glossary/trigger-node",
-                  "en/glossary/action-node",
+                  "en/glossary/ai-parameters"
+                ]
+              },
+              {
+                "group": "Context",
+                "pages": [
                   "en/glossary/text-node",
+                  "en/glossary/file-node",
                   "en/glossary/webpage-node",
                   "en/glossary/document-vector-store-node",
                   "en/glossary/github-vector-store-node",
-                  "en/glossary/vector-query-node",
-                  "en/glossary/file-node",
-                  "en/glossary/ai-parameters",
+                  "en/glossary/vector-query-node"
+                ]
+              },
+              {
+                "group": "Integration",
+                "pages": [
+                  "en/glossary/trigger-node",
+                  "en/glossary/action-node"
+                ]
+              },
+              {
+                "group": "Tools",
+                "pages": [
                   "en/glossary/github-tools",
                   "en/glossary/postgresql-tools"
                 ]
@@ -284,20 +309,45 @@
             "tab": "用語集",
             "groups": [
               {
-                "group": "用語集を調べる",
+                "group": "概要",
                 "pages": [
-                  "ja/glossary/node",
-                  "ja/glossary/start-end-nodes",
+                  "ja/glossary/node"
+                ]
+              },
+              {
+                "group": "App",
+                "pages": [
+                  "ja/glossary/start-end-nodes"
+                ]
+              },
+              {
+                "group": "Model",
+                "pages": [
                   "ja/glossary/generator-node",
-                  "ja/glossary/trigger-node",
-                  "ja/glossary/action-node",
+                  "ja/glossary/ai-parameters"
+                ]
+              },
+              {
+                "group": "Context",
+                "pages": [
                   "ja/glossary/text-node",
+                  "ja/glossary/file-node",
                   "ja/glossary/webpage-node",
                   "ja/glossary/document-vector-store-node",
                   "ja/glossary/github-vector-store-node",
-                  "ja/glossary/vector-query-node",
-                  "ja/glossary/file-node",
-                  "ja/glossary/ai-parameters",
+                  "ja/glossary/vector-query-node"
+                ]
+              },
+              {
+                "group": "Integration",
+                "pages": [
+                  "ja/glossary/trigger-node",
+                  "ja/glossary/action-node"
+                ]
+              },
+              {
+                "group": "Tools",
+                "pages": [
                   "ja/glossary/github-tools",
                   "ja/glossary/postgresql-tools"
                 ]
