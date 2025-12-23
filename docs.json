@@ -132,6 +132,7 @@
                 "group": "Explore the Glossary",
                 "pages": [
                   "en/glossary/node",
+                  "en/glossary/start-end-nodes",
                   "en/glossary/generator-node",
                   "en/glossary/trigger-node",
                   "en/glossary/action-node",
@@ -286,6 +287,7 @@
                 "group": "用語集を調べる",
                 "pages": [
                   "ja/glossary/node",
+                  "ja/glossary/start-end-nodes",
                   "ja/glossary/generator-node",
                   "ja/glossary/trigger-node",
                   "ja/glossary/action-node",
