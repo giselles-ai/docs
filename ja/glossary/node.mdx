@@ -39,18 +39,18 @@ Giselle で利用可能な基本的なノードの一部を以下に紹介しま
 
 アクションノードは外部サービスを呼び出すことができるノードです。現在は主にGitHubとの統合をサポートしており、ワークフローがリポジトリ内でアクションを実行できます。将来的には、様々な他の外部サービスとのインタラクションを可能にするために機能を拡張する予定です。
 
-### GitHub Vector Store ノード & Query ノード
+### GitHub Vector Store Node & Vector Query Node
 
-Giselle は **GitHub Vector Store ノード** と **Query ノード** を通じて高度なデータ取得と検索機能をサポートしています。
+Giselle は **GitHub Vector Store Node** と **Vector Query Node** を通じて高度なデータ取得と検索機能をサポートしています。
 
-- **GitHub Vector Store ノード**: この専用ソースノードは、GitHub リポジトリの内容をベクトル化し、検索可能なナレッジベースを作成できます。OpenAI のテキスト埋め込みモデルや Google の gemini-embedding-001 など、複数の先進的な埋め込みモデルから選択してリポジトリのコードと文書をベクトル表現に変換し、ワークフロー内でセマンティック検索を可能にします。これは検索拡張生成（RAG）アプリケーションの構築に特に有用です。設定と詳細については、[GitHub Vector Store ノードドキュメント](github-vector-store-node)を参照してください。
+- **GitHub Vector Store Node**: この専用ソースノードは、GitHub リポジトリの内容をベクトル化し、検索可能なナレッジベースを作成できます。OpenAI のテキスト埋め込みモデルや Google の gemini-embedding-001 など、複数の先進的な埋め込みモデルから選択してリポジトリのコードと文書をベクトル表現に変換し、ワークフロー内でセマンティック検索を可能にします。これは検索拡張生成（RAG）アプリケーションの構築に特に有用です。設定と詳細については、[GitHub Vector Store Node ドキュメント](github-vector-store-node)を参照してください。
 
-- **Query ノード**: Query ノードは、GitHub Vector Store ノードなどの接続されたデータソースに対して検索クエリを実行するよう設計されています。ベクトル化されたリポジトリから最も関連性の高い情報（テキストチャンク）を取得し、AI 生成やさらなる処理の動的なコンテキストとして使用できます。詳細については、[Query ノードドキュメント](query-node)を参照してください。
+- **Vector Query Node**: Vector Query Node は、GitHub Vector Store Node などの接続されたデータソースに対して検索クエリを実行するよう設計されています。ベクトル化されたリポジトリから最も関連性の高い情報（テキストチャンク）を取得し、AI 生成やさらなる処理の動的なコンテキストとして使用できます。詳細については、[Vector Query Node ドキュメント](vector-query-node)を参照してください。
 
 **典型的な使用方法:**
-1. GitHub Vector Store ノードを追加し、リポジトリで設定します。
-2. その出力を Query ノードに接続します。
-3. Query ノードを使用してリポジトリのコンテンツを検索し、結果をジェネレーターノードなどの他のノードに渡して、コンテキスト認識 AI ワークフローを構築します。
+1. GitHub Vector Store Node を追加し、リポジトリで設定します。
+2. その出力を Vector Query Node に接続します。
+3. Vector Query Node を使用してリポジトリのコンテンツを検索し、結果を Generator Node などの他のノードに渡して、コンテキスト認識 AI ワークフローを構築します。
 
 これらのノードにより、Giselle 内で独自のデータソースを活用して、強力で最新かつコンテキストが豊富な AI アプリケーションを構築できます。
 
