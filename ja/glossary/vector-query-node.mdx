@@ -1,13 +1,16 @@
 ---
 title: Vector Query Node
-description: Giselle の Vector Query Node が GitHub Vector Store などのデータソースに対してクエリを実行し、検索拡張生成（RAG）を可能にする方法を学びます。
+description: Giselle の Vector Query Node がベクターストアデータソースに対してクエリを実行し、検索拡張生成（RAG）を可能にする方法を学びます。
 ---
 
 ## Giselle の Vector Query Node
 
-**Vector Query Node** は、接続されたデータソースから情報を検索し、取得するために設計された Giselle の強力なコンポーネントです。その主要な機能は、データセットに対してクエリ（質問や検索用語など）を実行し、最も関連性の高い結果を返すことです。
+**Vector Query Node** は、接続されたベクターストアデータソースから情報を検索し、取得するために設計された Giselle の強力なコンポーネントです。その主要な機能は、ベクトル化されたデータセットに対してクエリ（質問や検索用語など）を実行し、最も関連性の高い結果を返すことです。
 
-現在、Vector Query Node は **GitHub Vector Store Node** との連携に最適化されており、Giselle ワークフロー内で検索拡張生成（RAG）アプリケーションを作成するための重要な構成要素となっています。
+Vector Query Node は以下のベクターストアノードと連携し、Giselle ワークフロー内で検索拡張生成（RAG）アプリケーションを作成するための重要な構成要素となっています：
+
+- **[GitHub Vector Store Node](github-vector-store-node)**: コード、Issue、Pull Request を含むベクトル化された GitHub リポジトリコンテンツを検索します。
+- **[Document Vector Store Node](document-vector-store-node)**: PDF、テキストファイル、マークダウンファイルなど、アップロードしたドキュメントを検索します。
 
 ### Vector Query Node の使用方法
 
@@ -19,7 +22,7 @@ Vector Query Node の設定では、キャンバスに追加し、データソ�
 
 #### 2. データソースの接続
 
-Vector Query Node が機能するには、データソースからの入力が必要です。データソースノード（GitHub Vector Store Node など）の `出力` を Vector Query Node の `入力` に接続する必要があります。データソースが接続されるまで、ノードは接続を待機していることを示します。
+Vector Query Node が機能するには、ベクターストアデータソースからの入力が必要です。ベクターストアノード（GitHub Vector Store Node または Document Vector Store Node）の `出力` を Vector Query Node の `入力` に接続する必要があります。データソースが接続されるまで、ノードは接続を待機していることを示します。
 
 #### 3. クエリの記述と実行
 
@@ -41,7 +44,7 @@ Vector Query Node が機能するには、データソースからの入力が�
 Vector Query Node の主要な目的は、**検索拡張生成（RAG）** ワークフローを可能にすることです。RAG は、応答を生成する前に、独自のデータソースから関連性が高く最新の情報を提供することで、大規模言語モデル（LLM）の機能を強化します。
 
 Giselle における典型的な RAG ワークフローは次のようになります：
-1.  **データソース（GitHub Vector Store Node）**: GitHub リポジトリからドキュメントを取得してベクトル化し、検索可能にします。
+1.  **データソース（Vector Store Node）**: GitHub リポジトリまたはアップロードされたドキュメントからコンテンツを取得してベクトル化し、検索可能にします。
 2.  **Vector Query Node**: ユーザーの質問（クエリ）を受け取り、ベクターストアから最も関連性の高いテキストチャンクを取得します。
 3.  **Generator Node**: 元の質問*と* Vector Query Node の出力から取得された情報を受け取ります。この組み合わされたコンテキストを使用して、より正確で詳細、かつ事実に基づいた回答を生成します。
 
@@ -50,5 +53,5 @@ Giselle における典型的な RAG ワークフローは次のようになり�
 Vector Query Node の `結果` 出力には、取得されたデータチャンクのコレクションが含まれます。この構造化されたデータは、後続ノード（最も一般的には **Generator Node**）に渡され、テキスト生成のための動的なコンテキストとして機能できます。
 
 <Note>
-クエリ用のデータソース設定の詳細については、[GitHub Vector Store Node](github-vector-store-node) のドキュメントをご覧ください。
+クエリ用のデータソース設定の詳細については、[GitHub Vector Store Node](github-vector-store-node) および [Document Vector Store Node](document-vector-store-node) のドキュメントをご覧ください。
 </Note>
