@@ -1,0 +1,78 @@
+---
+title: December 23, 2025
+description: GPT-5.2 & Gemini 3 Flash models, new Tasks page, Start/End node improvements, and security enhancements
+---
+
+This update brings new AI models, a redesigned Tasks page, improved Start/End node experience, and important security fixes.
+
+## New AI Models
+
+### GPT-5.2 Support
+
+Added **GPT-5.2**, OpenAI's most capable flagship model with significant improvements in general intelligence, instruction following, and code generation:
+
+- Configurable reasoning effort levels (`none`, `low`, `medium`, `high`, `xhigh`)
+- Text verbosity control (`low`, `medium`, `high`)
+- Enhanced vision capabilities and tool calling
+
+### Gemini 3 Flash
+
+Added **Gemini 3 Flash** model support with SDK upgrade, offering enhanced reasoning capabilities and improved performance for complex tasks.
+
+## New Tasks Page
+
+Introduced a dedicated **Tasks page** for viewing and managing your workflow execution history:
+
+- Revamped tasks list layout with better organization
+- Enhanced final step output display with count indicator
+- Improved task detail page with status indicators
+- Entrance/exit animations for task overlay
+- Optimistic submission for smoother task execution
+
+## Start/End Node Improvements
+
+Significant updates to the app entry and exit nodes:
+
+- **Renamed "App Entry" to "Start"** — clearer terminology throughout the application
+- **Auto-pairing** — creating a Start node automatically creates a paired End node
+- Enhanced node panels with improved styling
+- Stage run readiness checks ensure proper configuration
+
+## Node Naming Updates
+
+Improved clarity with renamed nodes and categories:
+
+- **Query Node** renamed to **Vector Query** for better understanding
+- **Event grouping** renamed to **Integration** in the toolbar
+
+## UI/UX Improvements
+
+- Playground now autofocuses on prompt input when navigating
+- Improved file attachment preview UI
+- Replaced markdown rendering with Streamdown for better performance
+- Updated recommended models display for Free/Pro tiers
+- Fixed sample apps visibility for new users
+
+## Subscription Management
+
+- Implemented scheduled subscription cancellation at billing period end
+- Smoother subscription lifecycle management
+
+## Security Enhancements
+
+Important security improvements in this release:
+
+- Fixed Next.js DoS vulnerability (CVE-2025-55184)
+- Encrypted OAuth tokens with AES-256-GCM
+- Prevented Host Header Injection in OAuth callbacks
+- Implemented timing-safe comparison for signed cookie verification
+- Security fix for HMAC signature verification (jws 4.0.1)
+
+## Architecture Improvements
+
+- Migrated to modular app designer store with Zustand for better state management
+- Major internal refactoring for improved maintainability
+
+---
+
+*This release includes [v0.55.2](https://github.com/giselles-ai/giselle/releases/tag/v0.55.2) through [v0.59.1](https://github.com/giselles-ai/giselle/releases/tag/v0.59.1)*
