@@ -180,6 +180,7 @@
               {
                 "group": "Application FAQs",
                 "pages": [
+                  "en/faq/application/run-apps",
                   "en/faq/application/build-apps",
                   "en/faq/application/ai-models"
                 ]
@@ -360,6 +361,7 @@
               {
                 "group": "アプリケーションに関するFAQ",
                 "pages": [
+                  "ja/faq/application/run-apps",
                   "ja/faq/application/build-apps",
                   "ja/faq/application/ai-models"
                 ]
