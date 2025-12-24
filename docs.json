@@ -52,7 +52,8 @@
               {
                 "group": "Run Apps",
                 "pages": [
-                  "en/guides/playground"
+                  "en/guides/playground",
+                  "en/guides/tasks"
                 ]
               },
               {
@@ -238,7 +239,8 @@
               {
                 "group": "アプリの実行",
                 "pages": [
-                  "ja/guides/playground"
+                  "ja/guides/playground",
+                  "ja/guides/tasks"
                 ]
               },
               {
