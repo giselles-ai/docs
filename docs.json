@@ -59,7 +59,7 @@
               {
                 "group": "Build Apps",
                 "pages": [
-                  "en/guides/workspaces/build",
+                  "en/guides/workspaces",
                   "en/guides/settings/team/integrations",
                   "en/guides/settings/team/vector-stores"
                 ]
@@ -246,7 +246,7 @@
               {
                 "group": "アプリの構築",
                 "pages": [
-                  "ja/guides/workspaces/build",
+                  "ja/guides/workspaces",
                   "ja/guides/settings/team/integrations",
                   "ja/guides/settings/team/vector-stores"
                 ]
