@@ -1,0 +1,77 @@
+---
+title: 'Tasks'
+description: 'View and manage your AI application execution history'
+---
+
+Tasks is where you view all your executed AI applications and their results. It provides a comprehensive overview of past runs and detailed execution information for each task.
+
+## Accessing Tasks
+
+Navigate to [Tasks](https://studio.giselles.ai/tasks) from the sidebar under "Stage - Run Apps".
+
+## Task History
+
+The Task History page displays a list of all executed tasks with the following information:
+
+- **Task ID**: Unique identifier for each task (click to view details)
+- **Status**: Current state of the task
+  - Running (blue): Task is currently executing
+  - Completed (green): Task finished successfully
+  - Failed (red): Task encountered an error
+  - Cancelled (gray): Task was cancelled
+- **Origin**: Where the task was triggered from (App name)
+- **Timestamp**: When the task was started
+
+Tasks are displayed in chronological order with the most recent tasks first. Use the Previous/Next buttons to navigate through your task history.
+
+## Task Execution Result Page
+
+When you run an app from the Playground or click on a task in the Task History, you are taken to the task execution result page. This page shows the complete execution details of a single task.
+
+### Header Section
+
+The task header displays:
+- Task status badge
+- Task title (workspace name and task ID)
+- App description
+- "Edit in Studio" button to open the app in the workspace editor
+
+### Steps Section
+
+The steps section shows the execution flow of your task:
+
+- **Progress indicator**: Shows completion status (e.g., "Step 2 of 5")
+- **Progress bar**: Visual representation of execution progress
+- **Step list**: Each step shows its status and can be expanded to view details
+
+Step statuses:
+- Queued: Waiting to execute
+- Running: Currently executing
+- Completed: Finished successfully
+- Failed: Encountered an error
+
+### Output Section
+
+Once a task completes, the output section displays the generated results:
+
+- **Single output**: Displayed directly with action buttons
+- **Multiple outputs**: Organized in tabs for easy navigation
+
+Output actions:
+- **Copy**: Copy the output to clipboard
+- **Download**: Save the output as a text file
+
+### Real-time Updates
+
+While a task is running, the page automatically updates to show the current status. You can watch the execution progress in real-time as each step completes.
+
+### Running New Tasks
+
+From the task execution result page, you can run new tasks using the input area at the bottom. This allows you to quickly iterate on your workflows without returning to the Playground.
+
+## Tips for Using Tasks
+
+- **Monitor long-running tasks**: Keep the task execution result page open to watch execution progress
+- **Review failed tasks**: Check the error message and use "Edit in Studio" to debug your app
+- **Compare results**: Use task history to compare outputs from different runs
+- **Download important outputs**: Save generated content for later use
