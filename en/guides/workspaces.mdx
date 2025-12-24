@@ -1,6 +1,104 @@
 ---
-title: 'Build'
-description: 'Learn how to build and configure workspaces in Giselle'
+title: 'Workspaces'
+description: 'Learn how to build AI workflows visually in the Workspace editor'
 ---
 
-TBD
+## Overview
+
+A **Workspace** is a visual canvas-based editor where you design AI workflows by connecting nodes together. Each node performs a specific function, and data flows between nodes through connections.
+
+## The Workspace Editor
+
+The Workspace editor consists of several key components:
+
+- **Canvas**: The main area where you build your workflow by placing and connecting nodes
+- **Toolbar**: Located at the bottom, provides access to all available node types
+- **Properties Panel**: Appears on the right when a node is selected, allowing you to configure its settings
+
+## Adding Nodes
+
+To add a node to your workflow:
+
+1. Click a category in the toolbar at the bottom of the screen
+2. Select the desired node type from the menu
+3. The node appears on the canvas
+4. Drag the node to position it where you want
+
+### Available Node Types
+
+Nodes are organized into categories:
+
+**App**
+- **[Start Node](/en/glossary/start-end-nodes#start-node)**: Defines the workflow entry point and input parameters
+- **[End Node](/en/glossary/start-end-nodes#end-node)**: Marks the workflow completion and output
+
+**Model**
+- **[Generator Node](/en/glossary/generator-node)**: Performs AI text or image generation using various LLM providers
+
+**Context**
+- **[Text Node](/en/glossary/text-node)**: Stores static text content
+- **[File Node](/en/glossary/file-node)**: Attaches files (PDF, text, images) to your workflow
+- **[Web Page Node](/en/glossary/webpage-node)**: Fetches and provides web page content
+- **[Document Vector Store Node](/en/glossary/document-vector-store-node)**: Creates searchable indexes from documents
+- **[GitHub Vector Store Node](/en/glossary/github-vector-store-node)**: Creates searchable indexes from GitHub repositories
+- **[Vector Query Node](/en/glossary/vector-query-node)**: Searches vector stores for relevant content
+
+**Integration**
+- **[Trigger Node](/en/glossary/trigger-node)**: Starts workflows from external events (e.g., GitHub webhooks)
+- **[Action Node](/en/glossary/action-node)**: Executes external actions (e.g., GitHub operations)
+
+## Connecting Nodes
+
+To connect nodes and create data flow:
+
+1. Hover over a node to see its output port (right side)
+2. Click and drag from the output port
+3. Drop the connection on another node's input port (left side)
+4. A connection line appears showing the data flow direction
+
+Connections define how data passes between nodes. The output of one node becomes available as input to the connected node.
+
+## Configuring Nodes
+
+To configure a node:
+
+1. Click on a node to select it
+2. The Properties Panel opens on the right side
+3. Edit the node name in the header if needed
+4. Configure node-specific settings:
+   - **Generator Node**: Select an AI model, write prompts, enable tools
+   - **Text Node**: Enter your text content
+   - **File Node**: Upload files
+   - **Trigger/Action Nodes**: Configure integration settings
+
+## Running Your Workflow
+
+You can run your workflow directly in the Workspace to test it:
+
+1. Click the **Run** button in the upper right corner
+2. Enter any required input values
+3. The workflow executes and you're redirected to the task execution result page
+
+On the result page, you can see:
+- Execution progress and status for each step
+- Generated outputs from each node
+- Token usage and execution duration
+
+This allows you to quickly test and iterate on your workflow during development.
+
+## Creating an App
+
+By connecting a [Start Node](/en/glossary/start-end-nodes#start-node) and [End Node](/en/glossary/start-end-nodes#end-node), your workflow becomes an **App** that can be run from the [Playground](https://studio.giselles.ai/playground).
+
+1. Add a Start Node
+2. Build your workflow with the nodes you need
+3. Add an End Node to define the output
+4. Connect all nodes in your workflow
+
+Once configured, your app appears in the Playground where you and your team can run it without accessing the Workspace editor.
+
+## Next Steps
+
+- Learn about [Generator Node](/en/glossary/generator-node) configuration
+- Explore [AI Parameters](/en/glossary/ai-parameters) for fine-tuning generation
+- Set up [Integrations](/en/guides/settings/team/integrations) for external services
