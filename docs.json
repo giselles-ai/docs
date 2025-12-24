@@ -65,13 +65,6 @@
                 ]
               },
               {
-                "group": "Apps",
-                "pages": [
-                  "en/guides/apps/myapp",
-                  "en/guides/apps/teamapp"
-                ]
-              },
-              {
                 "group": "Settings",
                 "pages": [
                   {
@@ -249,13 +242,6 @@
                   "ja/guides/workspaces",
                   "ja/guides/settings/team/integrations",
                   "ja/guides/settings/team/vector-stores"
-                ]
-              },
-              {
-                "group": "アプリ",
-                "pages": [
-                  "ja/guides/apps/myapp",
-                  "ja/guides/apps/teamapp"
                 ]
               },
               {
