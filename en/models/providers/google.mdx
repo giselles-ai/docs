@@ -8,12 +8,16 @@ The following Gemini models are available in the Giselle workspace. Each model o
 
 | Models | Generate Text | Web Search | Reasoning | Input PDF | Input Image | Input Audio | Input Video | Context Window | Plan@Giselle |
 | --------------------------------- | --------------| ------------ | ----------- | ----------- | ------------- | ------------ | ------------ | ----------------- | --------------- |
+| gemini-3-flash-preview | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Pro |
 | gemini-3-pro-preview | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Pro |
 | gemini-2.5-pro | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens (2M soon) | Pro |
 | gemini-2.5-flash | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Pro |
 | gemini-2.5-flash-lite | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Free |
 
 *Note: Some features may not be available within Giselle even if they are offered in the Google official API. Features marked 'Free' or 'Pro' refer to the Giselle subscription plan required to access them.*
+
+### gemini-3-flash-preview
+The latest Gemini 3 Flash model, combining Pro-level intelligence with the speed and pricing of Flash. It uses dynamic thinking by default to reason through prompts, with configurable thinking levels (`minimal`, `low`, `medium`, `high`) to control latency and reasoning depth. Supports text generation, web search, advanced reasoning, and multimodal inputs (PDF, images, audio, video). With a 1 million token context window and 64K max output tokens, it's ideal for complex tasks requiring both speed and analytical depth. Requires a Pro plan.
 
 ### gemini-3-pro-preview
 The latest Gemini 3 series preview model, offering enhanced reasoning capabilities and improved performance. It supports text generation, web search, advanced reasoning, and multimodal inputs (PDF, images, audio, video). With a 1 million token context window, it's designed for complex tasks requiring deep analytical thinking. Requires a Pro plan.
@@ -52,6 +56,7 @@ Guidelines for selecting the optimal model based on your needs and plan:
 * **For extremely fast responses and efficiency**: `gemini-2.5-flash-lite` (Maximum speed)
 
 **Pro Plan Models:**
+* **For Pro-level intelligence at Flash speed**: `gemini-3-flash-preview` (Latest 3-series Flash, dynamic thinking)
 * **For cutting-edge reasoning and complex tasks**: `gemini-3-pro-preview` (Latest model, enhanced reasoning)
 * **For proven stability and comprehensive features**: `gemini-2.5-pro` (Stable, full-featured)
 * **For fast responses with reasoning**: `gemini-2.5-flash` (Speed + Reasoning balance)
