@@ -3,4 +3,80 @@ title: 'Workspace FAQ'
 description: 'Frequently asked questions about Giselle workspaces'
 ---
 
-TBD
+## What is a Workspace?
+
+A Workspace is a visual canvas-based editor where you design AI workflows by connecting nodes together. Each node performs a specific function, and data flows between nodes through connections.
+
+## How do I create a new app?
+
+Click "+ Create App" in the left menu. Enter a name and description for your app, and you'll be taken to the Workspace editor where you can build your workflow.
+
+## What are nodes?
+
+Nodes are the building blocks of your workflow. Each node performs a specific function:
+
+- **Start/End Nodes**: Define the entry point and output of your app
+- **Generator Node**: Performs AI text or image generation
+- **Text/File/Web Page Nodes**: Provide content to your workflow
+- **Vector Store/Query Nodes**: Enable semantic search with RAG
+- **Trigger/Action Nodes**: Connect to external services like GitHub
+
+For more details, see the [Workspaces guide](/en/guides/workspaces).
+
+## How do I connect nodes?
+
+1. Hover over a node to see its output port (right side)
+2. Click and drag from the output port
+3. Drop the connection on another node's input port (left side)
+
+## How do I run my workflow?
+
+Click the **Run** button in the upper right corner of the Workspace. You'll be redirected to the task execution result page where you can see the output.
+
+## What's the difference between running in Workspace vs Playground?
+
+- **Workspace**: Run your workflow directly to test during building. Useful for iterating and debugging.
+- **Playground**: Run completed apps with a simple interface. Best for regular use by you and your team.
+
+## How do I turn my workflow into an app?
+
+Connect a [Start Node](/en/glossary/start-end-nodes#start-node) and [End Node](/en/glossary/start-end-nodes#end-node) to your workflow. Once these are connected, your app will appear in the [Playground](https://studio.giselles.ai/playground).
+
+## Can I duplicate a workflow?
+
+Yes. You can copy an existing app to create a new one based on it. This is useful for creating variations of your workflows.
+
+## How do I delete an app?
+
+Navigate to the app settings and look for the delete option. Note that deleted apps cannot be recovered.
+
+## Can team members edit the same workspace?
+
+Team members with access to the team can view and edit apps within that team. Changes are saved automatically.
+
+## What file types can I upload to a File Node?
+
+File Nodes support PDF, text files, and images (JPG, PNG, GIF, WebP).
+
+## How do I use external data in my workflow?
+
+You can bring external data into your workflow using:
+
+- **File Node**: Upload documents directly
+- **Web Page Node**: Fetch content from URLs
+- **GitHub Vector Store Node**: Index GitHub repositories
+- **Trigger Node**: Receive data from external events
+
+## What happens if my workflow fails?
+
+If a workflow fails, you can see the error details on the task execution result page. Common issues include:
+
+- Missing required inputs
+- Invalid node configuration
+- API errors from AI providers
+
+Check the error message and update your workflow accordingly.
+
+## Where can I learn more about building workflows?
+
+See the [Workspaces guide](/en/guides/workspaces) for detailed instructions on building workflows, and the [Glossary](/en/glossary/node) for information about each node type.
