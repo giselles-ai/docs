@@ -3,4 +3,84 @@ title: 'AI Models FAQ'
 description: 'Frequently asked questions about AI models and their usage in Giselle'
 ---
 
-TBD
+## What AI providers are available in Giselle?
+
+Giselle integrates with multiple AI providers:
+
+- **Anthropic**: Claude models for nuanced understanding and safe outputs
+- **Google AI**: Gemini models with multimodal capabilities and large context windows
+- **OpenAI**: GPT models for code generation, creative content, and structured outputs
+- **Fal AI**: Image generation models (Open Source version only)
+
+## What models are available on the Free plan?
+
+The following models are available on the Free plan:
+
+- **Anthropic**: Claude Haiku 4.5
+- **Google**: Gemini 2.5 Flash Lite
+- **OpenAI**: GPT-5-nano
+
+## What additional models are available on the Pro plan?
+
+Pro plan users have access to all Free plan models plus:
+
+- **Anthropic**: Claude Opus 4.5, Claude Sonnet 4.5
+- **Google**: Gemini 3 Pro Preview, Gemini 2.5 Pro, Gemini 2.5 Flash, Gemini 2.5 Flash Image
+- **OpenAI**: GPT-5.2, GPT-5.1-thinking, GPT-5.1-codex, GPT-5, GPT-5-mini
+
+## How do I select an AI model?
+
+In the Workspace, add a [Generator Node](/en/glossary/generator-node) and click on it to open the Properties Panel. You can select your preferred AI model from the model dropdown menu.
+
+## Which model should I choose?
+
+Here are general recommendations:
+
+- **For coding and complex reasoning**: Claude Opus 4.5, GPT-5.2, or Gemini 2.5 Pro
+- **For balanced performance and cost**: Claude Sonnet 4.5 or Gemini 2.5 Flash
+- **For speed and cost-efficiency**: Claude Haiku 4.5, GPT-5-nano, or Gemini 2.5 Flash Lite
+- **For image generation**: Gemini 2.5 Flash Image
+
+## What is the context window?
+
+The context window is the maximum amount of text (measured in tokens) that a model can process in a single request. Larger context windows allow you to include more information in your prompts.
+
+- **Anthropic models**: 200k tokens
+- **Google Gemini models**: 1M tokens
+- **OpenAI models**: 400k tokens
+
+## Do the models support image input?
+
+Yes, most models support image input:
+
+- **Anthropic Claude**: All Claude models support image and PDF input
+- **Google Gemini**: All Gemini models support image, PDF, audio, and video input
+- **OpenAI GPT**: GPT-5 series models support image input
+
+## What is the Reasoning capability?
+
+Reasoning (also called Extended Thinking) allows models to spend more time thinking through complex problems before responding. This improves accuracy for multi-step reasoning tasks. Models with reasoning capability include:
+
+- Claude Opus 4.5, Claude Sonnet 4.5, Claude Haiku 4.5
+- Gemini 2.5 Pro, Gemini 2.5 Flash, Gemini 2.5 Flash Lite
+- GPT-5.2, GPT-5.1-thinking
+
+## What is Web Search?
+
+Web Search allows models to access real-time information from the internet. You can enable this feature from the Generator Node's Tools tab. Models supporting web search include most Claude, Gemini, and GPT models.
+
+## How is AI model usage billed?
+
+AI model usage is billed based on the number of tokens processed (input and output). Different models have different pricing. You can view your usage from [Team Settings > Usage](https://studio.giselles.ai/settings/team/usage).
+
+## Can I use multiple models in one workflow?
+
+Yes! One of Giselle's strengths is combining different AI providers in a single workflow. You can use different models at different stages to optimize for cost, speed, or capability.
+
+## Where can I learn more about each model?
+
+For detailed model specifications, visit the [Models documentation](/en/models/providers/overview) or the official provider documentation:
+
+- [Anthropic Documentation](https://docs.anthropic.com/)
+- [Google AI for Developers](https://ai.google.dev/)
+- [OpenAI Documentation](https://platform.openai.com/docs)
