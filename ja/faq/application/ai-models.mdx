@@ -1,6 +1,86 @@
 ---
 title: 'AI モデル FAQ'
-description: 'Giselle での AI モデルとその使用法についてよくある質問'
+description: 'Giselle での AI モデルとその使用法に関するよくある質問'
 ---
 
-TBD
+## Giselle で利用できる AI プロバイダーは？
+
+Giselle は複数の AI プロバイダーと統合しています：
+
+- **Anthropic**: 繊細な理解と安全な出力のための Claude モデル
+- **Google AI**: マルチモーダル機能と大きなコンテキストウィンドウを持つ Gemini モデル
+- **OpenAI**: コード生成、クリエイティブコンテンツ、構造化出力のための GPT モデル
+- **Fal AI**: 画像生成モデル（オープンソース版のみ）
+
+## Free プランで利用できるモデルは？
+
+以下のモデルが Free プランで利用可能です：
+
+- **Anthropic**: Claude Haiku 4.5
+- **Google**: Gemini 2.5 Flash Lite
+- **OpenAI**: GPT-5-nano
+
+## Pro プランで追加で利用できるモデルは？
+
+Pro プランユーザーは Free プランのすべてのモデルに加えて以下が利用可能です：
+
+- **Anthropic**: Claude Opus 4.5、Claude Sonnet 4.5
+- **Google**: Gemini 3 Pro Preview、Gemini 2.5 Pro、Gemini 2.5 Flash、Gemini 2.5 Flash Image
+- **OpenAI**: GPT-5.2、GPT-5.1-thinking、GPT-5.1-codex、GPT-5、GPT-5-mini
+
+## AI モデルを選択するには？
+
+ワークスペースで [Generator Node](/ja/glossary/generator-node) を追加し、クリックしてプロパティパネルを開きます。モデルのドロップダウンメニューからお好みの AI モデルを選択できます。
+
+## どのモデルを選ぶべきですか？
+
+一般的な推奨事項：
+
+- **コーディングと複雑な推論**: Claude Opus 4.5、GPT-5.2、または Gemini 2.5 Pro
+- **バランスの取れたパフォーマンスとコスト**: Claude Sonnet 4.5 または Gemini 2.5 Flash
+- **速度とコスト効率**: Claude Haiku 4.5、GPT-5-nano、または Gemini 2.5 Flash Lite
+- **画像生成**: Gemini 2.5 Flash Image
+
+## コンテキストウィンドウとは？
+
+コンテキストウィンドウは、モデルが1回のリクエストで処理できる最大テキスト量（トークンで測定）です。コンテキストウィンドウが大きいほど、プロンプトに多くの情報を含めることができます。
+
+- **Anthropic モデル**: 200k トークン
+- **Google Gemini モデル**: 1M トークン
+- **OpenAI モデル**: 400k トークン
+
+## モデルは画像入力に対応していますか？
+
+はい、ほとんどのモデルが画像入力に対応しています：
+
+- **Anthropic Claude**: すべての Claude モデルが画像と PDF 入力に対応
+- **Google Gemini**: すべての Gemini モデルが画像、PDF、音声、動画入力に対応
+- **OpenAI GPT**: GPT-5 シリーズモデルが画像入力に対応
+
+## Reasoning（推論）機能とは？
+
+Reasoning（Extended Thinking とも呼ばれる）は、モデルが複雑な問題に対して応答する前により多くの時間をかけて考えることを可能にします。これにより、多段階の推論タスクの精度が向上します。推論機能を持つモデル：
+
+- Claude Opus 4.5、Claude Sonnet 4.5、Claude Haiku 4.5
+- Gemini 2.5 Pro、Gemini 2.5 Flash、Gemini 2.5 Flash Lite
+- GPT-5.2、GPT-5.1-thinking
+
+## Web Search とは？
+
+Web Search は、モデルがインターネットからリアルタイムの情報にアクセスできるようにします。Generator Node の Tools タブからこの機能を有効にできます。ほとんどの Claude、Gemini、GPT モデルが Web Search に対応しています。
+
+## AI モデルの使用量はどのように請求されますか？
+
+AI モデルの使用量は、処理されたトークン数（入力と出力）に基づいて請求されます。モデルによって料金が異なります。使用量は [チーム設定 > 使用量](https://studio.giselles.ai/settings/team/usage) から確認できます。
+
+## 1つのワークフローで複数のモデルを使用できますか？
+
+はい！Giselle の強みの1つは、単一のワークフローで異なる AI プロバイダーを組み合わせられることです。コスト、速度、または機能を最適化するために、異なるステージで異なるモデルを使用できます。
+
+## 各モデルの詳細はどこで確認できますか？
+
+詳細なモデル仕様については、[モデルドキュメント](/ja/models/providers/overview)または公式プロバイダーのドキュメントをご覧ください：
+
+- [Anthropic Documentation](https://docs.anthropic.com/)
+- [Google AI for Developers](https://ai.google.dev/)
+- [OpenAI Documentation](https://platform.openai.com/docs)
