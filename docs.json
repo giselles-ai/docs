@@ -180,7 +180,7 @@
               {
                 "group": "Application FAQs",
                 "pages": [
-                  "en/faq/application/workspaces",
+                  "en/faq/application/build-apps",
                   "en/faq/application/ai-models"
                 ]
               },
@@ -360,7 +360,7 @@
               {
                 "group": "アプリケーションに関するFAQ",
                 "pages": [
-                  "ja/faq/application/workspaces",
+                  "ja/faq/application/build-apps",
                   "ja/faq/application/ai-models"
                 ]
               },
