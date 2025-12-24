@@ -1,6 +1,104 @@
 ---
-title: '構築'
-description: 'Giselle でワークスペースを構築し設定する方法を学びます'
+title: 'ワークスペース'
+description: 'ワークスペースエディタで AI ワークフローを視覚的に構築する方法'
 ---
 
-TBD
+## 概要
+
+**ワークスペース**は、ノードを接続して AI ワークフローを設計するビジュアルキャンバスベースのエディタです。各ノードは特定の機能を実行し、データは接続を通じてノード間を流れます。
+
+## ワークスペースエディタ
+
+ワークスペースエディタは以下の主要なコンポーネントで構成されています：
+
+- **キャンバス**: ノードを配置・接続してワークフローを構築するメインエリア
+- **ツールバー**: 画面下部に配置され、すべてのノードタイプにアクセス可能
+- **プロパティパネル**: ノードを選択すると右側に表示され、設定を編集可能
+
+## ノードの追加
+
+ワークフローにノードを追加するには：
+
+1. 画面下部のツールバーでカテゴリをクリック
+2. メニューから目的のノードタイプを選択
+3. ノードがキャンバス上に表示される
+4. ノードをドラッグして配置を調整
+
+### 利用可能なノードタイプ
+
+ノードはカテゴリ別に整理されています：
+
+**App**
+- **[Start Node](/ja/glossary/start-end-nodes#start-node)**: ワークフローの開始点と入力パラメータを定義
+- **[End Node](/ja/glossary/start-end-nodes#end-node)**: ワークフローの終了と出力を定義
+
+**Model**
+- **[Generator Node](/ja/glossary/generator-node)**: 各種 LLM プロバイダーを使用して AI テキストまたは画像生成を実行
+
+**Context**
+- **[Text Node](/ja/glossary/text-node)**: 静的なテキストコンテンツを保存
+- **[File Node](/ja/glossary/file-node)**: ファイル（PDF、テキスト、画像）をワークフローに添付
+- **[Web Page Node](/ja/glossary/webpage-node)**: Web ページのコンテンツを取得して提供
+- **[Document Vector Store Node](/ja/glossary/document-vector-store-node)**: ドキュメントから検索可能なインデックスを作成
+- **[GitHub Vector Store Node](/ja/glossary/github-vector-store-node)**: GitHub リポジトリから検索可能なインデックスを作成
+- **[Vector Query Node](/ja/glossary/vector-query-node)**: ベクターストアから関連コンテンツを検索
+
+**Integration**
+- **[Trigger Node](/ja/glossary/trigger-node)**: 外部イベント（GitHub webhook など）からワークフローを開始
+- **[Action Node](/ja/glossary/action-node)**: 外部アクション（GitHub 操作など）を実行
+
+## ノードの接続
+
+ノードを接続してデータフローを作成するには：
+
+1. ノードにホバーして出力ポート（右側）を表示
+2. 出力ポートからクリック＆ドラッグ
+3. 別のノードの入力ポート（左側）にドロップ
+4. 接続線が表示され、データフローの方向を示す
+
+接続はノード間のデータの受け渡し方法を定義します。あるノードの出力は、接続されたノードの入力として利用可能になります。
+
+## ノードの設定
+
+ノードを設定するには：
+
+1. ノードをクリックして選択
+2. 右側にプロパティパネルが開く
+3. 必要に応じてヘッダーでノード名を編集
+4. ノード固有の設定を行う：
+   - **Generator Node**: AI モデルの選択、プロンプトの作成、ツールの有効化
+   - **Text Node**: テキストコンテンツを入力
+   - **File Node**: ファイルをアップロード
+   - **Trigger/Action Nodes**: 連携設定を構成
+
+## ワークフローの実行
+
+ワークスペース内でワークフローを直接実行してテストできます：
+
+1. 画面右上の **Run** ボタンをクリック
+2. 必要な入力値を入力
+3. ワークフローが実行され、タスク実行結果ページにリダイレクト
+
+結果ページでは以下を確認できます：
+- 各ステップの実行進捗とステータス
+- 各ノードからの生成出力
+- トークン使用量と実行時間
+
+これにより、構築中にワークフローを素早くテストし、改善を繰り返すことができます。
+
+## アプリの作成
+
+[Start Node](/ja/glossary/start-end-nodes#start-node) と [End Node](/ja/glossary/start-end-nodes#end-node) を接続すると、ワークフローは [Playground](https://studio.giselles.ai/playground) から実行できる**アプリ**になります。
+
+1. Start Node を追加
+2. 必要なノードでワークフローを構築
+3. End Node を追加して出力を定義
+4. ワークフロー内のすべてのノードを接続
+
+設定が完了すると、アプリは Playground に表示され、ワークスペースエディタにアクセスしなくてもあなたやチームメンバーが実行できるようになります。
+
+## 次のステップ
+
+- [Generator Node](/ja/glossary/generator-node) の設定について学ぶ
+- [AI パラメータ](/ja/glossary/ai-parameters) で生成を微調整
+- 外部サービスとの[連携](/ja/guides/settings/team/integrations)を設定
