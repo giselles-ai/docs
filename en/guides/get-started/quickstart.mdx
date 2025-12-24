@@ -1,55 +1,55 @@
 ---
 title: Quickstart
-description: "Build your first AI workflow with Giselle in minutes! This quick start guide covers signup to running a workflow."
+description: "Get started with Giselle in minutes! This quick start guide covers signup to running your first AI app."
 ---
 
-## Build Your First AI Workflow with Giselle
+## Get Started with Giselle
 
-Get up and running with Giselle in minutes! This quick start guide walks you through creating your first Workspace, step by step, from signup to running a complete workflow. Learn to build and test workflows with our user-friendly interface.
+Get up and running with Giselle in minutes! This quick start guide walks you through trying sample apps, exploring how they work, and creating your own custom app.
 
 <Steps>
-  <Step title="Sign Up">
-    Unlock the power of Giselle! If you're joining us for the first time, create your account on the [sign up](https://studio.giselles.ai/signup) page. If
-    you're already part of the Giselle community, [log in](https://studio.giselles.ai/login) to jump right in.
-  </Step>
-  <Step title="Build a Workspace">
+  <Step title="Sign Up and Try Sample Apps">
     <AccordionGroup>
-      <Accordion title="Create a Workspace" defaultOpen={true}>
-        Go to the [Workspaces](https://studio.giselles.ai/workspaces) page and click the "New Workspace" button in the top right to start creating your first Workspace.
+      <Accordion title="Create Your Account" defaultOpen={true}>
+        If you're joining us for the first time, create your account on the [sign up](https://studio.giselles.ai/signup) page. If you're already part of the Giselle community, [log in](https://studio.giselles.ai/login) to jump right in.
       </Accordion>
-      <Accordion title="Place a Node" defaultOpen={true}>
-        From the toolbar at the bottom, drag and drop a "Generator" node onto the canvas to place it. This will be the first node in your workflow.
+      <Accordion title="Go to Playground" defaultOpen={true}>
+        After signing up, navigate to [Playground](https://studio.giselles.ai/playground). This is where you can run AI apps and see them in action.
       </Accordion>
-      <Accordion title="Set the Prompt" defaultOpen={true}>
-        In the right panel, open the "Prompt" tab and enter your prompt in the text area. This text will guide how the node works.
-        ```markdown
-        Suggest one interesting topic related to animals.
-        ```
+      <Accordion title="Run a Sample App" defaultOpen={true}>
+        In the Playground, you'll find sample apps provided by Giselle. Select one, enter your task description in the input area, and press Enter to run it.
       </Accordion>
-      <Accordion title="Select a Model" defaultOpen={true}>
-        In the "Model" tab, select the AI model provider (OpenAI, Anthropic, Google, etc.) and the specific model you want to use.
-      </Accordion>
-      <Accordion title="Test the Node" defaultOpen={true}>
-        Click the "Generate" button (or press Cmd+Enter) at the top of the right panel. This will execute only this node, allowing you to test your prompt and see the output.
+      <Accordion title="View Results in Tasks" defaultOpen={true}>
+        After running the app, you'll be redirected to the task execution result page. Here you can see the generated output, execution steps, and progress. You can also access all your past runs from [Tasks](https://studio.giselles.ai/tasks).
       </Accordion>
     </AccordionGroup>
   </Step>
-  <Step title="Run as a Workflow">
+  <Step title="Explore the App in Workspace">
     <AccordionGroup>
-      <Accordion title="Add Another Node" defaultOpen={true}>
-        To build a workflow, let's add another node. Drag the "Generator" node from the bottom toolbar and place it on the canvas.
+      <Accordion title="Open the App in Studio" defaultOpen={true}>
+        From the task execution result page, click the "Edit in Studio" button to open the app in the Workspace editor. This lets you see how the app is built.
       </Accordion>
-      <Accordion title="Connect the Nodes" defaultOpen={true}>
-        To connect the two nodes, drag from the Output port of the first node to the Input port of the second node.
+      <Accordion title="Understand the Workflow" defaultOpen={true}>
+        In the Workspace, you'll see the app's workflow visualized as connected nodes. Each node performs a specific function, and data flows from one node to another through connections.
       </Accordion>
-      <Accordion title="Set the Second Node's Prompt" defaultOpen={true}>
-        Enter the following into the "Prompt" tab of the second node. By feeding the output of the first node into the second node, a continuous workflow is built.
-        ```markdown
-        Please research on the following topics:
-        ```
+      <Accordion title="Explore Node Settings" defaultOpen={true}>
+        Click on any node to see its settings in the right panel. You can view the prompt, selected AI model, and other configurations that define how the node works.
       </Accordion>
-      <Accordion title="Run the Workflow" defaultOpen={true}>
-        Finally, click the "Run" button in the upper right corner to execute the workflow. This will run both nodes in sequence and generate the final output. Congratulations, you've run your first workflow in Giselle!
+    </AccordionGroup>
+  </Step>
+  <Step title="Create Your Custom App">
+    <AccordionGroup>
+      <Accordion title="Create a New App" defaultOpen={true}>
+        Click "+ Create App" in the left menu to start creating your own app. Give it a name and description.
+      </Accordion>
+      <Accordion title="Build Your Workflow" defaultOpen={true}>
+        In the Workspace, drag nodes from the toolbar at the bottom onto the canvas. Connect them by dragging from the Output port of one node to the Input port of another.
+      </Accordion>
+      <Accordion title="Configure Your Nodes" defaultOpen={true}>
+        Select each node and configure its settings in the right panel. Set prompts, choose AI models, and adjust parameters to customize the behavior.
+      </Accordion>
+      <Accordion title="Run Your App" defaultOpen={true}>
+        Click the "Run" button in the upper right corner to execute your workflow. Congratulations, you've created and run your first custom app in Giselle!
       </Accordion>
     </AccordionGroup>
   </Step>
