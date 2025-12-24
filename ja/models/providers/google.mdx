@@ -8,12 +8,16 @@ Giselle Workspace では以下の Gemini モデルが利用可能です。各モ
 
 | Models | Generate Text | Web Search | Reasoning | Input PDF | Input Image | Input Audio | Input Video | Context Window | Plan@Giselle |
 | --------------------------------- | --------------| ------------ | ----------- | ----------- | ------------- | ------------ | ------------ | ----------------- | --------------- |
+| gemini-3-flash-preview | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Pro |
 | gemini-3-pro-preview | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Pro |
 | gemini-2.5-pro | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens (2M soon) | Pro |
 | gemini-2.5-flash | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Pro |
 | gemini-2.5-flash-lite | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Free |
 
 *注意：Google公式APIで提供されている機能でも、Giselle内では利用できない場合があります。「Free」または「Pro」でマークされた機能は、それらにアクセスするために必要なGiselleサブスクリプションプランを示しています。*
+
+### gemini-3-flash-preview
+最新のGemini 3 Flashモデルで、Proレベルの知性とFlashの速度・価格を組み合わせています。デフォルトでダイナミックシンキングを使用してプロンプトを推論し、設定可能なシンキングレベル（`minimal`、`low`、`medium`、`high`）でレイテンシと推論の深さを制御できます。テキスト生成、ウェブ検索、高度な推論、マルチモーダル入力（PDF、画像、音声、動画）をサポートします。100万トークンのコンテキストウィンドウと64K最大出力トークンにより、速度と分析的深度の両方を必要とする複雑なタスクに最適です。Pro プランが必要です。
 
 ### gemini-3-pro-preview
 最新のGemini 3シリーズプレビューモデルで、強化された推論機能と改善されたパフォーマンスを提供します。テキスト生成、ウェブ検索、高度な推論、マルチモーダル入力（PDF、画像、音声、動画）をサポートします。100万トークンのコンテキストウィンドウにより、深い分析的思考を必要とする複雑なタスクに最適です。Pro プランが必要です。
@@ -52,6 +56,7 @@ Gemini 2.5 Flash Image は、画像の理解と生成に最適化された Googl
 * **極めて高速な応答と効率性**: `gemini-2.5-flash-lite`（最大速度）
 
 **Pro プランモデル：**
+* **Flashの速度でProレベルの知性**: `gemini-3-flash-preview`（最新3シリーズFlash、ダイナミックシンキング）
 * **最先端の推論と複雑なタスク**: `gemini-3-pro-preview`（最新モデル、強化された推論）
 * **実証された安定性と包括的な機能**: `gemini-2.5-pro`（安定、フル機能）
 * **推論付きの高速応答**: `gemini-2.5-flash`（速度＋推論のバランス）
