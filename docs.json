@@ -59,7 +59,9 @@
               {
                 "group": "Build Apps",
                 "pages": [
-                  "en/guides/workspaces/build"
+                  "en/guides/workspaces/build",
+                  "en/guides/settings/team/integrations",
+                  "en/guides/settings/team/vector-stores"
                 ]
               },
               {
@@ -84,10 +86,8 @@
                     "group": "Team",
                     "pages": [
                       "en/guides/settings/team/general",
-                      "en/guides/settings/team/integrations",
                       "en/guides/settings/team/members",
-                      "en/guides/settings/team/usage",
-                      "en/guides/settings/team/vector-stores"
+                      "en/guides/settings/team/usage"
                     ]
                   }
                 ]
@@ -246,7 +246,9 @@
               {
                 "group": "アプリの構築",
                 "pages": [
-                  "ja/guides/workspaces/build"
+                  "ja/guides/workspaces/build",
+                  "ja/guides/settings/team/integrations",
+                  "ja/guides/settings/team/vector-stores"
                 ]
               },
               {
@@ -271,10 +273,8 @@
                     "group": "チーム",
                     "pages": [
                       "ja/guides/settings/team/general",
-                      "ja/guides/settings/team/integrations",
                       "ja/guides/settings/team/members",
-                      "ja/guides/settings/team/usage",
-                      "ja/guides/settings/team/vector-stores"
+                      "ja/guides/settings/team/usage"
                     ]
                   }
                 ]
