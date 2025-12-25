@@ -118,19 +118,6 @@
             ]
           },
           {
-            "tab": "Prompts",
-            "groups": [
-              {
-                "group": "Prompt Engineering",
-                "pages": [
-                  "en/prompts/overview",
-                  "en/prompts/examples",
-                  "en/prompts/tips"
-                ]
-              }
-            ]
-          },
-          {
             "tab": "Glossary",
             "groups": [
               {
@@ -175,6 +162,25 @@
                 "pages": [
                   "en/glossary/github-tools",
                   "en/glossary/postgresql-tools"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Cookbooks",
+            "groups": [
+              {
+                "group": "Introduction",
+                "pages": [
+                  "en/cookbooks/overview"
+                ]
+              },
+              {
+                "group": "Prompt Engineering",
+                "pages": [
+                  "en/prompts/overview",
+                  "en/prompts/examples",
+                  "en/prompts/tips"
                 ]
               }
             ]
@@ -304,19 +310,6 @@
             ]
           },
           {
-            "tab": "プロンプト",
-            "groups": [
-              {
-                "group": "プロンプト エンジニアリング",
-                "pages": [
-                  "ja/prompts/overview",
-                  "ja/prompts/examples",
-                  "ja/prompts/tips"
-                ]
-              }
-            ]
-          },
-          {
             "tab": "用語集",
             "groups": [
               {
@@ -361,6 +354,25 @@
                 "pages": [
                   "ja/glossary/github-tools",
                   "ja/glossary/postgresql-tools"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Cookbooks",
+            "groups": [
+              {
+                "group": "Introduction",
+                "pages": [
+                  "ja/cookbooks/overview"
+                ]
+              },
+              {
+                "group": "プロンプト エンジニアリング",
+                "pages": [
+                  "ja/prompts/overview",
+                  "ja/prompts/examples",
+                  "ja/prompts/tips"
                 ]
               }
             ]
