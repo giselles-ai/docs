@@ -105,9 +105,14 @@
                 "pages": [
                   "en/models/providers/overview",
                   "en/models/providers/anthropic",
-                  "en/models/providers/fal",
                   "en/models/providers/google",
                   "en/models/providers/openai"
+                ]
+              },
+              {
+                "group": "Open Source Only",
+                "pages": [
+                  "en/models/providers/fal"
                 ]
               }
             ]
@@ -286,9 +291,14 @@
                 "pages": [
                   "ja/models/providers/overview",
                   "ja/models/providers/anthropic",
-                  "ja/models/providers/fal",
                   "ja/models/providers/google",
                   "ja/models/providers/openai"
+                ]
+              },
+              {
+                "group": "OSS版限定",
+                "pages": [
+                  "ja/models/providers/fal"
                 ]
               }
             ]
