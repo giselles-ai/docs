@@ -3,11 +3,11 @@ title: 例
 description: 'Giselle のジェネレーター ノードでの効果的なプロンプト例。'
 ---
 
-このドキュメントでは、GiselleのGenerator Node専用にカスタマイズされた効果的で具体的なプロンプト例を提供します。AnthropicのClaude、GoogleのGemini、OpenAIのGPT-4o、画像生成用のFal AIなど、さまざまなマルチモーダルAIモデルを活用します。
+このドキュメントでは、GiselleのGenerator Node専用にカスタマイズされた効果的で具体的なプロンプト例を提供します。AnthropicのClaude、GoogleのGemini、OpenAIのGPTシリーズなど、さまざまなマルチモーダルAIモデルを活用します。
 
 ## 基本例
 
-### 1. GPT-4oを使用した技術的質問
+### 1. GPT-5.2を使用した技術的質問
 
 ```plaintext
 Role: 経験豊富なプログラマー
@@ -25,7 +25,7 @@ Output Format:
 - 明示的な指示と明確な出力期待です。
 - プログラミング言語を明示的に指定しています。
 
-### 2. Fal AIを使用した画像生成
+### 2. Geminiを使用した画像生成
 
 ```plaintext
 Role: グラフィックデザイナー
@@ -34,7 +34,7 @@ Task:
 「QuantumLeap」という名前のテクノロジースタートアップのための高品質でミニマリストなロゴを生成してください。
 
 Constraints:
-- Model: flux-pro/v1.1
+- Model: Gemini 2.5 Flash Image
 - 配色: 青と白
 - スタイル: モダン、ミニマリスティック
 
@@ -44,7 +44,7 @@ Output Format:
 
 **このプロンプトが効果的な理由：**
 - 役割とクリエイティブな制約を明確に定義しています。
-- 高品質な出力のために特定のFal AIモデルを利用しています。
+- 高品質な出力のためにGeminiの画像生成機能を利用しています。
 - 即座に使用可能な正確な出力形式です。
 
 ## 上級例
@@ -89,7 +89,7 @@ Steps:
 2. 展開のための実用的な倫理ガイドラインを提案する。
 
 Constraints:
-- Model: Claude 3.7 Sonnet
+- Model: Claude Sonnet 4.5
 
 Output Format:
 - 明確にリスト化された倫理的含意
@@ -105,17 +105,17 @@ Output Format:
 ### 1. 包括的な市場調査ワークフロー
 
 ```plaintext
-ステップ 1 (Claude 3.7 Sonnet):
+ステップ 1 (Claude Sonnet 4.5):
 Role: 市場調査員と持続可能性アナリスト
 Task: 持続可能な食品包装のトレンドを調査し、その倫理や持続可能性の観点から分析してください。
 Output Format: 分析要約と推奨事項。
 
-ステップ 2 (GPT-4o):
+ステップ 2 (GPT-5.2):
 Role: テクニカルライター
 Task: 洞察と推奨事項を構造化された業界レポートにフォーマットしてください。
 Output Format: マークダウン形式のプロフェッショナルドキュメント。
 
-ステップ 3 (Fal AI flux-pro/v1.1):
+ステップ 3 (Gemini 2.5 Flash Image):
 Role: グラフィックデザイナー
 Task: 最終レポートのための魅力的なビジュアルカバー画像を生成してください。
 Constraints: 持続可能性テーマ、プロフェッショナルスタイル
