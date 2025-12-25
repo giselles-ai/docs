@@ -176,6 +176,12 @@
                 ]
               },
               {
+                "group": "App Recipes",
+                "pages": [
+                  "en/cookbooks/blog-social-media-generator"
+                ]
+              },
+              {
                 "group": "Prompt Engineering",
                 "pages": [
                   "en/prompts/overview",
@@ -365,6 +371,12 @@
                 "group": "Introduction",
                 "pages": [
                   "ja/cookbooks/overview"
+                ]
+              },
+              {
+                "group": "アプリのレシピ",
+                "pages": [
+                  "ja/cookbooks/blog-social-media-generator"
                 ]
               },
               {
