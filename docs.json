@@ -179,7 +179,8 @@
                 "group": "App Recipes",
                 "pages": [
                   "en/cookbooks/blog-social-media-generator",
-                  "en/cookbooks/web-research-assistant"
+                  "en/cookbooks/web-research-assistant",
+                  "en/cookbooks/knowledge-base-qa"
                 ]
               },
               {
@@ -378,7 +379,8 @@
                 "group": "アプリのレシピ",
                 "pages": [
                   "ja/cookbooks/blog-social-media-generator",
-                  "ja/cookbooks/web-research-assistant"
+                  "ja/cookbooks/web-research-assistant",
+                  "ja/cookbooks/knowledge-base-qa"
                 ]
               },
               {
