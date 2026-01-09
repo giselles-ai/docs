@@ -1,0 +1,342 @@
+---
+title: Giselle SDK
+description: Learn how to use the Giselle SDK to integrate your apps with external applications and services.
+---
+
+<Warning>
+This feature is currently in **Private Preview**. Access is limited to selected users. Features and APIs may change without notice.
+</Warning>
+
+## Overview
+
+The Giselle SDK (`@giselles-ai/sdk`) provides a simple, type-safe way to interact with the Giselle API from your Node.js applications. It handles authentication, request formatting, and polling for task completion automatically.
+
+<Warning>
+The SDK is designed for server-side use only. Never use it in client-side code (browsers) as this would expose your API key.
+</Warning>
+
+## Installation
+
+The Giselle SDK is published on npm at [@giselles-ai/sdk](https://www.npmjs.com/package/@giselles-ai/sdk).
+
+Install the SDK using your preferred package manager:
+
+```bash
+npm install @giselles-ai/sdk
+```
+
+```bash
+yarn add @giselles-ai/sdk
+```
+
+```bash
+pnpm add @giselles-ai/sdk
+```
+
+## Quick Start
+
+```typescript
+import Giselle from "@giselles-ai/sdk";
+
+// Initialize the client
+const client = new Giselle({
+  apiKey: process.env.GISELLE_API_KEY,
+});
+
+// Run an app and wait for results
+const { task } = await client.app.runAndWait({
+  appId: "app_xxxxx",
+  input: { text: "Hello, Giselle!" },
+});
+
+console.log(task.status); // "completed"
+console.log(task.outputs); // Array of output results
+```
+
+## Configuration
+
+### Constructor Options
+
+```typescript
+const client = new Giselle({
+  apiKey: string;       // Required: Your API key
+  baseUrl?: string;     // Optional: API base URL (default: "https://studio.giselles.ai")
+  fetch?: typeof fetch; // Optional: Custom fetch implementation
+});
+```
+
+| Option | Required | Default | Description |
+|--------|----------|---------|-------------|
+| `apiKey` | Yes | - | Your Giselle API key. Get one from [API Keys settings](/en/guides/api/api-keys). |
+| `baseUrl` | No | `https://studio.giselles.ai` | The base URL for API requests. |
+| `fetch` | No | Global `fetch` | Custom fetch implementation for specific runtime environments. |
+
+### Environment Variables
+
+We recommend storing your API key in an environment variable:
+
+```bash
+# .env
+GISELLE_API_KEY=gsk_your_api_key_here
+```
+
+```typescript
+const client = new Giselle({
+  apiKey: process.env.GISELLE_API_KEY,
+});
+```
+
+<Warning>
+Never commit API keys to version control. Use environment variables or a secrets manager.
+</Warning>
+
+## API Reference
+
+### `client.app.run()`
+
+Starts an app execution and returns immediately with a task ID. Use this when you want to handle polling yourself or don't need to wait for results.
+
+```typescript
+const { taskId } = await client.app.run({
+  appId: "app_xxxxx",
+  input: { text: "Your input text" },
+});
+
+console.log(taskId); // "tsk_xxxxx"
+```
+
+**Parameters:**
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `appId` | `string` | Yes | The ID of the app to run (format: `app_xxxxx`) |
+| `input.text` | `string` | Yes | The text input for the app |
+
+**Returns:**
+
+```typescript
+{
+  taskId: string; // The ID of the created task
+}
+```
+
+### `client.app.runAndWait()`
+
+Starts an app execution and polls until the task completes. This is the recommended method for most use cases.
+
+```typescript
+const { task } = await client.app.runAndWait({
+  appId: "app_xxxxx",
+  input: { text: "Your input text" },
+  pollIntervalMs: 1000,  // Optional: polling interval (default: 1000ms)
+  timeoutMs: 60000,      // Optional: timeout (default: 1200000ms / 20 minutes)
+});
+```
+
+**Parameters:**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `appId` | `string` | Yes | - | The ID of the app to run |
+| `input.text` | `string` | Yes | - | The text input for the app |
+| `pollIntervalMs` | `number` | No | `1000` | How often to check for completion (ms) |
+| `timeoutMs` | `number` | No | `1200000` | Maximum time to wait (ms) |
+
+**Returns:**
+
+```typescript
+{
+  task: {
+    id: string;
+    workspaceId: string;
+    name: string;
+    status: "completed" | "failed" | "cancelled";
+    steps: Array<{
+      title: string;
+      status: string;
+      items: Array<{
+        id: string;
+        title: string;
+        status: string;
+        generationId?: string;
+        outputs?: any[];
+        error?: string;
+      }>;
+    }>;
+    outputs: Array<{
+      title: string;
+      generationId?: string;
+      outputs: any[];
+    }>;
+  };
+}
+```
+
+## Finding Your App ID and Code Snippet
+
+The easiest way to get your App ID and a ready-to-use code snippet is from the Workspace:
+
+1. Open your app in the Workspace
+2. Click the **Run** button in the top-right corner
+3. In the dialog that appears, select the **Code** tab
+4. You'll see a complete code snippet with your `appId` already filled in:
+
+```typescript
+import Giselle from "@giselles-ai/sdk";
+
+const client = new Giselle({
+  apiKey: process.env.GISELLE_API_KEY,
+});
+
+const { taskId } = await client.app.run({
+  appId: "app_xxxxx", // Your actual App ID is shown here
+  input: { text: "your input here" },
+});
+
+console.log(taskId);
+```
+
+Simply copy this code and use it in your application.
+
+<Note>
+The App ID format is `app_` followed by a unique identifier (e.g., `app_abc123xyz`).
+</Note>
+
+## Error Handling
+
+The SDK throws specific error types for different failure scenarios:
+
+```typescript
+import Giselle, {
+  ConfigurationError,
+  ApiError,
+  TimeoutError,
+  UnsupportedFeatureError,
+} from "@giselles-ai/sdk";
+
+try {
+  const { task } = await client.app.runAndWait({
+    appId: "app_xxxxx",
+    input: { text: "Hello" },
+  });
+} catch (error) {
+  if (error instanceof ConfigurationError) {
+    // Missing or invalid configuration (e.g., no API key)
+    console.error("Configuration error:", error.message);
+  } else if (error instanceof ApiError) {
+    // API request failed
+    console.error("API error:", error.status, error.responseText);
+  } else if (error instanceof TimeoutError) {
+    // Task didn't complete within the timeout
+    console.error("Task timed out:", error.message);
+  } else if (error instanceof UnsupportedFeatureError) {
+    // Attempted to use an unsupported feature
+    console.error("Unsupported feature:", error.message);
+  }
+}
+```
+
+### Error Types
+
+| Error Type | Description |
+|------------|-------------|
+| `ConfigurationError` | Missing or invalid configuration (e.g., API key not provided) |
+| `ApiError` | HTTP request to the API failed. Includes `status` and `responseText` properties. |
+| `TimeoutError` | Task didn't complete within the specified timeout |
+| `UnsupportedFeatureError` | Attempted to use a feature not yet supported (e.g., file inputs) |
+
+## Examples
+
+### Basic Usage
+
+```typescript
+import Giselle from "@giselles-ai/sdk";
+
+const client = new Giselle({
+  apiKey: process.env.GISELLE_API_KEY,
+});
+
+async function runMyApp(userInput: string) {
+  const { task } = await client.app.runAndWait({
+    appId: "app_xxxxx",
+    input: { text: userInput },
+  });
+
+  if (task.status === "completed") {
+    return task.outputs;
+  } else {
+    throw new Error(`Task failed: ${task.status}`);
+  }
+}
+```
+
+### With Custom Timeout
+
+```typescript
+const { task } = await client.app.runAndWait({
+  appId: "app_xxxxx",
+  input: { text: "Complex query that may take time" },
+  timeoutMs: 300000, // 5 minutes
+  pollIntervalMs: 2000, // Check every 2 seconds
+});
+```
+
+### Fire and Forget
+
+```typescript
+// Start the task but don't wait for completion
+const { taskId } = await client.app.run({
+  appId: "app_xxxxx",
+  input: { text: "Background processing" },
+});
+
+console.log(`Task started: ${taskId}`);
+// You can check the task status later via the API or in the Giselle
+```
+
+### Express.js Integration
+
+```typescript
+import express from "express";
+import Giselle from "@giselles-ai/sdk";
+
+const app = express();
+const client = new Giselle({
+  apiKey: process.env.GISELLE_API_KEY,
+});
+
+app.use(express.json());
+
+app.post("/api/process", async (req, res) => {
+  try {
+    const { task } = await client.app.runAndWait({
+      appId: "app_xxxxx",
+      input: { text: req.body.text },
+      timeoutMs: 60000,
+    });
+
+    res.json({
+      success: true,
+      outputs: task.outputs,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
+app.listen(3000);
+```
+
+## Current Limitations
+
+- **Text input only**: Currently, only text input is supported. File inputs will be supported in a future release.
+- **Server-side only**: The SDK should only be used in server-side environments to protect your API key.
+
+## Next Steps
+
+- [Create an API key](/en/guides/api/api-keys) to get started
+- Test your apps in the [Playground](/en/guides/playground) before integrating
+- Check out [Cookbooks](/en/cookbooks/overview) for example apps and workflows

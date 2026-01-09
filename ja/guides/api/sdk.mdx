@@ -1,0 +1,342 @@
+---
+title: Giselle SDK
+description: Giselle SDKを使用して、アプリを外部アプリケーションやサービスと統合する方法を学びます。
+---
+
+<Warning>
+この機能は現在 **Private Preview** です。アクセスは一部のユーザーに限定されています。機能やAPIは予告なく変更される場合があります。
+</Warning>
+
+## 概要
+
+Giselle SDK（`@giselles-ai/sdk`）は、Node.jsアプリケーションからGiselle APIと対話するためのシンプルで型安全な方法を提供します。認証、リクエストフォーマット、タスク完了のポーリングを自動的に処理します。
+
+<Warning>
+SDKはサーバーサイドでの使用専用に設計されています。クライアントサイドのコード（ブラウザ）では使用しないでください。APIキーが露出してしまいます。
+</Warning>
+
+## インストール
+
+Giselle SDKは npm の [@giselles-ai/sdk](https://www.npmjs.com/package/@giselles-ai/sdk) で公開されています。
+
+お好みのパッケージマネージャーを使用してSDKをインストールします：
+
+```bash
+npm install @giselles-ai/sdk
+```
+
+```bash
+yarn add @giselles-ai/sdk
+```
+
+```bash
+pnpm add @giselles-ai/sdk
+```
+
+## クイックスタート
+
+```typescript
+import Giselle from "@giselles-ai/sdk";
+
+// クライアントを初期化
+const client = new Giselle({
+  apiKey: process.env.GISELLE_API_KEY,
+});
+
+// アプリを実行して結果を待つ
+const { task } = await client.app.runAndWait({
+  appId: "app_xxxxx",
+  input: { text: "こんにちは、Giselle！" },
+});
+
+console.log(task.status); // "completed"
+console.log(task.outputs); // 出力結果の配列
+```
+
+## 設定
+
+### コンストラクタオプション
+
+```typescript
+const client = new Giselle({
+  apiKey: string;       // 必須: APIキー
+  baseUrl?: string;     // オプション: APIベースURL（デフォルト: "https://studio.giselles.ai"）
+  fetch?: typeof fetch; // オプション: カスタムfetch実装
+});
+```
+
+| オプション | 必須 | デフォルト | 説明 |
+|-----------|------|-----------|------|
+| `apiKey` | はい | - | Giselle APIキー。[APIキー設定](/ja/guides/api/api-keys)から取得してください。 |
+| `baseUrl` | いいえ | `https://studio.giselles.ai` | APIリクエストのベースURL。 |
+| `fetch` | いいえ | グローバル `fetch` | 特定のランタイム環境用のカスタムfetch実装。 |
+
+### 環境変数
+
+APIキーは環境変数に保存することをお勧めします：
+
+```bash
+# .env
+GISELLE_API_KEY=gsk_your_api_key_here
+```
+
+```typescript
+const client = new Giselle({
+  apiKey: process.env.GISELLE_API_KEY,
+});
+```
+
+<Warning>
+APIキーをバージョン管理にコミットしないでください。環境変数またはシークレットマネージャーを使用してください。
+</Warning>
+
+## APIリファレンス
+
+### `client.app.run()`
+
+アプリの実行を開始し、タスクIDをすぐに返します。ポーリングを自分で処理したい場合や、結果を待つ必要がない場合に使用します。
+
+```typescript
+const { taskId } = await client.app.run({
+  appId: "app_xxxxx",
+  input: { text: "入力テキスト" },
+});
+
+console.log(taskId); // "tsk_xxxxx"
+```
+
+**パラメータ:**
+
+| パラメータ | 型 | 必須 | 説明 |
+|-----------|-----|------|------|
+| `appId` | `string` | はい | 実行するアプリのID（形式: `app_xxxxx`） |
+| `input.text` | `string` | はい | アプリへのテキスト入力 |
+
+**戻り値:**
+
+```typescript
+{
+  taskId: string; // 作成されたタスクのID
+}
+```
+
+### `client.app.runAndWait()`
+
+アプリの実行を開始し、タスクが完了するまでポーリングします。ほとんどのユースケースで推奨されるメソッドです。
+
+```typescript
+const { task } = await client.app.runAndWait({
+  appId: "app_xxxxx",
+  input: { text: "入力テキスト" },
+  pollIntervalMs: 1000,  // オプション: ポーリング間隔（デフォルト: 1000ms）
+  timeoutMs: 60000,      // オプション: タイムアウト（デフォルト: 1200000ms / 20分）
+});
+```
+
+**パラメータ:**
+
+| パラメータ | 型 | 必須 | デフォルト | 説明 |
+|-----------|-----|------|-----------|------|
+| `appId` | `string` | はい | - | 実行するアプリのID |
+| `input.text` | `string` | はい | - | アプリへのテキスト入力 |
+| `pollIntervalMs` | `number` | いいえ | `1000` | 完了チェックの頻度（ms） |
+| `timeoutMs` | `number` | いいえ | `1200000` | 最大待機時間（ms） |
+
+**戻り値:**
+
+```typescript
+{
+  task: {
+    id: string;
+    workspaceId: string;
+    name: string;
+    status: "completed" | "failed" | "cancelled";
+    steps: Array<{
+      title: string;
+      status: string;
+      items: Array<{
+        id: string;
+        title: string;
+        status: string;
+        generationId?: string;
+        outputs?: any[];
+        error?: string;
+      }>;
+    }>;
+    outputs: Array<{
+      title: string;
+      generationId?: string;
+      outputs: any[];
+    }>;
+  };
+}
+```
+
+## App IDとコードスニペットの取得方法
+
+App IDとすぐに使えるコードスニペットを取得する最も簡単な方法は、Workspaceから取得することです：
+
+1. Workspaceでアプリを開く
+2. 右上の **Run** ボタンをクリック
+3. 表示されるダイアログで **Code** タブを選択
+4. `appId` が既に埋め込まれた完全なコードスニペットが表示されます：
+
+```typescript
+import Giselle from "@giselles-ai/sdk";
+
+const client = new Giselle({
+  apiKey: process.env.GISELLE_API_KEY,
+});
+
+const { taskId } = await client.app.run({
+  appId: "app_xxxxx", // 実際のApp IDがここに表示されます
+  input: { text: "your input here" },
+});
+
+console.log(taskId);
+```
+
+このコードをコピーして、アプリケーションで使用してください。
+
+<Note>
+App IDの形式は `app_` の後に一意の識別子が続きます（例：`app_abc123xyz`）。
+</Note>
+
+## エラーハンドリング
+
+SDKは異なる失敗シナリオに対して特定のエラータイプをスローします：
+
+```typescript
+import Giselle, {
+  ConfigurationError,
+  ApiError,
+  TimeoutError,
+  UnsupportedFeatureError,
+} from "@giselles-ai/sdk";
+
+try {
+  const { task } = await client.app.runAndWait({
+    appId: "app_xxxxx",
+    input: { text: "こんにちは" },
+  });
+} catch (error) {
+  if (error instanceof ConfigurationError) {
+    // 設定が不足または無効（例：APIキーなし）
+    console.error("設定エラー:", error.message);
+  } else if (error instanceof ApiError) {
+    // APIリクエストが失敗
+    console.error("APIエラー:", error.status, error.responseText);
+  } else if (error instanceof TimeoutError) {
+    // タスクがタイムアウト内に完了しなかった
+    console.error("タスクタイムアウト:", error.message);
+  } else if (error instanceof UnsupportedFeatureError) {
+    // サポートされていない機能を使用しようとした
+    console.error("サポートされていない機能:", error.message);
+  }
+}
+```
+
+### エラータイプ
+
+| エラータイプ | 説明 |
+|-------------|------|
+| `ConfigurationError` | 設定が不足または無効（例：APIキーが提供されていない） |
+| `ApiError` | APIへのHTTPリクエストが失敗。`status` と `responseText` プロパティを含む。 |
+| `TimeoutError` | 指定されたタイムアウト内にタスクが完了しなかった |
+| `UnsupportedFeatureError` | まだサポートされていない機能を使用しようとした（例：ファイル入力） |
+
+## 使用例
+
+### 基本的な使用方法
+
+```typescript
+import Giselle from "@giselles-ai/sdk";
+
+const client = new Giselle({
+  apiKey: process.env.GISELLE_API_KEY,
+});
+
+async function runMyApp(userInput: string) {
+  const { task } = await client.app.runAndWait({
+    appId: "app_xxxxx",
+    input: { text: userInput },
+  });
+
+  if (task.status === "completed") {
+    return task.outputs;
+  } else {
+    throw new Error(`タスク失敗: ${task.status}`);
+  }
+}
+```
+
+### カスタムタイムアウト付き
+
+```typescript
+const { task } = await client.app.runAndWait({
+  appId: "app_xxxxx",
+  input: { text: "時間がかかる可能性のある複雑なクエリ" },
+  timeoutMs: 300000, // 5分
+  pollIntervalMs: 2000, // 2秒ごとにチェック
+});
+```
+
+### Fire and Forget（非同期実行）
+
+```typescript
+// タスクを開始するが完了を待たない
+const { taskId } = await client.app.run({
+  appId: "app_xxxxx",
+  input: { text: "バックグラウンド処理" },
+});
+
+console.log(`タスク開始: ${taskId}`);
+// タスクの状態はAPIまたはGiselleで後から確認できます
+```
+
+### Express.js統合
+
+```typescript
+import express from "express";
+import Giselle from "@giselles-ai/sdk";
+
+const app = express();
+const client = new Giselle({
+  apiKey: process.env.GISELLE_API_KEY,
+});
+
+app.use(express.json());
+
+app.post("/api/process", async (req, res) => {
+  try {
+    const { task } = await client.app.runAndWait({
+      appId: "app_xxxxx",
+      input: { text: req.body.text },
+      timeoutMs: 60000,
+    });
+
+    res.json({
+      success: true,
+      outputs: task.outputs,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
+app.listen(3000);
+```
+
+## 現在の制限事項
+
+- **テキスト入力のみ**: 現在、テキスト入力のみがサポートされています。ファイル入力は将来のリリースでサポートされる予定です。
+- **サーバーサイドのみ**: SDKはAPIキーを保護するため、サーバーサイド環境でのみ使用してください。
+
+## 次のステップ
+
+- 始めるために [APIキーを作成](/ja/guides/api/api-keys) する
+- 統合する前に [Playground](/ja/guides/playground) でアプリをテストする
+- アプリとワークフローの例については [Cookbooks](/ja/cookbooks/overview) をご覧ください

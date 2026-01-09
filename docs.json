@@ -65,6 +65,13 @@
                 ]
               },
               {
+                "group": "API",
+                "pages": [
+                  "en/guides/api/api-keys",
+                  "en/guides/api/sdk"
+                ]
+              },
+              {
                 "group": "Settings",
                 "pages": [
                   {
@@ -262,6 +269,13 @@
                   "ja/guides/workspaces",
                   "ja/guides/settings/team/integrations",
                   "ja/guides/settings/team/vector-stores"
+                ]
+              },
+              {
+                "group": "API",
+                "pages": [
+                  "ja/guides/api/api-keys",
+                  "ja/guides/api/sdk"
                 ]
               },
               {
