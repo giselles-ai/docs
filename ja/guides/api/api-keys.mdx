@@ -1,0 +1,148 @@
+---
+title: APIキー
+description: Giselle APIにプログラムでアクセスするためのAPIキーの作成と管理方法を学びます。
+---
+
+<Warning>
+この機能は現在 **Private Preview** です。アクセスは一部のユーザーに限定されています。機能やAPIは予告なく変更される場合があります。
+</Warning>
+
+<Info>
+APIキーは [設定 > チーム > APIキー](https://studio.giselles.ai/settings/team/api-keys) から管理できます。
+</Info>
+
+## 概要
+
+APIキーを使用すると、外部のアプリケーション、スクリプト、サービスからGiselle APIにプログラムでアクセスし、アプリを実行できます。APIキーはチーム単位でスコープされており、チームメンバー全員が同じAPIキーセットを共有します。
+
+## APIキーの作成
+
+<Steps>
+  <Step title="APIキー設定に移動">
+    Giselleの [設定 > チーム > APIキー](https://studio.giselles.ai/settings/team/api-keys) に移動します。
+  </Step>
+  <Step title="新しいキーを作成">
+    **Create new secret key** ボタンをクリックして、作成ダイアログを開きます。
+  </Step>
+  <Step title="ラベルを追加（任意）">
+    APIキーの説明的なラベルを入力します（例：「本番サーバー」、「CI/CDパイプライン」）。これにより、後でキーの目的を識別しやすくなります。
+
+    <Note>
+    ラベルは128文字まで入力できます。
+    </Note>
+  </Step>
+  <Step title="APIキーをコピー">
+    作成後、APIキーは**一度だけ**表示されます。すぐにコピーして安全な場所に保管してください。
+
+    <Warning>
+    完全なAPIキーは作成時に一度だけ表示されます。紛失した場合は、新しいキーを作成する必要があります。
+    </Warning>
+  </Step>
+</Steps>
+
+## APIキーの形式
+
+APIキーは以下の形式に従います：
+
+```
+gsk_<id>.<secret>
+```
+
+例：`gsk_abc123xyz.secret_value_here`
+
+設定でAPIキーを表示する際は、最初と最後の数文字のみが表示される短縮版（例：`gsk_abc...xyz`）が表示されます。
+
+## APIキーの管理
+
+### APIキーの表示
+
+APIキーページには、チームのすべてのキーが以下の情報とともに表示されます：
+
+- **ラベル**: 割り当てた説明的な名前
+- **短縮値**: 識別用のキーの短縮版
+- **作成日時**: キーが作成された日時
+- **最終使用日時**: キーが最後にAPIリクエストに使用された日時
+
+### APIキーの取り消し
+
+APIキーを取り消すには：
+
+1. [設定 > チーム > APIキー](https://studio.giselles.ai/settings/team/api-keys) に移動
+2. 取り消したいキーを見つける
+3. **取り消し** ボタンをクリック
+4. 取り消しを確認
+
+<Warning>
+APIキーの取り消しは即時かつ永続的です。そのキーを使用しているアプリケーションやサービスは、即座にAPIへのアクセスを失います。
+</Warning>
+
+## APIキーの使用方法
+
+Giselle APIへのリクエスト時に、`Authorization` ヘッダーにAPIキーを含めます：
+
+```bash
+curl -X POST https://studio.giselles.ai/api/apps/{appId}/run \
+  -H "Authorization: Bearer gsk_your_api_key_here" \
+  -H "Content-Type: application/json" \
+  -d '{"text": "入力テキスト"}'
+```
+
+より良い開発体験のために、認証を自動的に処理する [Giselle SDK](/ja/guides/api/sdk) の使用を検討してください。
+
+## セキュリティのベストプラクティス
+
+<AccordionGroup>
+  <Accordion title="キーを秘密に保つ">
+    クライアントサイドのコード、公開リポジトリ、ログにAPIキーを公開しないでください。環境変数や安全なシークレット管理システムを使用してください。
+  </Accordion>
+  <Accordion title="説明的なラベルを使用">
+    キーの用途（例：「本番」、「開発」、「CI/CD」）でラベル付けして、簡単に追跡・管理できるようにしてください。
+  </Accordion>
+  <Accordion title="定期的にキーをローテーション">
+    定期的に新しいキーを作成し、古いキーを取り消してください。特にキーが漏洩した可能性がある場合は重要です。
+  </Accordion>
+  <Accordion title="キーの配布を制限">
+    APIアクセスが本当に必要なチームメンバーとシステムにのみAPIキーを共有してください。
+  </Accordion>
+</AccordionGroup>
+
+## レート制限
+
+APIリクエストは、チームのプランに基づいてレート制限されます：
+
+| プラン | 1分あたりのリクエスト数 |
+|--------|------------------------|
+| Free | 60 |
+| Pro | 300 |
+| Team | 600 |
+| Enterprise | 3,000 |
+
+レート制限を超えると、APIは `429 Too Many Requests` レスポンスを返します。レート制限情報はレスポンスヘッダーに含まれます：
+
+- `RateLimit-Limit`: 1分あたりの最大リクエスト数
+- `RateLimit-Remaining`: 現在のウィンドウでの残りリクエスト数
+- `RateLimit-Reset`: レート制限がリセットされるUnixタイムスタンプ
+- `Retry-After`: 再試行までの待機秒数（レート制限時）
+
+## トラブルシューティング
+
+### Unauthorized (401) エラー
+
+401エラーを受け取った場合、以下を確認してください：
+
+- APIキーが正しく完全であること
+- キーが取り消されていないこと
+- `Authorization` ヘッダーが正しい形式であること：`Bearer <your_api_key>`
+
+### Rate Limited (429) エラー
+
+レート制限を受けている場合：
+
+- `Retry-After` ヘッダーで再試行可能な時間を確認
+- より高い制限のためにプランのアップグレードを検討
+- アプリケーションに指数バックオフを実装
+
+## 次のステップ
+
+- より簡単なAPI統合のための [Giselle SDK](/ja/guides/api/sdk) の使い方を学ぶ
+- API経由で統合する前に [Playground](/ja/guides/playground) でアプリをテストする

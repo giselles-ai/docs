@@ -1,0 +1,148 @@
+---
+title: API Keys
+description: Learn how to create and manage API keys to access the Giselle API programmatically.
+---
+
+<Warning>
+This feature is currently in **Private Preview**. Access is limited to selected users. Features and APIs may change without notice.
+</Warning>
+
+<Info>
+You can manage API keys by navigating to [Settings > Team > API Keys](https://studio.giselles.ai/settings/team/api-keys).
+</Info>
+
+## Overview
+
+API keys allow you to access the Giselle API programmatically to run your apps from external applications, scripts, or services. API keys are scoped to your team, meaning all team members share access to the same set of API keys.
+
+## Creating an API Key
+
+<Steps>
+  <Step title="Navigate to API Keys Settings">
+    Go to [Settings > Team > API Keys](https://studio.giselles.ai/settings/team/api-keys) in the Giselle.
+  </Step>
+  <Step title="Create a New Key">
+    Click the **Create new secret key** button to open the creation dialog.
+  </Step>
+  <Step title="Add a Label (Optional)">
+    Enter a descriptive label for your API key (e.g., "Production Server", "CI/CD Pipeline"). This helps you identify the key's purpose later.
+
+    <Note>
+    Labels can be up to 128 characters long.
+    </Note>
+  </Step>
+  <Step title="Copy Your API Key">
+    After creation, your API key will be displayed **once**. Copy it immediately and store it securely.
+
+    <Warning>
+    The full API key is only shown once at creation time. If you lose it, you'll need to create a new key.
+    </Warning>
+  </Step>
+</Steps>
+
+## API Key Format
+
+API keys follow the format:
+
+```
+gsk_<id>.<secret>
+```
+
+For example: `gsk_abc123xyz.secret_value_here`
+
+When viewing your API keys in the settings, you'll see a redacted version showing only the first few and last few characters (e.g., `gsk_abc...xyz`).
+
+## Managing API Keys
+
+### Viewing API Keys
+
+The API Keys page displays all keys for your team with the following information:
+
+- **Label**: The descriptive name you assigned
+- **Redacted Value**: A shortened version of the key for identification
+- **Created At**: When the key was created
+- **Last Used At**: When the key was last used for an API request
+
+### Revoking API Keys
+
+To revoke an API key:
+
+1. Navigate to [Settings > Team > API Keys](https://studio.giselles.ai/settings/team/api-keys)
+2. Find the key you want to revoke
+3. Click the **Revoke** button
+4. Confirm the revocation
+
+<Warning>
+Revoking an API key is immediate and permanent. Any applications or services using that key will immediately lose access to the API.
+</Warning>
+
+## Using API Keys
+
+When making requests to the Giselle API, include your API key in the `Authorization` header:
+
+```bash
+curl -X POST https://studio.giselles.ai/api/apps/{appId}/run \
+  -H "Authorization: Bearer gsk_your_api_key_here" \
+  -H "Content-Type: application/json" \
+  -d '{"text": "Your input text"}'
+```
+
+For a better developer experience, consider using the [Giselle SDK](/en/guides/api/sdk) which handles authentication automatically.
+
+## Security Best Practices
+
+<AccordionGroup>
+  <Accordion title="Keep Keys Secret">
+    Never expose API keys in client-side code, public repositories, or logs. Use environment variables or secure secret management systems.
+  </Accordion>
+  <Accordion title="Use Descriptive Labels">
+    Label your keys by their use case (e.g., "Production", "Development", "CI/CD") to easily track and manage them.
+  </Accordion>
+  <Accordion title="Rotate Keys Regularly">
+    Periodically create new keys and revoke old ones, especially if you suspect a key may have been compromised.
+  </Accordion>
+  <Accordion title="Limit Key Distribution">
+    Only share API keys with team members and systems that genuinely need API access.
+  </Accordion>
+</AccordionGroup>
+
+## Rate Limits
+
+API requests are rate-limited based on your team's plan:
+
+| Plan | Requests per Minute |
+|------|---------------------|
+| Free | 60 |
+| Pro | 300 |
+| Team | 600 |
+| Enterprise | 3,000 |
+
+When you exceed the rate limit, the API returns a `429 Too Many Requests` response. Rate limit information is included in response headers:
+
+- `RateLimit-Limit`: Maximum requests allowed per minute
+- `RateLimit-Remaining`: Remaining requests in the current window
+- `RateLimit-Reset`: Unix timestamp when the rate limit resets
+- `Retry-After`: Seconds to wait before retrying (when rate limited)
+
+## Troubleshooting
+
+### Unauthorized (401) Error
+
+If you receive a 401 error, check that:
+
+- Your API key is correct and complete
+- The key hasn't been revoked
+- The `Authorization` header is formatted correctly: `Bearer <your_api_key>`
+
+### Rate Limited (429) Error
+
+If you're being rate limited:
+
+- Check the `Retry-After` header for when you can retry
+- Consider upgrading your plan for higher limits
+- Implement exponential backoff in your application
+
+## Next Steps
+
+- Learn how to use the [Giselle SDK](/en/guides/api/sdk) for easier API integration
+- Explore the [Playground](/en/guides/playground) to test your apps before integrating via API
