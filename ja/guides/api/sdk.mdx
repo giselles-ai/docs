@@ -44,7 +44,7 @@ const client = new Giselle({
 });
 
 // アプリを実行して結果を待つ
-const { task } = await client.app.runAndWait({
+const { task } = await client.apps.runAndWait({
   appId: "app_xxxxx",
   input: { text: "こんにちは、Giselle！" },
 });
@@ -92,12 +92,12 @@ APIキーをバージョン管理にコミットしないでください。環�
 
 ## APIリファレンス
 
-### `client.app.run()`
+### `client.apps.run()`
 
 アプリの実行を開始し、タスクIDをすぐに返します。ポーリングを自分で処理したい場合や、結果を待つ必要がない場合に使用します。
 
 ```typescript
-const { taskId } = await client.app.run({
+const { taskId } = await client.apps.run({
   appId: "app_xxxxx",
   input: { text: "入力テキスト" },
 });
@@ -120,12 +120,12 @@ console.log(taskId); // "tsk_xxxxx"
 }
 ```
 
-### `client.app.runAndWait()`
+### `client.apps.runAndWait()`
 
 アプリの実行を開始し、タスクが完了するまでポーリングします。ほとんどのユースケースで推奨されるメソッドです。
 
 ```typescript
-const { task } = await client.app.runAndWait({
+const { task } = await client.apps.runAndWait({
   appId: "app_xxxxx",
   input: { text: "入力テキスト" },
   pollIntervalMs: 1000,  // オプション: ポーリング間隔（デフォルト: 1000ms）
@@ -188,7 +188,7 @@ const client = new Giselle({
   apiKey: process.env.GISELLE_API_KEY,
 });
 
-const { taskId } = await client.app.run({
+const { taskId } = await client.apps.run({
   appId: "app_xxxxx", // 実際のApp IDがここに表示されます
   input: { text: "your input here" },
 });
@@ -215,7 +215,7 @@ import Giselle, {
 } from "@giselles-ai/sdk";
 
 try {
-  const { task } = await client.app.runAndWait({
+  const { task } = await client.apps.runAndWait({
     appId: "app_xxxxx",
     input: { text: "こんにちは" },
   });
@@ -257,7 +257,7 @@ const client = new Giselle({
 });
 
 async function runMyApp(userInput: string) {
-  const { task } = await client.app.runAndWait({
+  const { task } = await client.apps.runAndWait({
     appId: "app_xxxxx",
     input: { text: userInput },
   });
@@ -273,7 +273,7 @@ async function runMyApp(userInput: string) {
 ### カスタムタイムアウト付き
 
 ```typescript
-const { task } = await client.app.runAndWait({
+const { task } = await client.apps.runAndWait({
   appId: "app_xxxxx",
   input: { text: "時間がかかる可能性のある複雑なクエリ" },
   timeoutMs: 300000, // 5分
@@ -285,7 +285,7 @@ const { task } = await client.app.runAndWait({
 
 ```typescript
 // タスクを開始するが完了を待たない
-const { taskId } = await client.app.run({
+const { taskId } = await client.apps.run({
   appId: "app_xxxxx",
   input: { text: "バックグラウンド処理" },
 });
@@ -309,7 +309,7 @@ app.use(express.json());
 
 app.post("/api/process", async (req, res) => {
   try {
-    const { task } = await client.app.runAndWait({
+    const { task } = await client.apps.runAndWait({
       appId: "app_xxxxx",
       input: { text: req.body.text },
       timeoutMs: 60000,
