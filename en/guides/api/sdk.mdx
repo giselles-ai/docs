@@ -44,7 +44,7 @@ const client = new Giselle({
 });
 
 // Run an app and wait for results
-const { task } = await client.app.runAndWait({
+const { task } = await client.apps.runAndWait({
   appId: "app_xxxxx",
   input: { text: "Hello, Giselle!" },
 });
@@ -92,12 +92,12 @@ Never commit API keys to version control. Use environment variables or a secrets
 
 ## API Reference
 
-### `client.app.run()`
+### `client.apps.run()`
 
 Starts an app execution and returns immediately with a task ID. Use this when you want to handle polling yourself or don't need to wait for results.
 
 ```typescript
-const { taskId } = await client.app.run({
+const { taskId } = await client.apps.run({
   appId: "app_xxxxx",
   input: { text: "Your input text" },
 });
@@ -120,12 +120,12 @@ console.log(taskId); // "tsk_xxxxx"
 }
 ```
 
-### `client.app.runAndWait()`
+### `client.apps.runAndWait()`
 
 Starts an app execution and polls until the task completes. This is the recommended method for most use cases.
 
 ```typescript
-const { task } = await client.app.runAndWait({
+const { task } = await client.apps.runAndWait({
   appId: "app_xxxxx",
   input: { text: "Your input text" },
   pollIntervalMs: 1000,  // Optional: polling interval (default: 1000ms)
@@ -188,7 +188,7 @@ const client = new Giselle({
   apiKey: process.env.GISELLE_API_KEY,
 });
 
-const { taskId } = await client.app.run({
+const { taskId } = await client.apps.run({
   appId: "app_xxxxx", // Your actual App ID is shown here
   input: { text: "your input here" },
 });
@@ -215,7 +215,7 @@ import Giselle, {
 } from "@giselles-ai/sdk";
 
 try {
-  const { task } = await client.app.runAndWait({
+  const { task } = await client.apps.runAndWait({
     appId: "app_xxxxx",
     input: { text: "Hello" },
   });
@@ -257,7 +257,7 @@ const client = new Giselle({
 });
 
 async function runMyApp(userInput: string) {
-  const { task } = await client.app.runAndWait({
+  const { task } = await client.apps.runAndWait({
     appId: "app_xxxxx",
     input: { text: userInput },
   });
@@ -273,7 +273,7 @@ async function runMyApp(userInput: string) {
 ### With Custom Timeout
 
 ```typescript
-const { task } = await client.app.runAndWait({
+const { task } = await client.apps.runAndWait({
   appId: "app_xxxxx",
   input: { text: "Complex query that may take time" },
   timeoutMs: 300000, // 5 minutes
@@ -285,7 +285,7 @@ const { task } = await client.app.runAndWait({
 
 ```typescript
 // Start the task but don't wait for completion
-const { taskId } = await client.app.run({
+const { taskId } = await client.apps.run({
   appId: "app_xxxxx",
   input: { text: "Background processing" },
 });
@@ -309,7 +309,7 @@ app.use(express.json());
 
 app.post("/api/process", async (req, res) => {
   try {
-    const { task } = await client.app.runAndWait({
+    const { task } = await client.apps.runAndWait({
       appId: "app_xxxxx",
       input: { text: req.body.text },
       timeoutMs: 60000,
