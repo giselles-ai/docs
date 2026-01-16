@@ -12,6 +12,7 @@ Giselle で利用可能な OpenAI モデルの主な機能を以下の表にま�
 | Models | Generate Text | Input Image | Web Search | Reasoning | Context Window | Max Output Tokens | Pricing (Input/Output per 1M tokens) | Availability |
 |---|---|---|---|---|---|---|---|---|
 | gpt-5.2 | ✅ | ✅ | ✅ | ✅ (Highest) | 400k tokens | 128k tokens | $1.75 / $14.00 | Pro |
+| gpt-5.2-codex | ✅ | ✅ | ✅ | ✅ (Highest) | 400k tokens | 128k tokens | $1.75 / $14.00 | Pro |
 | gpt-5.1-thinking | ✅ | ✅ | ✅ | ✅ (Highest) | 400k tokens | 128k tokens | $1.25 / $10.00 | Pro |
 | gpt-5.1-codex | ✅ | ✅ | ✅ | ✅ (Highest) | 400k tokens | 128k tokens | $1.25 / $10.00 | Pro |
 | gpt-5 | ✅ | ✅ | ✅ | ✅ (Highest) | 400k tokens | 128k tokens | $1.25 / $10.00 | Pro |
@@ -36,6 +37,19 @@ GPT-5.2 は、あらゆる業界のコーディングとエージェンティッ
 *   **Inputs:** Text, Image
 *   **Reasoning Effort:** `none`（デフォルト）、`low`、`medium`、`high`、`xhigh`
 *   **Text Verbosity:** `low`、`medium`（デフォルト）、`high`
+*   **Availability:** Pro Plan
+
+### gpt-5.2-codex
+
+GPT-5.2-Codex は、長期的でエージェンティックなコーディングタスクに最適化された GPT-5.2 のアップグレード版です。OpenAI の最も知的なコーディングモデルであり、Codex や類似のコーディング環境での使用を目的として設計されています。GPT-5.2-Codex は推論の深さを制御するための推論努力レベル（`low`、`medium`、`high`、`xhigh`）をサポートし、最適なコード出力品質を確保するためにテキスト冗長性は `medium` のみに制限されています。
+
+*   **主な特徴:** エージェンティックコーディングに最適化、長期的タスク、強化されたコード生成、推論トークンサポート
+*   **Context Window:** 400,000 tokens
+*   **Max Output Tokens:** 128,000 tokens
+*   **Knowledge Cutoff:** August 31, 2025
+*   **Inputs:** Text, Image
+*   **Reasoning Effort:** `low`、`medium`、`high`、`xhigh`
+*   **Text Verbosity:** `medium`（固定）
 *   **Availability:** Pro Plan
 
 ## GPT-5.1 シリーズモデル
@@ -118,6 +132,7 @@ OpenAIの最先端画像生成モデルです。テキストと画像の両方�
 Giselle 内で最適な OpenAI モデルを選択するためのガイドライン：
 
 *   **最高の総合パフォーマンス、コーディング、エージェンティックなタスク、最高の推論性能には**: `gpt-5.2` (Pro) - OpenAI の最も高性能なモデル
+*   **長期的なエージェンティックコーディングタスクには**: `gpt-5.2-codex` (Pro) - OpenAI の最も知的なコーディングモデル
 *   **深い推論と複雑な問題解決には**: `gpt-5.1-thinking` (Pro)
 *   **コーディングとソフトウェア開発には**: `gpt-5.1-codex` (Pro)
 *   **信頼性の高い汎用タスクには**: `gpt-5` (Pro)
@@ -148,7 +163,9 @@ Giselle は既存のワークフローのシームレスな移行を保証する
 
 画像生成のニーズに対しては、**gpt-image-1** が高品質な結果を提供し、テキストと画像の両方の入力をサポートしています。このモデルは特定の要件に基づいてコストと詳細のバランスを取るために、異なる品質階層を提供しています。
 
-ワークフローでこれらのモデルを組み合わせることで、それぞれの特定の強みを活用できます。例えば、最先端の推論とコーディング機能には `gpt-5.2` を使用し、コスト効率的なタスクには `gpt-5-mini` を使用し、高速で大量処理が必要な操作には `gpt-5-nano` を使用します。
+複雑で長期的なコーディングプロジェクトに取り組む開発者やチームには、**gpt-5.2-codex** が最適な選択肢です。Codex のような環境でのエージェンティックコーディングタスクに特化して最適化されており、GPT-5.2 と同じ価格設定で、持続的なコーディングワークフロー向けの専門的な機能を提供します。このモデルではテキスト冗長性が `medium` に固定されている点にご注意ください。
+
+ワークフローでこれらのモデルを組み合わせることで、それぞれの特定の強みを活用できます。例えば、最先端の推論と汎用機能には `gpt-5.2` を使用し、エージェンティックコーディングタスクには `gpt-5.2-codex` を使用し、コスト効率的なタスクには `gpt-5-mini` を使用し、高速で大量処理が必要な操作には `gpt-5-nano` を使用します。
 
 詳細な仕様と OpenAI が直接提供するモデルの全範囲については、[公式 OpenAI ドキュメント](https://platform.openai.com/docs/models)をご確認ください。
     
