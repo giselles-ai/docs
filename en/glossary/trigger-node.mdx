@@ -54,6 +54,12 @@ The **GitHub Trigger Node** enables you to automatically start your Giselle work
    * Click on **Enable** to activate the trigger.
    * Once enabled, the **State** will change to "Enable", and you will see an option to **Disable Trigger**. The node on the canvas will also reflect its "Enabled" status.
 
+5a. **Configure In-Progress Comment (Optional)**:
+    * Once your trigger is set up, you can configure whether Giselle posts an "in-progress" comment to GitHub when the workflow starts executing.
+    * By default, this option is **enabled**, meaning Giselle will automatically post a comment to the issue or pull request indicating that the workflow is running.
+    * To disable in-progress comments, toggle off the **Post In-Progress Comment** option in the trigger's properties panel.
+    * This setting is useful when you want to reduce noise in GitHub discussions or prefer silent workflow execution.
+
 6. **Run in the workspace**:
    * For GitHub Trigger Nodes, clicking the "Run" button allows you to test your workflow without waiting for an actual GitHub webhook. You can enter values in a form that simulates the GitHub event, enabling you to verify that your workflow functions correctly before enabling it for real GitHub events.
 
