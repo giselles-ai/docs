@@ -11,8 +11,6 @@ description: "Data Store Node を使用して PostgreSQL データベースを�
 
 **Data Store Node** は、チーム設定で登録した PostgreSQL データベース接続をワークフローに提供する特殊な「変数ノード」です。Data Query Node と組み合わせることで、ワークフロー内からデータベースに対して SQL クエリを実行し、その結果をGenerator Node などで処理できます。
 
-このノードは、データベース接続を抽象化することで、接続情報をワークフローから分離し、セキュリティと再利用性を確保します。
-
 ## 前提条件
 
 Data Store Node を使用するには、事前に [Data Store の作成方法](../guides/settings/team/data-stores#data-store-の作成)を参照してデータベース接続を登録する必要があります。
