@@ -1,0 +1,138 @@
+---
+title: Data Stores
+description: PostgreSQL データベース接続を登録・管理します。
+---
+
+<Warning>
+この機能は現在 **Private Preview** です。アクセスは一部のユーザーに限定されています。機能は予告なく変更される場合があります。
+</Warning>
+
+<Info>
+[設定 > チーム > Data Stores](https://studio.giselles.ai/settings/team/data-stores) から Data Stores ページにアクセスできます。
+</Info>
+
+## Data Stores ページの概要
+
+Data Stores ページでは、外部の PostgreSQL データベースへの接続を管理できます。登録したデータベース接続は、Data Store Node と Data Query Node を使用してワークフロー内で活用できます。
+
+現在、以下のデータベースに対応しています：
+
+- **PostgreSQL**: PostgreSQL データベースへの接続と SQL クエリの実行
+
+## Data Store の作成
+
+<Steps>
+<Step title="Data Stores 設定に移動">
+Giselle の [設定 > チーム > Data Stores](https://studio.giselles.ai/settings/team/data-stores) に移動します。
+</Step>
+<Step title="新しい Data Store を作成">
+**New Data Store** ボタンをクリックして、作成ダイアログを開きます。
+</Step>
+<Step title="接続情報を入力">
+以下の項目を設定します：
+
+#### Name
+
+Data Store の名前を入力します（例：「Production Database」、「Analytics DB」）。これにより、後で接続先を識別しやすくなります。
+
+#### Connection String
+
+PostgreSQL の接続文字列を入力します。
+
+```
+postgresql://user:password@host:5432/database
+```
+
+<Note>
+接続文字列は暗号化されて安全に保存されます。セキュリティ上の理由から、一度保存した接続文字列は UI に表示されません。
+</Note>
+
+<Note>
+現在、IPv4 アドレスのみ対応しています。IPv6 アドレスを使用したデータベースには接続できません。
+</Note>
+</Step>
+<Step title="作成を完了">
+**Create** をクリックして Data Store を作成します。
+</Step>
+</Steps>
+
+## Data Store の管理
+
+### Data Store の表示
+
+Data Stores ページには、チームのすべての Data Store が以下の情報とともに表示されます：
+
+- **名前**: 設定した説明的な名前
+- **ID**: Data Store の一意識別子
+- **アクションメニュー**: 編集・削除のオプション
+
+### Data Store の編集
+
+Data Store を編集する手順：
+
+1. アクションメニュー（3点ドット）から **Edit** を選択
+2. "Edit Data Store" ダイアログが開きます
+3. 以下の項目を更新できます：
+
+#### Name
+
+Data Store の名前を変更できます。
+
+#### Update connection string
+
+チェックボックスをオンにすると、接続文字列を更新できます。
+
+<Note>
+接続文字列の更新時は、新しい接続文字列を完全に入力する必要があります。セキュリティ上の理由から、既存の接続文字列は表示されません。
+</Note>
+
+4. **Save** をクリックして変更を保存
+
+### Data Store の削除
+
+Data Store を削除する手順：
+
+1. アクションメニューから **Delete** を選択
+2. "Delete Data Store" ダイアログで確認
+3. 削除を実行
+
+<Warning>
+削除は取り消せません。Data Store とその接続情報が完全に削除されます。この Data Store を使用しているワークフローは、再設定が必要になります。
+</Warning>
+
+## Empty State
+
+### Data Store が未作成の場合
+
+Data Store が作成されていない場合：
+- "No data stores yet"
+- 'Please create a data store using the "New Data Store" button.'
+
+## エラーメッセージ
+
+以下のエラーが発生する可能性があります：
+
+- **Name is required**: 名前を入力してください
+- **Connection string is required**: 接続文字列を入力してください
+- **Invalid connection string format**: 接続文字列の形式が正しくありません
+- **Connection string must use postgresql:// or postgres:// protocol**: プロトコルが正しくありません
+- **Connection string must include a host**: 接続文字列にホストが含まれていません
+- **Connection to private or internal IP addresses is not allowed**: プライベート IP への接続は許可されていません
+- **Unable to resolve hostname**: ホスト名を解決できません
+- **IPv6 addresses are not supported**: IPv6 アドレスには対応していません
+- **Data store not found**: Data Store が見つかりません
+- **No DataStore node connected to DataQuery node**: Data Query Node に Data Store Node が接続されていません
+- **DataStore node is not configured**: Data Store Node が設定されていません
+
+## Data Stores の活用
+
+登録したデータベース接続は、以下の Node で活用できます：
+
+- **[Data Store Node](/ja/glossary/data-store-node)**: データベース接続を選択
+- **[Data Query Node](/ja/glossary/data-query-node)**: Data Store に対して SQL クエリを実行
+
+これらの Node を使用することで、PostgreSQL データベースをワークフローに統合できます。
+
+## サポート
+
+Data Stores の設定で問題が発生した場合や、ご不明な点がある場合は、サポートチーム（support@giselles.ai）までお問い合わせください。

@@ -61,7 +61,8 @@
                 "pages": [
                   "en/guides/workspaces",
                   "en/guides/settings/team/integrations",
-                  "en/guides/settings/team/vector-stores"
+                  "en/guides/settings/team/vector-stores",
+                  "en/guides/settings/team/data-stores"
                 ]
               },
               {
@@ -154,7 +155,9 @@
                   "en/glossary/webpage-node",
                   "en/glossary/document-vector-store-node",
                   "en/glossary/github-vector-store-node",
-                  "en/glossary/vector-query-node"
+                  "en/glossary/vector-query-node",
+                  "en/glossary/data-store-node",
+                  "en/glossary/data-query-node"
                 ]
               },
               {
@@ -268,7 +271,8 @@
                 "pages": [
                   "ja/guides/workspaces",
                   "ja/guides/settings/team/integrations",
-                  "ja/guides/settings/team/vector-stores"
+                  "ja/guides/settings/team/vector-stores",
+                  "ja/guides/settings/team/data-stores"
                 ]
               },
               {
@@ -361,7 +365,9 @@
                   "ja/glossary/webpage-node",
                   "ja/glossary/document-vector-store-node",
                   "ja/glossary/github-vector-store-node",
-                  "ja/glossary/vector-query-node"
+                  "ja/glossary/vector-query-node",
+                  "ja/glossary/data-store-node",
+                  "ja/glossary/data-query-node"
                 ]
               },
               {

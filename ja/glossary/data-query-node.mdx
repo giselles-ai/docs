@@ -1,0 +1,89 @@
+---
+title: Data Query Node
+description: "Data Query Node を使用して Data Store Node に SQL クエリを実行する方法を学びます。"
+---
+
+<Warning>
+この機能は現在 **Private Preview** です。アクセスは一部のユーザーに限定されています。機能は予告なく変更される場合があります。
+</Warning>
+
+## Giselle の Data Query Node
+
+**Data Query Node** は、接続された Data Store Node に対して SQL クエリを実行し、結果を JSON 形式で返す Giselle のコンポーネントです。
+
+Data Query Node は以下のノードと連携し、ワークフロー内でデータベースを活用するための重要な構成要素となっています：
+
+- **[Data Store Node](data-store-node)**: チーム設定で登録したデータベース接続をワークフローに提供します。
+
+### Data Query Node の使用方法
+
+#### 1. Data Query Node の追加
+
+1. キャンバス下部のツールバーから、**Context** アイコンをクリックします。
+2. ポップアップメニューから **Data Query** を選択して、ノードを Workspace に追加します。
+
+#### 2. Data Store Node の接続
+
+Data Query Node が機能するには、Data Store Node からの入力が必要です。Data Store Node の**出力**を Data Query Node の**入力**に接続する必要があります。Data Store Node が接続されるまで、Data Query Node は「No data sources connected • Connect a Data Store node」と表示します。
+
+接続されると、クエリエディタ上部に Data Store の情報が表示されます：
+
+- **Connected**: Data Store が正しく設定されています
+- **Requires setup**: Data Store Node で接続先を選択してください
+
+#### 3. クエリの記述と実行
+
+Data Store Node が接続されると、Data Query Node を設定できます：
+
+1. **クエリを入力**: 設定パネルの「SQL Query」入力フィールドに SQL クエリを入力します。`@` を入力すると、他のノードの出力を参照できます。
+2. **クエリを実行**: **Run Query** ボタンをクリックして、接続されたデータベースに対してクエリを実行します。
+
+#### 4. 結果の確認
+
+クエリが実行された後、結果はノードのパネルに直接表示されます。結果には以下が含まれます：
+
+- 返された行数の要約（例：「5 rows returned」）
+- 実行されたクエリ（パラメータが展開された状態）
+- 結果データ（JSON 形式、折りたたみ可能）
+
+結果が 0 件の場合は「Query executed successfully but returned no rows.」と表示されます。
+
+### 動的クエリの作成
+
+Data Query Node では、`@` を使用して他のノードの出力をクエリ内で参照できます。これにより、ユーザー入力や AI が生成した値に基づいた動的なクエリを構築できます。
+
+### ユースケース：ワークフローでのデータベース活用
+
+Data Query Node の主要な目的は、**ワークフローでのデータベース活用**を可能にすることです。データベースから取得した情報を AI モデルに提供することで、より正確で事実に基づいた回答を生成できます。
+
+Giselle における典型的なワークフローは次のようになります：
+
+1. **Data Store Node**: チーム設定で登録したデータベース接続を提供します。
+2. **Data Query Node**: SQL クエリを実行し、データベースから関連するデータを取得します。
+3. **Generator Node**: クエリ結果を受け取り、データを分析・要約して、ユーザーにわかりやすい形で回答を生成します。
+
+より高度なワークフローでは、Generator Node でデータベーススキーマを参照し、自然言語から SQL を生成することもできます：
+
+```
+[Text Node: 「売上トップ10の製品を教えて」]
+        ↓
+[Generator Node: スキーマを参照してSQLを生成] ←── [Data Store Node]
+        ↓
+[Data Query Node] ←── [Data Store Node]
+        ↓
+[Generator Node: 結果を説明]
+```
+
+### Data Query Node の出力
+
+Data Query Node の「結果」出力には、クエリ結果が JSON 形式で含まれます。この構造化されたデータは、後続ノード（最も一般的にはGenerator Node）に渡され、データ分析や回答生成のためのコンテキストとして機能できます。
+
+出力には以下が含まれます：
+
+- **rows**: クエリ結果の配列
+- **rowCount**: 返された行数
+- **query**: 実行されたクエリ
+
+<Note>
+データベース接続の設定の詳細については、[Data Stores ドキュメント](../guides/settings/team/data-stores)および [Data Store Node](data-store-node) のドキュメントをご覧ください。
+</Note>

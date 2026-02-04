@@ -1,0 +1,138 @@
+---
+title: Data Stores
+description: Register and manage PostgreSQL database connections.
+---
+
+<Warning>
+This feature is currently in **Private Preview**. Access is limited to select users. Features may change without notice.
+</Warning>
+
+<Info>
+You can access the Data Stores page from [Settings > Team > Data Stores](https://studio.giselles.ai/settings/team/data-stores).
+</Info>
+
+## Data Stores Page Overview
+
+The Data Stores page allows you to manage connections to external PostgreSQL databases. Registered database connections can be used within workflows using the Data Store Node and Data Query Node.
+
+Currently, the following databases are supported:
+
+- **PostgreSQL**: Connect to PostgreSQL databases and execute SQL queries
+
+## Creating a Data Store
+
+<Steps>
+<Step title="Navigate to Data Stores Settings">
+Go to [Settings > Team > Data Stores](https://studio.giselles.ai/settings/team/data-stores) in Giselle.
+</Step>
+<Step title="Create a New Data Store">
+Click the **New Data Store** button to open the creation dialog.
+</Step>
+<Step title="Enter Connection Information">
+Configure the following fields:
+
+#### Name
+
+Enter a name for the Data Store (e.g., "Production Database", "Analytics DB"). This helps you identify the connection later.
+
+#### Connection String
+
+Enter the PostgreSQL connection string.
+
+```
+postgresql://user:password@host:5432/database
+```
+
+<Note>
+The connection string is encrypted and stored securely. For security reasons, the connection string is not displayed in the UI once saved.
+</Note>
+
+<Note>
+Currently, only IPv4 addresses are supported. Databases using IPv6 addresses cannot be connected.
+</Note>
+</Step>
+<Step title="Complete Creation">
+Click **Create** to create the Data Store.
+</Step>
+</Steps>
+
+## Managing Data Stores
+
+### Viewing Data Stores
+
+The Data Stores page displays all Data Stores for your team with the following information:
+
+- **Name**: The descriptive name you set
+- **ID**: The unique identifier for the Data Store
+- **Action Menu**: Options for editing and deleting
+
+### Editing a Data Store
+
+To edit a Data Store:
+
+1. Select **Edit** from the action menu (three dots)
+2. The "Edit Data Store" dialog opens
+3. You can update the following fields:
+
+#### Name
+
+You can change the name of the Data Store.
+
+#### Update connection string
+
+Check the checkbox to update the connection string.
+
+<Note>
+When updating the connection string, you must enter the new connection string completely. For security reasons, the existing connection string is not displayed.
+</Note>
+
+4. Click **Save** to save your changes
+
+### Deleting a Data Store
+
+To delete a Data Store:
+
+1. Select **Delete** from the action menu
+2. Confirm in the "Delete Data Store" dialog
+3. Execute the deletion
+
+<Warning>
+Deletion cannot be undone. The Data Store and its connection information will be permanently deleted. Workflows using this Data Store will need to be reconfigured.
+</Warning>
+
+## Empty State
+
+### When No Data Stores Exist
+
+If no Data Stores have been created:
+- "No data stores yet"
+- 'Please create a data store using the "New Data Store" button.'
+
+## Error Messages
+
+The following errors may occur:
+
+- **Name is required**: Please enter a name
+- **Connection string is required**: Please enter a connection string
+- **Invalid connection string format**: The connection string format is incorrect
+- **Connection string must use postgresql:// or postgres:// protocol**: The protocol is incorrect
+- **Connection string must include a host**: The connection string must include a host
+- **Connection to private or internal IP addresses is not allowed**: Connections to private IPs are not allowed
+- **Unable to resolve hostname**: Cannot resolve the hostname
+- **IPv6 addresses are not supported**: IPv6 addresses are not supported
+- **Data store not found**: Data Store not found
+- **No DataStore node connected to DataQuery node**: Data Store Node is not connected to Data Query Node
+- **DataStore node is not configured**: Data Store Node is not configured
+
+## Using Data Stores
+
+Registered database connections can be used with the following Nodes:
+
+- **[Data Store Node](/en/glossary/data-store-node)**: Select a database connection
+- **[Data Query Node](/en/glossary/data-query-node)**: Execute SQL queries against the Data Store
+
+Using these Nodes, you can integrate PostgreSQL databases into your workflows.
+
+## Support
+
+If you encounter issues with Data Stores configuration or have any questions, please contact our support team at support@giselles.ai.
