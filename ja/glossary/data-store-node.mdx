@@ -1,0 +1,80 @@
+---
+title: Data Store Node
+description: "Data Store Node を使用して PostgreSQL データベースをワークフローに統合する方法を学びます。"
+---
+
+<Warning>
+この機能は現在 **Private Preview** です。アクセスは一部のユーザーに限定されています。機能は予告なく変更される場合があります。
+</Warning>
+
+## Giselle の Data Store Node
+
+**Data Store Node** は、チーム設定で登録した PostgreSQL データベース接続をワークフローに提供する特殊な「変数ノード」です。Data Query Node と組み合わせることで、ワークフロー内からデータベースに対して SQL クエリを実行し、その結果をGenerator Node などで処理できます。
+
+このノードは、データベース接続を抽象化することで、接続情報をワークフローから分離し、セキュリティと再利用性を確保します。
+
+## 前提条件
+
+Data Store Node を使用するには、事前に [Data Store の作成方法](../guides/settings/team/data-stores#data-store-の作成)を参照してデータベース接続を登録する必要があります。
+
+### ワークフローへの Data Store Node の追加
+
+#### ノードを追加
+
+1. キャンバス下部のツールバーから、**Context** アイコンをクリックします。
+2. ポップアップメニューから **Data Store** を選択して、ノードを Workspace に追加します。
+
+#### Data Store の設定
+
+1. 最初に追加されたとき、ノードは「Requires setup」ステータスを表示します。
+2. ノードを選択して、右側の設定パネルを開きます。
+3. **Data Store** ドロップダウンメニューをクリックし、先ほど作成した Data Store を選択します。
+
+#### 設定の完了
+
+設定が完了すると、キャンバス上のノードが更新されて選択された Data Store の名前が表示されます。これでノードは、ワークフロー内の Data Query Node に接続する準備が整いました。
+
+### ワークフローでの使用
+
+Data Store Node は、Data Query Node と組み合わせて使用するように設計されています。Data Query Node がクエリを実行するためのデータベース接続を提供します。
+
+- **出力を接続**: Data Store Node の「出力」を Data Query Node の入力に接続する必要があります。
+- **クエリの実行**: Data Query Node は、SQL クエリを受け取り、接続されたデータベースに対してクエリを実行し、その結果を後続のノード（Generator Node など）に渡して処理、分析、または要約を行います。
+
+### ワークフローの例
+
+```
+[Text Node: ユーザー入力]
+        ↓
+[Data Query Node] ←── [Data Store Node]
+        ↓
+[Generator Node: クエリ結果を分析・要約]
+```
+
+### 高度な使用例
+
+Generator Node と組み合わせることで、自然言語から SQL を生成し、動的にクエリを実行できます：
+
+```
+[Text Node: 「売上が最も高い製品を教えて」]
+        ↓
+[Generator Node: 自然言語から SQL を生成]
+        ↓
+[Data Query Node] ←── [Data Store Node]
+        ↓
+[Generator Node: 結果をわかりやすく説明]
+```
+
+### ノードの出力
+
+Data Store Node の**出力**は、接続された**データベースのスキーマへの参照**を提供します。この出力をGenerator Node に接続することで、AI モデルがデータベース構造（テーブル名やカラム名）を理解し、適切な SQL クエリを生成できるようになります。
+
+### エラー処理
+
+Data Store Node で問題が発生した場合、考えられる理由は次のとおりです：
+
+- **Data Store が未選択**: ノードのプロパティパネルで Data Store を選択してください。
+- **Data Store が削除された**: 選択していた Data Store が削除された場合、「Requires setup」ステータスが表示されます。別の Data Store を選択してください。
+- **Data Store が見つからない**: チーム設定で Data Store が作成されているか確認してください。
+
+エラーメッセージの詳細や制限事項については、[Data Stores ドキュメント](../guides/settings/team/data-stores)をご覧ください。
