@@ -9,7 +9,7 @@ This feature is currently in **Private Preview**. Access is limited to select us
 
 ## Data Store Node in Giselle
 
-**Data Store Node** is a specialized "variable node" that provides PostgreSQL database connections registered in team settings to your workflow. When combined with the Data Query Node, you can execute SQL queries against databases from within your workflow and process the results with Generator Node or other nodes.
+The **Data Store Node** is a specialized "variable node" that provides PostgreSQL database connections registered in team settings to your workflow. When combined with the Data Query Node, you can execute SQL queries against databases from within your workflow and process the results with a Generator Node or other nodes.
 
 ## Prerequisites
 
@@ -34,10 +34,10 @@ Once configured, the node on the canvas updates to display the selected Data Sto
 
 ### Using in Workflows
 
-Data Store Node is designed to be used in combination with Data Query Node. It provides the database connection for Data Query Node to execute queries.
+The Data Store Node is designed to be used in combination with a Data Query Node. It provides the database connection for a Data Query Node to execute queries.
 
 - **Connect the output**: You need to connect the Data Store Node's "output" to the Data Query Node's input.
-- **Execute queries**: Data Query Node receives SQL queries, executes them against the connected database, and passes the results to subsequent nodes (such as Generator Node) for processing, analysis, or summarization.
+- **Execute queries**: The Data Query Node receives SQL queries, executes them against the connected database, and passes the results to subsequent nodes (such as Generator Node) for processing, analysis, or summarization.
 
 ### Workflow Example
 
@@ -51,7 +51,7 @@ Data Store Node is designed to be used in combination with Data Query Node. It p
 
 ### Advanced Use Case
 
-By combining with Generator Node, you can generate SQL from natural language and execute dynamic queries:
+By combining with a Generator Node, you can generate SQL from natural language and execute dynamic queries:
 
 ```
 [Text Node: "Show me the top selling products"]
