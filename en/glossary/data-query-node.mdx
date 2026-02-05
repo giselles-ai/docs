@@ -9,9 +9,9 @@ This feature is currently in **Private Preview**. Access is limited to select us
 
 ## Data Query Node in Giselle
 
-**Data Query Node** is a Giselle component designed to execute SQL queries against a connected Data Store Node and return results in JSON format.
+The **Data Query Node** is a Giselle component designed to execute SQL queries against a connected Data Store Node and return results in JSON format.
 
-Data Query Node works with the following nodes and serves as an essential building block for leveraging databases within workflows:
+It works with the following nodes and serves as an essential building block for leveraging databases within workflows:
 
 - **[Data Store Node](data-store-node)**: Provides database connections registered in team settings to your workflow.
 
@@ -24,7 +24,7 @@ Data Query Node works with the following nodes and serves as an essential buildi
 
 #### 2. Connect Data Store Node
 
-Data Query Node requires input from a Data Store Node to function. You need to connect the Data Store Node's **output** to the Data Query Node's **input**. Until a Data Store Node is connected, the Data Query Node displays "No data sources connected • Connect a Data Store node".
+The Data Query Node requires input from a Data Store Node to function. You need to connect the Data Store Node's **output** to the Data Query Node's **input**. Until a Data Store Node is connected, the Data Query Node displays "No data sources connected • Connect a Data Store node".
 
 Once connected, Data Store information appears at the top of the query editor:
 
@@ -50,11 +50,11 @@ If no rows are returned, "Query executed successfully but returned no rows." is 
 
 ### Creating Dynamic Queries
 
-In Data Query Node, you can use `@` to reference outputs from other nodes within your query. This allows you to build dynamic queries based on user input or AI-generated values.
+From the Data Query Node's settings panel, you can use `@` to reference outputs from other nodes within your query. This allows you to build dynamic queries based on user input or AI-generated values.
 
 ### Use Case: Leveraging Databases in Workflows
 
-The primary purpose of Data Query Node is to enable **leveraging databases in workflows**. By providing information retrieved from databases to AI models, you can generate more accurate and fact-based responses.
+The primary purpose of the Data Query Node is to enable **leveraging databases in workflows**. By providing information retrieved from databases to AI models, you can generate more accurate and fact-based responses.
 
 A typical workflow in Giselle looks like this:
 
@@ -76,7 +76,7 @@ For more advanced workflows, you can reference database schema in Generator Node
 
 ### Data Query Node Output
 
-The Data Query Node's "result" output contains query results in JSON format. This structured data can be passed to subsequent nodes (most commonly Generator Node) to serve as context for data analysis or response generation.
+The Data Query Node's "result" output contains query results in JSON format. This structured data can be passed to subsequent nodes (most commonly a Generator Node) to serve as context for data analysis or response generation.
 
 Output includes:
 
