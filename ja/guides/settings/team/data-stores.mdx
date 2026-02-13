@@ -19,6 +19,62 @@ Data Stores ページでは、外部の PostgreSQL データベースへの接�
 
 - **PostgreSQL**: PostgreSQL データベースへの接続と SQL クエリの実行
 
+## プランベースの利用制限
+
+Data Stores の作成可能数は、チームのサブスクリプションプランによって制限されています。
+
+### 各プランの制限
+
+| プラン | 作成可能な Data Stores 数 |
+|--------|--------------------------|
+| Free   | 0個（利用不可）          |
+| Pro    | 10個                     |
+| Team   | 20個                     |
+
+### 使用状況の確認
+
+Data Stores ページでは、現在の使用状況が表示されます：
+
+- **使用数 / 最大数**: 例："3 / 10 stores"
+- **残り数**: 例："7 Data Stores remaining in your Pro plan."
+- **プラン名**: 現在のプラン（Free、Pro、Team）
+
+### 制限に達した場合
+
+作成可能数の上限に達した場合：
+
+1. **アラートが表示されます**:
+   - タイトル："Maximum capacity reached"
+   - メッセージ："Delete an existing store or upgrade your plan in Team Settings to add more Data Stores."
+
+2. **New Data Store ボタンが無効化されます**:
+   - ボタンにカーソルを合わせると、ツールチップで理由が表示されます
+   - "You've reached the maximum number of Data Stores included in your plan."
+
+3. **対処方法**:
+   - 既存の Data Store を削除する
+   - [チーム設定](/ja/guides/settings/team/general)でプランをアップグレードする
+
+### Free プランの場合
+
+Free プランでは Data Stores が利用できません：
+
+1. **ロック状態が表示されます**:
+   - タイトル："Data Stores are locked"
+   - メッセージ："Upgrade to the Pro or Team plan to connect PostgreSQL databases and use Data Stores in your agents."
+
+2. **警告アラート**:
+   - "Data Stores are not included in the Free plan"
+   - "Upgrade to Pro or Team to connect PostgreSQL databases with Data Stores."
+
+3. **アップグレード方法**:
+   - **View plans** ボタンをクリックして[チーム設定](/ja/guides/settings/team/general)に移動
+   - Pro または Team プランにアップグレード
+
+<Note>
+プランの詳細については、[プランの詳細情報](/ja/guides/learn-about/plans)をご覧ください。
+</Note>
+
 ## Data Store の作成
 
 <Steps>
@@ -105,8 +161,8 @@ Data Store を削除する手順：
 ### Data Store が未作成の場合
 
 Data Store が作成されていない場合：
-- "No data stores yet"
-- 'Please create a data store using the "New Data Store" button.'
+- "No data stores yet."
+- "Use the 'New Data Store' button to create one."
 
 ## エラーメッセージ
 
@@ -123,6 +179,8 @@ Data Store が作成されていない場合：
 - **Data store not found**: Data Store が見つかりません
 - **No DataStore node connected to DataQuery node**: Data Query Node に Data Store Node が接続されていません
 - **DataStore node is not configured**: Data Store Node が設定されていません
+- **Data Stores are not included in your plan**: プランが Data Store をサポートしていません
+- **You've reached the maximum number of Data Stores included in your plan**: クォータ上限に達しました
 
 ## Data Stores の活用
 
