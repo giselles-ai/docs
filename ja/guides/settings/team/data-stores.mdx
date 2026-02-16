@@ -137,6 +137,10 @@ postgresql://user:password@host:5432/database?sslmode=verify-full
 <Note>
 セキュリティの観点から、`verify-full` の使用を推奨します。
 </Note>
+
+<Note>
+`sslmode` パラメータのサポート状況はサービスによって異なります。[Neon](https://neon.tech) への接続では `sslmode` を使用できますが、`disable` は使用できません。[Supabase](https://supabase.com) への接続では現在 `sslmode` をサポートしていません。
+</Note>
 </Step>
 <Step title="作成を完了">
 **Create** をクリックして Data Store を作成します。
