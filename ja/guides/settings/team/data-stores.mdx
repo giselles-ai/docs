@@ -19,6 +19,14 @@ Data Stores ページでは、外部の PostgreSQL データベースへの接�
 
 - **PostgreSQL**: PostgreSQL データベースへの接続と SQL クエリの実行
 
+### 動作確認済みサービス
+
+以下の PostgreSQL ホスティングサービスでの動作を確認しています：
+
+- [Neon](https://neon.tech)
+- [Supabase](https://supabase.com)
+  - Supabase では **Direct connection** は使用できません。接続文字列を取得する際は、**Transaction pooler** または **Session pooler** を選択してください。
+
 ## プランベースの利用制限
 
 Data Stores の作成可能数は、チームのサブスクリプションプランによって制限されています。
@@ -105,6 +113,29 @@ postgresql://user:password@host:5432/database
 
 <Note>
 現在、IPv4 アドレスのみ対応しています。IPv6 アドレスを使用したデータベースには接続できません。
+</Note>
+
+#### SSL 接続 (sslmode)
+
+接続文字列に `sslmode` パラメータを指定することで、SSL 接続のモードを制御できます。
+
+```
+postgresql://user:password@host:5432/database?sslmode=verify-full
+```
+
+以下の `sslmode` オプションが利用可能です：
+
+| sslmode | 説明 |
+|---------|------|
+| `disable` | SSL を使用しない |
+| `allow` | SSL なしで接続を試み、失敗した場合に SSL を使用 |
+| `prefer` | SSL で接続を試み、失敗した場合に SSL なしで接続 |
+| `require` | SSL を必須とするが、証明書の検証は行わない |
+| `verify-ca` | SSL を必須とし、CA 証明書を検証する |
+| `verify-full` | SSL を必須とし、CA 証明書とホスト名を検証する |
+
+<Note>
+セキュリティの観点から、`verify-full` の使用を推奨します。
 </Note>
 </Step>
 <Step title="作成を完了">

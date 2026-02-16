@@ -19,6 +19,14 @@ Currently, the following databases are supported:
 
 - **PostgreSQL**: Connect to PostgreSQL databases and execute SQL queries
 
+### Verified Services
+
+The following PostgreSQL hosting services have been verified to work:
+
+- [Neon](https://neon.tech)
+- [Supabase](https://supabase.com)
+  - Supabase does not support **Direct connection**. When obtaining the connection string, select **Transaction pooler** or **Session pooler**.
+
 ## Plan-Based Quotas
 
 The number of Data Stores you can create is limited based on your team's subscription plan.
@@ -105,6 +113,29 @@ The connection string is encrypted and stored securely. For security reasons, th
 
 <Note>
 Currently, only IPv4 addresses are supported. Databases using IPv6 addresses cannot be connected.
+</Note>
+
+#### SSL Connection (sslmode)
+
+You can control the SSL connection mode by specifying the `sslmode` parameter in the connection string.
+
+```
+postgresql://user:password@host:5432/database?sslmode=verify-full
+```
+
+The following `sslmode` options are available:
+
+| sslmode | Description |
+|---------|-------------|
+| `disable` | Do not use SSL |
+| `allow` | Try non-SSL first, then SSL if that fails |
+| `prefer` | Try SSL first, then non-SSL if that fails |
+| `require` | Require SSL, but do not verify the certificate |
+| `verify-ca` | Require SSL and verify the CA certificate |
+| `verify-full` | Require SSL and verify the CA certificate and hostname |
+
+<Note>
+For security, `verify-full` is recommended.
 </Note>
 </Step>
 <Step title="Complete Creation">

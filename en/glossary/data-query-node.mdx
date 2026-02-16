@@ -64,15 +64,9 @@ A typical workflow in Giselle looks like this:
 
 For more advanced workflows, you can reference database schema in Generator Node to generate SQL from natural language:
 
-```
-[Text Node: "Show me the top 10 products by sales"]
-        ↓
-[Generator Node: Reference Schema and Generate SQL] ←── [Data Store Node]
-        ↓
-[Data Query Node] ←── [Data Store Node]
-        ↓
-[Generator Node: Explain Results]
-```
+<Frame>
+    <img src="/en/images/glossary/data-query-node/dynamic-query-workflow.png" />
+</Frame>
 
 ### Data Query Node Output
 

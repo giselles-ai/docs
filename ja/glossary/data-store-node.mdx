@@ -41,27 +41,17 @@ Data Store Node は、Data Query Node と組み合わせて使用するように
 
 ### ワークフローの例
 
-```
-[Text Node: ユーザー入力]
-        ↓
-[Data Query Node] ←── [Data Store Node]
-        ↓
-[Generator Node: クエリ結果を分析・要約]
-```
+<Frame>
+    <img src="/ja/images/glossary/data-store-node/workflow-example.png" />
+</Frame>
 
 ### 高度な使用例
 
 Generator Node と組み合わせることで、自然言語から SQL を生成し、動的にクエリを実行できます：
 
-```
-[Text Node: 「売上が最も高い製品を教えて」]
-        ↓
-[Generator Node: 自然言語から SQL を生成]
-        ↓
-[Data Query Node] ←── [Data Store Node]
-        ↓
-[Generator Node: 結果をわかりやすく説明]
-```
+<Frame>
+    <img src="/ja/images/glossary/data-store-node/advanced-workflow-example.png" />
+</Frame>
 
 ### ノードの出力
 

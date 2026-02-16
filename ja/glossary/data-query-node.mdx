@@ -64,15 +64,9 @@ Giselle における典型的なワークフローは次のようになります
 
 より高度なワークフローでは、Generator Node でデータベーススキーマを参照し、自然言語から SQL を生成することもできます：
 
-```
-[Text Node: 「売上トップ10の製品を教えて」]
-        ↓
-[Generator Node: スキーマを参照してSQLを生成] ←── [Data Store Node]
-        ↓
-[Data Query Node] ←── [Data Store Node]
-        ↓
-[Generator Node: 結果を説明]
-```
+<Frame>
+    <img src="/ja/images/glossary/data-query-node/dynamic-query-workflow.png" />
+</Frame>
 
 ### Data Query Node の出力
 
