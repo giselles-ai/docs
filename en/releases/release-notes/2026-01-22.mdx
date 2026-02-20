@@ -1,0 +1,33 @@
+---
+title: January 22, 2026
+description: GPT-5.2 Codex model, Playground app selection, expandable task inputs, and GitHub Trigger comment control
+---
+
+This release adds the GPT-5.2 Codex model, improves the Playground and Tasks experience, and introduces control over GitHub Trigger in-progress comments.
+
+## GPT-5.2 Codex Model
+
+We've added support for **GPT-5.2 Codex**, OpenAI's code-focused model optimized for software engineering tasks. You can now select GPT-5.2 Codex in your Generator nodes for code generation and technical workflows.
+
+## Playground App Selection
+
+You can now select an app directly from the workflow designer and jump to Playground to run it. This streamlines the workflow from building to testing your apps.
+
+## Tasks Page Improvements
+
+- **Expandable input display** — String inputs are now shown in an expandable format in the task header, making it easier to review long inputs without leaving the task page
+
+## GitHub Trigger In-Progress Comment Control
+
+You can now control whether "in-progress" comments are posted to GitHub during workflow execution triggered by GitHub events. This gives you more flexibility over the notification behavior of your GitHub-integrated workflows.
+
+## Bug Fixes & Improvements
+
+- Added magic byte validation for avatar uploads to prevent invalid file types
+- Added server-side repository access validation for GitHub vector store
+- Fixed task input placeholder not updating when switching apps
+- Upgraded Node.js from 22 to 24
+
+---
+
+*This release includes [v0.60.1](https://github.com/giselles-ai/giselle/releases/tag/v0.60.1) through [v0.62.0](https://github.com/giselles-ai/giselle/releases/tag/v0.62.0)*
