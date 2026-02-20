@@ -9,11 +9,16 @@ The following Claude models are available in the Anthropic workspace. Each model
 
 | Models | Generate Text | Web Search | Reasoning | Input PDF | Input Image | Context Window | Max Output | Plan@Giselle |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **claude-opus-4.6** | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | 128k tokens | Pro |
 | **claude-opus-4.5** | ✅ | ✅ | ✅ | ✅ | ✅ | 200k tokens | 32k tokens | Pro |
 | **claude-sonnet-4.5** | ✅ | ✅ | ✅ | ✅ | ✅ | 200k tokens | 64k tokens | Pro |
 | **claude-haiku-4.5** | ✅ | ✅ | ✅ | ✅ | ✅ | 200k tokens | 64k tokens | Free |
 
 Please note that some features may not be available within Giselle even if they are offered in the official API. Extended thinking mode and other Anthropic API features will be gradually implemented within Giselle.
+
+### claude-opus-4.6
+
+Claude Opus 4.6 is Anthropic's most intelligent model, purpose-built for building agents and coding. It delivers state-of-the-art performance on agentic coding tasks, deep search, financial analysis, and legal reasoning. The model features enhanced planning capabilities, stronger error detection in code reviews, and more reliable operation in larger codebases. With a 1M token context window and up to 128k output tokens, Opus 4.6 significantly reduces "context rot" performance degradation in long conversations. It supports text, PDF, and image inputs, and its reasoning capability makes it particularly powerful for multi-step thought processes.
 
 ### claude-opus-4.5
 
@@ -31,13 +36,14 @@ Claude Haiku 4.5 is optimized for speed and cost-efficiency while also supportin
 
 Guidelines for selecting the optimal Claude model:
 
-*   **For the best coding, agents, and complex reasoning**: `claude-opus-4.5`
+*   **For the most intelligent agents, coding, and complex reasoning**: `claude-opus-4.6`
+*   **For advanced coding, agents, and creative tasks**: `claude-opus-4.5`
 *   **For balanced high-performance, everyday coding, and cost-effective workflows**: `claude-sonnet-4.5`
 *   **For speed, cost-efficiency, with reasoning capabilities**: `claude-haiku-4.5`
 
 ## Practices for Giselle
 
-We recommend `claude-opus-4.5` or `claude-sonnet-4.5` as your primary models in Giselle, especially for tasks involving advanced coding, complex problem-solving, and in-depth analysis. These models feature hybrid reasoning modes, automatically switching between instant responses and extended thinking based on task complexity.
+We recommend `claude-opus-4.6` or `claude-sonnet-4.5` as your primary models in Giselle, especially for tasks involving advanced coding, complex problem-solving, and in-depth analysis. These models feature hybrid reasoning modes, automatically switching between instant responses and extended thinking based on task complexity.
 
 `claude-haiku-4.5` excels at speed and cost-efficiency while also supporting reasoning capabilities, making it capable of handling complex thought processes even when fast responses are needed. These models excel not only at code generation, architectural design, and technical reviews but also produce remarkably natural text. Their "Reasoning" (Extended Thinking) capability, supported in Giselle, makes them particularly powerful for tasks requiring multi-step thought processes. These versatile models can be effectively utilized across a broad spectrum of tasks, from creating engaging blog articles to writing complex code implementations and performing detailed analytical work.
 
@@ -55,4 +61,4 @@ In the Generator Node, navigate to the **Tools** tab and click **Configure** nex
     *   **Allowing Specific Domains**: Restricting searches to a whitelist of trusted sources.
     *   **Blocking Specific Domains**: Excluding certain websites from the search results.
 
-For detailed specifications, performance benchmarks, or additional assistance, please refer to the [Anthropic API Documentation](https://docs.anthropic.com/en/docs/about-claude/models/all-models) and the [Claude 4 announcement](https://www.anthropic.com/news/claude-4).
+For detailed specifications, performance benchmarks, or additional assistance, please refer to the [Anthropic API Documentation](https://docs.anthropic.com/en/docs/about-claude/models/all-models) and the [Claude Opus 4.6 announcement](https://www.anthropic.com/news/claude-opus-4-6).

@@ -9,11 +9,16 @@ Giselle Workspace では以下の Claude モデルが利用可能です。各モ
 
 | Models | Generate Text | Web Search | Reasoning | Input PDF | Input Image | Context Window | Max Output | Plan@Giselle |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **claude-opus-4.6** | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | 128k tokens | Pro |
 | **claude-opus-4.5** | ✅ | ✅ | ✅ | ✅ | ✅ | 200k tokens | 32k tokens | Pro |
 | **claude-sonnet-4.5** | ✅ | ✅ | ✅ | ✅ | ✅ | 200k tokens | 64k tokens | Pro |
 | **claude-haiku-4.5** | ✅ | ✅ | ✅ | ✅ | ✅ | 200k tokens | 64k tokens | Free |
 
 公式APIで提供されている機能でも、Giselle内では利用できない場合があることにご注意ください。拡張思考モードおよびその他のAnthropic API機能は、Giselle内で段階的に実装される予定です。
+
+### claude-opus-4.6
+
+Claude Opus 4.6 は Anthropic の最もインテリジェントなモデルで、エージェント構築とコーディングに特化して設計されています。エージェンティックなコーディングタスク、深い検索、財務分析、法的推論において最先端のパフォーマンスを発揮します。強化されたプランニング機能、コードレビューにおけるより強力なエラー検出、大規模なコードベースでのより信頼性の高い動作を特徴としています。1M トークンのコンテキストウィンドウと最大128kの出力トークンにより、長い会話における「コンテキスト劣化」のパフォーマンス低下を大幅に軽減します。テキスト、PDF、画像入力をサポートし、推論機能により多段階の思考プロセスを必要とするタスクに特に強力です。
 
 ### claude-opus-4.5
 
@@ -31,13 +36,14 @@ Claude Haiku 4.5 は速度とコスト効率に最適化されたモデルで、
 
 最適なClaudeモデルを選択するためのガイドライン：
 
-*   **最高のコーディング、エージェント、複雑な推論**: `claude-opus-4.5`
+*   **最もインテリジェントなエージェント、コーディング、複雑な推論**: `claude-opus-4.6`
+*   **高度なコーディング、エージェント、クリエイティブタスク**: `claude-opus-4.5`
 *   **バランスの取れた高性能、日常的なコーディング、コスト効率的なワークフロー**: `claude-sonnet-4.5`
 *   **速度とコスト効率、推論機能も必要な場合**: `claude-haiku-4.5`
 
 ## Giselleでの実践
 
-特に高度なコーディング、複雑な問題解決、深い分析を含むタスクにおいて、Giselleでは`claude-opus-4.5`または`claude-sonnet-4.5`を主要モデルとして推奨します。これらのモデルはハイブリッド推論モードを特徴とし、タスクの複雑さに基づいて即座の応答と拡張思考を自動的に切り替えます。
+特に高度なコーディング、複雑な問題解決、深い分析を含むタスクにおいて、Giselleでは`claude-opus-4.6`または`claude-sonnet-4.5`を主要モデルとして推奨します。これらのモデルはハイブリッド推論モードを特徴とし、タスクの複雑さに基づいて即座の応答と拡張思考を自動的に切り替えます。
 
 `claude-haiku-4.5`は速度とコスト効率に優れ、推論機能もサポートしているため、高速な応答が必要なタスクでも複雑な思考プロセスに対応できます。これらのモデルはコード生成、アーキテクチャ設計、技術レビューだけでなく、驚くほど自然なテキストも生成します。Giselleでサポートされている「推論」（拡張思考）機能により、多段階の思考プロセスを必要とするタスクに特に強力です。これらの多用途モデルは、魅力的なブログ記事の作成から複雑なコード実装の記述、詳細な分析作業の実行まで、幅広いタスクで効果的に活用できます。
 
@@ -55,4 +61,4 @@ Claude Haiku 4.5 は速度とコスト効率に最適化されたモデルで、
     *   **Allowing Specific Domains**: 信頼できるソースのホワイトリストに検索を制限
     *   **Blocking Specific Domains**: 検索結果から特定のウェブサイトを除外
 
-詳細な仕様、パフォーマンスベンチマーク、または追加サポートについては、[Anthropic API Documentation](https://docs.anthropic.com/en/docs/about-claude/models/all-models)および[Claude 4 announcement](https://www.anthropic.com/news/claude-4)をご参照ください。
+詳細な仕様、パフォーマンスベンチマーク、または追加サポートについては、[Anthropic API Documentation](https://docs.anthropic.com/en/docs/about-claude/models/all-models)および[Claude Opus 4.6 announcement](https://www.anthropic.com/news/claude-opus-4-6)をご参照ください。
