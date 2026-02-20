@@ -1,0 +1,35 @@
+---
+title: 2026年2月20日
+description: Data Stores と Data Query ノード、Claude Opus 4.6 モデル、セキュリティの改善
+---
+
+このリリースでは、外部データベースをワークフローに接続する Data Stores と Data Query ノードの導入、Claude Opus 4.6 モデルのサポート追加、セキュリティの改善を提供します。
+
+## Data Stores & Data Query ノード
+
+新しい **Data Store** ノードと **Data Query** ノードにより、外部の PostgreSQL データベースを Giselle ワークフローに接続できるようになりました：
+
+- **[Data Store ノード](/ja/glossary/data-store-node)** — チーム設定から PostgreSQL データベースへの接続を登録・管理
+- **[Data Query ノード](/ja/glossary/data-query-node)** — ワークフロー内で接続済みのデータストアに直接クエリを実行、動的スキーマ解決とキャンセルに対応
+
+Data Stores は Pro プランおよび Enterprise プランで利用可能です。[チーム設定 > Data Stores](/ja/guides/settings/team/data-stores) からデータストアを設定できます。
+
+## Claude Opus 4.6
+
+Anthropic の最もインテリジェントなモデル **Claude Opus 4.6** のサポートを追加しました。エージェント構築とコーディングに特化して設計されています：
+
+- **1M トークンのコンテキストウィンドウ**、最大 **128k 出力トークン**
+- エージェンティックなコーディング、深い検索、財務分析、法的推論で最先端のパフォーマンス
+- 強化されたプランニング機能とコードレビューにおけるより強力なエラー検出
+- Pro プランで利用可能
+
+詳細は [Anthropic モデルドキュメント](/ja/models/providers/anthropic)をご覧ください。
+
+## セキュリティの改善
+
+- 複数の CVE 修正
+- セキュリティ強化
+
+---
+
+*このリリースには [v0.62.1](https://github.com/giselles-ai/giselle/releases/tag/v0.62.1) から [v0.64.0](https://github.com/giselles-ai/giselle/releases/tag/v0.64.0) が含まれます*

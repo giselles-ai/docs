@@ -1,0 +1,35 @@
+---
+title: February 20, 2026
+description: Data Stores and Data Query nodes, Claude Opus 4.6 model, and security improvements
+---
+
+This release introduces Data Stores and Data Query nodes for connecting external databases to your workflows, adds Claude Opus 4.6 model support, and includes security improvements.
+
+## Data Stores & Data Query Nodes
+
+You can now connect external PostgreSQL databases to your Giselle workflows using the new **Data Store** and **Data Query** nodes:
+
+- **[Data Store Node](/en/glossary/data-store-node)** — Register and manage connections to your PostgreSQL databases from Team Settings
+- **[Data Query Node](/en/glossary/data-query-node)** — Query your connected data stores directly within workflows, with dynamic schema resolution and cancellation support
+
+Data Stores are available on Pro and Enterprise plans. Configure your data stores in [Team Settings > Data Stores](/en/guides/settings/team/data-stores).
+
+## Claude Opus 4.6
+
+We've added support for **Claude Opus 4.6**, Anthropic's most intelligent model purpose-built for building agents and coding. Key highlights:
+
+- **1M token context window** with up to **128k output tokens**
+- State-of-the-art performance on agentic coding, deep search, financial analysis, and legal reasoning
+- Enhanced planning capabilities and stronger error detection in code reviews
+- Available on the Pro plan
+
+For details, see the [Anthropic models documentation](/en/models/providers/anthropic).
+
+## Security Improvements
+
+- Multiple CVE fixes
+- Security enhancements
+
+---
+
+*This release includes [v0.62.1](https://github.com/giselles-ai/giselle/releases/tag/v0.62.1) through [v0.64.0](https://github.com/giselles-ai/giselle/releases/tag/v0.64.0)*
