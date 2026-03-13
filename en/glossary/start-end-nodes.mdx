@@ -52,6 +52,27 @@ The **End Node** is the endpoint of your workflow and the place where you define
 1.  **Select the Node**: Click on the End Node to open its configuration panel.
 2.  **Add Output**: Click the "Add Output" button to select which upstream node's output should be included in the final result.
 3.  **Manage Connections**: View and disconnect connected nodes as needed.
+4.  **Enable Structured Output** (optional): Set the Output Format to JSON to assign property names to upstream node outputs, combine outputs from multiple nodes, and define a structured JSON response.
+
+### Output Format
+
+The End Node supports two output format options for the final response:
+
+*   **Raw**: Returns the selected node's output as-is without any processing.
+*   **JSON**: Define a schema to structure the final API response.
+
+When you select JSON, the structured output schema definition dialog opens.
+
+<Frame caption="Structured Output (JSON) definition">
+  <img src="/en/images/glossary/start-end-nodes/structured-output-json.png" alt="Structured Output (JSON) definition dialog" />
+</Frame>
+
+#### Value Selection
+
+Each property requires a **Value** (source) to be selected from connected upstream nodes.
+
+*   Upstream nodes are grouped by type in the list
+*   If a node has structured output defined, you can select the entire object or individual properties
 
 ### Connection Rules
 

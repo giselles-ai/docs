@@ -7,7 +7,12 @@ description: Learn how the Generator Node in Giselle uses AI models to generate 
 
 The **Generator Node** is the central component for AI-driven content creation in Giselle. It allows you to harness the power of various advanced AI models to generate text and images based on your instructions. By configuring prompts, selecting models, and providing tools, you can create highly customized outputs for any flow.
 
-The Generator Node is configured through three main tabs in its settings panel: **Prompt**, **Model**, and **Tools**.
+The Generator Node is configured through the following sections in its settings panel:
+
+* **Model**
+* **Prompt**
+* **Advanced options**
+* **Output**
 
 ### Prompt Tab
 
@@ -30,13 +35,56 @@ For more details on the available models from each provider, see our documentati
 *   [Google](https://docs.giselles.ai/models/providers/google)
 *   [OpenAI](https://docs.giselles.ai/models/providers/openai)
 
-### Tools Tab
+### Advanced options
 
-The Tools tab allows you to grant the AI model access to external services, enabling it to perform actions or retrieve data from outside Giselle. This is useful for creating more dynamic and powerful flows.
+Advanced options lets you configure output format and tool settings in detail.
+
+#### Output Format
+
+Output Format specifies the output format of the Generator Node.
+
+*   **Text** (default): Outputs in text format.
+*   **JSON**: Outputs structured data in JSON format.
+
+When you select JSON, a **Set Schema** button appears, allowing you to open the Structured Output schema definition dialog.
+
+**Defining a Structured Output Schema**
+
+The structured output schema is defined using a form-based interface.
+
+<Frame caption="Structured Output schema definition">
+  <img src="/en/images/glossary/generator-node/structured-output-schema.png" alt="Structured Output schema definition dialog" />
+</Frame>
+
+*   **Title**: Schema name (required)
+*   **Properties**: Field list
+    * **Name**: Field name (required)
+    * **Type**: STR / NUM / BOOL / ENUM / OBJ / ARR
+    * **Description**: Field description
+*   **Add property**: Add a new field
+*   **Generate**: Enter a description of the expected output, and AI will generate an appropriate schema and auto-fill the form
+
+Nested types work as follows:
+
+*   **OBJ**: Define additional properties within an object (e.g., `name` and `age` inside `user`)
+*   **ARR**: Select a single element type for the array (e.g., an array of strings)
+*   **ENUM**: Define a list of allowed output values (e.g., `low`, `medium`, `high`)
+
+Input constraints:
+
+*   Title is required
+*   Field names are required and may only contain alphanumeric characters and underscores (`_`)
+*   Duplicate field names at the same level are not allowed
+
+There are no explicit limits on object nesting depth, number of properties, or number of ENUM options.
+
+#### Tools
+
+The Tools section within Advanced options lets you configure external access for the AI. This is useful for creating more dynamic and powerful flows.
 
 Currently, the following tools are supported:
-*   [GitHub](/glossary/github-tools)
-*   [PostgreSQL](/glossary/postgresql-tools)
+*   [GitHub](/en/glossary/github-tools)
+*   [PostgreSQL](/en/glossary/postgresql-tools)
 
 We are continuously working to add support for more tools in the future.
 
