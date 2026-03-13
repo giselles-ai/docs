@@ -141,8 +141,13 @@ const { task } = await client.apps.runAndWait({
 | `input.text` | `string` | Yes | - | The text input for the app |
 | `pollIntervalMs` | `number` | No | `1000` | How often to check for completion (ms) |
 | `timeoutMs` | `number` | No | `1200000` | Maximum time to wait (ms) |
+| `schema` | `StandardSchemaV1` | No | - | Validation schema for the output. [Standard Schema v1](https://standardschema.dev/) compatible (Zod, Valibot, etc.). Only applied when the End Node has JSON (Structured Output) configured. |
 
 **Returns:**
+
+The `task` type in the return value differs depending on the End Node's Output Format setting.
+
+**Raw (passthrough):**
 
 ```typescript
 {
@@ -151,6 +156,7 @@ const { task } = await client.apps.runAndWait({
     workspaceId: string;
     name: string;
     status: "completed" | "failed" | "cancelled";
+    outputType: "passthrough";
     steps: Array<{
       title: string;
       status: string;
@@ -158,15 +164,42 @@ const { task } = await client.apps.runAndWait({
         id: string;
         title: string;
         status: string;
-        generationId?: string;
-        outputs?: any[];
+        generationId: string;
+        outputs?: unknown[];
         error?: string;
       }>;
     }>;
     outputs: Array<{
       title: string;
-      generationId?: string;
-      outputs: any[];
+      generationId: string;
+      outputs: unknown[];
+    }>;
+  };
+}
+```
+
+**JSON (object):**
+
+```typescript
+{
+  task: {
+    id: string;
+    workspaceId: string;
+    name: string;
+    status: "completed" | "failed" | "cancelled";
+    outputType: "object";
+    output: T; // Typed by schema if provided, otherwise Record<string, unknown>
+    steps: Array<{
+      title: string;
+      status: string;
+      items: Array<{
+        id: string;
+        title: string;
+        status: string;
+        generationId: string;
+        outputs?: unknown[];
+        error?: string;
+      }>;
     }>;
   };
 }
@@ -179,24 +212,8 @@ The easiest way to get your App ID and a ready-to-use code snippet is from the W
 1. Open your app in the Workspace
 2. Click the **Run** button in the top-right corner
 3. In the dialog that appears, select the **Code** tab
-4. You'll see a complete code snippet with your `appId` already filled in:
-
-```typescript
-import Giselle from "@giselles-ai/sdk";
-
-const client = new Giselle({
-  apiKey: process.env.GISELLE_API_KEY,
-});
-
-const { taskId } = await client.apps.run({
-  appId: "app_xxxxx", // Your actual App ID is shown here
-  input: { text: "your input here" },
-});
-
-console.log(taskId);
-```
-
-Simply copy this code and use it in your application.
+4. You'll see a complete code snippet with your `appId` already filled in. Simply copy this code and use it in your application.
+5. If the End Node has JSON (Structured Output) enabled, the Code tab also displays a code snippet with schema definitions and a preview of the Response JSON structure
 
 <Note>
 The App ID format is `app_` followed by a unique identifier (e.g., `app_abc123xyz`).
@@ -212,6 +229,7 @@ import Giselle, {
   ApiError,
   TimeoutError,
   UnsupportedFeatureError,
+  SchemaValidationError,
 } from "@giselles-ai/sdk";
 
 try {
@@ -232,6 +250,9 @@ try {
   } else if (error instanceof UnsupportedFeatureError) {
     // Attempted to use an unsupported feature
     console.error("Unsupported feature:", error.message);
+  } else if (error instanceof SchemaValidationError) {
+    // Schema validation failed
+    console.error("Schema validation error:", error.message);
   }
 }
 ```
@@ -244,6 +265,7 @@ try {
 | `ApiError` | HTTP request to the API failed. Includes `status` and `responseText` properties. |
 | `TimeoutError` | Task didn't complete within the specified timeout |
 | `UnsupportedFeatureError` | Attempted to use a feature not yet supported (e.g., file inputs) |
+| `SchemaValidationError` | Schema validation failed for the output |
 
 ## Examples
 
@@ -267,6 +289,38 @@ async function runMyApp(userInput: string) {
   } else {
     throw new Error(`Task failed: ${task.status}`);
   }
+}
+```
+
+### Receiving Structured Output
+
+When the End Node has JSON (Structured Output) enabled, `task.outputType === "object"` and `task.output` contains the structured result.  
+Pass a [Standard Schema v1](https://standardschema.dev/) compatible schema to the `schema` parameter to automatically validate the output and get type inference.
+
+Supported libraries: Zod (3.24+), Valibot (1.0+), ArkType (2.0+), Yup (1.7+), Effect Schema (3.13+)
+
+```typescript
+import { z } from "zod";
+
+const BlogCardSchema = z.object({
+  title: z.string(),
+  summary: z.string(),
+  tags: z.array(z.string()),
+});
+
+async function runMyAppWithStructuredOutput(userInput: string) {
+  const { task } = await client.apps.runAndWait({
+    appId: "app_xxxxx",
+    input: { text: userInput },
+    schema: BlogCardSchema,
+  });
+
+  if (task.status === "completed" && task.outputType === "object") {
+    // task.output is typed based on BlogCardSchema
+    return task.output;
+  }
+
+  throw new Error(`Task failed: ${task.status}`);
 }
 ```
 
