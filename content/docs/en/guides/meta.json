@@ -1,0 +1,23 @@
+{
+	"title": "Guides",
+	"root": true,
+	"pages": [
+		"---Get Started---",
+		"introduction",
+		"...get-started",
+		"---Run Apps---",
+		"playground",
+		"tasks",
+		"---Build Apps---",
+		"workspaces",
+		"integrations",
+		"vector-stores",
+		"data-stores",
+		"---API---",
+		"...api",
+		"---Settings---",
+		"...settings",
+		"---Learn About---",
+		"...learn-about"
+	]
+}

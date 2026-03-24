@@ -1,0 +1,10 @@
+{
+	"title": "詳細情報",
+	"pages": [
+		"plans",
+		"usage",
+		"billing",
+		"privacy-security",
+		"open-source-license"
+	]
+}

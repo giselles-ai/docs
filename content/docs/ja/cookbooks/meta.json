@@ -1,0 +1,14 @@
+{
+	"title": "Cookbooks",
+	"root": true,
+	"pages": [
+		"---Introduction---",
+		"overview",
+		"---アプリのレシピ---",
+		"blog-social-media-generator",
+		"web-research-assistant",
+		"knowledge-base-qa",
+		"---プロンプト エンジニアリング---",
+		"prompts"
+	]
+}

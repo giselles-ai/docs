@@ -1,0 +1,12 @@
+{
+	"title": "FAQ",
+	"root": true,
+	"pages": [
+		"---Application FAQs---",
+		"...application",
+		"---Account & Billing FAQs---",
+		"...account-billing",
+		"---Security & Support FAQs---",
+		"...security-support"
+	]
+}

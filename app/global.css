@@ -1,0 +1,34 @@
+@import "tailwindcss";
+@import "fumadocs-ui/css/neutral.css";
+@import "fumadocs-ui/css/preset.css";
+
+@theme {
+	--color-fd-primary: hsl(220, 90%, 52%);
+}
+
+#nd-sidebar p {
+	font-weight: 600;
+	font-size: 0.9375rem;
+}
+
+#nd-notebook-layout {
+	padding-top: 0.75rem;
+}
+
+#nd-sidebar a[data-active="true"] {
+	color: hsl(220, 90%, 52%);
+	background-color: hsl(220, 90%, 52%, 0.1);
+}
+
+[data-header-tabs] a.border-fd-primary {
+	color: hsl(220, 90%, 52%);
+	border-color: hsl(220, 90%, 52%);
+}
+
+a[data-active="true"][href^="#"] {
+	color: hsl(220, 90%, 52%);
+}
+
+#nd-toc .bg-fd-primary {
+	background-color: hsl(220, 90%, 52%);
+}

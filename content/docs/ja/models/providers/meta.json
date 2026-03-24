@@ -1,0 +1,11 @@
+{
+	"title": "プロバイダー",
+	"pages": [
+		"overview",
+		"anthropic",
+		"google",
+		"openai",
+		"---OSS版限定---",
+		"fal"
+	]
+}

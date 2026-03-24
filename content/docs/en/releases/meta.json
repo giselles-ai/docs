@@ -1,0 +1,5 @@
+{
+	"title": "Releases",
+	"root": true,
+	"pages": ["...release-notes", "product-notes", "roadmap"]
+}

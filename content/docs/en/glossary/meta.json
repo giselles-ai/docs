@@ -1,0 +1,28 @@
+{
+	"title": "Glossary",
+	"root": true,
+	"pages": [
+		"---Overview---",
+		"node",
+		"---App---",
+		"start-end-nodes",
+		"---Model---",
+		"generator-node",
+		"ai-parameters",
+		"---Context---",
+		"text-node",
+		"file-node",
+		"webpage-node",
+		"document-vector-store-node",
+		"github-vector-store-node",
+		"vector-query-node",
+		"data-store-node",
+		"data-query-node",
+		"---Integration---",
+		"trigger-node",
+		"action-node",
+		"---Tools---",
+		"github-tools",
+		"postgresql-tools"
+	]
+}
