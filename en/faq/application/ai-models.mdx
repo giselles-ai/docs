@@ -24,9 +24,9 @@ The following models are available on the Free plan:
 
 Pro plan users have access to all Free plan models plus:
 
-- **Anthropic**: Claude Opus 4.6, Claude Opus 4.5, Claude Sonnet 4.5
-- **Google**: Gemini 3 Pro Preview, Gemini 2.5 Pro, Gemini 2.5 Flash, Gemini 2.5 Flash Image
-- **OpenAI**: GPT-5.2, GPT-5.1-thinking, GPT-5.1-codex, GPT-5, GPT-5-mini
+- **Anthropic**: Claude Opus 4.6, Claude Opus 4.5, Claude Sonnet 4.6, Claude Sonnet 4.5
+- **Google**: Gemini 3.1 Pro Preview, Gemini 3 Flash Preview, Gemini 3 Pro Preview, Gemini 2.5 Pro, Gemini 2.5 Flash, Gemini 2.5 Flash Image, Gemini 3.1 Flash Image Preview
+- **OpenAI**: GPT-5.4, GPT-5.3-codex, GPT-5.2, GPT-5.2-codex, GPT-5.1-thinking, GPT-5.1-codex, GPT-5, GPT-5-mini
 
 ## How do I select an AI model?
 
@@ -36,18 +36,19 @@ In the Workspace, add a [Generator Node](/en/glossary/generator-node) and click 
 
 Here are general recommendations:
 
-- **For coding and complex reasoning**: Claude Opus 4.6, GPT-5.2, or Gemini 2.5 Pro
-- **For balanced performance and cost**: Claude Sonnet 4.5 or Gemini 2.5 Flash
+- **For coding and complex reasoning**: Claude Opus 4.6, GPT-5.4 or GPT-5.2, Gemini 3.1 Pro Preview or Gemini 2.5 Pro
+- **For large context needs**: Claude Sonnet 4.6 or Claude Opus 4.6, GPT-5.4
+- **For balanced performance and cost**: Claude Sonnet 4.6 or Claude Sonnet 4.5, Gemini 2.5 Flash
 - **For speed and cost-efficiency**: Claude Haiku 4.5, GPT-5-nano, or Gemini 2.5 Flash Lite
-- **For image generation**: Gemini 2.5 Flash Image
+- **For image generation**: Gemini 3.1 Flash Image Preview (preview) or Gemini 2.5 Flash Image (stable)
 
 ## What is the context window?
 
 The context window is the maximum amount of text (measured in tokens) that a model can process in a single request. Larger context windows allow you to include more information in your prompts.
 
-- **Anthropic models**: 200k tokens
-- **Google Gemini models**: 1M tokens
-- **OpenAI models**: 400k tokens
+- **Anthropic models**: Varies by model. Claude Opus 4.6 and Claude Sonnet 4.6 have 1M tokens; other current Claude models typically have 200k tokens.
+- **Google Gemini models**: Most have 1M tokens (may vary by model).
+- **OpenAI models**: GPT-5.4 has approximately 1.05M tokens; other GPT-5 series text models typically have 400k tokens.
 
 ## Do the models support image input?
 
@@ -61,9 +62,9 @@ Yes, most models support image input:
 
 Reasoning (also called Extended Thinking) allows models to spend more time thinking through complex problems before responding. This improves accuracy for multi-step reasoning tasks. Models with reasoning capability include:
 
-- Claude Opus 4.6, Claude Opus 4.5, Claude Sonnet 4.5, Claude Haiku 4.5
-- Gemini 2.5 Pro, Gemini 2.5 Flash, Gemini 2.5 Flash Lite
-- GPT-5.2, GPT-5.1-thinking
+- Claude Opus 4.6, Claude Opus 4.5, Claude Sonnet 4.6, Claude Sonnet 4.5, Claude Haiku 4.5
+- Gemini 3.1 Pro Preview, Gemini 3 Flash Preview, Gemini 3 Pro Preview, Gemini 2.5 Pro, Gemini 2.5 Flash, Gemini 2.5 Flash Lite
+- GPT-5.4, GPT-5.3-codex, GPT-5.2, GPT-5.2-codex, GPT-5.1-thinking
 
 ## What is Web Search?
 

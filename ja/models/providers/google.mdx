@@ -8,6 +8,7 @@ Giselle Workspace では以下の Gemini モデルが利用可能です。各モ
 
 | Models | Generate Text | Web Search | Reasoning | Input PDF | Input Image | Input Audio | Input Video | Context Window | Plan@Giselle |
 | --------------------------------- | --------------| ------------ | ----------- | ----------- | ------------- | ------------ | ------------ | ----------------- | --------------- |
+| gemini-3.1-pro-preview | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Pro |
 | gemini-3-flash-preview | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Pro |
 | gemini-3-pro-preview | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Pro |
 | gemini-2.5-pro | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens (2M soon) | Pro |
@@ -15,6 +16,10 @@ Giselle Workspace では以下の Gemini モデルが利用可能です。各モ
 | gemini-2.5-flash-lite | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Free |
 
 *注意：Google公式APIで提供されている機能でも、Giselle内では利用できない場合があります。「Free」または「Pro」でマークされた機能は、それらにアクセスするために必要なGiselleサブスクリプションプランを示しています。*
+
+### gemini-3.1-pro-preview
+
+Gemini 3.1 Pro Preview は、Gemini 3 Pro Preview のアップグレード版で、ソフトウェアエンジニアリングやエージェンティックなタスク向けの能力向上、トークン効率の改善、シンキングレベル（`low`、`medium`、`high`、デフォルトは `high`）の細かな制御が可能です。テキスト生成、ウェブ検索、推論、マルチモーダル入力（PDF、画像、音声、動画）、URL コンテキストに対応します。100万トークンのコンテキストウィンドウと最大約65kトークンの出力に対応します。Pro プランが必要です。
 
 ### gemini-3-flash-preview
 最新のGemini 3 Flashモデルで、Proレベルの知性とFlashの速度・価格を組み合わせています。デフォルトでダイナミックシンキングを使用してプロンプトを推論し、設定可能なシンキングレベル（`minimal`、`low`、`medium`、`high`）でレイテンシと推論の深さを制御できます。テキスト生成、ウェブ検索、高度な推論、マルチモーダル入力（PDF、画像、音声、動画）をサポートします。100万トークンのコンテキストウィンドウと64K最大出力トークンにより、速度と分析的深度の両方を必要とする複雑なタスクに最適です。Pro プランが必要です。
@@ -49,6 +54,17 @@ Gemini 2.5 Flash Image は、画像の理解と生成に最適化された Googl
 *   **対応アスペクト比:** 1:1, 3:2, 2:3, 3:4, 4:3, 4:5, 5:4, 9:16, 16:9, 21:9
 *   **利用可能プラン:** Pro プラン
 
+### gemini-3.1-flash-image-preview
+
+Gemini 3.1 Flash Image Preview（Nano Banana 2）は、テキスト描画の精度と画質を Flash クラスの速度と価格帯で改善した画像生成プレビューモデルです。テキストと画像を入力として受け付け、画像を出力します。モデル自体は最大4K解像度の出力に対応しますが、Giselle で4K画像を生成するには `@ai-sdk/google` のメジャーアップグレード（v3 系）が必要となるため、現行の Giselle では未対応の場合があります。
+
+*   **料金の目安（参考）:** 入力 $0.50 / 出力 $60.00 per 1M tokens（[Gemini Developer API の価格](https://ai.google.dev/gemini-api/docs/pricing?hl=ja)に基づく）
+*   **入力:** テキスト、画像
+*   **出力:** 画像
+*   **利用可能プラン:** Pro プラン
+
+> **注:** 安定版の非プレビュー画像モデルとしては引き続き `gemini-2.5-flash-image` が利用できます。
+
 ## モデル選択ガイド
 お客様のニーズとプランに基づいて最適なモデルを選択するためのガイドライン：
 
@@ -56,11 +72,13 @@ Gemini 2.5 Flash Image は、画像の理解と生成に最適化された Googl
 * **極めて高速な応答と効率性**: `gemini-2.5-flash-lite`（最大速度）
 
 **Pro プランモデル：**
+* **Gemini 3.1 の最先端プレビューと拡張シンキング**: `gemini-3.1-pro-preview`（SWE／エージェント向けの強化、シンキング `low` / `medium` / `high`）
 * **Flashの速度でProレベルの知性**: `gemini-3-flash-preview`（最新3シリーズFlash、ダイナミックシンキング）
-* **最先端の推論と複雑なタスク**: `gemini-3-pro-preview`（最新モデル、強化された推論）
+* **最先端の推論と複雑なタスク**: `gemini-3-pro-preview`（強化された推論）
 * **実証された安定性と包括的な機能**: `gemini-2.5-pro`（安定、フル機能）
 * **推論付きの高速応答**: `gemini-2.5-flash`（速度＋推論のバランス）
-* **画像生成と編集**: `gemini-2.5-flash-image`（テキストから画像、画像編集）
+* **画像生成と編集（最新プレビュー）**: `gemini-3.1-flash-image-preview`（テキスト描画・品質の改善）
+* **画像生成と編集（安定版）**: `gemini-2.5-flash-image`（テキストから画像、画像編集）
 
 ## Giselleでの実践
 複雑なタスクに対する実証された能力と安定性により、Giselleでは`gemini-2.5-pro`（Pro プラン）を主要モデルとして推奨します。大量のデータ処理、複雑なコードレビューの実行、幅広いビジネスタスクの処理が可能です。
@@ -69,6 +87,6 @@ Free プランで速度を重視するユーザーには、`gemini-2.5-flash-lit
 
 これらのモデルで**Search grounding**機能を有効にすることにより（該当する場合）、ウェブ検索機能にアクセスでき、最新の利用可能な情報でワークフローを補完することができます。
 
-画像生成のニーズには、**gemini-2.5-flash-image** がテキストから画像への生成や画像編集を含む多彩な機能を提供します。複数のアスペクト比をサポートし、プロンプトあたり最大3枚の画像を処理しながら、最大10枚の出力画像を生成できます。
+画像生成のニーズには、最新のプレビューとして **gemini-3.1-flash-image-preview**、安定運用向けに **gemini-2.5-flash-image** をご利用いただけます。Gemini 2.5 Flash Image は複数のアスペクト比をサポートし、プロンプトあたり最大3枚の画像を処理しながら、最大10枚の出力画像を生成できます。
 
 詳細な仕様、パフォーマンスベンチマーク、または追加サポートについては、[Google AI for Developers](https://ai.google.dev/gemini-api/docs/models)をご確認ください。
