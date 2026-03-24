@@ -8,6 +8,7 @@ The following Gemini models are available in the Giselle workspace. Each model o
 
 | Models | Generate Text | Web Search | Reasoning | Input PDF | Input Image | Input Audio | Input Video | Context Window | Plan@Giselle |
 | --------------------------------- | --------------| ------------ | ----------- | ----------- | ------------- | ------------ | ------------ | ----------------- | --------------- |
+| gemini-3.1-pro-preview | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Pro |
 | gemini-3-flash-preview | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Pro |
 | gemini-3-pro-preview | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Pro |
 | gemini-2.5-pro | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens (2M soon) | Pro |
@@ -15,6 +16,10 @@ The following Gemini models are available in the Giselle workspace. Each model o
 | gemini-2.5-flash-lite | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1M tokens | Free |
 
 *Note: Some features may not be available within Giselle even if they are offered in the Google official API. Features marked 'Free' or 'Pro' refer to the Giselle subscription plan required to access them.*
+
+### gemini-3.1-pro-preview
+
+Gemini 3.1 Pro Preview is an upgrade to Gemini 3 Pro Preview, with improved SWE/agentic capabilities, better token efficiency, and expanded thinking level controls (`low`, `medium`, `high`, default: `high`). It supports text generation, web search, reasoning, and multimodal inputs (PDF, images, audio, video), as well as URL context. With a 1 million token context window and approximately 65K max output tokens, it is designed for complex tasks requiring deep analytical thinking. Requires a Pro plan.
 
 ### gemini-3-flash-preview
 The latest Gemini 3 Flash model, combining Pro-level intelligence with the speed and pricing of Flash. It uses dynamic thinking by default to reason through prompts, with configurable thinking levels (`minimal`, `low`, `medium`, `high`) to control latency and reasoning depth. Supports text generation, web search, advanced reasoning, and multimodal inputs (PDF, images, audio, video). With a 1 million token context window and 64K max output tokens, it's ideal for complex tasks requiring both speed and analytical depth. Requires a Pro plan.
@@ -49,6 +54,17 @@ Gemini 2.5 Flash Image is Google's image generation model optimized for image un
 *   **Supported aspect ratios:** 1:1, 3:2, 2:3, 3:4, 4:3, 4:5, 5:4, 9:16, 16:9, 21:9
 *   **Availability:** Pro Plan
 
+### gemini-3.1-flash-image-preview
+
+Gemini 3.1 Flash Image Preview is a preview image generation model that delivers improved text rendering accuracy and image quality at Flash-tier speed and pricing. It accepts text and image inputs and produces image outputs.
+
+*   **Pricing (reference):** Input $0.50 / Output $60.00 per 1M tokens (based on [Gemini Developer API pricing](https://ai.google.dev/gemini-api/docs/pricing))
+*   **Inputs:** Text, Image
+*   **Outputs:** Image
+*   **Availability:** Pro Plan
+
+> **Note:** The stable (non-preview) image model `gemini-2.5-flash-image` remains available as the default option.
+
 ## Model Selection Guide
 Guidelines for selecting the optimal model based on your needs and plan:
 
@@ -56,11 +72,13 @@ Guidelines for selecting the optimal model based on your needs and plan:
 * **For extremely fast responses and efficiency**: `gemini-2.5-flash-lite` (Maximum speed)
 
 **Pro Plan Models:**
+* **For cutting-edge 3.1 preview with expanded thinking**: `gemini-3.1-pro-preview` (SWE/agentic improvements, thinking `low` / `medium` / `high`)
 * **For Pro-level intelligence at Flash speed**: `gemini-3-flash-preview` (Latest 3-series Flash, dynamic thinking)
-* **For cutting-edge reasoning and complex tasks**: `gemini-3-pro-preview` (Latest model, enhanced reasoning)
+* **For cutting-edge reasoning and complex tasks**: `gemini-3-pro-preview` (Enhanced reasoning)
 * **For proven stability and comprehensive features**: `gemini-2.5-pro` (Stable, full-featured)
 * **For fast responses with reasoning**: `gemini-2.5-flash` (Speed + Reasoning balance)
-* **For image generation and editing**: `gemini-2.5-flash-image` (Text-to-image, image editing)
+* **For image generation and editing (latest preview)**: `gemini-3.1-flash-image-preview` (Improved text rendering and quality)
+* **For image generation and editing (stable)**: `gemini-2.5-flash-image` (Text-to-image, image editing)
 
 ## Practices for Giselle
 We recommend `gemini-2.5-pro` (Pro plan) as your primary model in Giselle due to its proven power and stability for complex tasks. It is capable of processing large volumes of data, executing complex code reviews, and handling a wide variety of business tasks.
@@ -69,6 +87,6 @@ For users prioritizing speed on the Free plan, `gemini-2.5-flash-lite` is an exc
 
 By enabling the **Search grounding** feature with these models (where applicable), you can access web search functionality, allowing you to supplement your workflows with the most current information available.
 
-For image generation needs, **gemini-2.5-flash-image** provides versatile capabilities including text-to-image generation and image editing. It supports multiple aspect ratios and can process up to 3 images per prompt while generating up to 10 output images.
+For image generation needs, the latest preview **gemini-3.1-flash-image-preview** and the stable **gemini-2.5-flash-image** are available. Gemini 2.5 Flash Image supports multiple aspect ratios and can process up to 3 images per prompt while generating up to 10 output images.
 
 For detailed specifications, performance benchmarks, or additional assistance, please check [Google AI for Developers](https://ai.google.dev/gemini-api/docs/models).

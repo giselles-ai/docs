@@ -11,6 +11,8 @@ The following table summarizes the key features of the OpenAI models available i
 
 | Models | Generate Text | Input Image | Web Search | Reasoning | Context Window | Max Output Tokens | Pricing (Input/Output per 1M tokens) | Availability |
 |---|---|---|---|---|---|---|---|---|
+| gpt-5.4 | ✅ | ✅ | ✅ | ✅ (Highest) | 1.05M tokens | 128k tokens | $2.50 / $15.00 | Pro |
+| gpt-5.3-codex | ✅ | ✅ | ✅ | ✅ (Highest) | 400k tokens | 128k tokens | $1.75 / $14.00 | Pro |
 | gpt-5.2 | ✅ | ✅ | ✅ | ✅ (Highest) | 400k tokens | 128k tokens | $1.75 / $14.00 | Pro |
 | gpt-5.2-codex | ✅ | ✅ | ✅ | ✅ (Highest) | 400k tokens | 128k tokens | $1.75 / $14.00 | Pro |
 | gpt-5.1-thinking | ✅ | ✅ | ✅ | ✅ (Highest) | 400k tokens | 128k tokens | $1.25 / $10.00 | Pro |
@@ -21,6 +23,34 @@ The following table summarizes the key features of the OpenAI models available i
 | gpt-image-1 | ❌ | ✅ | ❌ | ❌ | Unknown | N/A | $5.00 / $40.00 | Open Source |
 
 *Please note that some features listed (like specific API functionalities e.g., fine-tuning, batch processing, specific tool use like audio or transcription) may not be directly exposed or available within the Giselle interface even if supported by the underlying OpenAI model.*
+
+## GPT-5.4
+
+GPT-5.4 is a model in the OpenAI GPT-5 family, featuring an approximately 1.05 million token context window and up to 128k output tokens. It supports configurable reasoning effort (`none`, `low`, `medium`, `high`, `xhigh`) and text verbosity (`low`, `medium`, `high`) for general-purpose and agentic workflows. The default reasoning effort is `none` for lower-latency interactions.
+
+### gpt-5.4
+
+*   **Key Features:** Large context window, advanced reasoning options, multimodal input (text, image), web search
+*   **Context Window:** ~1,050,000 tokens (based on OpenAI official specification)
+*   **Max Output Tokens:** 128,000 tokens
+*   **Inputs:** Text, Image
+*   **Reasoning Effort:** `none` (default), `low`, `medium`, `high`, `xhigh`
+*   **Text Verbosity:** `low`, `medium` (default), `high`
+*   **Availability:** Pro Plan
+
+## GPT-5.3 Series Models
+
+GPT-5.3-Codex combines the coding performance of GPT-5.2-Codex with the reasoning capabilities of the GPT-5.2 series. It is designed for long-horizon agentic coding and is available at the same pricing as GPT-5.2-Codex (input $1.75 / output $14.00 per 1M tokens).
+
+### gpt-5.3-codex
+
+*   **Key Features:** Agentic coding, reasoning, image input, text generation, optional search grounding
+*   **Context Window:** 400,000 tokens
+*   **Max Output Tokens:** 128,000 tokens
+*   **Inputs:** Text, Image
+*   **Reasoning Effort:** `low`, `medium`, `high`, `xhigh`
+*   **Text Verbosity:** `medium` (fixed)
+*   **Availability:** Pro Plan
 
 ## GPT-5.2 Series Models
 
@@ -132,7 +162,9 @@ OpenAI's state-of-the-art image generation model. It is a natively multimodal la
 
 Guidelines for selecting the optimal OpenAI model within Giselle:
 
+*   **For the largest context and latest GPT-5 generation**: `gpt-5.4` (Pro)
 *   **For best overall performance, coding, agentic tasks, and highest reasoning**: `gpt-5.2` (Pro) - OpenAI's most capable model
+*   **For long-horizon agentic coding (latest Codex)**: `gpt-5.3-codex` (Pro)
 *   **For long-horizon agentic coding tasks**: `gpt-5.2-codex` (Pro) - OpenAI's most intelligent coding model
 *   **For deep reasoning and complex problem-solving**: `gpt-5.1-thinking` (Pro)
 *   **For coding and software development**: `gpt-5.1-codex` (Pro)
@@ -143,7 +175,11 @@ Guidelines for selecting the optimal OpenAI model within Giselle:
 
 ## Practices for Giselle
 
-We recommend **gpt-5.2** as the versatile primary model in Giselle for Pro users. It is OpenAI's most capable model, offering state-of-the-art performance in general intelligence, instruction following, accuracy, multimodality (especially vision), code generation, tool calling, and spreadsheet understanding. GPT-5.2 is designed to be highly reliable and accurate, with 30% fewer errors compared to GPT-5.1 Thinking.
+For Pro users, we recommend **gpt-5.4** when an approximately 1.05M token context is needed, and **gpt-5.2** for other general-purpose workloads as the primary model in Giselle. GPT-5.2 is one of OpenAI's most capable models, offering state-of-the-art performance in general intelligence, instruction following, accuracy, multimodality (especially vision), code generation, tool calling, and spreadsheet understanding. GPT-5.2 is designed to be highly reliable and accurate, with 30% fewer errors compared to GPT-5.1 Thinking.
+
+**Configuring GPT-5.4:**
+*   **Reasoning Effort:** `none` (default), `low`, `medium`, `high`, `xhigh`. Use `none` for low-latency interactions, and `medium` or higher for deeper reasoning.
+*   **Text Verbosity:** `low`, `medium` (default), `high` to control output length.
 
 **Configuring GPT-5.2:**
 *   **Reasoning Effort:** GPT-5.2 supports five reasoning effort levels: `none` (default), `low`, `medium`, `high`, and `xhigh`. Use `none` for low-latency interactions, and increase to `medium` or higher for tasks requiring deeper reasoning. The new `xhigh` level provides the deepest reasoning for complex problems.
@@ -164,8 +200,8 @@ Giselle now automatically maps previously available OpenAI models to the new GPT
 
 For image generation needs, **gpt-image-1** provides high-quality results and supports both text and image inputs. The model offers different quality tiers to balance cost and detail based on specific requirements.
 
-For developers and teams working on complex, long-horizon coding projects, **gpt-5.2-codex** is the optimal choice. It is specifically optimized for agentic coding tasks in Codex-like environments, offering the same pricing as GPT-5.2 with specialized capabilities for sustained coding workflows. Note that text verbosity is fixed to `medium` for this model.
+For developers and teams working on complex, long-horizon coding projects, **gpt-5.3-codex** or **gpt-5.2-codex** are well-suited choices. They are specifically optimized for agentic coding tasks in Codex-like environments, with text verbosity fixed to `medium`. GPT-5.3-Codex is available at the same pricing as GPT-5.2-Codex.
 
-By combining these models in workflows, you can leverage their specific strengths. For example, use `gpt-5.2` for its state-of-the-art reasoning and general capabilities, `gpt-5.2-codex` for agentic coding tasks, `gpt-5-mini` for cost-efficient tasks, or `gpt-5-nano` for rapid, high-volume operations.
+By combining these models in workflows, you can leverage their specific strengths. For example, use `gpt-5.4` for tasks requiring a large context, `gpt-5.2` for state-of-the-art reasoning and general capabilities, `gpt-5.3-codex` or `gpt-5.2-codex` for agentic coding tasks, `gpt-5-mini` for cost-efficient tasks, or `gpt-5-nano` for rapid, high-volume operations.
 
 For detailed specifications and the full range of models offered directly by OpenAI, please check the [Official OpenAI Documentation](https://platform.openai.com/docs/models).
