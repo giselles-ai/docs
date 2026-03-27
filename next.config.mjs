@@ -7,7 +7,7 @@ const config = {
 		const sections = [
 			"guides",
 			"models",
-			"prompts",
+			"cookbooks",
 			"glossary",
 			"faq",
 			"releases",
