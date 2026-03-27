@@ -3,9 +3,9 @@ title: PostgreSQL ツール
 description: ジェネレーター ノードで PostgreSQL ツールを使用して AI モデルを PostgreSQL データベースに接続し、クエリやデータ取得を可能にする方法を学びます。
 ---
 
-<Warning>
+<Callout type="warn">
   この機能は現在 **Private Preview** です。アクセスは一部のユーザーに限定されており、機能や提供状況は変更される可能性があります。
-</Warning>
+</Callout>
 
 **PostgreSQL ツール**は、ジェネレーターノード内の AI モデルが PostgreSQL データベースに直接接続できるようにする機能です。「ツール使用」または「関数呼び出し」と呼ばれるこの機能により、プロンプト内の自然言語による指示に基づいて、テーブルのクエリ、データの取得、データベーススキーマの理解を行う AI エージェントを構築できます。
 
@@ -27,9 +27,9 @@ PostgreSQL インテグレーションの横にある **+ Connect** ボタンを
 
 PostgreSQL データベースに接続するには、接続文字列を指定する必要があります。
 
-<Info>
+<Callout type="info">
   接続文字列は通常、`postgresql://[user[:password]@][netloc][:port][/dbname][?param1=value1&...]` の形式に従います。詳細については、[PostgreSQL 公式ドキュメント](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING)を参照してください。
-</Info>
+</Callout>
 
 「Connect to PostgreSQL」ウィンドウで：
 

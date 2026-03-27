@@ -3,13 +3,13 @@ title: API Keys
 description: Learn how to create and manage API keys to access the Giselle API programmatically.
 ---
 
-<Warning>
+<Callout type="warn">
 This feature is currently in **Private Preview**. Access is limited to selected users. Features and APIs may change without notice.
-</Warning>
+</Callout>
 
-<Info>
+<Callout type="info">
 You can manage API keys by navigating to [Settings > Team > API Keys](https://studio.giselles.ai/settings/team/api-keys).
-</Info>
+</Callout>
 
 ## Overview
 
@@ -19,24 +19,28 @@ API keys allow you to access the Giselle API programmatically to run your apps f
 
 <Steps>
   <Step title="Navigate to API Keys Settings">
+
     Go to [Settings > Team > API Keys](https://studio.giselles.ai/settings/team/api-keys) in the Giselle.
   </Step>
   <Step title="Create a New Key">
+
     Click the **Create new secret key** button to open the creation dialog.
   </Step>
   <Step title="Add a Label (Optional)">
+
     Enter a descriptive label for your API key (e.g., "Production Server", "CI/CD Pipeline"). This helps you identify the key's purpose later.
 
-    <Note>
+    <Callout type="info">
     Labels can be up to 128 characters long.
-    </Note>
+    </Callout>
   </Step>
   <Step title="Copy Your API Key">
+
     After creation, your API key will be displayed **once**. Copy it immediately and store it securely.
 
-    <Warning>
+    <Callout type="warn">
     The full API key is only shown once at creation time. If you lose it, you'll need to create a new key.
-    </Warning>
+    </Callout>
   </Step>
 </Steps>
 
@@ -72,9 +76,9 @@ To revoke an API key:
 3. Click the **Revoke** button
 4. Confirm the revocation
 
-<Warning>
+<Callout type="warn">
 Revoking an API key is immediate and permanent. Any applications or services using that key will immediately lose access to the API.
-</Warning>
+</Callout>
 
 ## Using API Keys
 
@@ -91,7 +95,7 @@ For a better developer experience, consider using the [Giselle SDK](/en/guides/a
 
 ## Security Best Practices
 
-<AccordionGroup>
+<Accordions type="multiple">
   <Accordion title="Keep Keys Secret">
     Never expose API keys in client-side code, public repositories, or logs. Use environment variables or secure secret management systems.
   </Accordion>
@@ -104,7 +108,7 @@ For a better developer experience, consider using the [Giselle SDK](/en/guides/a
   <Accordion title="Limit Key Distribution">
     Only share API keys with team members and systems that genuinely need API access.
   </Accordion>
-</AccordionGroup>
+</Accordions>
 
 ## Rate Limits
 

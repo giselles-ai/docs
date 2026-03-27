@@ -3,13 +3,13 @@ title: Data Stores
 description: Register and manage PostgreSQL database connections.
 ---
 
-<Warning>
+<Callout type="warn">
 This feature is currently in **Private Preview**. Access is limited to select users. Features may change without notice.
-</Warning>
+</Callout>
 
-<Info>
+<Callout type="info">
 You can access the Data Stores page from [Settings > Team > Data Stores](https://studio.giselles.ai/settings/team/data-stores).
-</Info>
+</Callout>
 
 ## Data Stores Page Overview
 
@@ -79,20 +79,23 @@ Data Stores are not available on the Free plan:
    - Click the **View plans** button to go to [Team Settings](/en/guides/settings/team/general)
    - Upgrade to the Pro or Team plan
 
-<Note>
+<Callout type="info">
 For more details about plans, see [Plans Information](/en/guides/learn-about/plans).
-</Note>
+</Callout>
 
 ## Creating a Data Store
 
 <Steps>
 <Step title="Navigate to Data Stores Settings">
+
 Go to [Settings > Team > Data Stores](https://studio.giselles.ai/settings/team/data-stores) in Giselle.
 </Step>
 <Step title="Create a New Data Store">
+
 Click the **New Data Store** button to open the creation dialog.
 </Step>
 <Step title="Enter Connection Information">
+
 Configure the following fields:
 
 #### Name
@@ -107,13 +110,13 @@ Enter the PostgreSQL connection string.
 postgresql://user:password@host:5432/database
 ```
 
-<Note>
+<Callout type="info">
 The connection string is encrypted and stored securely. For security reasons, the connection string is not displayed in the UI once saved.
-</Note>
+</Callout>
 
-<Note>
+<Callout type="info">
 Currently, only IPv4 addresses are supported. Databases using IPv6 addresses cannot be connected.
-</Note>
+</Callout>
 
 #### SSL Connection (sslmode)
 
@@ -134,15 +137,16 @@ The following `sslmode` options are available:
 | `verify-ca` | Require SSL and verify the CA certificate |
 | `verify-full` | Require SSL and verify the CA certificate and hostname |
 
-<Note>
+<Callout type="info">
 For security, `verify-full` is recommended.
-</Note>
+</Callout>
 
-<Note>
+<Callout type="info">
 `sslmode` support varies by service. Connections to [Neon](https://neon.tech) support `sslmode`, but `disable` is not available. Connections to [Supabase](https://supabase.com) do not currently support `sslmode`.
-</Note>
+</Callout>
 </Step>
 <Step title="Complete Creation">
+
 Click **Create** to create the Data Store.
 </Step>
 </Steps>
@@ -173,9 +177,9 @@ You can change the name of the Data Store.
 
 Check the checkbox to update the connection string.
 
-<Note>
+<Callout type="info">
 When updating the connection string, you must enter the new connection string completely. For security reasons, the existing connection string is not displayed.
-</Note>
+</Callout>
 
 4. Click **Save** to save your changes
 
@@ -187,9 +191,9 @@ To delete a Data Store:
 2. Confirm in the "Delete Data Store" dialog
 3. Execute the deletion
 
-<Warning>
+<Callout type="warn">
 Deletion cannot be undone. The Data Store and its connection information will be permanently deleted. Workflows using this Data Store will need to be reconfigured.
-</Warning>
+</Callout>
 
 ## Error Messages
 

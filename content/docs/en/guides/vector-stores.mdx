@@ -4,9 +4,9 @@ description: Ingest and manage GitHub repositories and documents as knowledge ba
 
 ---
 
-<Info>
+<Callout type="info">
 You can access the Vector Stores page by navigating to [Settings > Team > Vector Stores](https://studio.giselles.ai/settings/team/vector-stores).
-</Info>
+</Callout>
 
 ## Vector Stores Page Overview
 
@@ -19,9 +19,9 @@ Currently, two types of Vector Stores are supported:
 
 ## Document Vector Stores
 
-<Note>
+<Callout type="info">
 A sidebar navigation with "Document" and "GitHub" options will appear on the left side of the page.
-</Note>
+</Callout>
 
 Document Vector Stores allows you to upload PDF, TXT, and Markdown files to ingest into Vector Stores.
 
@@ -77,9 +77,9 @@ Document Vector Stores are not available on the Free plan:
    - Click the **View plans** button to go to [Team Settings](/en/guides/settings/team/general)
    - Upgrade to the Pro or Team plan
 
-<Note>
+<Callout type="info">
 For more details about plans, see [Plans Information](/en/guides/learn-about/plans).
-</Note>
+</Callout>
 
 ### Creating a Document Vector Store
 
@@ -148,9 +148,9 @@ Uploaded files are displayed with the following information:
   - **Failed** (red, alert icon): Ingestion failed
 - **Delete button**: Can delete each file (trash icon)
 
-<Note>
+<Callout type="info">
 Hover over a failed file to see the error code in a tooltip.
-</Note>
+</Callout>
 
 3. Click **Save** to save changes
 
@@ -164,9 +164,9 @@ To delete a Document Vector Store:
 2. Confirm in the "Delete Document Vector Store" dialog
 3. Execute deletion
 
-<Warning>
+<Callout type="warn">
 Deletion cannot be undone. The Document Vector Store and its embedding profiles and source files will be permanently deleted.
-</Warning>
+</Callout>
 
 ## GitHub Repositories
 
@@ -222,9 +222,9 @@ GitHub Vector Stores are not available on the Free plan:
    - Click the **View plans** button to go to [Team Settings](/en/guides/settings/team/general)
    - Upgrade to the Pro or Team plan
 
-<Note>
+<Callout type="info">
 For more details about plans, see [Plans Information](/en/guides/learn-about/plans).
-</Note>
+</Callout>
 
 ### Prerequisites
 
@@ -256,9 +256,9 @@ Select content types to ingest:
 - **Issues**: Ingest Issue descriptions, comments, and discussions (optional)
 - **Pull Requests**: Ingest merged Pull Request content and discussions (optional)
 
-<Note>
+<Callout type="info">
 Code is a required content type and is always enabled.
-</Note>
+</Callout>
 
 #### Embedding Models
 Select embedding models to use for indexing. At least one model must be selected.
@@ -310,9 +310,9 @@ A status card is displayed for each embedding model:
 - Similar status display as Code
 - Latest ingested PR number (if ingested)
 
-<Warning>
+<Callout type="warn">
 If repository access fails, a "Check" link will appear on the Error status. Click it to open a diagnostic modal and attempt to restore the connection.
-</Warning>
+</Callout>
 
 ### Manual Ingestion
 
@@ -350,9 +350,9 @@ To delete a repository from Vector Store:
 2. Confirm in the "Delete Repository" dialog
 3. Execute deletion
 
-<Warning>
+<Callout type="warn">
 Deletion cannot be undone. The repository `{owner}/{repo}` and its embedding profiles will be permanently deleted.
-</Warning>
+</Callout>
 
 ### Diagnosing and Restoring Connection
 

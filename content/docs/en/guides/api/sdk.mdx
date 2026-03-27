@@ -3,17 +3,17 @@ title: Giselle SDK
 description: Learn how to use the Giselle SDK to integrate your apps with external applications and services.
 ---
 
-<Warning>
+<Callout type="warn">
 This feature is currently in **Private Preview**. Access is limited to selected users. Features and APIs may change without notice.
-</Warning>
+</Callout>
 
 ## Overview
 
 The Giselle SDK (`@giselles-ai/sdk`) provides a simple, type-safe way to interact with the Giselle API from your Node.js applications. It handles authentication, request formatting, and polling for task completion automatically.
 
-<Warning>
+<Callout type="warn">
 The SDK is designed for server-side use only. Never use it in client-side code (browsers) as this would expose your API key.
-</Warning>
+</Callout>
 
 ## Installation
 
@@ -86,9 +86,9 @@ const client = new Giselle({
 });
 ```
 
-<Warning>
+<Callout type="warn">
 Never commit API keys to version control. Use environment variables or a secrets manager.
-</Warning>
+</Callout>
 
 ## API Reference
 
@@ -215,9 +215,9 @@ The easiest way to get your App ID and a ready-to-use code snippet is from the W
 4. You'll see a complete code snippet with your `appId` already filled in. Simply copy this code and use it in your application.
 5. If the End Node has JSON (Structured Output) enabled, the Code tab also displays a code snippet with schema definitions and a preview of the Response JSON structure
 
-<Note>
+<Callout type="info">
 The App ID format is `app_` followed by a unique identifier (e.g., `app_abc123xyz`).
-</Note>
+</Callout>
 
 ## Error Handling
 

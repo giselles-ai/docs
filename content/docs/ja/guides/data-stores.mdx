@@ -3,13 +3,13 @@ title: Data Stores
 description: PostgreSQL データベース接続を登録・管理します。
 ---
 
-<Warning>
+<Callout type="warn">
 この機能は現在 **Private Preview** です。アクセスは一部のユーザーに限定されています。機能は予告なく変更される場合があります。
-</Warning>
+</Callout>
 
-<Info>
+<Callout type="info">
 [設定 > チーム > Data Stores](https://studio.giselles.ai/settings/team/data-stores) から Data Stores ページにアクセスできます。
-</Info>
+</Callout>
 
 ## Data Stores ページの概要
 
@@ -79,9 +79,9 @@ Free プランでは Data Stores が利用できません：
    - **View plans** ボタンをクリックして[チーム設定](/ja/guides/settings/team/general)に移動
    - Pro または Team プランにアップグレード
 
-<Note>
+<Callout type="info">
 プランの詳細については、[プランの詳細情報](/ja/guides/learn-about/plans)をご覧ください。
-</Note>
+</Callout>
 
 ## Data Store の作成
 
@@ -107,13 +107,13 @@ PostgreSQL の接続文字列を入力します。
 postgresql://user:password@host:5432/database
 ```
 
-<Note>
+<Callout type="info">
 接続文字列は暗号化されて安全に保存されます。セキュリティ上の理由から、一度保存した接続文字列は UI に表示されません。
-</Note>
+</Callout>
 
-<Note>
+<Callout type="info">
 現在、IPv4 アドレスのみ対応しています。IPv6 アドレスを使用したデータベースには接続できません。
-</Note>
+</Callout>
 
 #### SSL 接続 (sslmode)
 
@@ -134,13 +134,13 @@ postgresql://user:password@host:5432/database?sslmode=verify-full
 | `verify-ca` | SSL を必須とし、CA 証明書を検証する |
 | `verify-full` | SSL を必須とし、CA 証明書とホスト名を検証する |
 
-<Note>
+<Callout type="info">
 セキュリティの観点から、`verify-full` の使用を推奨します。
-</Note>
+</Callout>
 
-<Note>
+<Callout type="info">
 `sslmode` パラメータのサポート状況はサービスによって異なります。[Neon](https://neon.tech) への接続では `sslmode` を使用できますが、`disable` は使用できません。[Supabase](https://supabase.com) への接続では現在 `sslmode` をサポートしていません。
-</Note>
+</Callout>
 </Step>
 <Step title="作成を完了">
 **Create** をクリックして Data Store を作成します。
@@ -173,9 +173,9 @@ Data Store の名前を変更できます。
 
 チェックボックスをオンにすると、接続文字列を更新できます。
 
-<Note>
+<Callout type="info">
 接続文字列の更新時は、新しい接続文字列を完全に入力する必要があります。セキュリティ上の理由から、既存の接続文字列は表示されません。
-</Note>
+</Callout>
 
 4. **Save** をクリックして変更を保存
 
@@ -187,9 +187,9 @@ Data Store を削除する手順：
 2. "Delete Data Store" ダイアログで確認
 3. 削除を実行
 
-<Warning>
+<Callout type="warn">
 削除は取り消せません。Data Store とその接続情報が完全に削除されます。この Data Store を使用しているワークフローは、再設定が必要になります。
-</Warning>
+</Callout>
 
 ## エラーメッセージ
 

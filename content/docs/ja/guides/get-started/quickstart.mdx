@@ -9,48 +9,48 @@ Giselle を数分で使い始めましょう！このクイックスタートガ
 
 <Steps>
   <Step title="サインアップしてサンプルアプリを試す">
-    <AccordionGroup>
-      <Accordion title="アカウントを作成する" defaultOpen={true}>
+    <Accordions type="multiple" defaultValue={["アカウントを作成する", "Playground に移動する", "サンプルアプリを実行する", "Tasks で結果を確認する"]}>
+      <Accordion title="アカウントを作成する">
         初めてご利用の方は、[サインアップ](https://studio.giselles.ai/signup)ページでアカウントを作成してください。すでに Giselle をご利用の方は、[ログイン](https://studio.giselles.ai/login)してすぐに始めましょう。
       </Accordion>
-      <Accordion title="Playground に移動する" defaultOpen={true}>
+      <Accordion title="Playground に移動する">
         サインアップ後、[Playground](https://studio.giselles.ai/playground) に移動します。ここで AI アプリを実行し、動作を確認できます。
       </Accordion>
-      <Accordion title="サンプルアプリを実行する" defaultOpen={true}>
+      <Accordion title="サンプルアプリを実行する">
         Playground には Giselle が提供するサンプルアプリがあります。1つ選択し、入力エリアにタスクの説明を入力して Enter を押すと実行されます。
       </Accordion>
-      <Accordion title="Tasks で結果を確認する" defaultOpen={true}>
+      <Accordion title="Tasks で結果を確認する">
         アプリを実行すると、タスク実行結果ページにリダイレクトされます。生成された出力、実行ステップ、進捗を確認できます。過去の実行履歴は [Tasks](https://studio.giselles.ai/tasks) からアクセスできます。
       </Accordion>
-    </AccordionGroup>
+    </Accordions>
   </Step>
   <Step title="Workspace でアプリの中身を確認する">
-    <AccordionGroup>
-      <Accordion title="Studio でアプリを開く" defaultOpen={true}>
+    <Accordions type="multiple" defaultValue={["Studio でアプリを開く", "ワークフローを理解する", "ノードの設定を確認する"]}>
+      <Accordion title="Studio でアプリを開く">
         タスク実行結果ページから「Edit in Studio」ボタンをクリックして、Workspace エディタでアプリを開きます。これによりアプリがどのように構築されているかを確認できます。
       </Accordion>
-      <Accordion title="ワークフローを理解する" defaultOpen={true}>
+      <Accordion title="ワークフローを理解する">
         Workspace では、アプリのワークフローが接続されたノードとして視覚化されています。各ノードは特定の機能を実行し、データは接続を通じて1つのノードから別のノードに流れます。
       </Accordion>
-      <Accordion title="ノードの設定を確認する" defaultOpen={true}>
+      <Accordion title="ノードの設定を確認する">
         任意のノードをクリックすると、右パネルにその設定が表示されます。プロンプト、選択された AI モデル、その他の設定を確認できます。
       </Accordion>
-    </AccordionGroup>
+    </Accordions>
   </Step>
   <Step title="カスタムアプリを作成する">
-    <AccordionGroup>
-      <Accordion title="新しいアプリを作成する" defaultOpen={true}>
+    <Accordions type="multiple" defaultValue={["新しいアプリを作成する", "ワークフローを構築する", "ノードを設定する", "アプリを実行する"]}>
+      <Accordion title="新しいアプリを作成する">
         左メニューの「+ Create App」をクリックして、自分のアプリの作成を開始します。名前と説明を入力してください。
       </Accordion>
-      <Accordion title="ワークフローを構築する" defaultOpen={true}>
+      <Accordion title="ワークフローを構築する">
         Workspace で、下部のツールバーからノードをキャンバスにドラッグします。1つのノードの Output ポートから別のノードの Input ポートにドラッグして接続します。
       </Accordion>
-      <Accordion title="ノードを設定する" defaultOpen={true}>
+      <Accordion title="ノードを設定する">
         各ノードを選択し、右パネルで設定を行います。プロンプトを設定し、AI モデルを選択し、パラメータを調整して動作をカスタマイズします。
       </Accordion>
-      <Accordion title="アプリを実行する" defaultOpen={true}>
+      <Accordion title="アプリを実行する">
         画面右上の「Run」ボタンをクリックしてワークフローを実行します。おめでとうございます！Giselle で初めてのカスタムアプリを作成し、実行しました！
       </Accordion>
-    </AccordionGroup>
+    </Accordions>
   </Step>
 </Steps>

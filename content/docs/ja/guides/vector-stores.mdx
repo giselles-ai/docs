@@ -3,9 +3,9 @@ title: Vector Stores
 description: GitHub リポジトリやドキュメントをナレッジベースとして取り込み、管理します。
 ---
 
-<Info>
+<Callout type="info">
 [設定 > チーム > Vector Stores](https://studio.giselles.ai/settings/team/vector-stores) から Vector Stores ページにアクセスできます。
-</Info>
+</Callout>
 
 ## Vector Stores ページの概要
 
@@ -18,9 +18,9 @@ Vector Stores ページでは、プロジェクトのコードやドキュメン
 
 ## Document Vector Stores
 
-<Note>
+<Callout type="info">
 ページ左側のサイドバーに "Document" と "GitHub" のナビゲーションが表示されます。
-</Note>
+</Callout>
 
 Document Vector Stores では、PDF、TXT、Markdown ファイルをアップロードして Vector Store に取り込むことができます。
 
@@ -76,9 +76,9 @@ Free プランでは Document Vector Stores が利用できません：
    - **View plans** ボタンをクリックして[チーム設定](/ja/guides/settings/team/general)に移動
    - Pro または Team プランにアップグレード
 
-<Note>
+<Callout type="info">
 プランの詳細については、[プランの詳細情報](/ja/guides/learn-about/plans)をご覧ください。
-</Note>
+</Callout>
 
 ### Document Vector Store の作成
 
@@ -147,9 +147,9 @@ Vector Store の名前を更新できます。
   - **Failed** (赤、警告アイコン): 取り込み失敗
 - **削除ボタン**: ファイルごとに削除可能（ゴミ箱アイコン）
 
-<Note>
+<Callout type="info">
 失敗したファイルにカーソルを合わせると、エラーコードがツールチップで表示されます。
-</Note>
+</Callout>
 
 3. **Save** をクリックして変更を保存
 
@@ -163,9 +163,9 @@ Document Vector Store を削除する手順：
 2. "Delete Document Vector Store" ダイアログで確認
 3. 削除を実行
 
-<Warning>
+<Callout type="warn">
 削除は取り消せません。Document Vector Store とその埋め込みプロファイル、ソースファイルが完全に削除されます。
-</Warning>
+</Callout>
 
 ## GitHub Repositories
 
@@ -221,9 +221,9 @@ Free プランでは GitHub Vector Stores が利用できません：
    - **View plans** ボタンをクリックして[チーム設定](/ja/guides/settings/team/general)に移動
    - Pro または Team プランにアップグレード
 
-<Note>
+<Callout type="info">
 プランの詳細については、[プランの詳細情報](/ja/guides/learn-about/plans)をご覧ください。
-</Note>
+</Callout>
 
 ### 前提条件
 
@@ -255,9 +255,9 @@ GitHub リポジトリを Vector Store に登録する手順：
 - **Issues**: Issue の本文、コメント、ディスカッションを取り込み（オプション）
 - **Pull Requests**: マージされた Pull Request のコンテンツとディスカッションを取り込み（オプション）
 
-<Note>
+<Callout type="info">
 Code は必須のコンテンツタイプのため、常に有効になります。
-</Note>
+</Callout>
 
 #### Embedding Models
 インデックス作成に使用する埋め込みモデルを選択します。最低1つのモデルを選択する必要があります。
@@ -309,9 +309,9 @@ Code は必須のコンテンツタイプのため、常に有効になります
 - Code と同様のステータス表示
 - 最新の取り込まれた PR 番号（取り込み済みの場合）
 
-<Warning>
+<Callout type="warn">
 リポジトリへのアクセスが失敗した場合、Error ステータスに "Check" リンクが表示されます。クリックすると診断モーダルが開き、接続の復元を試みることができます。
-</Warning>
+</Callout>
 
 ### 手動取り込み
 
@@ -349,9 +349,9 @@ Code は必須のコンテンツタイプのため、常に有効になります
 2. "Delete Repository" ダイアログで確認
 3. 削除を実行
 
-<Warning>
+<Callout type="warn">
 削除は取り消せません。リポジトリ `{owner}/{repo}` とその埋め込みプロファイルが完全に削除されます。
-</Warning>
+</Callout>
 
 ### 接続の診断と復元
 

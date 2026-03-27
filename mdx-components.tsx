@@ -1,34 +1,28 @@
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { ImageZoom } from "fumadocs-ui/components/image-zoom";
+import { Step, Steps } from "fumadocs-ui/components/steps";
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import defaultComponents from "fumadocs-ui/mdx";
 import type { MDXComponents } from "mdx/types";
-import {
-	Accordion,
-	AccordionGroup,
-	Card,
-	CardGroup,
-	Frame,
-	Info,
-	Note,
-	Step,
-	Steps,
-	Warning,
-} from "@/components/mintlify-compat";
+import type { ReactNode } from "react";
 
-export function useMDXComponents(components: MDXComponents): MDXComponents {
+export function useMDXComponents(): MDXComponents {
 	return {
 		...defaultComponents,
-		...components,
-		Frame,
+		img: (props) => (
+			// biome-ignore lint/suspicious/noExplicitAny: fumadocs recommended pattern for ImageZoom
+			<ImageZoom {...(props as any)} />
+		),
 		Steps,
-		Step,
-		AccordionGroup,
+		Step: ({ title, children }: { title?: string; children: ReactNode }) => (
+			<Step>
+				{title && <h4>{title}</h4>}
+				{children}
+			</Step>
+		),
+		Accordions,
 		Accordion,
-		Note,
-		Info,
-		Warning,
 		Tab,
 		Tabs,
-		CardGroup,
-		Card,
 	};
 }
