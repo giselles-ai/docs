@@ -9,6 +9,15 @@ export const i18nUI = defineI18nUI(i18n, {
 	ja: {
 		displayName: "日本語",
 		search: "ドキュメントを検索",
+		searchNoResult: "結果が見つかりません",
+		toc: "このページの内容",
+		tocNoHeadings: "見出しなし",
+		lastUpdate: "最終更新日",
+		chooseLanguage: "言語を選択",
+		nextPage: "次のページ",
+		previousPage: "前のページ",
+		chooseTheme: "テーマ",
+		editOnGithub: "GitHubで編集",
 	},
 });
 
