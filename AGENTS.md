@@ -1,6 +1,6 @@
 # Giselle Docs
 
-Giselle（AI エージェントプラットフォーム）の公式ドキュメントサイト。
+Official documentation site for Giselle (AI agent platform).
 
 ## Tech Stack
 
@@ -36,27 +36,25 @@ biome.json                  # Biome linter/formatter config
 
 ## i18n
 
-- 対応言語: `en`（デフォルト）, `ja`
-- コンテンツは `content/docs/{lang}/` にディレクトリベースで配置
-- en と ja のファイル構成は同一に保つこと
+- Supported languages: `en` (default), `ja`
+- Content is organized by directory under `content/docs/{lang}/`
+- Keep en and ja file structures in sync
 
 ## Commands
 
-- `pnpm dev` — 開発サーバー起動
-- `pnpm build` — プロダクションビルド
-- `pnpm format` — Biome によるフォーマット & lint 修正 (`biome check --write .`)
-- `pnpm check-types` — TypeScript 型チェック (`tsc --noEmit`)
+- `pnpm dev` — Start dev server
+- `pnpm build` — Production build
+- `pnpm format` — Format & lint fix via Biome (`biome check --write .`)
+- `pnpm check-types` — TypeScript type check (`tsc --noEmit`)
 
-## Coding Style
+## After Every Code Change
 
-- インデント: タブ
-- 引用符: ダブルクォート
-- Biome recommended ルールに準拠
-- CSS で Tailwind v4 ディレクティブ (`@theme` 等) を使用可
-- SVG 画像には `next/image` ではなく `<img>` を使用し、`biome-ignore` で抑制
+Run these commands in order:
+1. `pnpm format` — Format code
+2. `pnpm build` — Rebuild
+3. `pnpm check-types` — Verify types
 
 ## MDX Content
 
-- カスタムコンポーネント: `Steps`, `Step`, `Tabs`, `Tab`, `Accordions`, `Accordion`, `ImageZoom`
-- 画像は `<img>` / `![](...)` で記述すると自動的に `ImageZoom` に変換される
-- コンテンツを追加・編集する際は en / ja 両方を更新すること
+- Custom components: `Steps`, `Step`, `Tabs`, `Tab`, `Accordions`, `Accordion`, `ImageZoom`
+- When adding or editing content, always update both en and ja
