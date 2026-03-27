@@ -1,19 +1,15 @@
 import { DocsLayout } from "fumadocs-ui/layouts/notebook";
 import { RootProvider } from "fumadocs-ui/provider/next";
 import { ExternalLinkIcon, HomeIcon } from "lucide-react";
-import type { ReactNode } from "react";
 import { baseOptions, i18nUI } from "@/lib/layout.shared";
 import { source } from "@/lib/source";
 
 export default async function LangLayout({
 	params,
 	children,
-}: {
-	params: Promise<{ lang: string }>;
-	children: ReactNode;
-}) {
+}: LayoutProps<"/[lang]">) {
 	const { lang } = await params;
-	const { nav, ...base } = baseOptions(lang);
+	const { nav, ...base } = baseOptions();
 
 	return (
 		<html lang={lang} suppressHydrationWarning>

@@ -12,17 +12,19 @@ export const i18nUI = defineI18nUI(i18n, {
 	},
 });
 
-export function baseOptions(locale: string): BaseLayoutProps {
+export function baseOptions(): BaseLayoutProps {
 	return {
 		nav: {
 			title: (
 				<>
+					{/* biome-ignore lint/performance/noImgElement: SVG doesn't benefit from next/image optimization */}
 					<img
 						src="/logo/dark.svg"
 						alt="Giselle"
 						width={100}
 						className="hidden dark:block"
 					/>
+					{/* biome-ignore lint/performance/noImgElement: SVG doesn't benefit from next/image optimization */}
 					<img
 						src="/logo/light.svg"
 						alt="Giselle"

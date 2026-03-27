@@ -5,17 +5,12 @@ import {
 	DocsTitle,
 	MarkdownCopyButton,
 } from "fumadocs-ui/layouts/notebook/page";
-import defaultMdxComponents from "fumadocs-ui/mdx";
 import { notFound, redirect } from "next/navigation";
 import { source } from "@/lib/source";
 import { useMDXComponents } from "@/mdx-components";
 
-export default async function Page({
-	params,
-}: {
-	params: Promise<{ lang: string; slug?: string[] }>;
-}) {
-	const { slug, lang } = await params;
+export default async function Page(props: PageProps<"/[lang]/[[...slug]]">) {
+	const { slug, lang } = await props.params;
 
 	if (!slug || slug.length === 0) {
 		redirect(`/${lang}/guides/introduction`);
@@ -26,7 +21,7 @@ export default async function Page({
 	if (!page) notFound();
 
 	const MDX = page.data.body;
-	const components = useMDXComponents(defaultMdxComponents);
+	const components = useMDXComponents();
 	const markdownUrl = `${page.url}.mdx`;
 
 	return (
@@ -47,12 +42,10 @@ export function generateStaticParams() {
 	return source.generateParams();
 }
 
-export async function generateMetadata({
-	params,
-}: {
-	params: Promise<{ lang: string; slug?: string[] }>;
-}) {
-	const { slug, lang } = await params;
+export async function generateMetadata(
+	props: PageProps<"/[lang]/[[...slug]]">,
+) {
+	const { slug, lang } = await props.params;
 
 	if (!slug || slug.length === 0) {
 		return {};
