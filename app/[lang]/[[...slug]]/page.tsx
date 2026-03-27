@@ -55,8 +55,18 @@ export async function generateMetadata(
 
 	if (!page) notFound();
 
+	const baseUrl = "https://docs.giselles.ai";
+	const slugPath = slug.join("/");
+
 	return {
 		title: page.data.title,
 		description: page.data.description,
+		alternates: {
+			canonical: `${baseUrl}/${lang}/${slugPath}`,
+			languages: {
+				en: `${baseUrl}/en/${slugPath}`,
+				ja: `${baseUrl}/ja/${slugPath}`,
+			},
+		},
 	};
 }
