@@ -6,6 +6,10 @@
 	--color-fd-primary: hsl(220, 90%, 52%);
 }
 
+.dark {
+	--color-fd-primary: hsl(220, 90%, 52%);
+}
+
 #nd-sidebar p {
 	font-weight: 600;
 	font-size: 0.9375rem;
@@ -18,6 +22,10 @@
 #nd-sidebar a[data-active="true"] {
 	color: hsl(220, 90%, 52%);
 	background-color: hsl(220, 90%, 52%, 0.1);
+}
+
+#nd-subnav [data-header-body] {
+	border-bottom: none;
 }
 
 [data-header-tabs] a.border-fd-primary {

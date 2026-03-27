@@ -8,6 +8,7 @@ import {
 import { notFound, redirect } from "next/navigation";
 import { source } from "@/lib/source";
 import { useMDXComponents } from "@/mdx-components";
+import { SocialFooter } from "../social-footer";
 
 export default async function Page(props: PageProps<"/[lang]/[[...slug]]">) {
 	const { slug, lang } = await props.params;
@@ -25,7 +26,12 @@ export default async function Page(props: PageProps<"/[lang]/[[...slug]]">) {
 	const markdownUrl = `${page.url}.mdx`;
 
 	return (
-		<DocsPage toc={page.data.toc}>
+		<DocsPage
+			toc={page.data.toc}
+			footer={{
+				children: <SocialFooter />,
+			}}
+		>
 			<div className="flex items-center justify-between gap-4">
 				<DocsTitle>{page.data.title}</DocsTitle>
 				<MarkdownCopyButton markdownUrl={markdownUrl} className="shrink-0" />
