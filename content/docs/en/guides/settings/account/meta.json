@@ -1,4 +1,4 @@
 {
 	"title": "Account",
-	"pages": ["overview", "authentication", "general"]
+	"pages": ["authentication", "general", "overview"]
 }
