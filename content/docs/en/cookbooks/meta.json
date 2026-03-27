@@ -9,6 +9,8 @@
 		"web-research-assistant",
 		"knowledge-base-qa",
 		"---Prompt Engineering---",
-		"prompts"
+		"prompt-overview",
+		"prompt-examples",
+		"prompt-tips"
 	]
 }
