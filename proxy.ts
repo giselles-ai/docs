@@ -9,5 +9,7 @@ export function proxy(request: NextRequest, event: NextFetchEvent) {
 }
 
 export const config = {
-	matcher: ["/((?!api|_next/static|_next/image|favicon.ico|logo/).*)"],
+	matcher: [
+		"/((?!api|_next/static|_next/image|favicon\\.(?:ico|svg)|logo/).*)",
+	],
 };
