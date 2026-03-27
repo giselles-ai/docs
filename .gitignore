@@ -79,6 +79,9 @@ $RECYCLE.BIN/
 # Node.js
 node_modules/
 
+# TypeScript
+*.tsbuildinfo
+
 # Next.js
 .next/
 out/
