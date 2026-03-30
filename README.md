@@ -1,33 +1,30 @@
 # Giselle Docs
 
-### Development
+Documentation site for [Giselle](https://giselles.ai), built with [Fumadocs](https://fumadocs.vercel.app) and [Next.js](https://nextjs.org).
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview the documentation changes locally. To install, use the following command
+## Development
 
-```
-npm i -g mint
-```
-
-Run the following command at the root of your documentation (where docs.json is)
-
-```
-mint dev
+```bash
+pnpm install
+pnpm dev
 ```
 
-### Publishing Changes
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Install our Github App to auto propagate changes from your repo to your deployment. Changes will be deployed to production automatically after pushing to the default branch. Find the link to install on your dashboard. 
+## Build
 
-#### Upgrading from mint.json
+```bash
+pnpm build
+pnpm start
+```
 
-If you have an existing `mint.json` file, upgrade to the new `docs.json` format:
+## Content Structure
 
-1. Update CLI: `mint update`
-2. Run upgrade command: `mint upgrade`
-3. Review the generated `docs.json` file
-4. Delete the old `mint.json` file after verification
+Documentation content lives in `content/docs/` with localized directories:
 
-#### Troubleshooting
+- `content/docs/en/` - English documentation
+- `content/docs/ja/` - Japanese documentation
 
-- Mintlify dev isn't running - Run `mint update` to update dependencies.
-- Page loads as a 404 - Make sure you are running in a folder with `docs.json`
+Static assets (images, logos) are in `public/`.
+
+Navigation structure is defined via `meta.json` files in each content directory.

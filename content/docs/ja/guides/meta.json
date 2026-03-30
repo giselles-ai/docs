@@ -1,0 +1,23 @@
+{
+	"title": "ガイド",
+	"root": true,
+	"pages": [
+		"---はじめに---",
+		"introduction",
+		"...get-started",
+		"---アプリの実行---",
+		"playground",
+		"tasks",
+		"---アプリの構築---",
+		"workspaces",
+		"./settings/team/integrations",
+		"./settings/team/vector-stores",
+		"./settings/team/data-stores",
+		"---API---",
+		"...api",
+		"---設定---",
+		"...settings",
+		"---詳細情報---",
+		"...learn-about"
+	]
+}

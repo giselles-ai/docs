@@ -1,0 +1,16 @@
+{
+	"title": "Cookbooks",
+	"root": true,
+	"pages": [
+		"---Introduction---",
+		"overview",
+		"---App Recipes---",
+		"blog-social-media-generator",
+		"web-research-assistant",
+		"knowledge-base-qa",
+		"---Prompt Engineering---",
+		"./prompts/overview",
+		"./prompts/examples",
+		"./prompts/tips"
+	]
+}

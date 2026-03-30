@@ -1,0 +1,223 @@
+---
+title: Data Stores
+description: PostgreSQL データベース接続を登録・管理します。
+---
+
+<Callout type="warn">
+この機能は現在 **Private Preview** です。アクセスは一部のユーザーに限定されています。機能は予告なく変更される場合があります。
+</Callout>
+
+<Callout type="info">
+[設定 > チーム > Data Stores](https://studio.giselles.ai/settings/team/data-stores) から Data Stores ページにアクセスできます。
+</Callout>
+
+## Data Stores ページの概要
+
+Data Stores ページでは、外部の PostgreSQL データベースへの接続を管理できます。登録したデータベース接続は、Data Store Node と Data Query Node を使用してワークフロー内で活用できます。
+
+現在、以下のデータベースに対応しています：
+
+- **PostgreSQL**: PostgreSQL データベースへの接続と SQL クエリの実行
+
+### 動作確認済みサービス
+
+以下の PostgreSQL ホスティングサービスでの動作を確認しています：
+
+- [Neon](https://neon.tech)
+- [Supabase](https://supabase.com)
+  - Supabase では **Direct connection** は使用できません。接続文字列を取得する際は、**Transaction pooler** または **Session pooler** を選択してください。
+
+## プランベースの利用制限
+
+Data Stores の作成可能数は、チームのサブスクリプションプランによって制限されています。
+
+### 各プランの制限
+
+| プラン | 作成可能な Data Stores 数 |
+|--------|--------------------------|
+| Free   | 0個（利用不可）          |
+| Pro    | 10個                     |
+| Team   | 20個                     |
+
+### 使用状況の確認
+
+Data Stores ページでは、現在の使用状況が表示されます：
+
+- **使用数 / 最大数**: 例："3 / 10 stores"
+- **残り数**: 例："7 Data Stores remaining in your Pro plan."
+- **プラン名**: 現在のプラン（Free、Pro、Team）
+
+### 制限に達した場合
+
+作成可能数の上限に達した場合：
+
+1. **アラートが表示されます**:
+   - タイトル："Maximum capacity reached"
+   - メッセージ："Delete an existing store or upgrade your plan in Team Settings to add more Data Stores."
+
+2. **New Data Store ボタンが無効化されます**:
+   - ボタンにカーソルを合わせると、ツールチップで理由が表示されます
+   - "You've reached the maximum number of Data Stores included in your plan."
+
+3. **対処方法**:
+   - 既存の Data Store を削除する
+   - [チーム設定](/ja/guides/settings/team/general)でプランをアップグレードする
+
+### Free プランの場合
+
+Free プランでは Data Stores が利用できません：
+
+1. **ロック状態が表示されます**:
+   - タイトル："Data Stores are locked"
+   - メッセージ："Upgrade to the Pro or Team plan to connect PostgreSQL databases and use Data Stores in your agents."
+
+2. **警告アラート**:
+   - "Data Stores are not included in the Free plan"
+   - "Upgrade to Pro or Team to connect PostgreSQL databases with Data Stores."
+
+3. **アップグレード方法**:
+   - **View plans** ボタンをクリックして[チーム設定](/ja/guides/settings/team/general)に移動
+   - Pro または Team プランにアップグレード
+
+<Callout type="info">
+プランの詳細については、[プランの詳細情報](/ja/guides/learn-about/plans)をご覧ください。
+</Callout>
+
+## Data Store の作成
+
+<Steps>
+<Step title="Data Stores 設定に移動">
+Giselle の [設定 > チーム > Data Stores](https://studio.giselles.ai/settings/team/data-stores) に移動します。
+</Step>
+<Step title="新しい Data Store を作成">
+**New Data Store** ボタンをクリックして、作成ダイアログを開きます。
+</Step>
+<Step title="接続情報を入力">
+以下の項目を設定します：
+
+#### Name
+
+Data Store の名前を入力します（例：「Production Database」、「Analytics DB」）。これにより、後で接続先を識別しやすくなります。
+
+#### Connection String
+
+PostgreSQL の接続文字列を入力します。
+
+```
+postgresql://user:password@host:5432/database
+```
+
+<Callout type="info">
+接続文字列は暗号化されて安全に保存されます。セキュリティ上の理由から、一度保存した接続文字列は UI に表示されません。
+</Callout>
+
+<Callout type="info">
+現在、IPv4 アドレスのみ対応しています。IPv6 アドレスを使用したデータベースには接続できません。
+</Callout>
+
+#### SSL 接続 (sslmode)
+
+接続文字列に `sslmode` パラメータを指定することで、SSL 接続のモードを制御できます。
+
+```
+postgresql://user:password@host:5432/database?sslmode=verify-full
+```
+
+以下の `sslmode` オプションが利用可能です：
+
+| sslmode | 説明 |
+|---------|------|
+| `disable` | SSL を使用しない |
+| `allow` | SSL なしで接続を試み、失敗した場合に SSL を使用 |
+| `prefer` | SSL で接続を試み、失敗した場合に SSL なしで接続 |
+| `require` | SSL を必須とするが、証明書の検証は行わない |
+| `verify-ca` | SSL を必須とし、CA 証明書を検証する |
+| `verify-full` | SSL を必須とし、CA 証明書とホスト名を検証する |
+
+<Callout type="info">
+セキュリティの観点から、`verify-full` の使用を推奨します。
+</Callout>
+
+<Callout type="info">
+`sslmode` パラメータのサポート状況はサービスによって異なります。[Neon](https://neon.tech) への接続では `sslmode` を使用できますが、`disable` は使用できません。[Supabase](https://supabase.com) への接続では現在 `sslmode` をサポートしていません。
+</Callout>
+</Step>
+<Step title="作成を完了">
+**Create** をクリックして Data Store を作成します。
+</Step>
+</Steps>
+
+## Data Store の管理
+
+### Data Store の表示
+
+Data Stores ページには、チームのすべての Data Store が以下の情報とともに表示されます：
+
+- **名前**: 設定した説明的な名前
+- **ID**: Data Store の一意識別子
+- **アクションメニュー**: 編集・削除のオプション
+
+### Data Store の編集
+
+Data Store を編集する手順：
+
+1. アクションメニュー（3点ドット）から **Edit** を選択
+2. "Edit Data Store" ダイアログが開きます
+3. 以下の項目を更新できます：
+
+#### Name
+
+Data Store の名前を変更できます。
+
+#### Update connection string
+
+チェックボックスをオンにすると、接続文字列を更新できます。
+
+<Callout type="info">
+接続文字列の更新時は、新しい接続文字列を完全に入力する必要があります。セキュリティ上の理由から、既存の接続文字列は表示されません。
+</Callout>
+
+4. **Save** をクリックして変更を保存
+
+### Data Store の削除
+
+Data Store を削除する手順：
+
+1. アクションメニューから **Delete** を選択
+2. "Delete Data Store" ダイアログで確認
+3. 削除を実行
+
+<Callout type="warn">
+削除は取り消せません。Data Store とその接続情報が完全に削除されます。この Data Store を使用しているワークフローは、再設定が必要になります。
+</Callout>
+
+## エラーメッセージ
+
+以下のエラーが発生する可能性があります：
+
+- **Name is required**: 名前を入力してください
+- **Connection string is required**: 接続文字列を入力してください
+- **Invalid connection string format**: 接続文字列の形式が正しくありません
+- **Connection string must use postgresql:// or postgres:// protocol**: プロトコルが正しくありません
+- **Connection string must include a host**: 接続文字列にホストが含まれていません
+- **Connection to private or internal IP addresses is not allowed**: プライベート IP への接続は許可されていません
+- **Unable to resolve hostname**: ホスト名を解決できません
+- **IPv6 addresses are not supported**: IPv6 アドレスには対応していません
+- **Data store not found**: Data Store が見つかりません
+- **No DataStore node connected to DataQuery node**: Data Query Node に Data Store Node が接続されていません
+- **DataStore node is not configured**: Data Store Node が設定されていません
+- **Data Stores are not included in your plan**: プランが Data Store をサポートしていません
+- **You've reached the maximum number of Data Stores included in your plan**: クォータ上限に達しました
+
+## Data Stores の活用
+
+登録したデータベース接続は、以下の Node で活用できます：
+
+- **[Data Store Node](/ja/glossary/data-store-node)**: データベース接続を選択
+- **[Data Query Node](/ja/glossary/data-query-node)**: Data Store に対して SQL クエリを実行
+
+これらの Node を使用することで、PostgreSQL データベースをワークフローに統合できます。
+
+## サポート
+
+Data Stores の設定で問題が発生した場合や、ご不明な点がある場合は、サポートチーム（support@giselles.ai）までお問い合わせください。

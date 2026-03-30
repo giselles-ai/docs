@@ -1,0 +1,227 @@
+---
+title: Data Stores
+description: Register and manage PostgreSQL database connections.
+---
+
+<Callout type="warn">
+This feature is currently in **Private Preview**. Access is limited to select users. Features may change without notice.
+</Callout>
+
+<Callout type="info">
+You can access the Data Stores page from [Settings > Team > Data Stores](https://studio.giselles.ai/settings/team/data-stores).
+</Callout>
+
+## Data Stores Page Overview
+
+The Data Stores page allows you to manage connections to external PostgreSQL databases. Registered database connections can be used within workflows using the Data Store Node and Data Query Node.
+
+Currently, the following databases are supported:
+
+- **PostgreSQL**: Connect to PostgreSQL databases and execute SQL queries
+
+### Verified Services
+
+The following PostgreSQL hosting services have been verified to work:
+
+- [Neon](https://neon.tech)
+- [Supabase](https://supabase.com)
+  - Supabase does not support **Direct connection**. When obtaining the connection string, select **Transaction pooler** or **Session pooler**.
+
+## Plan-Based Quotas
+
+The number of Data Stores you can create is limited based on your team's subscription plan.
+
+### Quotas by Plan
+
+| Plan | Data Stores Limit |
+|------|-------------------|
+| Free | 0 (unavailable)   |
+| Pro  | 10                |
+| Team | 20                |
+
+### Checking Usage
+
+The Data Stores page displays your current usage:
+
+- **Used / Maximum**: Example: "3 / 10 stores"
+- **Remaining**: Example: "7 Data Stores remaining in your Pro plan."
+- **Plan name**: Your current plan (Free, Pro, Team)
+
+### Managing Plan Limits
+
+When you reach the maximum capacity:
+
+1. **An alert is displayed**:
+   - Title: "Maximum capacity reached"
+   - Message: "Delete an existing store or upgrade your plan in Team Settings to add more Data Stores."
+
+2. **New Data Store button is disabled**:
+   - Hover over the button to see a tooltip explaining why
+   - "You've reached the maximum number of Data Stores included in your plan."
+
+3. **How to proceed**:
+   - Delete an existing Data Store
+   - Upgrade your plan in [Team Settings](/en/guides/settings/team/general)
+
+### For Free Plan Users
+
+Data Stores are not available on the Free plan:
+
+1. **Locked state is displayed**:
+   - Title: "Data Stores are locked"
+   - Message: "Upgrade to the Pro or Team plan to connect PostgreSQL databases and use Data Stores in your agents."
+
+2. **Warning alert**:
+   - "Data Stores are not included in the Free plan"
+   - "Upgrade to Pro or Team to connect PostgreSQL databases with Data Stores."
+
+3. **How to upgrade**:
+   - Click the **View plans** button to go to [Team Settings](/en/guides/settings/team/general)
+   - Upgrade to the Pro or Team plan
+
+<Callout type="info">
+For more details about plans, see [Plans Information](/en/guides/learn-about/plans).
+</Callout>
+
+## Creating a Data Store
+
+<Steps>
+<Step title="Navigate to Data Stores Settings">
+
+Go to [Settings > Team > Data Stores](https://studio.giselles.ai/settings/team/data-stores) in Giselle.
+</Step>
+<Step title="Create a New Data Store">
+
+Click the **New Data Store** button to open the creation dialog.
+</Step>
+<Step title="Enter Connection Information">
+
+Configure the following fields:
+
+#### Name
+
+Enter a name for the Data Store (e.g., "Production Database", "Analytics DB"). This helps you identify the connection later.
+
+#### Connection String
+
+Enter the PostgreSQL connection string.
+
+```
+postgresql://user:password@host:5432/database
+```
+
+<Callout type="info">
+The connection string is encrypted and stored securely. For security reasons, the connection string is not displayed in the UI once saved.
+</Callout>
+
+<Callout type="info">
+Currently, only IPv4 addresses are supported. Databases using IPv6 addresses cannot be connected.
+</Callout>
+
+#### SSL Connection (sslmode)
+
+You can control the SSL connection mode by specifying the `sslmode` parameter in the connection string.
+
+```
+postgresql://user:password@host:5432/database?sslmode=verify-full
+```
+
+The following `sslmode` options are available:
+
+| sslmode | Description |
+|---------|-------------|
+| `disable` | Do not use SSL |
+| `allow` | Try non-SSL first, then SSL if that fails |
+| `prefer` | Try SSL first, then non-SSL if that fails |
+| `require` | Require SSL, but do not verify the certificate |
+| `verify-ca` | Require SSL and verify the CA certificate |
+| `verify-full` | Require SSL and verify the CA certificate and hostname |
+
+<Callout type="info">
+For security, `verify-full` is recommended.
+</Callout>
+
+<Callout type="info">
+`sslmode` support varies by service. Connections to [Neon](https://neon.tech) support `sslmode`, but `disable` is not available. Connections to [Supabase](https://supabase.com) do not currently support `sslmode`.
+</Callout>
+</Step>
+<Step title="Complete Creation">
+
+Click **Create** to create the Data Store.
+</Step>
+</Steps>
+
+## Managing Data Stores
+
+### Viewing Data Stores
+
+The Data Stores page displays all Data Stores for your team with the following information:
+
+- **Name**: The descriptive name you set
+- **ID**: The unique identifier for the Data Store
+- **Action Menu**: Options for editing and deleting
+
+### Editing a Data Store
+
+To edit a Data Store:
+
+1. Select **Edit** from the action menu (three dots)
+2. The "Edit Data Store" dialog opens
+3. You can update the following fields:
+
+#### Name
+
+You can change the name of the Data Store.
+
+#### Update connection string
+
+Check the checkbox to update the connection string.
+
+<Callout type="info">
+When updating the connection string, you must enter the new connection string completely. For security reasons, the existing connection string is not displayed.
+</Callout>
+
+4. Click **Save** to save your changes
+
+### Deleting a Data Store
+
+To delete a Data Store:
+
+1. Select **Delete** from the action menu
+2. Confirm in the "Delete Data Store" dialog
+3. Execute the deletion
+
+<Callout type="warn">
+Deletion cannot be undone. The Data Store and its connection information will be permanently deleted. Workflows using this Data Store will need to be reconfigured.
+</Callout>
+
+## Error Messages
+
+The following errors may occur:
+
+- **Name is required**: Please enter a name
+- **Connection string is required**: Please enter a connection string
+- **Invalid connection string format**: The connection string format is incorrect
+- **Connection string must use postgresql:// or postgres:// protocol**: The protocol is incorrect
+- **Connection string must include a host**: The connection string must include a host
+- **Connection to private or internal IP addresses is not allowed**: Connections to private IPs are not allowed
+- **Unable to resolve hostname**: Cannot resolve the hostname
+- **IPv6 addresses are not supported**: IPv6 addresses are not supported
+- **Data store not found**: Data Store not found
+- **No DataStore node connected to DataQuery node**: Data Store Node is not connected to Data Query Node
+- **DataStore node is not configured**: Data Store Node is not configured
+- **Data Stores are not included in your plan**: Your plan does not support Data Stores
+- **You've reached the maximum number of Data Stores included in your plan**: Quota limit reached
+
+## Using Data Stores
+
+Registered database connections can be used with the following Nodes:
+
+- **[Data Store Node](/en/glossary/data-store-node)**: Select a database connection
+- **[Data Query Node](/en/glossary/data-query-node)**: Execute SQL queries against the Data Store
+
+Using these Nodes, you can integrate PostgreSQL databases into your workflows.
+
+## Support
+
+If you encounter issues with Data Stores configuration or have any questions, please contact our support team at support@giselles.ai.

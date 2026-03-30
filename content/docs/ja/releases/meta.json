@@ -1,0 +1,5 @@
+{
+	"title": "リリース",
+	"root": true,
+	"pages": ["...release-notes", "product-notes", "roadmap"]
+}
