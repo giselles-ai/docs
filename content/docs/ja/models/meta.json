@@ -1,5 +1,6 @@
 {
 	"title": "モデル",
+	"description": "Giselleで利用可能なAIモデル",
 	"root": true,
 	"pages": ["---プロバイダー---", "...providers"]
 }

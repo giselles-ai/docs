@@ -1,4 +1,5 @@
 {
 	"title": "Account",
+	"description": "Account settings and preferences",
 	"pages": ["authentication", "general", "overview"]
 }
