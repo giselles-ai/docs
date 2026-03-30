@@ -1,5 +1,6 @@
 {
 	"title": "ガイド",
+	"description": "Giselleの使い方ガイド",
 	"root": true,
 	"pages": [
 		"---はじめに---",

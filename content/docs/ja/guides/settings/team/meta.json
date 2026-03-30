@@ -1,4 +1,5 @@
 {
 	"title": "チーム",
+	"description": "チーム管理と設定",
 	"pages": ["general", "members", "usage"]
 }

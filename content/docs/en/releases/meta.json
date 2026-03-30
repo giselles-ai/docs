@@ -1,5 +1,6 @@
 {
 	"title": "Releases",
+	"description": "Product updates and release notes",
 	"root": true,
 	"pages": ["...release-notes", "product-notes", "roadmap"]
 }

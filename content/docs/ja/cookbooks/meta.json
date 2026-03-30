@@ -1,5 +1,6 @@
 {
 	"title": "Cookbooks",
+	"description": "AIアプリ構築の実践レシピ",
 	"root": true,
 	"pages": [
 		"---Introduction---",

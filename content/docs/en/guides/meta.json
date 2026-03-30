@@ -1,5 +1,6 @@
 {
 	"title": "Guides",
+	"description": "Step-by-step guides for using Giselle",
 	"root": true,
 	"pages": [
 		"---Get Started---",

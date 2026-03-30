@@ -1,4 +1,5 @@
 {
 	"title": "Team",
+	"description": "Team management and settings",
 	"pages": ["general", "members", "usage"]
 }

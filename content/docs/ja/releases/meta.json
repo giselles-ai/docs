@@ -1,5 +1,6 @@
 {
 	"title": "リリース",
+	"description": "製品アップデートとリリースノート",
 	"root": true,
 	"pages": ["...release-notes", "product-notes", "roadmap"]
 }
