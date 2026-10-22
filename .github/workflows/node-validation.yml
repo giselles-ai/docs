@@ -1,0 +1,29 @@
+name: Node.js validation
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version-file: .node-version
+          package-manager-cache: false
+      - name: Verify Node.js runtime
+        run: node -e "console.log(process.version); require('node:assert/strict').equal(process.versions.node, require('node:fs').readFileSync('.node-version', 'utf8').trim())"
+      - run: npm install --global pnpm@10.28.2 --ignore-scripts --no-audit --no-fund
+      - run: pnpm install --frozen-lockfile
+      - name: Format and verify a clean diff
+        run: |
+          pnpm format
+          git diff --exit-code
+      - run: pnpm build
+      - run: pnpm check-types
