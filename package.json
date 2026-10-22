@@ -39,5 +39,9 @@
 			"sharp@<0.35.5": "0.35.5",
 			"source-map-js@<1.2.2": "1.2.2"
 		}
-	}
+	},
+	"engines": {
+		"node": "^24.22.1"
+	},
+	"packageManager": "pnpm@10.28.2"
 }
