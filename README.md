@@ -4,8 +4,8 @@ Documentation site for [Giselle](https://giselles.ai), built with [Fumadocs](htt
 
 ## Development
 
-Use Node.js **24.22.1** (pinned in `.node-version`) and pnpm **10.28.2**.
-The supported runtime is Node.js 24.x starting at 24.22.1. Check
+Use Node.js **24.22.3** (pinned in `.node-version`) and pnpm **10.28.2**.
+The supported runtime is Node.js 24.x starting at 24.22.3. Check
 `node --version` before installing dependencies or starting the site.
 
 ```bash
